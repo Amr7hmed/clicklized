@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+/* 
+    A- Variables Styles .
+    B- Style Genaral Classes .
+ */
+
+// A- Variables Styles 
+@font-face {
+  font-family: "AJannatLT";
+  src: url("A\ Jannat\ LT.ttf");
+}
+
+:root {
+  --white-color: #ffffff;
+  --black-color: #000000;
+
+  //Primary colors
+  // Primary Colors
+  --primary-one-color: #e9d173;
+  --primary-two-color: #231f20;
+  --primary-three-color: #020524;
+  //Secondary colors
+  --secondary-one-color: #32a361;
+  --secondary-two-color: #e01f3d;
+  --secondary-three-color: #e6cd2f;
+  --secondary-four-color: #204496;
+
+  // Font Family
+  --font-ar: AJannatLT;
+  --font-en: "Poppins", sans-serif;
+  --font-number: 'DynaPuff', cursive;
+  --font-cairo: 'Cairo', sans-serif;
+
+  // Font Size
+  --font-heading-size: 40px;
+  --font-title-size: 24px;
+  --font-paragraphone-size: 24px;
+  --font-paragraphtwo-size: 16px;
+}
+
+
+.Mask-1{
+  border-radius: 8px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+.Mask-2{
+  border-radius: 8px;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+.Mask-3{
+  border-radius: 8px;
+  box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+.Mask-4{
+  border-radius: 8px;
+  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+.Mask-5{
+  border-radius: 8px;
+  box-shadow: 0 32px 32px 0 rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+
+// Styles Genral
+body{
+  background-color: #231f20;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-cairo);
+  
+    &:focus-visible {
+      outline: none !important;
+  }
+  
+  
+}
+
+a {
+  text-decoration: none;
+  &:hover{
+    color: #000 !important;
+  }
+}
+
+body {
+  user-select: none;
+  color: var(--black-color);
+
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.btn {
+  &:focus {
+    box-shadow: none;
+    border-color: transparent;
+  }
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
+}
+input{
+    &::placeholder {  
+        color: #a5a5ac;
+      }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.mb_20 {
+  margin-bottom: 20px;
+}
+
+.errorfiled {
+  color: red;
+  font-size: 12px;
+}
+.form-label {
+  margin-bottom: 0.2rem;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+//.main{}
+input[type=radio] {
+  appearance: none;
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+  display: inline-grid;
+  place-content: center; 
+  &::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transform-origin: bottom left;
+    background-color: #fff;
+    clip-path: polygon(13% 50%, 34% 66%, 81% 2%, 100% 18%, 39% 100%, 0 71%);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+}
+  &:checked{
+    background-color:#e9d173;
+    border: 2px solid#e9d173;
+    &::before{
+      transform: scale(1);
+    }
+  }
+}
+
+
+
+@import "../components/signup/_style.scss";
+@import "../components/signin/_style.scss";
+@import "../components/home/_style.scss";
+@import "../components/navbar/_style.scss";

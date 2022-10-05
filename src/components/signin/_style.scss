@@ -1,0 +1,328 @@
+.signin {
+    padding: 1px;
+    margin: 0px;
+    background-color: #231f20;
+    font-family: var(--font-cairo);
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .vactor {
+        width: 416px;
+        height: 334px;
+        left: 0%;
+        bottom: 0%;
+        position: absolute;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__header {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        .img {
+            width: 300px;
+            height: 90px;
+            margin: 30px auto 15px auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        h5 {
+            font-family: var(--font-cairo);
+            font-size: 24px;
+            color: #252428;
+        }
+    }
+
+    &__form {
+        width: 70%;
+        margin: 20px auto 30px auto;
+
+        label.title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #343433;
+            text-transform: capitalize;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            margin-top: 25px;
+            margin-bottom: 10px;
+
+            li {
+                label {
+                    font-size: 14px;
+                    text-transform: capitalize;
+                }
+
+                input {
+                    margin-right: 10px;
+
+                    +label {
+                        color: #c0c0c0;
+                    }
+                }
+
+                input[type=radio] {
+                    &:checked {
+                        +label {
+                            color: #333;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin-left: 70px;
+                }
+            }
+        }
+
+        .form {
+            label {
+                color: #343433;
+                font-size: 16px;
+            }
+
+            input {
+                border: solid 1px #a5a5ac;
+                padding: 8px 10px;
+                margin: 8px 0px;
+                font-size: 16px;
+                height: 42px;
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                -ms-border-radius: 2px;
+                -o-border-radius: 2px;
+                &:focus {
+                    border-color: #a5a5ac;
+                }
+            }
+
+            .btn-send {
+                width: 100%;
+                height: 42px;
+                background-color: #e8d173;
+                margin-top: 15px;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+                color: #231f20;
+            }
+
+            .end {
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                display: block;
+                font-size: 16px;
+                color: #a5a5ac;
+
+                a {
+                    color: #a5a5ac;
+                    font-weight: bold;
+                    &:hover{
+                        color: #a5a5ac !important;
+                    }
+                }
+            }
+        }
+    }
+    &__data {
+        padding: 0px;
+        width: 45%;
+        height: auto;
+        border-radius: 8px;
+        background-color: #fff;
+        padding: .5px 0px;
+        position: relative;
+        z-index: 5;
+    }
+
+    &__header {
+        text-align: center;
+        margin-top: 25px;
+
+        .img {
+            width: 330px;
+            height: 90px;
+            margin: 15px auto 5px auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        h5 {
+            font-family: var(--font-cairo);
+            font-size: 22px;
+            color: #252428;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: normal;
+            color: #a5a5ac;
+        }
+    }
+    &__form {
+        form {
+            .form {
+                .forget_password{
+                    margin: 15px 0px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    img{
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                    margin-right: 8px;
+                    }
+                    a{
+                        font-size: 14px;
+                        font-weight: normal;
+                        color: #a5a5ac;
+                        &:hover{
+                            color: #a5a5ac !important;
+                        }
+                    }
+                }
+                .filedpassword {
+                    position: relative;
+
+                    .toggoleimg {
+                        position: absolute;
+                        z-index: 2;  
+                        top: 50%;
+                        right: 1%;
+                        transform: translate(0%, -50%);
+                        -webkit-transform: translate(0%, -50%);
+                        -moz-transform: translate(0%, -50%);
+                        -ms-transform: translate(0%, -50%);
+                        -o-transform: translate(0%, -50%);
+                        padding: 0px;
+                        margin: 0px;
+                        display: block;
+                        cursor: pointer;
+                        img{
+                            width: 24px;
+                            height: 21px;
+                            object-fit: contain;
+                            filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+                            -webkit-filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+}
+}
+                }
+            }
+        }
+    }
+}
+
+// 1- 2- Style Navbar Component To Media Queris Samll.
+@media screen and (max-width: 576px) {
+    .signin {
+        height: 100vh !important;
+        .vactor {
+            width: 50%;
+            height: 180px;
+        }
+
+        &__data {
+            width: 90%;
+        }
+
+        &__header {
+            text-align: center;
+            .img {
+                width: 180px;
+                height: 60px;
+                margin: 10px auto;
+            }
+
+            h5 {
+                font-size: 18px;
+            }
+        }
+
+        &__form {
+            margin: 15px auto;
+            width: 90%;
+            label.title {
+                font-size: 14px;
+                font-weight: normal;
+            }
+
+            ul {
+                margin: 10px 0px;
+
+                li {
+                    label {
+                        font-size: 12px;
+                    }
+
+                    input {
+                        margin-right: 10px;
+
+                        +label {
+                            color: #c0c0c0;
+                        }
+                    }
+
+                    input[type=radio] {
+                        &:checked {
+                            +label {
+                                color: #333;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        margin-left: 70px;
+                    }
+                }
+            }
+
+            .form {
+                label {
+                    font-size: 14px;
+                }
+
+                input {
+                    padding: 6px 10px;
+                    margin: 8px 0px;
+                    font-size: 14px;
+                }
+
+                .btn-send {
+                    width: 100%;
+                    height: 42px;
+                    margin-top: 15px;
+                    font-size: 14px;
+                }
+
+                .end {
+                    margin-top: 20px;
+                    display: block;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

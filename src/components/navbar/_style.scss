@@ -1,0 +1,140 @@
+.navbar {
+    width: 100%;
+    height: 135px;
+    background-color: #231f20;
+    color: aliceblue;
+    font-family: var(--font-cairo);
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 50px;
+        width: 100%;
+
+        .right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .logo {
+                width: 180px;
+                height: 50px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .btn {
+                width: 120px;
+                height: 40px;
+                margin: 0px 30px;
+                border-radius: 22px;
+                background-color: #e8d173;
+                font-size: 14px;
+                text-align: center;
+                font-weight: bold;
+                color: #231f20;
+                font-family: var(--font-cairo);
+            }
+
+            .suppliers {
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+                font-family: var(--font-cairo);
+            }
+        }
+
+        .left {
+            width: 200px;
+
+            >ul {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .iconnotification {
+                    a {
+                        width: 20px;
+                        height: 23px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .dropdown-toggle {
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    .dropdown-menu[data-bs-popper] {
+                        top: 230%;
+                        right: -30px;
+                        width: 399px;
+                        height: 348px;
+                        border-radius: 2px;
+                        box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.1);
+                        background-color: #fff;
+                        border-color: transparent;
+                        padding: 10px 5px;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: -5%;
+                            right: 6%;
+                            z-index: 10;
+                            width: 0;
+                            height: 0;
+                            border-left: 13px solid transparent;
+                            border-right: 13px solid transparent;
+                            border-bottom: 20px solid #fff;
+                        }
+
+                        li {
+                            width: 95%;
+                            margin: 5px auto;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            padding: 10px;
+                            transition: all .3s;
+                            -webkit-transition: all .3s;
+                            -moz-transition: all .3s;
+                            -ms-transition: all .3s;
+                            -o-transition: all .3s;
+
+                            .text {
+                                font-size: 16px;
+                                font-weight: normal;
+                                color: #020524;
+                            }
+
+                            .time {
+                                margin-top: 5px;
+                                text-align: right;
+                                font-size: 14px;
+                                color: #a5a5ac;
+                                img {
+                                    width: 16px;
+                                    height: 16px;
+                                    margin-right: 10px;
+
+                                }
+                            }
+                            
+                            &:hover {background-color: #e9d1732e; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
