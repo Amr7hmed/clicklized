@@ -10,6 +10,7 @@ function IconNotification() {
         <img src={Notification} alt="Notification" />
         </a>
     <ul className="dropdown-menu">
+      <div>
       <li>
         <span className='text'>
         Notification content here,Notification content here,Notification content here.
@@ -28,6 +29,7 @@ function IconNotification() {
         </span>
         <span className="time"><img src={IconTimer} alt="" />Thu 20/02/2022, 03:30pm</span>
       </li>
+      </div>
     </ul>
   </li>
     

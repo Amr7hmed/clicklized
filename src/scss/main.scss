@@ -83,7 +83,7 @@ body{
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   &:hover{
     color: #000 !important;
   }
@@ -196,3 +196,4 @@ input[type=radio] {
 @import "../components/signin/_style.scss";
 @import "../components/home/_style.scss";
 @import "../components/navbar/_style.scss";
+@import "../components/home/chart/_style.scss";
