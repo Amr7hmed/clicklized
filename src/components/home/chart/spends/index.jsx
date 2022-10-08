@@ -1,5 +1,5 @@
-import React from 'react'
-import ApexChart from './data'
+import React from 'react';
+import BarChart from './data.jsx';
 
 function Spends() {
     const dataspends = [5000, 2500, 1800, 4000, 2000, 1700, 2000,1500, 5000, 2200, 1500, 5000];
@@ -18,7 +18,7 @@ function Spends() {
   return (
     <div className='spends'>
         
-        <ApexChart Dataspends={dataspends} BackgroundArray={BackgroundArray} labels={labels}/>
+        <BarChart Dataspends={dataspends} BackgroundArray={BackgroundArray} labels={labels}/>
     </div>
   )
 }
