@@ -66,9 +66,6 @@
 }
 
 // Styles Genral
-body{
-  background-color: #231f20;
-}
 * {
   margin: 0;
   padding: 0;
@@ -197,3 +194,4 @@ input[type=radio] {
 @import "../components/home/_style.scss";
 @import "../components/navbar/_style.scss";
 @import "../components/home/chart/_style.scss";
+@import "../components/myrequest/_style.scss";

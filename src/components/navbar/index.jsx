@@ -4,7 +4,8 @@ import Logoimg from "../../images/logo/logo.png";
 import IconNotification from './iconnotification';
 import IconProfile from './iconprofile';
 
-function Navbar() {
+function Navbar(props) {
+    const {Styleclass}=props;
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container">
@@ -21,11 +22,13 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                        <NavLink to={"/"}  className='btn-request'>My request</NavLink>
+                        <NavLink to={"/myrequest"}  className={'btn-request ' + Styleclass}>My request</NavLink>
                         </li>
+                        {Styleclass === "btnmyrequest" ? "":
                         <li className="nav-item">
                         <NavLink to={"/"} className='suppliers'>My suppliers</NavLink>
                         </li>
+                        }
                     </ul>
                     <div className="d-flex">
                         <IconNotification/>

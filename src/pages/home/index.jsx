@@ -4,10 +4,10 @@ import Navbar from '../../components/navbar';
 
 function Home() {
   return (
-    <div className='home'>
+    <section className='home'>
       <Navbar/>
       <Chart/>
-    </div>
+    </section>
   )
 }
 

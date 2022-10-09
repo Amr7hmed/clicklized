@@ -1,5 +1,16 @@
 .home{
     width: 100%;
-    height: 100vh;  
+    min-height: 100vh;  
+    max-height: auto;
     background-color: #f6f6f6;
+}
+
+
+// 1- 2- Style Navbar Component To Media Queris Samll.
+@media screen and (max-width: 992px) {
+    .home{
+        height: auto;
+        padding-bottom: 1px;
+    }
+    
 }

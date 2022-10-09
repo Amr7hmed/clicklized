@@ -1,37 +1,183 @@
-.chart{
+.chart {
     margin: 40px 0px;
-    &__item{
+    font-family: var(--font-cairo);
+
+    &__headr {
+        margin-top: 40px;
+        h5 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        span{
+            font-size: 16px;
+  font-weight: normal;
+  color: #a5a5ac;
+        }
+    }
+
+    &__item {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        min-height: 400px;
+        max-height: auto;
     }
-    .spends{
-        width: 420px;
-        height: 320px;
-        border-radius: 3px;
+
+    &__bottom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 60px auto;
+        h6{
+            font-size: 18px;
+            font-weight: bold;
+            color: #231f20;
+        }
+        span{
+            font-size: 16px;
+            font-weight: normal;
+            color: #a5a5ac;
+            margin: 15px 0px;
+        }
+        .addrequests{
+            width: 186px;
+            height: 56px;
+            background-color: #e8d173;
+            font-size: 14px;
+            font-weight: bold;
+            color: #231f20;
+            img{
+                    width: 24px;
+                    height: 24px;
+                    margin: 0 15px 0 0;
+                    object-fit: contain;
+                  
+            }
+            &:hover{
+                background-color: #e8d173;
+                color: #231f20;
+            }
+        }
+    }
+    .spends,
+    .requests,
+    .category {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 32%;
+        height: 100%;
+        border-radius: 5px;
         box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.1);
         background-color: #fff;
-        > div{
-            width: 100%;
-            height: 100%;
-            canvas{
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+
+        .cartitem {
+            width: 90%;
+            margin: 0px auto;
+            height: 280px;
+        }
+    }
+
+    .topchart {
+        padding: 10px 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #343433;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+
+            li {
+                font-size: 12px;
+                font-weight: normal;
+                color: #a5a5ac;
+                margin: 0px 5px;
+                cursor: pointer;
+            }
+
+            li.active {
+                font-weight: bold;
+                color: #363636;
+            }
+        }
+    }
+
+    .spends {
+        .cartitem {
+            canvas {
                 width: 100% !important;
                 height: 100% !important;
             }
         }
     }
-    .requests{
-        width: 420px;
-        height: 320px;
-        border-radius: 3px;
-        box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-        .one{width: 65%;
-            height: 90%;
-            canvas{
+
+    .requests {
+        .cartitem {
+            canvas {
                 width: 100% !important;
                 height: 100% !important;
+            }
+        }
+    }
+
+    .category {
+        .cartitem {
+            canvas {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+    }
+}
+
+
+
+// 1- 2- Style Chart Component To Media Queris Samll.
+@media screen and (max-width: 992px) {
+    .chart {
+        &__item {
+            flex-direction: column;
+        }
+        .spends,
+        .requests,
+        .category {
+            width: 80%;
+            height: 100%;
+            margin-bottom: 40px;
+        }
+        &__headr {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+
+// 1- 2- Style Chart Component To Media Queris Samll.
+@media screen and (max-width: 576px) {
+    .chart {
+        .spends,
+        .requests,
+        .category {
+            width: 100%;
+
+            .cartitem {
+                width: 100%;
+                height: 350px;
             }
         }
     }

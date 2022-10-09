@@ -35,7 +35,13 @@
             justify-content: center;
             align-items: center;
             &:hover{
-                color: #231f20 !important;
+                color: #231f20 ;
+            }
+        }
+        .btnmyrequest{
+            color: #fff !important;
+            &:hover{
+                color: #fff !important;
             }
         }
 
