@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormTwo from '../../components/password/formtwo.jsx';
+import FormTwo from '../../layout/password/formtwo.jsx';
 
 function Verification() {
   return (

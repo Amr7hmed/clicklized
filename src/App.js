@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/index.jsx';
-import Myrequest from './pages/myrequest/index.jsx';
+import Myrequest from './pages/buyer/myrequest/index.jsx';
 import ForgetPassword from './pages/password/forgetpassword.jsx';
 import Updatepassword from './pages/password/updatepassword.jsx';
 import Verification from './pages/password/verification.jsx';
+import Profile from './pages/buyer/profile/index.jsx';
 import SignIn from './pages/signin/index.jsx';
 import Signup from './pages/signup/index.jsx';
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="/verification" element={<Verification />} exact />
       <Route path="/updatepassword" element={<Updatepassword />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
+      <Route path="/profile" element={<Profile />} exact />
       
         </Routes>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormThree from '../../components/password/formthree';
+import FormThree from '../../layout/password/formthree';
 
 function Updatepassword() {
   return (

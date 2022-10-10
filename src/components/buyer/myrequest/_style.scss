@@ -88,6 +88,9 @@
                 padding: 0px !important;
                 width: 24px;
                 height: 24px;
+                &:active{
+                    border-color: white;
+                }
                 img{
                     width: 24px;
                     height: 24px;

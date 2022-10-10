@@ -1,6 +1,6 @@
 import React from 'react';
 import Chart from '../../components/home/chart';
-import Navbar from '../../components/navbar';
+import Navbar from '../../layout/navbar/index.jsx';
 
 function Home() {
   return (

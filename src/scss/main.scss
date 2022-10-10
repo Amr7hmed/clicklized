@@ -187,11 +187,16 @@ input[type=radio] {
   }
 }
 
+.btn{
+  &:active{
+    border-color: transparent;
+  }
+}
 
-
-@import "../components/signup/_style.scss";
-@import "../components/signin/_style.scss";
+@import "../layout/signup/_style.scss";
+@import "../layout/signin/_style.scss";
 @import "../components/home/_style.scss";
-@import "../components/navbar/_style.scss";
+@import "../layout/navbar/_style.scss";
 @import "../components/home/chart/_style.scss";
-@import "../components/myrequest/_style.scss";
+@import "../components/buyer/myrequest/_style.scss";
+@import "../components/buyer/profile/_style.scss";

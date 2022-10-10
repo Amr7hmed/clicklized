@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Vactor from '../../images/icon/vactor.png';
 import { Authcontext } from '../../store/context';
 import Logo from '../../images/logo/logo.png';
-import FormSignup from '../../components/signup/form';
+import FormSignup from '../../layout/signup/form';
 
 function Signup() {
     const authcontext = useContext(Authcontext);

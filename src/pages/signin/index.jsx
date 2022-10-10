@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormSignIn from '../../components/signin/form';
+import FormSignIn from '../../layout/signin/form';
 
 function SignIn() {
   return (

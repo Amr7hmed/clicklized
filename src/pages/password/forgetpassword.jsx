@@ -1,8 +1,7 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormSignIn from '../../components/signin/form';
-import FormOne from '../../components/password/formone';
+import FormOne from '../../layout/password/formone';
 
 function ForgetPassword() {
   return (

@@ -19,7 +19,7 @@ function IconProfile() {
           </a>
       <ul className="dropdown-menu">
         <li>
-            <NavLink to={"/"}><img src={Account} alt="Account" />My Account</NavLink>
+            <NavLink to={"/profile"}><img src={Account} alt="Account" />My Account</NavLink>
         </li>
         <li>
             <button className='btn btn-signout' type='button' onClick={() => Signout()}>SIGN OUT</button>
