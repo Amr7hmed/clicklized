@@ -10,12 +10,14 @@ function GeneralTop(props) {
           <span className="text">{Username}</span>
           </span>
           <span className='right'>
-            <button className='btn btn-edit'>
+            <button className='btn btn-edit' type="button" 
+            data-bs-toggle="modal" data-bs-target="#modalchangepassword">
               <img src={IconChinge} alt="" />
               Change password
             </button>
 
-            <button className='btn btn-edit'>
+            <button className='btn btn-edit' type="button" 
+            data-bs-toggle="modal" data-bs-target="#modeleditprofile">
               <img src={IconEdit} alt="" />
             Edit profile
             </button>

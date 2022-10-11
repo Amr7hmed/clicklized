@@ -193,6 +193,22 @@ input[type=radio] {
   }
 }
 
+
+.button-active{
+  pointer-events: auto;
+ }
+
+ .button-disabled{
+  pointer-events: none;
+  opacity: 0.51;
+ }
+ .form-select{
+  &:focus {
+    border-color: #ddd;
+    box-shadow: none;
+  }
+ }
+
 @import "../layout/signup/_style.scss";
 @import "../layout/signin/_style.scss";
 @import "../components/home/_style.scss";

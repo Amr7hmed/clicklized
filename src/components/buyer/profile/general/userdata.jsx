@@ -1,12 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Editeimage from '../../../../images/icon/uploadimage.png';
+import Savedata from '../modal/savedata';
 
 function UserData(props) {
     const {DataUser}=props;
+    const [image, setImage] = useState("");
+    const [toggolemodal, setToggolemodal] = useState(false);
+    const [urlimage, setUrlImage] = useState(null);
     
-    const handleFileSelect = (e) => { 
-        console.log(e.target.files[0]);
-      }
+    const getBase64 = file => {
+        return new Promise(resolve => {
+            let fileInfo;
+            let baseURL = "";
+            // Make new FileReader
+            let reader = new FileReader();
+
+            // Convert the file to base64 text
+            reader.readAsDataURL(file);
+
+            // on reader load somthing...
+            reader.onload = () => {
+                // Make a fileInfo Object
+                // console.log("Called", reader);
+                baseURL = reader.result;
+                // console.log(baseURL);
+                resolve(baseURL);
+                setUrlImage(baseURL)
+            };
+            //  console.log(fileInfo);
+        });
+
+    };
+
+
+    const handleFileSelect = (e) => {
+        setImage(e.target.files[0]);
+        setToggolemodal(true);
+        const filesdata = e.target.files[0];
+
+        getBase64(filesdata)
+            .then(result => {
+                filesdata["base64"] = result;
+                //console.log("File Is", filesdata);
+                this.setState({
+                    base64URL: result,
+                    filesdata
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    const SendData = () => {
+        console.log(image);
+        setToggolemodal(false);
+    }
   return (
     <div className='userdata'>
         <div className="left">
@@ -26,7 +75,8 @@ function UserData(props) {
             </ul>
         </div>
         <div className="right">
-            <img src={DataUser.image} alt={DataUser.name} />
+            <img src={urlimage === null ? DataUser.image : urlimage}
+            alt={DataUser.name} />
             <button type='button' className='btn'>
                                 <input type="file" className="input-file"
                                     onChange={e => handleFileSelect(e)} />
@@ -34,6 +84,8 @@ function UserData(props) {
                 Upload image
             </button>
         </div>
+        
+        <Savedata toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
     </div>
   )
 }
