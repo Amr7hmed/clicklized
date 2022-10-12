@@ -42,6 +42,10 @@
             margin: 15px 0px;
         }
         .addrequests{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
             width: 186px;
             height: 56px;
             background-color: #e8d173;
@@ -78,9 +82,9 @@
         -o-border-radius: 5px;
 
         .cartitem {
-            width: 90%;
             margin: 0px auto;
             height: 280px;
+            padding: 5px 5px 0px 5px;
         }
     }
 

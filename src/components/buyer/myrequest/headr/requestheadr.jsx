@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterIcon from '../../../../images/icon/icon-filter.png';
 import AddRequest from "../../../../images/icon/addrequests.png";
+import { NavLink } from 'react-router-dom';
 
 function RequestHeadr(props) {
     const {Title , Line ,Toggle ,setToggole}=props;
@@ -16,10 +17,10 @@ function RequestHeadr(props) {
             <img src={FilterIcon} alt="Filter Icon" />
             Filter
           </button>
-          <button type='button' className='btn btn-request'>
+          <NavLink to={"/createrequest"}  type='button' className='btn btn-request'>
             <img src={AddRequest} alt="Request Icon" />
             Add new request
-          </button>
+          </NavLink>
         </div>
     </div>
   )

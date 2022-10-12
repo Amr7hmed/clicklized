@@ -1,0 +1,222 @@
+/*
+- Style Create Request Page
+    1- Style Top Page
+        - Style Head
+        - Style List 
+    2- Style Bottom Page
+        - Style Screen One
+*/
+
+//1- Style Create Request Page
+.createrequest {
+  font-family: var(--font-cairo);
+  background-color: #f6f6f6;
+  .create {
+    // 1- Style Top Page
+    .top {
+      margin: 50px 0px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      // - Style Head
+      .head {
+        h4 {
+          font-size: 22px;
+          font-weight: bold;
+          color: #252428;
+        }
+      }
+      // - Style List
+      .list {
+        margin-bottom: 25px;
+        height: 98px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        li {
+          display: flex;
+          align-items: center;
+          font-family: var(--font-cairo);
+          font-size: 20px;
+          .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-weight: bold;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            margin-right: 10px;
+            background-color: #e4e4e4;
+            color: #bcbcbc;
+          }
+          .icon.editedata {
+            background-color: #e8d173;
+            color: #231f20;
+          }
+          .icon.active {
+            background-color: #231f20;
+            color: #e8d173;
+          }
+          .text {
+            font-weight: normal;
+            color: #a5a5ac;
+          }
+          .text.editedata {
+            color: #e8d173;
+          }
+          .text.active {
+            color: #231f20;
+          }
+        }
+        .line {
+          width: 100px;
+          height: 1px;
+          border-width: 2px;
+          border-style: dashed;
+          border-color: #e4e4e4;
+        }
+        .line.active {
+          border-color: #231f20;
+        }
+      }
+    }
+  }
+}
+
+.createrequest {
+  // 2- Style Bottom Page
+  .createbottom {
+    //- Style Screen One
+    .screenone {
+      font-family: var(--font-cairo);
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      padding: 40px 50px;
+      .title {
+        margin-bottom: 45px;
+        h6 {
+          font-size: 16px;
+          font-weight: bold;
+          color: #343433;
+        }
+      }
+
+      .form {
+        form {
+          .inputform {
+            width: 100%;
+            margin-bottom: 30px;
+            h6 {
+              margin-bottom: 40px;
+              font-size: 16px;
+              font-weight: bold;
+              color: #343433;
+            }
+            label {
+              font-size: 16px;
+              font-weight: normal;
+              color: #343433;
+              margin-bottom: 15px;
+            }
+            input {
+              width: 40%;
+              height: 45px;
+              margin-right: 5%;
+              border: solid 1px #a5a5ac;
+              background-color: #fff;
+              &::placeholder {
+                padding: 8px 15px;
+                font-size: 14px;
+                font-weight: normal;
+                color: #a5a5ac;
+              }
+            }
+
+            textarea {
+              width: 85%;
+              height: 100px;
+              margin-right: 5%;
+              border: solid 1px #a5a5ac;
+              background-color: #fff;
+              &::placeholder {
+                padding: 8px 15px;
+                font-size: 14px;
+                font-weight: normal;
+                color: #a5a5ac;
+              }
+            }
+            .addloction {
+              font-size: 14px;
+              font-weight: normal;
+              color: #020202;
+              margin-top: 10px;
+              display: flex;
+              align-items: center;
+              margin-bottom: 10px;
+              padding-left: 0px;
+              padding-right: 0px;
+              img {
+                width: 14px;
+                height: 19px;
+                filter: invert(0%) sepia(92%) saturate(30%) hue-rotate(137deg)
+                  brightness(103%) contrast(106%);
+                margin-right: 5px;
+              }
+              &:active {
+                border-color: white;
+              }
+            }
+            .day {
+              height: 45px;
+              width: 40%;
+              position: relative;
+              .react-datepicker-wrapper{
+                width: 100% !important;
+                height: 100% !important;
+                .react-datepicker__input-container{
+                    width: 100% !important;
+                    height: 100% !important;
+                    .data-input {
+                      padding: 8px 15px;
+                      width: 100%;
+                      height: 100%;
+                      border-radius: 5px;
+                      -webkit-border-radius: 5px;
+                      -moz-border-radius: 5px;
+                      -ms-border-radius: 5px;
+                      -o-border-radius: 5px;
+}
+
+                }
+
+              }
+              img{
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                right: 1%;
+                top: 50%;
+                transform: translate(-1%, -50%);
+              }
+            }
+          }
+          .inputformday{
+            margin-bottom: 50px;
+          }
+        }
+      }
+    }
+  }
+}

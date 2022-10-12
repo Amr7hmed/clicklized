@@ -7,6 +7,7 @@ import Verification from './pages/password/verification.jsx';
 import Profile from './pages/buyer/profile/index.jsx';
 import SignIn from './pages/signin/index.jsx';
 import Signup from './pages/signup/index.jsx';
+import CreateRequest from './pages/buyer/createrequest/index.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/updatepassword" element={<Updatepassword />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
       <Route path="/profile" element={<Profile />} exact />
+      <Route path="/createrequest" element={<CreateRequest />} exact />
       
         </Routes>
       </BrowserRouter>

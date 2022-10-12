@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import AddRequest from "../../../images/icon/addrequests.png";
 
 function ChartBottom() {
@@ -6,10 +7,10 @@ function ChartBottom() {
     <div className='chart__bottom'>
         <h6>You don’t have any request</h6>
         <span>Start adding requests now</span>
-        <button className='addrequests btn'>
+        <NavLink to={"/createrequest"}  className='addrequests btn'>
             <img src={AddRequest} alt="AddRequest" />
         Add new request
-        </button>
+        </NavLink>
     </div>
   )
 }

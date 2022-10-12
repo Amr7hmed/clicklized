@@ -6,6 +6,9 @@ import './scss/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Contextprovider } from './store/context.js';
+import "react-datepicker/dist/react-datepicker.css";
+// CSS Modules, react-datepicker-cssmodules.css
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
