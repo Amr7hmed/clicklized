@@ -10,6 +10,7 @@ export function Inputquotations(props) {
     <div className='inputform'>
       <label className="form-label">Number of required quotations</label>
       <Field type="text" component="input"
+      id="inputquotations"
         className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
         placeholder="Enter Number of required quotations" name="numberrequired" />
 
@@ -22,7 +23,6 @@ export function Inputquotations(props) {
 
 export function InputItems(props) {
   const { values, errors } = props;
-  console.log(values);
   return (
     <div className='inputform'>
       <FieldArray name="items">
@@ -40,15 +40,15 @@ export function InputItems(props) {
                         component="select"
                         className={"form-select"} >
                         <option></option>
-                        <option value="industry">industry</option>
-                        <option value="industrytwo">industrytwo</option>
+                        <option value="one">One</option>
+                        <option value="two">Two</option>
                       </Field>
                     </div>
                     <div className="inputform_item">
                       <label htmlFor={`items.${index}.quantity`}>Quantity</label>
                       <Field
                         name={`items.${index}.quantity`}
-                        placeholder="jane@acme.com"
+                        placeholder="Enter Quantity"
                         type="text"
                         className={"form-control"} />
                     </div>
@@ -62,8 +62,6 @@ export function InputItems(props) {
                         Remove Item
                       </button>
                     </div>
-
-
                     <button
                     id={values.items[index].item === "" || 
                     values.items[index].quantity === "" ? "button-disabled" :"button-active"}
@@ -96,10 +94,12 @@ export function Inputaddress(props) {
       <Field type="textarea" component="textarea"
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
         placeholder="Enter Required Debuttonvery Location" name="address" />
-      <button type='button' className='btn addloction'>
+      <button type='button' className='btn addloction'
+       data-bs-toggle="modal" data-bs-target="#modalmap">
         <img src={IconLoction} alt="" />
         Choose location on map
       </button>
+
       <ErrorMessage name="address" component="span" className='errorfiled' />
     </div>
   )

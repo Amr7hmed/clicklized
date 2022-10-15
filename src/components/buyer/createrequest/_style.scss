@@ -11,13 +11,16 @@
 .createrequest {
   font-family: var(--font-cairo);
   background-color: #f6f6f6;
+
   .create {
+
     // 1- Style Top Page
     .top {
       margin: 50px 0px;
       width: 100%;
       display: flex;
       flex-direction: column;
+
       // - Style Head
       .head {
         h4 {
@@ -26,6 +29,7 @@
           color: #252428;
         }
       }
+
       // - Style List
       .list {
         margin-bottom: 25px;
@@ -34,11 +38,13 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
+
         li {
           display: flex;
           align-items: center;
           font-family: var(--font-cairo);
           font-size: 20px;
+
           .icon {
             display: flex;
             justify-content: center;
@@ -56,25 +62,31 @@
             background-color: #e4e4e4;
             color: #bcbcbc;
           }
+
           .icon.editedata {
             background-color: #e8d173;
             color: #231f20;
           }
+
           .icon.active {
             background-color: #231f20;
             color: #e8d173;
           }
+
           .text {
             font-weight: normal;
             color: #a5a5ac;
           }
+
           .text.editedata {
             color: #e8d173;
           }
+
           .text.active {
             color: #231f20;
           }
         }
+
         .line {
           width: 100px;
           height: 1px;
@@ -82,6 +94,7 @@
           border-style: dashed;
           border-color: #e4e4e4;
         }
+
         .line.active {
           border-color: #231f20;
         }
@@ -91,8 +104,10 @@
 }
 
 .createrequest {
+
   // 2- Style Bottom Page
   .createbottom {
+
     //- Style Screen One
     .screenone {
       font-family: var(--font-cairo);
@@ -101,8 +116,10 @@
       box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.1);
       background-color: #fff;
       padding: 40px 50px;
+
       .title {
         margin-bottom: 45px;
+
         h6 {
           font-size: 16px;
           font-weight: bold;
@@ -115,24 +132,28 @@
           .inputform {
             width: 100%;
             margin-bottom: 30px;
+
             h6 {
               margin-bottom: 40px;
               font-size: 16px;
               font-weight: bold;
               color: #343433;
             }
+
             label {
               font-size: 16px;
               font-weight: normal;
               color: #343433;
               margin-bottom: 15px;
             }
+
             input {
               width: 40%;
               height: 45px;
               margin-right: 5%;
               border: solid 1px #a5a5ac;
               background-color: #fff;
+
               &::placeholder {
                 padding: 8px 15px;
                 font-size: 14px;
@@ -140,12 +161,14 @@
                 color: #a5a5ac;
               }
             }
+
             textarea {
               width: 85%;
               height: 120px;
               margin-right: 5%;
               border: solid 1px #a5a5ac;
               background-color: #fff;
+
               &::placeholder {
                 padding: 8px 15px;
                 font-size: 14px;
@@ -153,6 +176,7 @@
                 color: #a5a5ac;
               }
             }
+
             .addloction {
               font-size: 14px;
               font-weight: normal;
@@ -163,42 +187,48 @@
               margin-bottom: 10px;
               padding-left: 0px;
               padding-right: 0px;
+
               img {
                 width: 14px;
                 height: 19px;
-                filter: invert(0%) sepia(92%) saturate(30%) hue-rotate(137deg)
-                  brightness(103%) contrast(106%);
+                filter: invert(0%) sepia(92%) saturate(30%) hue-rotate(137deg) brightness(103%) contrast(106%);
                 margin-right: 5px;
               }
+
               &:active {
                 border-color: white;
               }
             }
+
             .day {
               height: 45px;
               width: 40%;
               position: relative;
-              .react-datepicker-wrapper{
+
+              .react-datepicker-wrapper {
                 width: 100% !important;
                 height: 100% !important;
-                .react-datepicker__input-container{
-                    width: 100% !important;
-                    height: 100% !important;
-                    .data-input {
-                      padding: 8px 15px;
-                      width: 100%;
-                      height: 100%;
-                      border-radius: 5px;
-                      -webkit-border-radius: 5px;
-                      -moz-border-radius: 5px;
-                      -ms-border-radius: 5px;
-                      -o-border-radius: 5px;
-}
+
+                .react-datepicker__input-container {
+                  width: 100% !important;
+                  height: 100% !important;
+
+                  .data-input {
+                    padding: 8px 15px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    -ms-border-radius: 5px;
+                    -o-border-radius: 5px;
+                  }
 
                 }
 
               }
-              img{
+
+              img {
                 width: 24px;
                 height: 24px;
                 object-fit: contain;
@@ -210,9 +240,11 @@
                 transform: translate(-1%, -50%);
               }
             }
-            ul{
+
+            ul {
               display: flex;
-              li{
+
+              li {
                 width: 180px;
                 height: 52px;
                 background-color: #ebebeb;
@@ -220,10 +252,12 @@
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                &:nth-child(2){
+
+                &:nth-child(2) {
                   margin: 0px 15px;
                 }
-                label{
+
+                label {
                   cursor: pointer;
                   margin-bottom: 0px;
                   width: 100%;
@@ -235,7 +269,8 @@
                   font-size: 14px;
                   font-weight: bold;
                   color: #c5c5c5;
-                  input{
+
+                  input {
                     width: 0px;
                     height: 0px;
                     opacity: 0;
@@ -244,45 +279,55 @@
                   }
                 }
               }
-              li.active{
+
+              li.active {
                 background-color: #e8d173;
-                label{
+
+                label {
                   color: #231f20;
                 }
               }
             }
           }
-          .inputform_items_row{
+
+          .inputform_items_row {
             margin-bottom: 50px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-end;
-            > div{
-              width: 100% ;
+
+            >div {
+              width: 100%;
             }
-            .inputform_items{
+
+            .inputform_items {
               margin-top: 25px;
               width: 100%;
               display: flex;
               flex-direction: row;
               align-items: flex-end;
-              .inputform_item{
+
+              .inputform_item {
                 width: 40%;
                 margin-right: 5%;
                 display: flex;
                 flex-direction: column;
+
                 label {
                   font-size: 16px;
                   font-weight: normal;
                   color: #343433;
                   margin-bottom: 15px;
                 }
-                input,select{
+
+                input,
+                select {
                   width: 100%;
                   height: 45px;
                   border: solid 1px #a5a5ac;
                   background-color: #fff;
+
                   &::placeholder {
                     padding: 8px 15px;
                     font-size: 14px;
@@ -292,54 +337,64 @@
                 }
               }
             }
-            .btn-remove{
+
+            .btn-remove {
               height: 45px;
               width: 150px;
               margin-right: 15px;
-              
-    background-color:#c5c5c5;
-    color:  #fff;
+
+              background-color: #c5c5c5;
+              color: #fff;
             }
-            .btn-add{
+
+            .btn-add {
               height: 45px;
               background-color: #e8d173;
               width: 150px;
               font-size: 14px;
               font-weight: bold;
               color: #231f20;
-              &:active{
+
+              &:active {
                 border-color: #e8d173;
               }
             }
-            .hide{
+
+            .hide {
               display: none !important;
             }
-            #button-active{
+
+            #button-active {
               pointer-events: auto;
-             }
-            
-             #button-disabled{
+            }
+
+            #button-disabled {
               pointer-events: none;
               opacity: 0.51;
-             }
+            }
           }
-          .inputformday{
+
+          .inputformday {
             margin-bottom: 50px;
           }
-          .inputfiles{
+
+          .inputfiles {
             width: 100%;
             margin-bottom: 30px;
-            > div{
+
+            >div {
               width: 85%;
               display: flex;
               flex-direction: row;
               justify-content: space-between;
               align-items: center;
-              .item{
+
+              .item {
                 width: 45%;
                 height: 75px;
               }
             }
+
             .btn-upload {
               position: relative;
               display: flex;
@@ -356,6 +411,7 @@
               width: 100%;
               height: 100%;
               border-style: dashed;
+
               &:active {
                 border-color: #e8d173;
               }
@@ -379,23 +435,473 @@
             }
           }
 
-          .end{
+          .end {
             margin-top: 90px;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            .btn{
-              &:active{
+
+            .btn {
+              &:active {
                 border-color: #e8d173;
               }
+
               width: 136px;
               height: 56px;
               background-color: #e8d173;
               color: #231f20;
             }
           }
-          .is-invabuttond{
+
+          .is-invabuttond {
             border-color: #dc3545 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+#modalmap {
+  font-family: var(--font-cairo);
+
+  .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-close {
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    .modal-content {
+      width: auto !important;
+
+      .modal-body {
+        .mab {
+          width: 600px;
+          height: 600px;
+          position: relative;
+          background-color: burlywood;
+          margin: 15px auto;
+
+          >div {
+            >div {
+              &:nth-child(2) {
+                display: none;
+              }
+
+              &:nth-child(3) {
+                display: none;
+              }
+            }
+          }
+
+          span {
+            display: none;
+          }
+
+          table {
+            tr {
+              td {
+                &:first-of-type {
+                  display: none !important;
+                }
+
+                text-align: center;
+
+                button {
+                  background-color: #868558;
+                  display: block;
+                  margin: 0 auto;
+                  height: 28px;
+                  font-size: 14px;
+                  padding: 0 15px;
+
+                  &:hover {
+                    background-color: #868558;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .btn {
+        width: 180px;
+        height: 52px;
+        font-weight: bold;
+        font-size: 14px;
+
+        &:active {
+          border-color: white;
+        }
+      }
+
+      .btn-close_modal {
+        background-color: #c5c5c5;
+        color: #fff;
+
+      }
+
+      .btn-save {
+        background-color: #e8d173;
+        color: #231f20;
+      }
+    }
+  }
+}
+
+
+
+// 1- 2- Style Component To Media Queris Samll.
+@media screen and (max-width: 992px) {
+  .createrequest {
+    .create {
+      .top {
+
+        // - Style Head
+        .head {
+          h4 {
+            font-size: 18px;
+          }
+        }
+
+        // - Style List
+        .list {
+          height: 98px;
+          justify-content: space-between;
+
+          li {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-cairo);
+
+            .icon {
+              width: 35px;
+              height: 35px;
+              margin-right: 5px;
+              font-size: 18px;
+            }
+
+            .text {
+              font-size: 16px;
+            }
+          }
+
+          .line {
+            width: 8%;
+          }
+        }
+      }
+
+      .createbottom {
+
+        .screenone {
+          padding: 40px 20px;
+
+          .form {
+            form {
+              .inputform {
+                padding-top: 15px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #efefef;
+                padding-bottom: 40px;
+
+                input#inputquotations {
+                  width: 100%;
+                }
+
+                input {
+                  &::placeholder {
+                    font-size: 14px;
+                  }
+                }
+
+                textarea {
+                  width: 100%;
+                }
+
+                .day {
+                  width: 100%;
+                }
+
+                ul {
+                  justify-content: space-between;
+                }
+              }
+
+              .inputform_items_row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                >div {
+                  width: 100%;
+                }
+
+                .inputform_items {
+
+                  .inputform_item {
+                    width: auto;
+                    margin-right: 2%;
+
+                    input,
+                    select {
+                      width: 100px;
+
+                      &::placeholder {
+                        font-size: 12px;
+                        padding: 0px 2px;
+                      }
+                    }
+                  }
+                }
+
+                .btn-remove {
+                  width: 120px;
+                  font-size: 14px;
+                }
+
+                .btn-add {
+                  width: 120px;
+                  font-size: 14px;
+                }
+              }
+
+              .inputformday {
+                margin-bottom: 50px;
+              }
+
+              .inputfiles {
+                >div {
+                  width: 100%;
+                  padding: 30px 0px;
+
+                  .item {
+                    height: 70px;
+                  }
+                }
+
+                .btn-upload {
+                  font-size: 16px;
+
+                  img {
+                    width: 35px;
+                    height: 35px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #modalmap {
+    .modal-dialog {
+      .modal-content {
+        .modal-body {
+          .mab {
+            width: 500px;
+            height: 500px;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+// 1- 2- Style Chart Component To Media Queris Samll.
+@media screen and (max-width: 576px) {
+
+  .createrequest {
+    .create {
+      .top {
+        .head {
+          h4 {
+            font-size: 16px;
+          }
+        }
+
+        // - Style List
+        .list {
+
+          li {
+
+            .icon {
+              width: 25px;
+              height: 25px;
+              margin-right: 2px;
+              font-size: 14px;
+            }
+
+            .text {
+              font-size: 14px;
+            }
+          }
+
+          .line {
+            width: 8%;
+          }
+        }
+      }
+
+      .createbottom {
+
+        .screenone {
+          padding: 40px 20px;
+
+          .form {
+            form {
+              .inputform {
+                input {
+                  &::placeholder {
+                    font-size: 12px;
+                    padding: 2px;
+                  }
+                }
+
+                textarea {
+                  width: 100%;
+
+                  &::placeholder {
+                    font-size: 12px;
+                    padding: 2px;
+                  }
+                }
+
+                ul {
+                  flex-direction: column;
+                  align-items: center;
+
+                  li {
+                    margin: 5px 0px 10px 0px;
+                  }
+                }
+              }
+
+              .inputform_items_row {
+
+                >div {width: 100%;}
+
+                .inputform_items {
+                  flex-direction: column;
+                  align-items: center;
+                  padding-bottom: 50px;
+                  border-bottom: 1px solid #b9afaf;
+                  &:last-of-type{
+                    padding-bottom: 0px;
+                    border-bottom: none;
+                  }
+                  .inputform_item {
+                    width: 100%;
+                    margin-right: 0%;
+                    margin-bottom: 10px;
+
+                    input,
+                    select {
+                      width: 100%;
+                    }
+                  }
+                }
+
+                .inputform_close {
+                  width: 100%;
+
+                  .btn-remove {
+                    width: 100%;
+                    font-size: 14px;
+                    margin-right: 0px;
+                  }
+                }
+
+                .btn-add {
+                  width: 100%;
+                  font-size: 14px;
+                  margin-top: 15px;
+                }
+              }
+
+              .inputformday {
+                margin-bottom: 50px;
+              }
+
+              .inputfiles {
+                >div {
+                  flex-direction: column;
+
+                  .item {
+                    width: 100%;
+                    margin: 15px 0px;
+                  }
+                }
+
+                .btn-upload {
+                  font-size: 16px;
+                  img {
+                    width: 35px;
+                    height: 35px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #modalmap {
+
+    .modal-dialog {
+      .modal-content {
+        .modal-header{
+          h5{
+            font-size: 16px;
+          }
+        }
+        .modal-body {
+          .mab {
+            width: 300px;
+            height: 400px;
+            margin: 0px auto;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+
+// 1- 2- Style Chart Component To Media Queris Samll.
+@media screen and (max-width: 456px) {
+  .createrequest {
+    .create {
+      .top {
+        .list {
+          li {
+            .text {
+              font-size: 12px;
+            }
+          }
+
+          .line {
+            width: 8%;
+            margin: 0px 5px;
           }
         }
       }

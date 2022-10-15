@@ -4,8 +4,10 @@ import * as Yup from "yup";
 import swal from 'sweetalert';
 import { NavLink } from 'react-router-dom';
 import { Inputaddress, Inputday, InputFiles, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
+import ModalMap from './modalmap';
 
 function Form() {
+    const [clickedLatLng, setClickedLatLng] = useState(null);
     const state = {
         numberrequired: "",
         items: [
@@ -20,7 +22,7 @@ function Form() {
         transportation: "included",
         notes: "",
         files: "",
-        logo: ""
+        logo: "",
     };
 
     const SendData = (date) => {
@@ -34,6 +36,7 @@ function Form() {
     }
     const onSubmit = (values) => {
         console.log(values);
+        console.log(clickedLatLng);
     }
 
     const form = (props) => {
@@ -46,6 +49,7 @@ function Form() {
             <Inputtransportation Data={props} />
             <Inputnotes />
             <InputFiles />
+            <ModalMap clickedLatLng={clickedLatLng} setClickedLatLng={setClickedLatLng}/>
             <div className='end'>
                 <button className='btn btn-next' type="submit">Next</button>
             </div>

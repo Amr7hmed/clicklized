@@ -6,7 +6,9 @@ function CreateRequest() {
   return (
     <section className='createrequest'>
         <Navbar/>
+    <div className="container">
         <Create/>
+        </div>
     </section>
   )
 }

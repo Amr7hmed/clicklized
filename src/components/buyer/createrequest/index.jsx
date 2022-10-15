@@ -4,11 +4,9 @@ import CreateTop from './createtop'
 
 function Create() {
   return (
-    <section className='create'>
-        <div className="container">
+        <section className='create'>
         <CreateTop/>
         <CreateBottom/>
-        </div>
     </section>
   )
 }
