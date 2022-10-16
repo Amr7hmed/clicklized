@@ -1,9 +1,9 @@
 import React from 'react';
-import Form from './form/form';
+import Form from './form/form.jsx';
 
-function CreateRequestBottom() {
+function CreateReviewBottom() {
   return (
-    <div className='createbottom'>
+    <div className='createreview'>
     <div className='screenone'>
         <div className="title">
             <h6>RFP</h6>
@@ -14,4 +14,4 @@ function CreateRequestBottom() {
   )
 }
 
-export default CreateRequestBottom;
+export default CreateReviewBottom;

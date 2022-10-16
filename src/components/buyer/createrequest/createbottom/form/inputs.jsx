@@ -30,7 +30,7 @@ export function InputItems(props) {
           <div className='inputform_items_row'>
             <div>
               {
-                values.items.map((friend, index) => (
+                values.items.map((item, index) => (
                   <div key={index} className='inputform_items' id={index}>
                     <div className="inputform_item">
                       <label htmlFor={`items.${index}.item`}>Item</label>
@@ -199,7 +199,7 @@ export function InputFiles() {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file"
-              name="files" />
+              name="files"  accept="application/pdf" multiple/>
             <img src={UploadImage} alt="" />
             Upload files
           </span>

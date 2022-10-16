@@ -11,6 +11,9 @@
 .createrequest {
   font-family: var(--font-cairo);
   background-color: #f6f6f6;
+  padding-bottom: 1px;
+  min-height: 100vh;
+  max-height: auto;
 
   .create {
 
@@ -23,6 +26,14 @@
 
       // - Style Head
       .head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .iconleft{
+          width: 33px;
+          height: 25px;
+          margin-right: 11px;
+        }
         h4 {
           font-size: 22px;
           font-weight: bold;
@@ -74,7 +85,7 @@
           }
 
           .text {
-            font-weight: normal;
+            font-weight: bold;
             color: #a5a5ac;
           }
 
@@ -97,6 +108,8 @@
 
         .line.active {
           border-color: #231f20;
+          border-style: solid;
+          background-color: #231f20;
         }
       }
     }
@@ -116,6 +129,7 @@
       box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.1);
       background-color: #fff;
       padding: 40px 50px;
+      margin-bottom: 50px;
 
       .title {
         margin-bottom: 45px;

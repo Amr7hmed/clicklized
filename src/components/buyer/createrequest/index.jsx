@@ -1,12 +1,12 @@
 import React from 'react'
-import CreateBottom from './createbottom';
-import CreateTop from './createtop'
+import CreateRequestBottom from './createbottom/index.jsx';
+import CreateTop from './createtop/index.jsx'
 
 function Create() {
   return (
         <section className='create'>
-        <CreateTop/>
-        <CreateBottom/>
+        <CreateTop StyleScreen="createrequest_top"/>
+        <CreateRequestBottom/>
     </section>
   )
 }

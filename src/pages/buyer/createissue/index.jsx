@@ -1,16 +1,16 @@
 import React from 'react'
-import Create from '../../../components/buyer/createrequest';
 import Navbar from '../../../layout/navbar';
+import CreateIssueData from '../../../components/buyer/createissue/index.jsx';
 
-function CreateRequest() {
+function CreateIssue() {
   return (
     <section className='createrequest'>
       <Navbar />
       <div className="container">
-        <Create />
+        <CreateIssueData/>
       </div>
     </section>
   )
 }
 
-export default CreateRequest;
+export default CreateIssue;

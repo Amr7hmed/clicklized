@@ -2,11 +2,12 @@ import React from 'react'
 import Head from './head'
 import List from './list'
 
-function CreateTop() {
+function CreateTop(props) {
+  const {StyleScreen}=props;
   return (
     <div className='top'>
-      <Head/>
-      <List/>
+      <Head StyleScreen={StyleScreen}/>
+      <List StyleScreen={StyleScreen}/>
     </div>
   )
 }

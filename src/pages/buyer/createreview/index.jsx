@@ -1,16 +1,16 @@
 import React from 'react'
-import Create from '../../../components/buyer/createrequest';
+import CreateReviewData from '../../../components/buyer/createreview';
 import Navbar from '../../../layout/navbar';
 
-function CreateRequest() {
+function CreateReview() {
   return (
     <section className='createrequest'>
       <Navbar />
       <div className="container">
-        <Create />
+        <CreateReviewData/>
       </div>
     </section>
   )
 }
 
-export default CreateRequest;
+export default CreateReview

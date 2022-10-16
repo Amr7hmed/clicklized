@@ -8,6 +8,8 @@ import Profile from './pages/buyer/profile/index.jsx';
 import SignIn from './pages/signin/index.jsx';
 import Signup from './pages/signup/index.jsx';
 import CreateRequest from './pages/buyer/createrequest/index.jsx';
+import CreateIssue from './pages/buyer/createissue/index.jsx';
+import CreateReview from './pages/buyer/createreview/index.jsx';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
       <Route path="/myrequest" element={<Myrequest />} exact />
       <Route path="/profile" element={<Profile />} exact />
       <Route path="/createrequest" element={<CreateRequest />} exact />
+      <Route path="/createissue" element={<CreateIssue />} exact />
+      <Route path="/createreview" element={<CreateReview />} exact />
       
         </Routes>
       </BrowserRouter>

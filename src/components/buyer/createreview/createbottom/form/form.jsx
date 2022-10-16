@@ -2,26 +2,43 @@ import React, { useState } from 'react';
 import { Formik } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
-import { NavLink } from 'react-router-dom';
-import { Inputaddress, Inputday, InputFiles, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
+import { Inputaddress, Inputday, Fileslist, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation, Supplierslist } from './inputs';
 import ModalMap from './modalmap';
+import { useNavigate } from 'react-router-dom';
+import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 function Form() {
-    const [clickedLatLng, setClickedLatLng] = useState(null);
+    let navigate  = useNavigate();
     const state = {
-        numberrequired: "",
+        numberrequired: "test",
         items: [
             {
-                item:"",
-                quantity:""
+                item:"one",
+                quantity:"1"
+            },
+            {
+                item:"two",
+                quantity:"2"
             },
         ],
-        address: "",
+        address: "21 set-test cairo",
         day: "",
         inputinsurance: "yes",
         transportation: "included",
-        notes: "",
-        files: "",
+        notes: "test data",
+        fileslist: ["file.pdf","fileone.pdf","filetwo.pdf"],
+        supplierslist: [
+            {
+                id:1,
+                img:IconProfile,
+                name:"Supplier name"
+            },{
+                id:2,
+                img:IconProfile,
+                name:"Supplier name"
+            }
+        ],
+        checkboxtoggle: true,
         logo: "",
     };
 
@@ -36,21 +53,25 @@ function Form() {
     }
     const onSubmit = (values) => {
         console.log(values);
-        console.log(clickedLatLng);
+        //navigate(`/createissue`);
     }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <Inputquotations errors={props.errors} />
+            <Inputquotations errors={props.errors} Data={props}/>
             <InputItems values={props.values} errors={props.errors} />
-            <Inputaddress errors={props.errors} />
+            <Inputaddress errors={props.errors} Data={props}/>
             <Inputday data={props} />
             <Inputinsurance Data={props} />
             <Inputtransportation Data={props} />
-            <Inputnotes />
-            <InputFiles />
-            <ModalMap clickedLatLng={clickedLatLng} setClickedLatLng={setClickedLatLng}/>
+            <Inputnotes Data={props}/>
+            <Fileslist Data={props}/>
+            <Supplierslist Data={props}/>
             <div className='end'>
+                <div>
+                <button className='btn btn-cancel' type="type">Cancel</button>
+                <button className='btn btn-download'>Download as pdf</button>
+                </div>
                 <button className='btn btn-next' type="submit">Next</button>
             </div>
 
