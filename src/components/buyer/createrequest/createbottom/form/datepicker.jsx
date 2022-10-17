@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import IconCleander from "../../../../../images/icon/calendar-icon.png";
+import { FiCalendar } from "react-icons/fi";//import calendar icon from reat-icon 
 
 function DatePickerdata(props) {
   const {Data}=props;
-
   return (<div className='day'>
     <DatePicker 
             className={Data.errors.day ? "data-input is-invalid" : "data-input"}
@@ -15,7 +15,9 @@ function DatePickerdata(props) {
         value={Data.values.day}
         onChange={value => Data.setFieldValue("day", value)}
         />
+        {/*
       <img src={IconCleander} alt="Icon Cleander" />
+         */}
         </div>
   )
 }

@@ -15,7 +15,6 @@ function DatePickerdata(props) {
         value={Data.values.day}
         onChange={value => Data.setFieldValue("day", value)}
         />
-      <img src={IconCleander} alt="Icon Cleander" />
         </div>
   )
 }

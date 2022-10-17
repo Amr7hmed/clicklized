@@ -5,6 +5,7 @@ import swal from 'sweetalert';
 import {Inputcheckbox, Inputcompany, InputSupplierslist} from "./inputs.jsx";
 import { useNavigate } from 'react-router-dom';
 import ModalSuppliersList from './modallsupplierslist.jsx';
+import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 function Form() {
     const [clickedLatLng, setClickedLatLng] = useState(null);
@@ -15,6 +16,17 @@ function Form() {
         contactnumebr:"",
         checkboxtoggle: false,
     };
+    const [SupplierslistItems,setSupplierslistItems]=useState([
+        {
+            id:1,
+            img:IconProfile,
+            name:"Supplier name"
+        },{
+            id:2,
+            img:IconProfile,
+            name:"Supplier name"
+        }
+    ]);
 
     const SendData = (date) => {
         swal({
@@ -33,10 +45,10 @@ function Form() {
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <InputSupplierslist/>
+            <InputSupplierslist SupplierslistItems={SupplierslistItems}/>
             <Inputcompany errors={props.errors} />
             <Inputcheckbox/>
-            <ModalSuppliersList/>
+            <ModalSuppliersList setSupplierslistItems={setSupplierslistItems} SupplierslistItems={SupplierslistItems}/>
             <div className='end'>
                 <button className='btn btn-cancel' type="type">Cancel</button>
                 <button className='btn btn-next' type="submit">Next</button>

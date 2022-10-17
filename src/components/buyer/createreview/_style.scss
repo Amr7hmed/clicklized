@@ -510,3 +510,300 @@
         }
     }
 }
+
+
+@media screen and (max-width: 992px) {
+    .createrequest {
+  
+        .createreview {
+  
+          .screenone {
+            padding: 40px 20px;
+  
+            .form {
+              form {
+                .inputform {
+                  padding-top: 15px;
+                  margin-bottom: 10px;
+                  border-bottom: 1px solid #efefef;
+                  padding-bottom: 40px;
+  
+                  input#inputquotations {
+                    width: 100%;
+                  }
+  
+                  input {
+                    &::placeholder {
+                      font-size: 14px;
+                    }
+                  }
+  
+                  textarea {
+                    width: 100%;
+                  }
+  
+                  .day {
+                    width: 100%;
+                  }
+  
+                  ul {
+                    justify-content: space-between;
+                  }
+                }
+  
+                .inputform_items_row {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+  
+                  >div {
+                    width: 100%;
+                  }
+  
+                  .inputform_items {
+  
+                    .inputform_item {
+                      width: auto;
+                      margin-right: 2%;
+  
+                      input,
+                      select {
+                        width: 100px;
+  
+                        &::placeholder {
+                          font-size: 12px;
+                          padding: 0px 2px;
+                        }
+                      }
+                    }
+                  }
+  
+                  .btn-remove {
+                    width: 120px;
+                    font-size: 14px;
+                  }
+  
+                  .btn-add {
+                    width: 120px;
+                    font-size: 14px;
+                  }
+                }
+  
+                .inputformday {
+                  margin-bottom: 50px;
+                }
+  
+                .inputfiles {
+                  >div {
+                    width: 100%;
+                    padding: 30px 0px;
+  
+                    .item {
+                      height: 70px;
+                    }
+                  }
+  
+                  .btn-upload {
+                    font-size: 16px;
+  
+                    img {
+                      width: 35px;
+                      height: 35px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        
+      }
+    }
+  
+  }
+@media screen and (max-width: 576px) {
+
+    .createrequest {
+      .createreview {
+      
+  
+          .screenone {
+            padding: 40px 20px;
+  
+            .form {
+              form {
+                .inputform {
+                  input {
+                    &::placeholder {
+                      font-size: 12px;
+                      padding: 2px;
+                    }
+                  }
+  
+                  textarea {
+                    width: 100%;
+  
+                    &::placeholder {
+                      font-size: 12px;
+                      padding: 2px;
+                    }
+                  }
+  
+                  ul {
+                    flex-direction: column;
+                    align-items: center;
+  
+                    li {
+                      margin: 5px 0px 10px 0px;
+                    }
+                  }
+                }
+  
+                .inputform_items_row {
+  
+                  >div {width: 100%;}
+  
+                  .inputform_items {
+                    flex-direction: column;
+                    align-items: center;
+                    padding-bottom: 50px;
+                    border-bottom: 1px solid #b9afaf;
+                    &:last-of-type{
+                      padding-bottom: 0px;
+                      border-bottom: none;
+                    }
+                    .inputform_item {
+                      width: 100%;
+                      margin-right: 0%;
+                      margin-bottom: 10px;
+  
+                      input,
+                      select {
+                        width: 100%;
+                      }
+                    }
+                  }
+  
+                  .inputform_close {
+                    width: 100%;
+  
+                    .btn-remove {
+                      width: 100%;
+                      font-size: 14px;
+                      margin-right: 0px;
+                    }
+                  }
+  
+                  .btn-add {
+                    width: 100%;
+                    font-size: 14px;
+                    margin-top: 15px;
+                  }
+                }
+  
+                .inputformday {
+                  margin-bottom: 50px;
+                }
+  
+                .inputfiles {
+                  >div {
+                    flex-direction: column;
+  
+                    .item {
+                      width: 100%;
+                      margin: 15px 0px;
+                    }
+                  }
+  
+                  .btn-upload {
+                    font-size: 16px;
+                    img {
+                      width: 35px;
+                      height: 35px;
+                    }
+                  }
+                }
+
+                .fileslist {
+                  width: 100%;
+                  margin-bottom: 30px;
+                  display: flex;
+                  flex-direction: column;
+
+                  .files {
+                      width: 160px;
+                      padding: 0px 15px;
+                      height: 50px;
+                      font-size: 14px;
+                      font-weight: bold;
+                      justify-content: flex-start;
+                      margin-right: 0px;
+                      margin-bottom: 15px;
+
+                      img {
+                          width: 20px;
+                          height: 24px;
+                          margin-right: 5px;
+                      }
+                  }
+
+              }
+
+              .supplierslist {
+                  width: 100%;
+                  margin-bottom: 30px;
+
+                  h6 {
+                      font-size: 14px;
+                  }
+
+                 
+                .listitems {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  .listitem {
+                      margin-bottom: 15px;
+                      margin-right: 0px;
+                      width: 200px;
+                      height: 70px;
+
+                      span {
+                          display: flex;
+                          align-items: center;
+                      }
+
+                      img.iconprofile {
+                          width: 35px;
+                          height: 35px;
+                          border-radius: 50%;
+                          margin-right: 5px;
+                          -webkit-border-radius: 50%;
+                          -moz-border-radius: 50%;
+                          -ms-border-radius: 50%;
+                          -o-border-radius: 50%;
+                      }
+
+                      .btn-close {
+                          width: 20px;
+                          height:20px;
+
+                          img {
+                              width: 18px;
+                              height: 18px;
+                              object-fit: contain;
+                          }
+                      }
+
+                  }
+              }
+              }
+
+              }
+            }
+          }
+        
+      }
+    }
+  
+  }

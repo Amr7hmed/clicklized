@@ -1,0 +1,100 @@
+.showrequestdata{
+    font-family: var(--font-cairo);
+    &__top{
+        margin: 55px 0px 25px 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+        .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 48px;
+            .iconleft{
+              width: 33px;
+              height: 25px;
+              margin-right: 11px;
+            }
+            h4 {
+              font-size: 24px;
+              font-weight: bold;
+              color: #252428;
+              margin-bottom: 0px;
+            }
+        }
+        .right{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 48px;
+            .text{
+                font-size: 16px;
+                font-weight: normal;
+                color: #343433;
+                margin-right: 15px;
+            }
+            .dropdown{
+                .btn{
+                    width: 115px;
+                    height: 48px;
+                    border-radius: 4px;
+                    background-color: #e8d173;
+                    font-size: 16px;
+                    color: #231f20;
+                  
+                    &:active{border-color: white;}
+                    .dropdown-toggle{
+                    &::after {margin-left: 15px;}
+                }
+                }
+                ul.dropdown-menu {
+                    min-width: 115px !important;
+                    li{ 
+                        text-align: center;
+                        margin: 10px 0px;
+                    }
+                }
+            }
+        }
+    }
+    &__row{
+        display: flex;
+        flex-direction: row;
+
+        .navlist{
+            width: 257px;
+            height: 637px;
+            border-radius: 7px;
+            background-color: #231f20;
+            margin-right: 25px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+    .showrequestdata{
+        &__top{
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+            .left {
+                height: auto;
+                width: 100%;
+                margin-bottom: 20px;
+                h4 {
+                  font-size: 18px;
+                  font-weight: bold;
+                  margin-bottom: 0px;
+                }
+            }
+            .right{
+                height: auto;
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    }
+}

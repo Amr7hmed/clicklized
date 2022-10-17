@@ -71,12 +71,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-cairo);
-  
-    &:focus-visible {
-      outline: none !important;
-  }
-  
-  
+  &:focus-visible {outline: none !important;}
 }
 
 a {
@@ -209,6 +204,12 @@ input[type=radio] {
   }
  }
 
+ .btn-close {
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
 @import "../layout/signup/_style.scss";
 @import "../layout/signin/_style.scss";
 @import "../components/home/_style.scss";
@@ -219,3 +220,4 @@ input[type=radio] {
 @import "../components/buyer/createrequest/_style.scss";
 @import "../components/buyer/createissue/_style.scss";
 @import "../components/buyer/createreview/_style.scss";
+@import "../components/buyer/showrequest/_style.scss";

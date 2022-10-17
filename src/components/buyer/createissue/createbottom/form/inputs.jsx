@@ -1,22 +1,55 @@
 import { ErrorMessage, Field, FieldArray } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import IconAdd from '../../../../../images/icon/add-gray.png';
+import IconClose from "../../../../../images/icon/ic-close.svg";
 
 
-export function InputSupplierslist() {
+export function InputSupplierslist(props) {
+  const { SupplierslistItems } = props;
+  console.log(SupplierslistItems);
+  const [SuppliersItems, setSuppliersItems] = useState([]);
+
+  useEffect(() => {
+    setSuppliersItems(SupplierslistItems)
+  }, [SupplierslistItems]);
+
+  const RemoveItem = (id) => {
+    console.log(id);
+    let remainingArr = SuppliersItems.filter(data => data.id != id);
+    console.log(remainingArr);
+  }
   return (
     <div className='inputsupplierslist'>
       <div className="supplierslist">
-        <span>Suppliers list</span>
+        <span className='supplierslist_text'>Suppliers list</span>
 
         <button type="button" className="btn btn-add"
-       data-bs-toggle="modal" data-bs-target="#modallsupplierslist">
+          data-bs-toggle="modal" data-bs-target="#modallsupplierslist">
           <img src={IconAdd} alt="IconAdd" />
           Add new supplier
         </button>
-        
-      </div>
 
+      </div>
+      {SupplierslistItems.length === 0 ? "" :
+        <>
+
+          <div className="listitems">
+            {SuppliersItems.map(item =>
+              <span key={item.id} className="listitem">
+                <span>
+                  <img src={item.img} alt={item} className="iconprofile" />
+                  {item.name}
+                </span>
+
+                <button className='btn btn-close' onClick={() => RemoveItem(item.id)}>
+                  <img src={IconClose} alt="Icon Close" />
+                </button>
+              </span>
+            )}
+
+          </div>
+        </>
+      }
     </div>
   )
 };
@@ -65,9 +98,9 @@ export function Inputcheckbox(props) {
   const { errors } = props;
   return (
     <div className='inputform'>
-          <Field type="checkbox" name="checkboxtoggle" />
-            <label className="form-label formlabel-checkbox">
-              Send invitations to all suppliers</label>
+      <Field type="checkbox" name="checkboxtoggle" />
+      <label className="form-label formlabel-checkbox">
+        Send invitations to all suppliers</label>
     </div>
   )
 };

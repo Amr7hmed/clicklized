@@ -1,12 +1,13 @@
+.createissuedata {
 
-.createissuedata{
-    
     min-height: 70vh;
     max-height: auto;
-    .screenone{
+
+    .screenone {
         margin-bottom: 50px;
     }
 }
+
 .createbottom {
     .createissue {
         form {
@@ -104,6 +105,14 @@
                     justify-content: space-between;
                     align-items: center;
                     height: 52px;
+                    margin-bottom: 35px;
+
+                    .supplierslist_text {
+                        font-family: Cairo;
+                        font-size: 18px;
+                        font-weight: bold;
+                        color: #231f20;
+                    }
 
                     .btn-add {
                         width: 200px;
@@ -113,6 +122,7 @@
                         font-size: 14px;
                         font-weight: bold;
                         color: #e8d173;
+
                         img {
                             width: 24px;
                             height: 24px;
@@ -121,6 +131,54 @@
                         }
                     }
                 }
+
+                .listitems {
+                    display: flex;
+                    flex-direction: row;
+
+                    .listitem {
+                        font-weight: bold;
+                        color: #231f20;
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        margin-right: 15px;
+                        width: 220px;
+                        height: 70px;
+                        border-radius: 5px;
+                        background-color: #ebebeb;
+
+                        span {
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        img.iconprofile {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            margin-right: 12px;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                        }
+
+                        .btn-close {
+                            width: 30px;
+                            height: 30px;
+
+                            img {
+                                width: 24px;
+                                height: 24px;
+                                object-fit: contain;
+                            }
+                        }
+
+                    }
+                }
+
             }
 
             .end {
@@ -154,4 +212,246 @@
             }
         }
     }
+}
+
+#modallsupplierslist {
+    font-family: var(--font-cairo);
+
+    .modal-dialog {
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-content {
+        padding: 16px;
+        width: auto;
+
+        .modal-header {
+            border-bottom: none !important;
+        }
+
+        .modal-title {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #343433;
+            margin-bottom: 30px;
+        }
+
+        .modal-footer {
+            border-top: none !important;
+        }
+
+        .modal-body {
+            .listitems {
+                width: 650px;
+                height: 500px;
+                overflow-y: auto;
+                &::-webkit-scrollbar {
+                    width: 8px;
+                    height: 60px;
+                    border-radius: 6px;
+                  }
+                  
+                  /* Track */
+                &::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                  }
+                  
+                  /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background-color: #e8d173;
+                  }
+                  
+                  /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background-color: #887529;
+                  }
+
+                .item {
+                    width: 630px;
+                    height: 70px;
+                    margin: 10px auto;
+                    border-radius: 5px;
+                    background-color: #ebebeb;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .data {
+                        margin-left: 25px;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                            margin-right: 15px;
+                        }
+
+                        .text {
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #231f20;
+                        }
+                    }
+
+                    .btn-add-item {
+                        width: 119px;
+                        height: 48px;
+                        background-color: #e8d173;
+                        font-size: 14px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: #231f20;
+
+                        &:active {
+                            border-color: white;
+                        }
+                    }
+
+                    .active {
+                        background-color: #231f20;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .modal-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .btn{
+            height: 56px;
+            width: 150px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .btn-save{
+            background-color: #e8d173;
+            color: #231f20;
+        }
+        .btn-close_modal{
+            background-color: #eaeaee;
+            color: #a5a5ac;
+        }
+    }
+}
+
+// 1- 2- Style Chart Component To Media Queris Samll.
+@media screen and (max-width: 576px){
+    
+.createbottom {
+    .createissue {
+        form {
+            .inputsupplierslist {
+
+                .supplierslist {
+
+                    .supplierslist_text {
+                        font-size: 16px;
+                    }
+
+                    .btn-add {
+                        width: 150px;
+                        font-size: 12px;
+                        img {
+                            margin-right: 2px;
+                        }
+                    }
+                }
+
+                .listitems {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    .listitem {
+                        margin-bottom: 15px;
+                        margin-right: 0px;
+                        width: 200px;
+                        height: 70px;
+
+                        span {
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        img.iconprofile {
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 50%;
+                            margin-right: 5px;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                        }
+
+                        .btn-close {
+                            width: 20px;
+                            height:20px;
+
+                            img {
+                                width: 18px;
+                                height: 18px;
+                                object-fit: contain;
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+#modallsupplierslist {
+    .modal-content {
+
+        .modal-title {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .modal-body {
+            .listitems {
+                width: 300px;
+                height: 450px;
+
+                .item {
+                    width: 280px;
+                    height: 70px;
+                    margin: 10px auto;
+
+                    .data {
+                        margin-left: 5px;
+
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 5px;
+                        }
+
+                        .text {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .btn-add-item {
+                        width: 100px;
+                        height: 35px;
+                        font-size: 12px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
 }
