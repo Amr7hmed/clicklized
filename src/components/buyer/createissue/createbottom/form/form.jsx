@@ -77,6 +77,8 @@ function Form() {
                 onSubmit={onSubmit}
                 render={form}
                 validationSchema={schema()}
+                validateOnChange={false}
+                validateOnBlur={false}
             />
         </div>
     )

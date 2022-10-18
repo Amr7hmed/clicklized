@@ -3,7 +3,6 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import { Inputaddress, Inputday, Fileslist, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation, Supplierslist } from './inputs';
-import ModalMap from './modalmap';
 import { useNavigate } from 'react-router-dom';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
@@ -106,6 +105,8 @@ function Form() {
                 onSubmit={onSubmit}
                 render={form}
                 validationSchema={schema()}
+                validateOnChange={false}
+                validateOnBlur={false}
             />
         </div>
     )
