@@ -16,12 +16,16 @@ function Formpassword() {
     const [togglerenternewpassword, setTogglerenternewpassword] = useState(false);
 
     const SendData = () => {
+        /*
         swal({
             text: "Good !",
             icon: "success",
             buttons: false,
             timer: 3000
         })
+        */
+       
+        window.location.reload();
     }
     const onSubmit = (values) => {
         console.log(values);
@@ -154,6 +158,8 @@ function Formpassword() {
                 onSubmit={onSubmit}
                 render={form}
                 validationSchema={schema()}
+                validateOnChange={false}
+                validateOnBlur={false}
             />
         </div>
     )

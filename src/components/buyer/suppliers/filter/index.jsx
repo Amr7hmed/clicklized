@@ -1,11 +1,11 @@
 import React from 'react';
 
-function RequestFilter(props) {
+function SuppliersFilter(props) {
     const{Toggle}=props;
     return (
         <div 
-        className={Toggle === false ?'myrequest__filter myrequest__hide'
-        : 'myrequest__filter'}>
+        className={Toggle === false ?'mysuppliers__filter mysuppliers__hide'
+        : 'mysuppliers__filter'}>
             <div className="top">
                 <h6>Filter</h6>
                 <span>Status</span>
@@ -18,10 +18,10 @@ function RequestFilter(props) {
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                <button className="btn showresults" type="button">Show results</button>
+                <button className="btn showresults" type="button">Show Supplier</button>
             </div>
         </div>
     )
 }
 
-export default RequestFilter
+export default SuppliersFilter

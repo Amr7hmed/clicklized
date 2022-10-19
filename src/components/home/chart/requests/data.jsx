@@ -11,9 +11,9 @@ const DoughnutChart = (props) => {
     if (Datachart[i] > 2500) {
       BackgroundArray.push("#3ba500");
     } else if (Datachart[i] < 1900) {
-      BackgroundArray.push("#f14c4c");
+      BackgroundArray.push("#27beb8");
     } else {
-      BackgroundArray.push("#ff9500");
+      BackgroundArray.push("#0870e7");
     }
   }
 

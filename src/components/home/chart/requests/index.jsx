@@ -23,7 +23,7 @@ function Requests() {
     }
     return (
         <div className='requests'>
-            <TopChart Title={"Spends"} Years={Years} setDatayear={setDatayear} Datayear={datayear} />
+            <TopChart Title={"Requests"} Years={Years} setDatayear={setDatayear} Datayear={datayear} />
             <DoughnutChart Datachart={Data} labels={labels} />
         </div>
     )

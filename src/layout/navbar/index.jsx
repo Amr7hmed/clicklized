@@ -26,7 +26,7 @@ function Navbar(props) {
                         </li>
                         {Styleclass === "btnmyrequest" ? "":
                         <li className="nav-item">
-                        <NavLink to={"/"} className='suppliers'>My suppliers</NavLink>
+                        <NavLink to={"/suppliers"} className='suppliers'>My suppliers</NavLink>
                         </li>
                         }
                     </ul>

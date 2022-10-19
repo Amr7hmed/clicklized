@@ -27,6 +27,7 @@ function ModalShare() {
             <div className="inputs">
               <input type="text" className='input_text form-control'
                 ref={textAreaRef}
+                readOnly
                 value={Urlshere} />
               <button type='button'
                 className={copySuccess === 'Copied!' ? "btn btn-share-copy" : 'btn btn-share'}

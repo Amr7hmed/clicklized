@@ -12,6 +12,8 @@ import CreateIssue from './pages/buyer/createissue/index.jsx';
 import CreateReview from './pages/buyer/createreview/index.jsx';
 import ShowRequest from './pages/buyer/showrequest/index.jsx';
 import Questions from './pages/buyer/questions/index.jsx';
+import Offers from './pages/buyer/offers/index.jsx';
+import Suppliers from './pages/buyer/suppliers/index.jsx';
 
 function App() {
   return (
@@ -28,15 +30,14 @@ function App() {
       <Route path="/verification" element={<Verification />} exact />
       <Route path="/updatepassword" element={<Updatepassword />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
+      <Route path="/suppliers" element={<Suppliers />} exact />
       <Route path="/profile" element={<Profile />} exact />
       <Route path="/createrequest" element={<CreateRequest />} exact />
       <Route path="/createissue" element={<CreateIssue />} exact />
       <Route path="/createreview" element={<CreateReview />} exact />
       <Route path="/showrequest/:name/:id" element={<ShowRequest />} exact />
       <Route path="/questions/:name/:id" element={<Questions />} exact />
-      {/*
-      <Route path="/offers/:name/:id" element={<ShowRequest />} exact />
-       */}
+      <Route path="/offers/:name/:id" element={<Offers />} exact />
       
         </Routes>
       </BrowserRouter>

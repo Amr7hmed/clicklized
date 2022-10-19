@@ -8,8 +8,12 @@ function ShowQuestionsData() {
             <div className="title">
                 <h6>Questions</h6>
             </div>
+            <div className="questionsdatalistcontener">
 
             <QuestionsDataList/>
+            <QuestionsDataList/>
+            <QuestionsDataList/>
+            </div>
         </div>
     </div>
   )

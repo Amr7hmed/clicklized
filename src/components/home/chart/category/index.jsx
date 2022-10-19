@@ -23,7 +23,7 @@ function Category() {
 
   return (
     <div className='category'>
-      <TopChart Title={"Spends"} Years={Years} setDatayear={setDatayear} Datayear={datayear} />
+      <TopChart Title={"Category"} Years={Years} setDatayear={setDatayear} Datayear={datayear} />
       <DoughnutChart Datachart={Data} labels={labels} />
     </div>
   )

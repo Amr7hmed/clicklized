@@ -68,7 +68,7 @@ function FormSignIn() {
                 </div>
                 <div>
                     <span className='end'>
-                        Already user ?{" "}
+                    New user ?{" "}
                         <NavLink to={"/signup"}>Sign up</NavLink>
                     </span>
                 </div>
