@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../../../layout/navbar';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 import CreateIssueData from '../../../components/buyer/createissue/index.jsx';
 
 function CreateIssue() {

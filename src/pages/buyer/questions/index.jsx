@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import Showrequestrow from '../../../components/buyer/showrequest/questions/index.jsx';
 import ShowTop from '../../../components/buyer/showrequest/top/index.jsx';
-import Navbar from '../../../layout/navbar';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function Questions() {
     const { id, name } = useParams();

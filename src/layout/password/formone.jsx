@@ -1,19 +1,12 @@
 import React  from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import { ForgetPassword } from '../../api/actions';
 
 function FormOne() {
     const state = { email: ""};
 
     const SendData = (date) => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
        ForgetPassword(date)
     }
     const onSubmit = (values) => {
@@ -40,7 +33,7 @@ function FormOne() {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            email: Yup.string().required(),
+            email: Yup.string().required("Email Is Required"),
         });
 
         return schema;

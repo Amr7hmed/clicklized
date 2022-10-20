@@ -1,6 +1,6 @@
 import React from 'react'
 import Requestitems from '../../../components/buyer/myrequest/index.jsx';
-import Navbar from '../../../layout/navbar/index.jsx';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function Myrequest() {
   return (

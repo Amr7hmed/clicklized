@@ -1,6 +1,6 @@
 import React from 'react';
-import Notification from "../../images/icon/bell.png";
-import IconTimer from "../../images/icon/icon-timer.png";
+import Notification from "../../../images/icon/bell.png";
+import IconTimer from "../../../images/icon/icon-timer.png";
 
 function IconNotification() {
   return (

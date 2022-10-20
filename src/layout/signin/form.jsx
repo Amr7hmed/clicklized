@@ -13,14 +13,7 @@ function FormSignIn() {
     const [toggle, setToggle] = useState(false);
 
     const SendData = (date) => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
         login(date);
-
     }
     const onSubmit = (values) => {
         console.log(values);

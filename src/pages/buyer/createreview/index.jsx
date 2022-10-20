@@ -1,6 +1,6 @@
 import React from 'react'
-import CreateReviewData from '../../../components/buyer/createreview';
-import Navbar from '../../../layout/navbar';
+import CreateReviewData from '../../../components/buyer/createreview/index.jsx';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function CreateReview() {
   return (

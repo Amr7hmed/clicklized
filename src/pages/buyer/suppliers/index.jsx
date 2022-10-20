@@ -1,6 +1,6 @@
 import React from 'react'
 import Suppliersitems from '../../../components/buyer/suppliers/index.jsx';
-import Navbar from '../../../layout/navbar/index.jsx';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function Suppliers() {
   return (

@@ -24,4 +24,4 @@ function RequestFilter(props) {
     )
 }
 
-export default RequestFilter
+export default RequestFilter;

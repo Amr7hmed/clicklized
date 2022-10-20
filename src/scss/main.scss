@@ -212,9 +212,10 @@ input[type=radio] {
 
 @import "../layout/signup/_style.scss";
 @import "../layout/signin/_style.scss";
-@import "../components/home/_style.scss";
-@import "../layout/navbar/_style.scss";
-@import "../components/home/chart/_style.scss";
+// Buyer Style Pages
+@import "../components/buyer/navbar/_style.scss";
+@import "../components/buyer/home/chart/_style.scss";
+@import "../components/buyer/home/_style.scss";
 @import "../components/buyer/myrequest/_style.scss";
 @import "../components/buyer/profile/_style.scss";
 @import "../components/buyer/createrequest/_style.scss";
@@ -225,3 +226,7 @@ input[type=radio] {
 @import "../components/buyer/showrequest/questions/_style.scss";
 @import "../components/buyer/showrequest/offers/_style.scss";
 @import "../components/buyer/suppliers/_style.scss";
+// Seller Style Pages
+@import "../components/seller/home/detiles/_style.scss";
+@import "../components/seller/navbar/_style.scss";
+@import "../components/seller/myrequest/_style.scss";

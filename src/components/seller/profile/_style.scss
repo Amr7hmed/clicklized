@@ -1,0 +1,698 @@
+.myprofile {
+  font-family: var(--font-cairo);
+
+  &__top {
+    border-radius: 8px;
+    margin: 50px auto 20px auto;
+    height: 74px;
+    background-color: #f5e9bd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+    .left,
+    .right {
+      padding: 0px 25px;
+      height: 56px;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      .text {
+        font-size: 24px;
+        font-weight: bold;
+        color: #252428;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: row;
+
+      .btn {
+        width: 200px;
+        height: 100%;
+        background-color: #e8d173;
+        font-size: 14px;
+        font-weight: bold;
+        color: #231f20;
+        position: relative;
+
+        &:first-of-type {
+          margin-right: 15px;
+        }
+
+        &:active {
+          border-color: #e8d173;
+        }
+      }
+
+      img {
+        width: 19.2px;
+        height: 19.2px;
+        margin-right: 15px;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__bottom {
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 1px;
+    margin-bottom: 85px;
+
+    .userdata {
+      margin: 40px 70px;
+      padding: 20px 0px 70px 0px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e7e7e7;
+
+      .left {
+        height: 270px;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 270px;
+
+          li {
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+            color: #343433;
+
+            .title {
+              font-weight: normal;
+            }
+
+            .data {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 270px;
+
+        img {
+          width: 190px;
+          height: 190px;
+          margin-bottom: 25px;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+        }
+
+        .btn {
+          width: 192px;
+          height: 57px;
+          border-radius: 5px;
+          background-color: #e9d173;
+          font-size: 14px;
+          font-weight: bold;
+          color: #231f20;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          &:active {
+            border-color: #e8d173;
+          }
+
+          img {
+            width: 19px;
+            height: 19px;
+            object-fit: contain;
+            margin-right: 20px;
+            margin-bottom: 0px;
+          }
+
+          input {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .companydata {
+      margin: 40px 70px;
+      padding: 70px 0px 20px 0px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .left {
+        height: 320px;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 320px;
+
+          li {
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+            color: #343433;
+
+            .title {
+              font-weight: normal;
+            }
+
+            .data {
+              font-weight: bold;
+            }
+
+            .btn-upload {
+              position: relative;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              width: 250px;
+              height: 54px;
+              margin-top: 9px;
+              border: solid 2px #e8d173;
+              background-color: #f8f0d2;
+              cursor: pointer;
+              font-size: 16px;
+              font-weight: bold;
+              color: #231f20;
+
+              &:active {
+                border-color: #e8d173;
+              }
+
+              input {
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+              }
+
+              img {
+                width: 40px;
+                height: 40px;
+                margin: 0 12px 0 0;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 320px;
+
+        img {
+          width: 190px;
+          height: 190px;
+          margin-bottom: 25px;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+        }
+
+        .btn {
+          width: 192px;
+          height: 57px;
+          border-radius: 5px;
+          background-color: #e9d173;
+          font-size: 14px;
+          font-weight: bold;
+          color: #231f20;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+
+          &:active {
+            border-color: #e8d173;
+          }
+
+          img {
+            width: 19px;
+            height: 19px;
+            object-fit: contain;
+            margin-right: 20px;
+            margin-bottom: 0px;
+          }
+
+          input {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#modalchangepassword {
+  font-family: var(--font-cairo);
+
+  .modal-header {
+    justify-content: center;
+    padding: 25px 0px;
+    border-bottom: 0px;
+
+    h5 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #020524;
+    }
+  }
+
+  .modal-body {
+    >div {
+      margin-bottom: 25px;
+
+      .filedpassword {
+        position: relative;
+
+        .toggoleimg {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          right: 1%;
+          transform: translate(0%, -50%);
+          -webkit-transform: translate(0%, -50%);
+          -moz-transform: translate(0%, -50%);
+          -ms-transform: translate(0%, -50%);
+          -o-transform: translate(0%, -50%);
+          padding: 0px;
+          margin: 0px;
+          display: block;
+          cursor: pointer;
+
+          img {
+            width: 24px;
+            height: 21px;
+            object-fit: contain;
+            filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+            -webkit-filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+          }
+        }
+      }
+
+      label.form-label {
+        font-size: 16px;
+        font-weight: normal;
+        color: #020524;
+        margin-bottom: 8px;
+        font-family: var(--font-cairo);
+      }
+
+      input.form-control {
+        height: 48px;
+      }
+    }
+
+    .end {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        height: 50px;
+        border-radius: 5px;
+        width: 182px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .btn-send {
+        background-color: #e9d173;
+        margin-right: 15px;
+        color: #231f20;
+      }
+
+      .btn-cancel {
+        background-color: rgba(189, 189, 189, 0.3);
+        color: #bdbdbd;
+      }
+    }
+  }
+}
+
+#modeleditprofile{
+  font-family: var(--font-cairo);
+
+  .modal-header {
+    justify-content: center;
+    padding: 25px 0px;
+    border-bottom: 0px;
+
+    h5 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #020524;
+    }
+  }
+.modal-body{
+  .input_model{
+    margin-bottom: 25px;
+    label.form-label {
+      font-size: 16px;
+      font-weight: normal;
+      color: #020524;
+      margin-bottom: 8px;
+      font-family: var(--font-cairo);
+    }
+
+    input.form-control,
+    .form-select {
+      height: 48px;
+    }
+    
+    .btn-upload {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 48px;
+      margin-top: 9px;
+      border: solid 2px #e8d173;
+      background-color: #f8f0d2;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: #231f20;
+
+      &:active {
+        border-color: #e8d173;
+      }
+
+      input {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin: 0 12px 0 0;
+        object-fit: contain;
+      }
+    }
+    .btn-upload .is-invalid{
+      border-color: red;
+    }
+  }
+
+  
+  .end {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      height: 50px;
+      border-radius: 5px;
+      width: 182px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .btn-send {
+      background-color: #e9d173;
+      margin-right: 15px;
+      color: #231f20;
+    }
+
+    .btn-cancel {
+      background-color: rgba(189, 189, 189, 0.3);
+      color: #bdbdbd;
+    }
+  }
+}
+
+}
+
+.modalsavedata{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  top: 0;
+  left: 0%;
+  .modaldata{
+    width: 382px;
+    height: auto;
+    border-radius: 27px;
+    background-color: #fff;
+    .modaldataheader{
+      margin: 15px 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      .btn-close{
+        width: 24px;
+        height: 24px;
+        img{
+          width: 24px;
+          height: 24px;  
+          object-fit: contain;
+        }
+      }
+    }
+    .modaldatabody{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 25px;
+      img{
+        width: 106px;
+        height: 106px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+      .text{
+        font-family: var(--font-cairo);
+        font-size: 18px;
+        font-weight: bold;
+        color: #231f20;
+      }
+    }
+    .modaldataend{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .btn{
+        width: 95%;
+        margin-bottom: 15px;  
+        height: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .btn-save{
+        background-color: #e8d173;
+        color: #231f20;
+      }
+      .btn-cancel{
+        color: #a5a5ac;  
+        background-color: #eaeaee;
+      }
+    }
+  }
+}
+.hidemodal{
+  display: none !important;
+}
+.showmodal{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+// 1- 2- Style Component To Media Queris Samll.
+@media screen and (max-width: 992px) {
+  .myprofile {
+    font-family: var(--font-cairo);
+
+    &__top {
+      height: auto;
+      flex-direction: column;
+      padding: 20px 0px;
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .left {
+        .text {
+          font-size: 20px;
+        }
+      }
+
+      .right {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        .btn {
+          padding: 0px;
+          height: 50px;
+          width: 200px;
+
+          &:first-of-type {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 1- 2- Style Chart Component To Media Queris Samll.
+@media screen and (max-width: 576px) {
+  .myprofile {
+    &__top {
+
+      .left,
+      .right {
+        height: auto;
+      }
+
+      .left {
+        .text {
+          font-size: 18px;
+        }
+      }
+
+      .right {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 50px;
+
+        .btn {
+          padding: 0px;
+          height: 50px;
+          width: 200px;
+
+          &:first-of-type {
+            margin-right: 0px;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      height: auto;
+
+      .userdata,
+      .companydata {
+        margin: 40px 0px 0px 0px;
+        flex-direction: column;
+
+        .left {
+          margin-bottom: 25px;
+
+          ul {
+            li {
+              font-size: 16px;
+
+              .btn-upload {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .companydata {
+        margin: 0px 0px 70px 0px;
+      }
+    }
+  }
+
+  .modalsavedata{
+    .modaldata{
+      width: 300px;
+      .modaldatabody{
+        .text{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .modalsavedata{
+    .modaldata{
+      width: 95%;
+      .modaldatabody{
+        img{
+          width: 90px;
+          height: 90px;
+        }
+        .text{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import RequestFilter from './filter/index.jsx'
-import RequestHeadr from './headr/requestheadr.jsx';
+import RequestHeadr from './headr/index.jsx';
 import RequestRow from './row/index.jsx'
 
 function Requestitems() {

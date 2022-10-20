@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import AddRequest from "../../../images/icon/addrequests.png";
+import AddRequest from "../../../../images/icon/addrequests.png";
 
 function ChartBottom() {
   return (
@@ -8,7 +8,7 @@ function ChartBottom() {
         <h6>You don’t have any request</h6>
         <span>Start adding requests now</span>
         <NavLink to={"/createrequest"}  className='addrequests'>
-            <img src={AddRequest} alt="AddRequest" />
+        <img src={AddRequest} alt="AddRequest" />
         Add new request
         </NavLink>
     </div>

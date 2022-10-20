@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import Offersrow from '../../../components/buyer/showrequest/offers/index.jsx';
 import ShowTop from '../../../components/buyer/showrequest/top/index.jsx';
-import Navbar from '../../../layout/navbar';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function Offers() {
     const { id, name } = useParams();

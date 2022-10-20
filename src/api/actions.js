@@ -4,7 +4,7 @@
 
 // Post Function Api
 export const login = async (state) => {
-  localStorage.setItem("token", JSON.stringify(state));
+  localStorage.setItem("tokenclicklized", JSON.stringify(state));
   window.location.reload();
 };
 
@@ -17,5 +17,8 @@ export const ForgetPasswordcode = async (state) => {
   window.location.pathname = `/updatepassword`;
 };
 export const EndForgetPassword = async () => {
+  window.location.pathname = `/`;
+};
+export const Signup = async () => {
   window.location.pathname = `/`;
 };

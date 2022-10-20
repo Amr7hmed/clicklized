@@ -1,7 +1,6 @@
 import React, { useState }  from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import { EndForgetPassword } from '../../api/actions';
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
@@ -12,14 +11,7 @@ function FormThree() {
     const [togglechangepassword, setTogglechangepassword] = useState(false);
 
     const SendData = () => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
       EndForgetPassword()
-
     }
     const onSubmit = (values) => {
         console.log(values);
@@ -98,7 +90,7 @@ function FormThree() {
                   [Yup.ref("password")],
                   "Both password need to be the same"
                 )
-              })
+              }).required('Required'), 
         });
 
         return schema;

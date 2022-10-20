@@ -1,6 +1,6 @@
 import React from 'react';
-import Profile from '../../images/icon/img-profile.jpg';
-import Account from '../../images/icon/account.png';
+import Profile from '../../../images/icon/img-profile.jpg';
+import Account from '../../../images/icon/account.png';
 import { NavLink } from 'react-router-dom';
 
 function IconProfile() {

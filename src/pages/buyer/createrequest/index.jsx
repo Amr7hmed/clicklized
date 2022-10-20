@@ -1,6 +1,6 @@
 import React from 'react'
-import Create from '../../../components/buyer/createrequest';
-import Navbar from '../../../layout/navbar';
+import Create from '../../../components/buyer/createrequest/index.jsx';
+import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function CreateRequest() {
   return (

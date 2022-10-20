@@ -3,18 +3,13 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import { NavLink } from 'react-router-dom';
+import { Signup } from '../../api/actions';
 
 function FormSignup() {
     const state = {type: "", name: "", email: "" ,number:"",password:""};
 
     const SendData=()=>{
-            swal({
-              text: "Good !",
-              icon: "success",
-              buttons: false,
-              timer: 3000
-            })
-    
+        Signup();
     }
     const onSubmit = (values) => {
       console.log(values);
@@ -39,7 +34,7 @@ function FormSignup() {
                 <div className='mb-1'>
                     <label className="form-label">User name</label>
                     <Field type="text" 
-				className={props.errors.name ? "form-control is-invalid" : "form-control"}
+				    className={props.errors.name ? "form-control is-invalid" : "form-control"}
                     placeholder="Enter your user name" name="name"/>
                     <ErrorMessage name="name" component="span" className='errorfiled'/>
                 </div>
@@ -80,11 +75,11 @@ function FormSignup() {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            type: Yup.string().required(),
-            name: Yup.string().required(),
-            email: Yup.string().required(),
-            number: Yup.string().required(),
-            password: Yup.string().required(),
+            type: Yup.string().required("Type Is Required"),
+            name: Yup.string().required("Name Is Required"),
+            email: Yup.string().required("Email Is Required"),
+            number: Yup.string().required("Contact Number Is Required"),
+            password: Yup.string().required("Password Is Required"),
         });
 
         return schema;
