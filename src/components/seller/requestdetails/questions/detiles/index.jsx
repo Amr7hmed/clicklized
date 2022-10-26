@@ -4,7 +4,7 @@ import QuestionsDataList from './list.jsx'
 function ShowQuestionsData() {
   return (
     <div className='requestdetailsbottom'>
-        <div className="requestdetailsdata">
+        <div className="requestquestionsdata">
             <div className="title">
                 <h6>Questions</h6>
             </div>

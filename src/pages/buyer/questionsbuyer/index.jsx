@@ -4,7 +4,7 @@ import Showrequestrow from '../../../components/buyer/showrequest/questions/inde
 import ShowTop from '../../../components/buyer/showrequest/top/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 
-function Questions() {
+function QuestionsBuyer() {
     const { id, name } = useParams();
     const Stylebuttons = "questions";
     return (
@@ -20,4 +20,4 @@ function Questions() {
     )
 }
 
-export default Questions;
+export default QuestionsBuyer;

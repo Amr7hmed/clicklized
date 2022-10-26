@@ -9,7 +9,7 @@ function RequestCard(props) {
 
     
     const ShowId=(name,id)=>{
-        navigate(`/showrequest/${name}/${id}`);
+        navigate(`/showrequestbuyer/${name}/${id}`);
     }
   return (
     <div className="col-12 col-md-6 col-lg-4">

@@ -12,12 +12,14 @@ import CreateRequest from './pages/buyer/createrequest/index.jsx';
 import CreateIssue from './pages/buyer/createissue/index.jsx';
 import CreateReview from './pages/buyer/createreview/index.jsx';
 import ShowRequest from './pages/buyer/showrequest/index.jsx';
-import Questions from './pages/buyer/questions/index.jsx';
+import QuestionsBuyer from './pages/buyer/questionsbuyer/index.jsx';
 import Offers from './pages/buyer/offers/index.jsx';
 import Suppliers from './pages/buyer/suppliers/index.jsx';
 // This Is Seller Pages
 import HomeSeller from './pages/seller/home/index.jsx';
 import MyRequestSeller from './pages/seller/myrequest/index.jsx';
+import RequestDetails from './pages/seller/requestdetails/index.jsx';
+import QuestionsSeller from './pages/seller/questionsseller/index.jsx';
 
 function App() {
   return (
@@ -27,7 +29,7 @@ function App() {
         {localStorage.getItem("tokenclicklized") === null ?
         <Route path="/" element={<SignIn />} exact />
         :
-        <Route path="/" element={<HomeBuyer />} exact />      
+      <Route path="/" element={<HomeBuyer />} exact />      
       //<Route path="/" element={<HomeSeller />} exact />
       }
       <Route path="/signup" element={<Signup />} exact />
@@ -35,17 +37,19 @@ function App() {
       <Route path="/verification" element={<Verification />} exact />
       <Route path="/updatepassword" element={<Updatepassword />} exact />
       {/*This Is Buyer Pages*/}
-      <Route path="/myrequest" element={<Myrequest />} exact />
       <Route path="/suppliers" element={<Suppliers />} exact />
       <Route path="/profile" element={<Profile />} exact />
       <Route path="/createrequest" element={<CreateRequest />} exact />
       <Route path="/createissue" element={<CreateIssue />} exact />
       <Route path="/createreview" element={<CreateReview />} exact />
-      <Route path="/showrequest/:name/:id" element={<ShowRequest />} exact />
-      <Route path="/questions/:name/:id" element={<Questions />} exact />
-      <Route path="/offers/:name/:id" element={<Offers />} exact />
+      <Route path="/myrequest" element={<Myrequest />} exact />
+      <Route path="/showrequestbuyer/:name/:id" element={<ShowRequest />} exact />
+      <Route path="/questionsbuyer/:name/:id" element={<QuestionsBuyer />} exact />
+      <Route path="/offersbuyer/:name/:id" element={<Offers />} exact />
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
+      <Route path="/requestdetailsseller/:name/:id" element={<RequestDetails />} exact />
+      <Route path="/questionsseller/:name/:id" element={<QuestionsSeller />} exact />
       
         </Routes>
       </BrowserRouter>

@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function RequestCardSeller(props) {
     const {Dataoffer}=props;
+    let navigate  = useNavigate();
+    
+    const ShowId=(name,id)=>{
+        navigate(`/requestdetailsseller/${name}/${id}`);
+    }
+
   return (
     <div className='myrequestseller__card'>
         <div className="left">
@@ -18,7 +25,8 @@ function RequestCardSeller(props) {
             <span className="price">
                 {Dataoffer.price}
             </span>
-            <button className='btn' type='button'>
+            <button className='btn' type='button'
+            onClick={()=>ShowId(Dataoffer.name,Dataoffer.id)}>
             Show details
             </button>
         </div>

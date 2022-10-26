@@ -1,0 +1,571 @@
+// Style Showrequest Data Top
+.requestdetailsdata {
+    font-family: var(--font-cairo);
+
+    &__top {
+        margin: 55px 0px 25px 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+
+        .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 48px;
+
+            .iconleft {
+                width: 33px;
+                height: 25px;
+                margin-right: 11px;
+            }
+
+            h4 {
+                font-size: 24px;
+                font-weight: bold;
+                color: #252428;
+                margin-bottom: 0px;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 48px;
+
+            .text {
+                font-size: 16px;
+                font-weight: normal;
+                color: #343433;
+                margin-right: 15px;
+            }
+
+            .dropdown {
+                .btn {
+                    width: 115px;
+                    height: 48px;
+                    border-radius: 4px;
+                    background-color: #e8d173;
+                    font-size: 16px;
+                    color: #231f20;
+
+                    &:active {
+                        border-color: white;
+                    }
+
+                    .dropdown-toggle {
+                        &::after {
+                            margin-left: 15px;
+                        }
+                    }
+                }
+
+                ul.dropdown-menu {
+                    min-width: 115px !important;
+
+                    li {
+                        text-align: center;
+                        margin: 10px 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Style Showrequest Data Navlist
+.requestdetailsdata {
+    &__row {
+        display: flex;
+        flex-direction: row;
+
+        .navlist {
+            width: 255px;
+            height: 637px;
+            border-radius: 7px;
+            background-color: #231f20;
+            margin-right: 25px;
+            padding: 55px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            ul {
+                li {
+                    .btn_navlist {
+                        width: 203px;
+                        height: 54px;
+                        border-radius: 3px;
+                        margin-bottom: 20px;
+                        font-family: Cairo;
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: #fff;
+                        background-color: transparent;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        &:active {
+                            border-color: #231f20;
+                        }
+                        &:hover{
+                            color: #f6f6f6 !important;
+                        }
+                    }
+                    .active{
+                        border-color: transparent;
+                    }
+                    .btn_navlist.activeitem {
+                        background-color: #e8d173;
+                        color: #252428;
+                        &:hover{
+                            color: #252428 !important;
+                        }
+
+                        &:active {
+                            border-color: #e8d173;
+                        }
+                    }
+                }
+            }
+
+            .btn-sharerequest {
+                width: 203px;
+                height: 54px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #e8d173;
+
+                &:active {
+                    border-color: #231f20;
+                }
+
+                img {
+                    width: 24px;
+                    height: 26px;
+                    object-fit: contain;
+                    margin-right: 20px;
+                }
+            }
+
+            #modalsharerequest {
+                font-family: var(--font-cairo);
+
+                .modal-dialog {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .modal-content {
+                        width: auto;
+                        height: auto;
+                        border-radius: 25px;
+                        box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.1);
+                        background-color: #fff;
+
+                        .modal-header {
+                            border-bottom: none;
+
+                            h5 {
+                                text-align: center;
+                                width: 100%;
+                                margin: 25px 16px;
+                            }
+                        }
+
+                        .modal-footer {
+                            border-top: none;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+
+                            .btn-cancel_modal {
+                                width: 182px;
+                                height: 56px;
+                                border-radius: 28px;
+                                margin-bottom: 25px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                text-align: center;
+                                color: #a5a5ac;
+                                background-color: #eaeaee;
+
+                                &:active {
+                                    border-color: #eaeaee;
+                                }
+                            }
+                        }
+
+                        .modal-body {
+                            padding: 0px 50px;
+
+                            .inputs {
+                                width: 678px;
+                                height: 57px;
+                                border-radius: 10px;
+                                margin: 0px 0px 24px 0px;
+                                padding: 0px 15px;
+                                background-color: #f8f0d2;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                .btn {
+                                    width: 100px;
+                                    height: 40px;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    text-align: center;
+                                }
+
+                                .btn-share {
+                                    background-color: #e8d173;
+                                    color: #231f20;
+
+                                    &:active {
+                                        border-color: #e8d173;
+                                    }
+                                }
+
+                                .btn-share-copy {
+                                    color: #eaeaee;
+                                    background-color: #a5a5ac;
+
+                                    &:active {
+                                        border-color: #a5a5ac;
+                                    }
+                                }
+
+                                .input_text {
+                                    width: calc(100% - 145px);
+                                    height: 40px;
+                                    background-color: #f8f0d2;
+                                    border-color: #f8f0d2;
+                                    font-size: 16px;
+                                    font-weight: normal;
+                                    color: #343433;
+                                }
+                            }
+
+                            .oruse {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                span {
+                                    font-size: 14px;
+                                    margin: 0px 0px 24px 0px;
+                                    font-weight: bold;
+                                    color: #a5a5ac;
+                                }
+
+                                ul {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: center;
+                                    margin-bottom: 25px;
+
+                                    li {
+                                        .btn {
+                                            width: 170px !important;
+                                            height: 50px !important;
+                                            border-radius: 22px !important;
+                                            display: flex !important;
+                                            flex-direction: row !important;
+                                            justify-content: center !important;
+                                            align-items: center !important;
+                                            font-size: 14px;
+                                            font-weight: bold;
+                                            color: #fff !important;
+                                            -webkit-border-radius: 22px !important;
+                                            -moz-border-radius: 22px !important;
+                                            -ms-border-radius: 22px !important;
+                                            -o-border-radius: 22px !important;
+                                        }
+                                    }
+
+                                    .btn-whatsapp {
+                                        margin-right: 15px;
+
+                                        .btn {
+                                            background-color: #29a71a !important;
+
+                                            img {
+                                                width: 32px;
+                                                height: 32px;
+                                                margin-right: 15px;
+                                                object-fit: contain;
+                                            }
+                                        }
+                                    }
+
+                                    .btn-email {
+                                        .btn {
+                                            background-color: #ffaa24 !important;
+
+                                            img {
+                                                width: 27px;
+                                                height: 22px;
+                                                margin-right: 15px;
+                                                object-fit: contain;
+                                                filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(158deg) brightness(102%) contrast(103%);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+.requestdetails{
+    background-color: #f6f6f6;
+    min-height: 100vh;
+    max-height: auto;
+}
+
+// 1- 2- Style Component To Media Queris Samll.
+@media screen and (max-width: 992px) {
+    .requestdetailsdata {
+        &__row {
+            flex-direction: column;
+            .navlist {
+                flex-direction: row;
+                display: none;
+                #modalsharerequest {
+    
+                    .modal-dialog {
+    
+                        .modal-content {
+                            .modal-footer {
+    
+                                .btn-cancel_modal {
+                                    width: 170px;
+                                    height: 46px;
+                                }
+                            }
+    
+                            .modal-body {
+                                padding: 0px 20px;
+    
+                                .inputs {
+                                    width: 500px;
+                                    .input_text {
+                                        width: calc(100% - 135px);
+                                    }
+                                }
+    
+                                .oruse {
+                                    width: 100%;
+                                    ul {
+    
+                                        li {
+                                            .btn {
+                                                width: 150px !important;
+                                                height: 45px !important;
+                                            }
+                                        }
+    
+                                        .btn-whatsapp {
+                                            margin-right: 10px;
+    
+                                            .btn {
+    
+                                                img {
+                                                    width: 28px;
+                                                    height: 28px;
+                                                    margin-right: 10px;
+                                                }
+                                            }
+                                        }
+    
+                                        .btn-email {
+                                            .btn {
+    
+                                                img {
+                                                    width: 27px;
+                                                    height: 22px;
+                                                    margin-right: 10px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .requestdetailsdata {
+        &__top {
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+
+            .left {
+                height: auto;
+                width: 100%;
+                margin-bottom: 20px;
+
+                h4 {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 0px;
+                }
+            }
+
+            .right {
+                height: auto;
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+
+        &__row {
+            .navlist {
+                #modalsharerequest {
+    
+                    .modal-dialog {
+    
+                        .modal-content {
+                            .modal-header {h5 {
+                                margin: 15px 5px;
+                                font-size: 18px;
+                            }}
+                            .modal-footer {
+                                .btn-cancel_modal {
+                                    width: 150px;
+                                    height: 40px;
+                                }
+                            }
+    
+                            .modal-body {
+                                padding: 0px 5px;
+                                .inputs {
+                                    width: 350px;
+                                    height: 45px;
+                                    padding: 0px 2px;
+                                    .input_text {
+                                        width: calc(100% - 94px);
+                                        font-size: 12px;
+                                    }
+                                    .btn {
+                                        width: 90px;
+                                        height: 35px;
+                                    }
+                                }
+    
+                                .oruse {
+                                    width: 100%;
+                                    ul {
+                                        flex-direction: column;
+                                        .btn-whatsapp {
+                                            margin-right: 0px;
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    .requestdetailsdata {
+        &__row {
+            .navlist {
+                #modalsharerequest {
+    
+                    .modal-dialog {
+    
+                        .modal-content {
+                            .modal-body {
+                                padding: 0px 5px;
+                                .inputs {
+                                    width: 250px;
+                                    height: 40px;
+                                    padding: 0px 2px;
+                                    .input_text {
+                                        width: calc(100% - 84px);
+                                        font-size: 10px;
+                                        height: 40px;
+                                    }
+                                    .btn {
+                                        width: 80px;
+                                        height: 30px;
+                                        font-size: 12px;
+                                    }
+                                }
+    
+                                .oruse {
+                                    width: 100%;
+                                    ul {
+                                        flex-direction: column;
+                                        margin-bottom: 15px;
+
+                                    li {
+                                        .btn {
+                                            width: 150px !important;
+                                            height: 40px !important;
+                                            font-size: 12px !important;
+                                        }
+                                    }
+                                        .btn-whatsapp {
+                                            margin-right: 0px;
+                                            margin-bottom: 10px;
+                                            .btn {
+    
+                                                img {
+                                                    width: 20px;
+                                                    height: 20px;
+                                                    margin-right: 10px;
+                                                    object-fit: contain;
+                                                }
+                                            }
+                                        }
+    
+                                        .btn-email {
+                                            .btn {
+    
+                                                img {
+                                                    width: 17px;
+                                                    height: 15px;
+                                                    margin-right: 10px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+}
