@@ -4,14 +4,21 @@ import * as Yup from "yup";
 import swal from 'sweetalert';
 import UploadImage from "../../../../images/icon/upload.png";
 
-function Formprofile() {
+function Formprofileseller() {
     const state = {
-        name: "",
-        email: "",
-        phone: "",
-        industry: "",
-        cr_files: "",
-        vat_files: ""
+        companyname: "",
+        business_sector: "",
+        cr: "",
+        vat: "",
+        companycr:"",
+        vat_registration_date:"",
+        website:"",
+        country:"",
+        city:"",
+        address:"",
+        phone:"",
+        fax:"",
+        payment_terms:""
     };
 
     const SendData = () => {
@@ -24,11 +31,10 @@ function Formprofile() {
         })
         */
        window.location.reload();
-
     }
     const onSubmit = (values) => {
         console.log(values);
-        SendData();
+        //SendData();
     }
 
 
@@ -37,94 +43,132 @@ function Formprofile() {
             <form onSubmit={props.handleSubmit}>
                 <div className="modal-body">
                     <div className='row'>
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">User Name</label>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">User Company Name</label>
                             <Field type={"text"}
-                                className={props.errors.name ? "form-control is-invalid" : "form-control"}
-                                placeholder="User Name" name="name" />
-                            <ErrorMessage name="name" component="span" className='errorfiled' />
+                                className={props.errors.companyname ? "form-control is-invalid" : "form-control"}
+                                placeholder="Company Name here" name="companyname" />
+                            <ErrorMessage name="companyname" component="span" className='errorfiled' />
                         </div>
 
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Bussiness Email</label>
-                            <Field type={"email"}
-                                className={props.errors.email ? "form-control is-invalid" : "form-control"}
-                                placeholder="Bussiness Email" name="email" />
-                            <ErrorMessage name="email" component="span" className='errorfiled' />
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Business Sector</label>
+                            <Field type={"text"}
+                                className={props.errors.business_sector ? "form-control is-invalid" : "form-control"}
+                                placeholder="Business Sector here" name="business_sector" />
+                            <ErrorMessage name="business_sector" component="span" className='errorfiled' />
                         </div>
                     </div>
 
                     <div className='row'>
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Contact Number</label>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">CR NO.</label>
                             <Field type={"text"}
+                                className={props.errors.cr ? "form-control is-invalid" : "form-control"}
+                                placeholder="CR NO. here" name="cr" />
+                            <ErrorMessage name="cr" component="span" className='errorfiled' />
+                        </div>
+
+                        <div className='col-6 input_model'>
+                            <label className="form-label">VAT NO.</label>
+                            <Field type={"text"}
+                                className={props.errors.vat ? "form-control is-invalid" : "form-control"}
+                                placeholder="VAT NO. here" name="vat" />
+                            <ErrorMessage name="vat" component="span" className='errorfiled' />
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">test</label>
+                            <Field type={"text"}
+                                className={props.errors.cr ? "form-control is-invalid" : "form-control"}
+                                placeholder="test . here" name="cr" />
+                            <ErrorMessage name="cr" component="span" className='errorfiled' />
+                        </div>
+
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Company CR</label>
+                            <Field type={"text"}
+                                className={props.errors.companycr ? "form-control is-invalid" : "form-control"}
+                                placeholder="Company CR. here" name="companycr" />
+                            <ErrorMessage name="companycr" component="span" className='errorfiled' />
+                        </div>
+                    </div>
+                    
+                    <div className='row'>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">VAT Registration Date</label>
+                            <Field type={"text"}
+                                className={props.errors.vat_registration_date ? "form-control is-invalid" : "form-control"}
+                                placeholder="VAT Registration Date . here" name="vat_registration_date" />
+                            <ErrorMessage name="vat_registration_date" component="span" className='errorfiled' />
+                        </div>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Payment Terms</label>
+                            <Field type={"text"}
+                                className={props.errors.payment_terms ? "form-control is-invalid" : "form-control"}
+                                placeholder="Payment Terms. here" name="payment_terms" />
+                            <ErrorMessage name="payment_terms" component="span" className='errorfiled' />
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Website</label>
+                            <Field type={"text"}
+                                className={props.errors.website ? "form-control is-invalid" : "form-control"}
+                                placeholder="Website . here" name="website" />
+                            <ErrorMessage name="website" component="span" className='errorfiled' />
+                        </div>
+
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Country</label>
+                            <Field type={"text"}
+                                className={props.errors.country ? "form-control is-invalid" : "form-control"}
+                                placeholder="Country . here" name="country" />
+                            <ErrorMessage name="country" component="span" className='errorfiled' />
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">City</label>
+                            <Field type={"text"}
+                                className={props.errors.city ? "form-control is-invalid" : "form-control"}
+                                placeholder="City. here" name="city" />
+                            <ErrorMessage name="city" component="span" className='errorfiled' />
+                        </div>
+
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Address</label>
+                            <Field type={"text"}
+                                className={props.errors.address ? "form-control is-invalid" : "form-control"}
+                                placeholder="Address. here" name="address" />
+                            <ErrorMessage name="address" component="span" className='errorfiled' />
+                        </div>
+                    </div>
+                    
+                    <div className='row'>
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Phone No.</label>
+                            <Field type={"number"}
                                 className={props.errors.phone ? "form-control is-invalid" : "form-control"}
-                                placeholder="Contact Number" name="phone" />
+                                placeholder="Phone No. here" name="phone" />
                             <ErrorMessage name="phone" component="span" className='errorfiled' />
                         </div>
-                    </div>
 
-
-                    <div className='row'>
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Company Industry</label>
-
-                            <Field name="industry" component="select"
-                                className={props.errors.industry ? "form-select is-invalid" : "form-select"} >
-                                <option></option>
-                                <option value="industry">industry</option>
-                                <option value="industrytwo">industrytwo</option>
-                            </Field>
-
-                            <ErrorMessage name="industry" component="span" className='errorfiled' />
-                        </div>
-
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Company CR</label>
-                            <button type='button'
-                                className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"}
-                                    className="input-file" name="cr_files" />
-                                <img src={UploadImage} alt="" />
-                                Upload files
-                            </button>
-                            <ErrorMessage name="cr_files" component="span" className='errorfiled' />
-                        </div>
-                    </div>
-
-
-
-
-                    <div className='row'>
-
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Company VAT</label>
-                            <button type='button'
-                                className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"}
-                                    className="input-file" name="vat_files" />
-                                <img src={UploadImage} alt="" />
-                                Upload files
-                            </button>
-                            <ErrorMessage name="vat_files" component="span" className='errorfiled' />
+                        <div className='col-6 input_model'>
+                            <label className="form-label">Fax No.</label>
+                            <Field type={"number"}
+                                className={props.errors.fax ? "form-control is-invalid" : "form-control"}
+                                placeholder="Fax No. here" name="fax" />
+                            <ErrorMessage name="fax" component="span" className='errorfiled' />
                         </div>
                     </div>
 
                     <div className='end'>
-
-                        <button className={props.errors.name ||
-                            props.errors.email ||
-                            props.errors.phone ||
-                            props.errors.industry ||
-                            props.errors.cr_files ||
-                            props.errors.vat_files ?
-                            'btn btn-send button-disabled' :
-                            'btn btn-send button-active'}
-                            data-bs-dismiss="modal"
-                            type="submit" >Save</button>
-
-                        <button type="button" className="btn btn-cancel"
-                            data-bs-dismiss="modal">Cancel</button>
+                        <button className={'btn btn-send button-active'} type="submit" >Save</button>
+                        <button type="button" className="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
 
@@ -134,12 +178,21 @@ function Formprofile() {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            name: Yup.string().required('User name Required'),
-            email: Yup.string().required('Bussiness Email Required'),
-            phone: Yup.string().required('Contact Number Required'),
-            industry: Yup.string().required('Company Industry Required'),
-            cr_files: Yup.string().required('Company CR Required'),
-            vat_files: Yup.string().required('Company VAT Required'),
+            companyname: Yup.string().required('Required'),
+            business_sector: Yup.string().required('Required'),
+            cr: Yup.string().required('Required'),
+            vat: Yup.string().required('Required'),
+            companycr:Yup.string().required('Required'),
+            vat_registration_date:Yup.string().required('Required'),
+            website:Yup.string().required('Required'),
+            country:Yup.string().required('Required'),
+            city:Yup.string().required('Required'),
+            address:Yup.string().required('Required'),
+            phone: Yup.string()
+            .min(9, 'The phone number must be at least 9 Digits!')
+            .required("Required"),
+            fax:Yup.string().required('Required'),
+            payment_terms:Yup.string().required('Required'),
         });
 
         return schema;
@@ -158,6 +211,6 @@ function Formprofile() {
     )
 }
 
-export default Formprofile;
+export default Formprofileseller;
 
 

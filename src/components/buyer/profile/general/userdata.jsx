@@ -78,8 +78,8 @@ function UserData(props) {
             <img src={urlimage === null ? DataUser.image : urlimage}
             alt={DataUser.name} />
             <button type='button' className='btn'>
-                                <input type="file" className="input-file"
-                                    onChange={e => handleFileSelect(e)} />
+            <input type="file" className="input-file" accept="image/*"
+             onChange={e => handleFileSelect(e)} />
                 <img src={Editeimage} alt="Edite image" />
                 Upload image
             </button>

@@ -2,7 +2,7 @@ import React from 'react'
 import MyProfile from '../../../components/buyer/profile/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 
-function Profile() {
+function ProfileBuyer() {
   return (
     <section className='profile'>
     <Navbar/>
@@ -11,4 +11,4 @@ function Profile() {
   )
 }
 
-export default Profile
+export default ProfileBuyer;

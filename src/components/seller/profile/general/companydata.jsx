@@ -77,29 +77,102 @@ function CompanyData(props) {
     return (
         <div className='companydata'>
             <div className="left">
-
                 <ul>
-                    <li>
-                        <span className="title">Company Industry</span>
-                        <span className="data">{DataCompany.companyindustry}</span>
+                    <li className='row'>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Company Name</span>
+                                <span className="data">{DataCompany.name}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Business Sector</span>
+                                <span className="data">{DataCompany.business_sector}</span>
+                            </span>
+                        </span>
                     </li>
-                    <li>
-                        <span className="title">Company CR</span>
-                        <button type='button' className='btn btn-upload'>
-                            <input type="file" className="input-file"
-                                name="cr_files" onChange={e => handleChange(e)} />
-                            <img src={UploadImage} alt="" />
-                            Upload files
-                        </button>
+                    <li className='row'>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">CR NO.</span>
+                                <span className="data">{DataCompany.cr}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">CR Issue Date</span>
+                                <span className="data">{DataCompany.cr_issue_date}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                        <span className="item">
+                                <span className="title">CR Expiry Date</span>
+                                <span className="data">{DataCompany.cr_expiry_date}</span>
+                            </span>
+                        </span>
                     </li>
-                    <li>
-                        <span className="title">Company VAT</span>
-                        <button type='button' className='btn btn-upload'>
-                            <input type="file" className="input-file"
-                                name="vat_files" onChange={e => handleChange(e)} />
-                            <img src={UploadImage} alt="" />
-                            Upload files
-                        </button>
+                    <li className='row'>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">VAT NO.</span>
+                                <span className="data">{DataCompany.vat}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">VAT Registration Date</span>
+                                <span className="data">{DataCompany.vat_registration_date}</span>
+                            </span>
+                        </span>
+                    </li>
+                    <li className='row'>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Website</span>
+                                <span className="data">{DataCompany.website}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Country</span>
+                                <span className="data">{DataCompany.country}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                        <span className="item">
+                                <span className="title">City</span>
+                                <span className="data">{DataCompany.city}</span>
+                            </span>
+                        </span>
+                    </li>
+                    <li className='row'>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Address</span>
+                                <span className="data">{DataCompany.address}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Phone No.</span>
+                                <span className="data">{DataCompany.phone}</span>
+                            </span>
+                        </span>
+                        <span className="col-4">
+                        <span className="item">
+                                <span className="title">Fax No.</span>
+                                <span className="data">{DataCompany.fax}</span>
+                            </span>
+                        </span>
+                    </li>
+                    <li className='row'>
+                        <span className="col-4">
+                            <span className="item">
+                                <span className="title">Payment Terms</span>
+                                <span className="data">{DataCompany.payment_terms}</span>
+                            </span>
+                        </span>
                     </li>
                 </ul>
             </div>

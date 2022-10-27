@@ -87,7 +87,8 @@ function CompanyData(props) {
                         <span className="title">Company CR</span>
                         <button type='button' className='btn btn-upload'>
                             <input type="file" className="input-file"
-                                name="cr_files" onChange={e => handleChange(e)} />
+                            accept="application/pdf" multiple
+                            name="cr_files" onChange={e => handleChange(e)} />
                             <img src={UploadImage} alt="" />
                             Upload files
                         </button>
@@ -96,7 +97,8 @@ function CompanyData(props) {
                         <span className="title">Company VAT</span>
                         <button type='button' className='btn btn-upload'>
                             <input type="file" className="input-file"
-                                name="vat_files" onChange={e => handleChange(e)} />
+                            accept="application/pdf" multiple
+                            name="vat_files" onChange={e => handleChange(e)} />
                             <img src={UploadImage} alt="" />
                             Upload files
                         </button>
@@ -108,7 +110,7 @@ function CompanyData(props) {
                     src={urlimage === null ? DataCompany.image : urlimage}
                     alt={DataCompany.companyindustry} />
                 <button type='button' className='btn'>
-                    <input type="file" className="input-file"
+                    <input type="file" className="input-file" accept="image/*"
                         name='logo' onChange={e => handleFileSelect(e)} />
                     <img src={Editeimage} alt="Edite image" />
                     Upload image

@@ -4,13 +4,13 @@ import Formprofile from '../form/profile';
 function ModelEditprofile() {
   return (
     <div className="modal fade"
-    id="modeleditprofile" tabIndex="-1" 
-    aria-labelledby="modeleditprofileLabel" aria-hidden="true">
+    id="modeleditprofilebuyer" tabIndex="-1" 
+    aria-labelledby="modeleditprofilebuyerLabel" aria-hidden="true">
         <div 
         className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="modeleditprofileLabel">
+                    <h5 className="modal-title" id="modeleditprofilebuyerLabel">
                     Edit Company Information
                     </h5>
                 </div>

@@ -83,8 +83,9 @@ function Formprofile() {
                             <label className="form-label">Company CR</label>
                             <button type='button'
                                 className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"}
-                                    className="input-file" name="cr_files" />
+                                <Field type={"file"} 
+                                accept="application/pdf" multiple
+                                className="input-file" name="cr_files" />
                                 <img src={UploadImage} alt="" />
                                 Upload files
                             </button>
@@ -101,8 +102,8 @@ function Formprofile() {
                             <label className="form-label">Company VAT</label>
                             <button type='button'
                                 className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"}
-                                    className="input-file" name="vat_files" />
+                                <Field type={"file"} className="input-file" name="vat_files" 
+                                accept="application/pdf" multiple/>
                                 <img src={UploadImage} alt="" />
                                 Upload files
                             </button>

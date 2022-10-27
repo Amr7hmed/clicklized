@@ -14,12 +14,10 @@ function IconProfile() {
     <li className="nav-item dropdown iconprofile">
       <a className="nav-link dropdown-toggle" 
       data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-          <img src={Profile} alt="Profile" />
-        Maged elrashid
-          </a>
+          <img src={Profile} alt="Profile" />Maged elrashid</a>
       <ul className="dropdown-menu">
         <li>
-            <NavLink to={"/profile"}><img src={Account} alt="Account" />My Account</NavLink>
+            <NavLink to={"/profileseller"}><img src={Account} alt="Account" />My Account</NavLink>
         </li>
         <li>
             <button className='btn btn-signout' type='button' onClick={() => Signout()}>SIGN OUT</button>
