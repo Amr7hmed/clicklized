@@ -1,23 +1,25 @@
 /*
-- Style Create Request Page
-    1- Style Top Page
-        - Style Head
-        - Style List 
-    2- Style Bottom Page
-        - Style Screen One
+1- Style CreateRequest Page 
+2- Style CreateRequest Page Top
+3- Style CreateRequest Page Bottom
+4- Style CreateRequest Page Bottom Screen One
+5- Style CreateRequest Page Bottom Screen One Form
+6- Style CreateRequest Page Hide Model
+// ========== Media Queris ============= //
+7- Style CreateRequest Page To Media Queris 992px.
+8- Style CreateRequest Page To Media Queris 576px.
+9- Style CreateRequest Page To Media Queris 300px.
 */
 
-//1- Style Create Request Page
+// 1- Style CreateRequest Page 
 .createrequest {
   font-family: var(--font-cairo);
   background-color: #f6f6f6;
   padding-bottom: 1px;
   min-height: 100vh;
   max-height: auto;
-
+// 2- Style CreateRequest Page Top
   .create {
-
-    // 1- Style Top Page
     .top {
       margin: 50px 0px;
       width: 100%;
@@ -114,14 +116,9 @@
       }
     }
   }
-}
-
-.createrequest {
-
-  // 2- Style Bottom Page
+// 3- Style CreateRequest Page Bottom
   .createbottom {
-
-    //- Style Screen One
+// 4- Style CreateRequest Page Bottom Screen One
     .screenone {
       font-family: var(--font-cairo);
       height: auto;
@@ -140,7 +137,7 @@
           color: #343433;
         }
       }
-
+// 5- Style CreateRequest Page Bottom Screen One Form
       .form {
         form {
           .inputform {
@@ -475,7 +472,7 @@
     }
   }
 }
-
+// 6- Style CreateRequest Page Hide Model
 #modalmap {
   font-family: var(--font-cairo);
 
@@ -572,9 +569,7 @@
   }
 }
 
-
-
-// 1- 2- Style Component To Media Queris Samll.
+// 7- Style CreateRequest Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .createrequest {
     .create {
@@ -615,101 +610,101 @@
         }
       }
 
-      .createbottom {
+    }
+    .createbottom {
 
-        .screenone {
-          padding: 40px 20px;
+      .screenone {
+        padding: 40px 20px;
 
-          .form {
-            form {
-              .inputform {
-                padding-top: 15px;
-                margin-bottom: 10px;
-                border-bottom: 1px solid #efefef;
-                padding-bottom: 40px;
+        .form {
+          form {
+            .inputform {
+              padding-top: 15px;
+              margin-bottom: 10px;
+              border-bottom: 1px solid #efefef;
+              padding-bottom: 40px;
 
-                input#inputquotations {
-                  width: 100%;
-                }
+              input#inputquotations {
+                width: 100%;
+              }
 
-                input {
-                  &::placeholder {
-                    font-size: 14px;
-                  }
-                }
-
-                textarea {
-                  width: 100%;
-                }
-
-                .day {
-                  width: 100%;
-                }
-
-                ul {
-                  justify-content: space-between;
+              input {
+                &::placeholder {
+                  font-size: 14px;
                 }
               }
 
-              .inputform_items_row {
-                display: flex;
-                flex-direction: row;
+              textarea {
+                width: 100%;
+              }
+
+              .day {
+                width: 100%;
+              }
+
+              ul {
                 justify-content: space-between;
+              }
+            }
 
-                >div {
-                  width: 100%;
-                }
+            .inputform_items_row {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
 
-                .inputform_items {
+              >div {
+                width: 100%;
+              }
 
-                  .inputform_item {
-                    width: auto;
-                    margin-right: 2%;
+              .inputform_items {
 
-                    input,
-                    select {
-                      width: 100px;
+                .inputform_item {
+                  width: auto;
+                  margin-right: 2%;
 
-                      &::placeholder {
-                        font-size: 12px;
-                        padding: 0px 2px;
-                      }
+                  input,
+                  select {
+                    width: 100px;
+
+                    &::placeholder {
+                      font-size: 12px;
+                      padding: 0px 2px;
                     }
                   }
                 }
+              }
 
-                .btn-remove {
-                  width: 120px;
-                  font-size: 14px;
-                }
+              .btn-remove {
+                width: 120px;
+                font-size: 14px;
+              }
 
-                .btn-add {
-                  width: 120px;
-                  font-size: 14px;
+              .btn-add {
+                width: 120px;
+                font-size: 14px;
+              }
+            }
+
+            .inputformday {
+              margin-bottom: 50px;
+            }
+
+            .inputfiles {
+              >div {
+                width: 100%;
+                padding: 30px 0px;
+
+                .item {
+                  height: 70px;
                 }
               }
 
-              .inputformday {
-                margin-bottom: 50px;
-              }
+              .btn-upload {
+                font-size: 16px;
 
-              .inputfiles {
-                >div {
-                  width: 100%;
-                  padding: 30px 0px;
-
-                  .item {
-                    height: 70px;
-                  }
-                }
-
-                .btn-upload {
-                  font-size: 16px;
-
-                  img {
-                    width: 35px;
-                    height: 35px;
-                  }
+                img {
+                  width: 35px;
+                  height: 35px;
                 }
               }
             }
@@ -733,141 +728,274 @@
     }
   }
 }
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 8- Style CreateRequest Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
 
   .createrequest {
     .create {
-      .top {
-        .head {
-          h4 {
-            font-size: 16px;
-          }
+    // 1- Style Top Page
+    .top {
+      margin: 20px 0px;
+      // - Style Head
+      .head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
+        height: 25px;
+        .iconleft{
+          width: 28px;
+          height: 20px;
+          margin-right: 11px;
         }
-
-        // - Style List
-        .list {
-
-          li {
-
-            .icon {
-              width: 25px;
-              height: 25px;
-              margin-right: 2px;
-              font-size: 14px;
-            }
-
-            .text {
-              font-size: 14px;
-            }
-          }
-
-          .line {
-            width: 8%;
-          }
+        h4 {
+          font-size: 16px;
+          margin-bottom: 0px;
         }
       }
 
-      .createbottom {
+      // - Style List
+      .list {
+        margin-bottom: 10px;
+        height: 50px;
 
-        .screenone {
-          padding: 40px 20px;
+        li {
+          font-size: 14px;
 
-          .form {
-            form {
-              .inputform {
-                input {
-                  &::placeholder {
-                    font-size: 12px;
-                    padding: 2px;
-                  }
-                }
+          .icon {
+            width: 30px;
+            height: 30px;
+          }
 
-                textarea {
-                  width: 100%;
+          .icon.editedata {
+            background-color: #e8d173;
+            color: #231f20;
+          }
 
-                  &::placeholder {
-                    font-size: 12px;
-                    padding: 2px;
-                  }
-                }
+          .icon.active {
+            background-color: #231f20;
+            color: #e8d173;
+          }
+          .text {font-size: 14px;}
+        }
 
-                ul {
-                  flex-direction: column;
-                  align-items: center;
-
-                  li {
-                    margin: 5px 0px 10px 0px;
-                  }
+        .line {
+          display: none;
+        }
+      }
+    }
+    }
+    .createbottom {
+      //- Style Screen One
+      .screenone {
+        padding: 20px;
+        margin-bottom: 30px;
+        .title {
+          margin-bottom: 10px;
+          h6 {font-size: 14px;}
+        }
+  
+        .form {
+          form {
+            .inputform {
+              width: 100%;
+              margin-bottom: 10px;
+              padding: 10px 0px;
+  
+              h6 {
+                margin-bottom: 20px;
+                font-size: 16px;
+              }
+  
+              label {
+                font-size: 14px;
+                margin-bottom: 5px;
+              }
+  
+              input {
+                width: 40%;
+                height: 35px;
+                margin-right: 5%;
+                border: solid 1px #a5a5ac;
+                background-color: #fff;
+  
+                &::placeholder {
+                  padding: 5px;
+                  font-size: 12px;
                 }
               }
-
-              .inputform_items_row {
-
-                >div {width: 100%;}
-
-                .inputform_items {
-                  flex-direction: column;
-                  align-items: center;
-                  padding-bottom: 50px;
-                  border-bottom: 1px solid #b9afaf;
-                  &:last-of-type{
-                    padding-bottom: 0px;
-                    border-bottom: none;
-                  }
-                  .inputform_item {
-                    width: 100%;
-                    margin-right: 0%;
-                    margin-bottom: 10px;
-
-                    input,
-                    select {
+  
+              textarea {
+                width: 100%;
+                margin-right: 0px;
+                padding: 2px;
+  
+                &::placeholder {
+                  padding: 2px;
+                  font-size: 12px;
+                }
+              }
+  
+              .addloction {
+                font-size: 12px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+              }
+  
+              .day {
+                height: 35px;
+                width: 100%;
+  
+                .react-datepicker-wrapper {
+                  width: 100% !important;
+                  height: 100% !important;
+  
+                  .react-datepicker__input-container {
+                    width: 100% !important;
+                    height: 100% !important;
+  
+                    .data-input {
+                      padding: 8px 15px;
                       width: 100%;
+                      height: 100%;
+                      border-radius: 5px;
+                      -webkit-border-radius: 5px;
+                      -moz-border-radius: 5px;
+                      -ms-border-radius: 5px;
+                      -o-border-radius: 5px;
+                    }
+  
+                  }
+  
+                }
+  
+                img {
+                  width: 24px;
+                  height: 24px;
+                  object-fit: contain;
+                  position: absolute;
+                  right: 5%;
+                  top: 50%;
+                  right: 1%;
+                  top: 50%;
+                  transform: translate(-1%, -50%);
+                }
+              }
+  
+              ul {
+                flex-direction: column;
+                li {
+                  width: 100%;
+                  height: 40px;
+  
+                  &:nth-child(2) {
+                    margin: 5px 0px;
+                  }
+  
+                  label {
+                    font-size: 14px;
+                  }
+                }
+  
+              }
+            }
+  
+            .inputform_items_row {
+              margin-bottom: 30px;
+  
+              >div {
+                width: 100%;
+              }
+  
+              .inputform_items {
+                margin-top: 25px;
+                flex-direction: column;
+  
+                .inputform_item {
+                  width: 100%;
+                  margin-right: 0px;
+                  margin-bottom: 5px;
+                  label {
+                    font-size: 14px;
+                    margin-bottom: 5px;
+                  }
+  
+                  input,
+                  select {
+                    width: 100%;
+                    height: 35px;
+  
+                    &::placeholder {
+                      padding: 2px;
+                      font-size: 12px;
                     }
                   }
                 }
+              }
+              .inputform_close{width: 100%;}
+              .btn-remove {
+                height: 45px;
+                width: 100%;
+                margin-right: 0px;
+                margin-bottom: 5px;
+              }
+  
+              .btn-add {
+                height: 45px;
+                width: 100%;
+              }
+  
 
-                .inputform_close {
+            }
+  
+            .inputformday {margin-bottom: 20px;}
+  
+            .inputfiles {
+              width: 100%;
+              margin-bottom: 20px;
+  
+              >div {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 15px 0px;
+                .item {
                   width: 100%;
-
-                  .btn-remove {
-                    width: 100%;
-                    font-size: 14px;
-                    margin-right: 0px;
+                  height: 50px;
+                  &:first-child{
+                    margin-bottom: 10px;
                   }
-                }
-
-                .btn-add {
-                  width: 100%;
-                  font-size: 14px;
-                  margin-top: 15px;
                 }
               }
-
-              .inputformday {
-                margin-bottom: 50px;
-              }
-
-              .inputfiles {
-                >div {
-                  flex-direction: column;
-
-                  .item {
-                    width: 100%;
-                    margin: 15px 0px;
-                  }
-                }
-
-                .btn-upload {
-                  font-size: 16px;
-                  img {
-                    width: 35px;
-                    height: 35px;
-                  }
+  
+              .btn-upload {
+                margin-top: 9px;
+                border: 2px #e8d173;
+                font-size: 14px;
+                border-style: dashed;
+                img {
+                  width: 25px;
+                  height: 25px;
+                  margin: 0 5px 0 0;
                 }
               }
             }
+  
+            .end {
+              margin-top: 20px;
+              flex-direction: column;
+  
+              .btn {
+                width: 100%;
+                height: 35px;
+                font-size: 14px;
+                font-weight: bold;
+                &:first-child{
+                  margin-bottom: 15px;
+                }
+              }
+            }
+  
           }
         }
       }
@@ -896,23 +1024,32 @@
   }
 }
 
-
-// 1- 2- Style Chart Component To Media Queris Samll.
-@media screen and (max-width: 456px) {
+// 9- Style CreateRequest Page To Media Queris 300px.
+@media screen and (max-width: 300px) {
   .createrequest {
     .create {
       .top {
         .list {
+          flex-direction: column;
+          height: auto;
+          margin: 15px 0px;
           li {
+            width: 100%;
+            &:first-child{
+              justify-content: flex-start;
+            }
+            &:nth-of-type(2){
+              justify-content: center;
+              margin: 15px 0px;
+            }
+            &:last-child{
+              justify-content: flex-end;
+            }
             .text {
               font-size: 12px;
             }
           }
 
-          .line {
-            width: 8%;
-            margin: 0px 5px;
-          }
         }
       }
     }

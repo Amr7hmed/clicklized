@@ -1,9 +1,23 @@
-.navbar {
+/*
+1- Style Navbar component  
+2- Style Navbar component Brand
+3- Style Navbar component Nav Item
+4- Style Navbar component Nav D-Flex
+5- Style Navbar component Navbar Toggler
+6- Style Navbar component Navbar Collapse
+
+// ========== Media Queris ============= //
+7- Style Navbar component To Media Queris 992px.
+8- Style Navbar component To Media Queris 300px.
+*/
+
+// 1- Style Navbar component 
+.navbarseller {
     height: 135px;
     background-color: #231f20;
     font-family: var(--font-cairo);
     padding: 0px 20px;
-
+// 2-  Style Navbar component Brand
     .navbar-brand {
         width: 180px;
         height: 50px;
@@ -14,25 +28,13 @@
             height: 100%;
         }
     }
-
+// 3-  Style Navbar component Nav Item
     .nav-item {
         height: 40px;
         display: flex;
         align-items: center;
-        .btn-requestseller {
-            color: #fff;
-            background-color: transparent;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: var(--font-cairo);
-            margin: 0px 50px;
-            width: 95px;
-            text-align: center;
-            &:hover{
-                color: #fff;
-            }
-        }
-        .btnmyrequestseller{
+
+        .btn-request {
             width: 120px;
             height: 40px;
             margin: 0px 30px;
@@ -50,9 +52,21 @@
                 color: #231f20 ;
             }
         }
+        .btnmyrequest{
+            color: #fff !important;
+            &:hover{
+                color: #fff !important;
+            }
+        }
 
+        .suppliers {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: var(--font-cairo);
+        }
     }
-
+// 4-  Style Navbar component Nav D-Flex
     .d-flex {
         .iconnotification {
             margin-right: 45px;
@@ -252,7 +266,7 @@
             color: #fff !important;
         }
     }
-
+// 5-  Style Navbar component Navbar Toggler
     .navbar-toggler {
         color: #e8d173;
         border-color: #e8d173;
@@ -262,6 +276,7 @@
             box-shadow: none !important;
         }
     }
+// 6- Style Navbar component Navbar Collapse
     .collapse{
         transition: all .6s;
         -webkit-transition: all .6s;
@@ -272,10 +287,11 @@
 }
 
 
-// 1- 2- Style Navbar Component To Media Queris Samll.
+// 7- Style Navbar component To Media Queris 992px.
 @media screen and (max-width: 992px) {
-    .navbar {
+    .navbarseller {
         height: auto;
+        padding: 10px;
 
         .navbar-brand {
             width: 180px;
@@ -363,14 +379,66 @@
     }
 }
 
-
+// 8- Style Navbar component To Media Queris 300px.
 @media screen and (max-width: 300px) {
-    .navbar {
+    .navbarseller {
         padding: 10px 0px;
         .navbar-brand {
             width: 140px;
             height: 50px;
         }
-
+        .d-flex {
+            .iconnotification {
+    
+                .dropdown-menu[data-bs-popper] {
+                    width: 250px;
+                    left: -10px;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: -5%;
+                        right: 6%;
+                        z-index: 10;
+                        width: 0;
+                        height: 0;
+                        border-left: 13px solid transparent;
+                        border-right: 13px solid transparent;
+                        border-bottom: 20px solid #fff;
+                    }
+    
+                    >div {
+    
+                        li {
+                            width: 100%;
+                            margin: 10px auto;
+                            padding: 0px;
+                            .text {
+                                font-size: 12px;
+                                font-weight: normal;
+                                color: #020524;
+                            }
+    
+                            .time {
+                                margin-top: 10px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .iconprofile {
+    
+                .dropdown-menu[data-bs-popper] {
+                    width: 170px;
+                    li {
+                        width: 100%;
+                        font-size: 12px;
+                        }
+    
+                    }
+                
+            }
+        }
     }
 }

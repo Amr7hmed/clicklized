@@ -113,15 +113,7 @@ function Formprofile() {
 
                     <div className='end'>
 
-                        <button className={props.errors.name ||
-                            props.errors.email ||
-                            props.errors.phone ||
-                            props.errors.industry ||
-                            props.errors.cr_files ||
-                            props.errors.vat_files ?
-                            'btn btn-send button-disabled' :
-                            'btn btn-send button-active'}
-                            data-bs-dismiss="modal"
+                        <button className={'btn btn-send button-active'}
                             type="submit" >Save</button>
 
                         <button type="button" className="btn btn-cancel"

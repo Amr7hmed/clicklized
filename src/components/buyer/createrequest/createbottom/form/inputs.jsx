@@ -210,8 +210,7 @@ export function InputFiles() {
         <span className='item'>
 
           <span className='btn-upload'>
-            <Field type="file" className="input-file"
-              name="logo" />
+            <Field type="file" className="input-file" accept="image/*" name="logo" />
             <img src={UploadImage} alt="" />
             Upload logo
           </span>

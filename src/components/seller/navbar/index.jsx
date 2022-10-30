@@ -7,7 +7,7 @@ import IconProfile from './iconprofile';
 function Navbar(props) {
     const {Styleclass}=props;
     return (
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbarseller navbar-expand-lg">
             <div className="container-fluid">
                 <NavLink to={"/"} className="navbar-brand" href="#">
                         <img src={Logoimg} alt="Logo img" />

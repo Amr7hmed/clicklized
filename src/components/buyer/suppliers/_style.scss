@@ -1,9 +1,23 @@
+/*
+1- Style MySuppliers Page 
+2- Style MySuppliers Page Header
+3- Style MySuppliers Page Row
+4- Style MySuppliers Page Card
+5- Style MySuppliers Page Filter
+6- Style MySuppliers Page Hide
+7- Style MySuppliers Page Hide Models
+// ========== Media Queris ============= //
+8- Style MySuppliers Page To Media Queris 992px.
+9- Style MySuppliers Page To Media Queris 576px.
+*/
+
+// 1- Style MySuppliers Page 
 .mysuppliers {
     width: 100%;
     min-height: 100vh;
     max-height: auto;
     background-color: #f6f6f6;
-
+    //2- Style MySuppliers Page Header
     &__headr {
         margin: 40px 0px;
         display: flex;
@@ -68,11 +82,9 @@
             }
         }
     }
-
-    &__row {
-        margin: 50px 0px;
-    }
-
+    // 3- Style MySuppliers Page Row
+    &__row {margin: 50px 0px;}
+    // 4- Style MySuppliers Page Card
     &__card {
         margin: 10px 0px;
         height: 100px;
@@ -141,7 +153,7 @@
             }
         }
     }
-
+    // 5- Style MySuppliers Page Filter
     &__filter {
         opacity: 1;
         visibility: visible;
@@ -152,11 +164,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: all 1s;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-        -ms-transition: all 1s;
-        -o-transition: all 1s;
 
         .top {
             h6 {
@@ -212,23 +219,16 @@
             }
         }
     }
-
+    // 6- Style MySuppliers Page Hide
     &__hide {
         height: 0px;
         opacity: 0;
         padding: 0px !important;
         visibility: hidden;
-        transition: all 1s;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-        -ms-transition: all 1s;
-        -o-transition: all 1s;
         margin: 0px !important;
     }
 }
-
-
-
+// 7- Style MySuppliers Page Hide Models
 .modeleditsuppliers {
     font-family: var(--font-cairo);
 
@@ -245,6 +245,28 @@
     }
 
     .modal-body {
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 20px;
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background-color: #e8d173;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: #887529;
+        }
+
         .input_model {
             margin-bottom: 25px;
 
@@ -312,6 +334,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 40px;
+
             button {
                 height: 50px;
                 border-radius: 5px;
@@ -335,9 +358,7 @@
     }
 
 }
-
-
-// 1- 2- Style Navbar Component To Media Queris Samll.
+// 8- Style MySuppliers Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
     .mysuppliers {
         height: auto;
@@ -345,18 +366,17 @@
     }
 
 }
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 9- Style MySuppliers Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
     .mysuppliers {
         &__headr {
-            margin: 40px 0px 0px 0px;
+            margin: 20px 0px;
+            flex-direction: column;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
-            height: auto;
+            min-height: auto;
 
             .left {
                 width: 100%;
@@ -371,14 +391,64 @@
             }
 
             .right {
+                height: auto;
+                flex-direction: column;
+                justify-content: space-between;
                 width: 100%;
-                justify-content: flex-end;
+                margin-top: 20px;
+
+                .btn {
+                    height: 50px;
+                    font-size: 12px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 5px 0 0;
+                    }
+                }
+
+                .btn-filter {
+                    width: 100%;
+                }
+
+                .btn-suppliers {
+                    margin-right: 0px;
+                    margin-bottom: 10px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+
+
             }
         }
+        &__row {
+            margin: 20px 0px;
+            .row{.col-12{padding: 0px;}}
+        }
+        &__card {
+            margin: 10px 0px;
+            padding: 5px 10px;
 
+            .top {
+                .text {
+                    font-size: 14px;
+                }
+            }
+
+            .bottom {
+                .text {
+                    font-size: 12px;
+                }
+            }
+        }
         &__filter {
             height: auto;
-            margin: 20px 0px 20px 0px;
+            margin: 20px 0px;
 
             .top {
                 h6 {
@@ -398,28 +468,66 @@
                 select {
                     margin-bottom: 10px;
                 }
+
+                .showresults {
+                    height: 45px;
+                }
             }
         }
-        &__row {
-            margin: 0px 0px 50px 0px;
-        }
+        &__hide {height: 0px;}
+    }
 
-    }
     .modeleditsuppliers {
-    .modal-dialog{
-        height: auto;
-    }
+        .modal-header {
+            padding: 15px 0px;
+            h5 {font-size: 16px;}
+        }
+        .modal-dialog {height: auto;}
         .modal-body {
+            height: 400px;
+
+
+            &::-webkit-scrollbar {
+                width: 8px;
+                height: 20px;
+                border-radius: 6px;
+            }
+    
+            .row {.col-12 {padding: 0px;}}
+
+            .input_model {
+                margin-bottom: 10px;
+
+                label.form-label {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+
+                input.form-control,
+                .form-select {
+                    height: 35px;
+                    font-size: 12px;
+                    padding: 5px;
+                }
+
+            }
+
     
             .end {
                 flex-direction: column;
+                button {
+                    height: 45px;
+                    width: 100%;
+                    font-size: 12px;
+                }
                 .btn-send {
                     margin-right: 0px;
-                    margin-bottom: 15px;
+                    margin-bottom: 10px;
                 }
-    
+
             }
         }
-    
+
     }
+
 }
