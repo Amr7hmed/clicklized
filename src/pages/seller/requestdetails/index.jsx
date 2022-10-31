@@ -12,6 +12,7 @@ function RequestDetails() {
         <Navbar Styleclass={"btnmyrequestseller"}/>
             <div className="container">
                 <div className='requestdetailsdata'>
+                    
                     <ShowTop name={name} />
                     <Showrequestrow  id={id} name={name} Stylebuttons={Stylebuttons}/>
                 </div>

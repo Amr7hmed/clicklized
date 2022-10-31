@@ -1,21 +1,18 @@
 /*
-- Style Create Request Page
-    1- Style Top Page
-        - Style Head
-        - Style List 
-    2- Style Bottom Page
-        - Style Screen One
+1- Style ShowRequestData Page Bottom .
+2- Style ShowRequestData Page Bottom Screen .
+3- Style ShowRequestData Page Bottom Form .
+// ========== Media Queris ============= //
+4- Style ShowRequestData Page To Media Queris 992px.
+5- Style ShowRequestData Page To Media Queris 576px.
+6- Style ShowRequestData Page To Media Queris 300px.
 */
 
-//1- Style Create Request Page
-
+// 1- Style ShowRequestData Page Bottom .
 .showrequest {
-
-  // 2- Style Bottom Page
   .showrequestbottom {
     width: calc(100% - 280px);
-
-    //- Style Screen One
+// 2- Style ShowRequestData Page Bottom Screen .
     .screenone {
       font-family: var(--font-cairo);
       height: auto;
@@ -46,7 +43,7 @@
           color: #343433;
         }
       }
-
+// 3- Style ShowRequestData Page Bottom Form .
       .form {
         form {
           .inputform {
@@ -512,26 +509,26 @@
     }
   }
 }
-
-
-
-// 1- 2- Style Component To Media Queris Samll.
+// 4- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .showrequest {
     // 2- Style Bottom Page
     .showrequestbottom {
-      width: 100%;
-
+      width: 100% !important;
+margin-top: 20px;
       .screenone {
-        padding: 40px 20px;
+        padding: 20px;
 
         .form {
           form {
             .inputform {
               padding-top: 15px;
-              margin-bottom: 10px;
-              border-bottom: 1px solid #efefef;
-              padding-bottom: 40px;
+              padding-bottom: 0px;
+
+              h6 {
+                margin-bottom: 20px;
+                font-size: 16px;
+              }
 
               input#inputquotations {
                 width: 100%;
@@ -557,28 +554,23 @@
             }
 
             .inputform_items_row {
-              display: flex;
-              flex-direction: row;
-              justify-content: space-between;
-
+              margin-bottom: 10px;
               >div {
                 width: 100%;
               }
 
               .inputform_items {
-
+                flex-direction: column;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #ddd;
                 .inputform_item {
-                  width: auto;
-                  margin-right: 2%;
+                  width: 100%;
+                  margin-right: 0%;
+                  margin-bottom: 15px;
 
                   input,
                   select {
-                    width: 100px;
-
-                    &::placeholder {
-                      font-size: 12px;
-                      padding: 0px 2px;
-                    }
+                    width: 100%;
                   }
                 }
               }
@@ -613,8 +605,7 @@
     }
   }
 }
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 5- Style ShowRequestData Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
   .showrequest {
     // 2- Style Bottom Page
@@ -790,7 +781,149 @@
     }
   }
 }
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
-@media screen and (max-width: 456px) {}
+// 6- Style ShowRequestData Page To Media Queris 300px.
+@media screen and (max-width: 300px) {
+  .showrequest {
+    // 2- Style Bottom Page
+    .showrequestbottom {
+      .screenone {
+        padding: 10px;
+        &__img{
+          text-align: center;
+          img{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+          }
+        }
+        .title {margin-bottom: 15px;
+          h6 {font-size: 16px;}
+        }
+        .form {
+          form {
+            .inputform {
+              width: 100%;
+              padding-top: 5px;
+              margin-bottom: 10px;
+              h6 {
+                margin-bottom: 10px;
+                font-size: 14px;
+              }
+ 
+              label {
+                font-size: 12px;
+                margin-bottom: 5px;
+              }
+   
+              input {
+                width: 100%;
+                height: 35px;
+                font-size: 12px;
+  
+                &::placeholder {
+                  padding: 4px;
+                  font-size: 12px;
+                }
+              }
+  
+              textarea {
+                width: 100%;
+                height: 35px;
+                font-size: 12px;
+  
+                &::placeholder {
+                  padding: 4px;
+                  font-size: 12px;
+                }
+              }
+  
+  
+              .day {
+                height: 35px;
+  
+                .data-input {
+                  padding: 5px;
+                  font-size: 12px;
+                }
+              }
+ 
+              ul {
+                li {
+                  width: 100%;
+                  height: 40px;
+                  label {font-size: 12px;}
+                }
+              }
+            }
+            .inputform_items_row {
+              margin-bottom: 10px;
+  
+              .inputform_items {
+                padding-bottom: 20px;
+                .inputform_item {
+  
+                  label {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                  }
+  
+                  input,
+                  select {
+                    width: 100%;
+                    height: 35px;
+                    padding: 5px;
+                    font-size: 12px;
+  
+                    &::placeholder {
+                      padding: 5px;
+                      font-size: 12px;
+                    }
+                  }
+                }
+              }
+            }
+            .supplierslist {
+              margin-bottom: 10px;
+  
+              h6 {
+                margin: 10px 0px;
+                font-size: 14px;
+              }
+  
+              .listitems {
+  
+                .listitem {
+                  font-size: 12px;
+                  margin-right: 0px;
+                  width: 100%;
+                  height: 50px;
+                  span {
+                    display: flex;
+                    align-items: center;
+                  }
+  
+                  img.iconprofile {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 5px;
+                  }
+  
+                  .btn-close {
+                    width: 20px;
+                    height: 20px;
+                    padding: 0px;
+                    img {
+                      width: 18px;
+                      height: 18px;
+                    }
+                  }
+  
+                }
+              }
+            }
+          }}
+  
+      }
+    }
+  }
+}

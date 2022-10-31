@@ -1,6 +1,22 @@
+/*
+1- Style MyProfileSeller Page 
+2- Style MyProfileSeller Page Top
+3- Style MyProfileSeller Page Bottom 
+4- Style MyProfileSeller Page Bottom UserData 
+5- Style MyProfileSeller Page Bottom CompanyData 
+6- Style MyProfileSeller Page Bottom ModalChangePasswordSeller 
+7- Style MyProfileSeller Page Bottom ModeleditProfileSeller 
+8- Style MyProfileSeller Page Bottom ModalSaveData 
+// ========== Media Queris ============= //
+9- Style MyProfileSeller Page To Media Queris 992px.
+10- Style MyProfileSeller Page To Media Queris 576px .
+11- Style MyProfileSeller Page To Media Queris 300px.
+*/
+
+// 1- Style MyProfileSeller Page 
 .myprofileseller {
   font-family: var(--font-cairo);
-
+// 2- Style MyProfileSeller Page Top
   &__top {
     border-radius: 8px;
     margin: 50px auto 20px auto;
@@ -64,7 +80,7 @@
       }
     }
   }
-
+// 3- Style MyProfileSeller Page Bottom
   &__bottom {
     height: auto;
     border-radius: 18px;
@@ -72,7 +88,7 @@
     background-color: #fff;
     padding: 1px;
     margin-bottom: 85px;
-
+// 4- Style MyProfileSeller Page Bottom UserData 
     .userdata {
       margin: 20px 50px;
       padding: 20px 0px 40px 0px;
@@ -163,7 +179,7 @@
         }
       }
     }
-
+// 5- Style MyProfileSeller Page Bottom CompanyData 
     .companydata {
       margin: 20px 50px;
       padding: 20px 0px 40px 0px;
@@ -261,8 +277,6 @@
     }
   }
 }
-
-
 #modalchangepasswordseller {
   font-family: var(--font-cairo);
 
@@ -351,7 +365,6 @@
     }
   }
 }
-
 #modeleditprofileseller {
   font-family: var(--font-cairo);
 
@@ -436,7 +449,7 @@
   }
 
 }
-
+// 8- Style MyProfileSeller Page Bottom ModalSaveData 
 .modalsavedata {
   position: fixed;
   width: 100%;
@@ -516,18 +529,16 @@
     }
   }
 }
-
 .hidemodal {
   display: none !important;
 }
-
 .showmodal {
   display: flex !important;
   justify-content: center;
   align-items: center;
 }
 
-// 1- 2- Style Component To Media Queris Samll.
+// 9- Style MyProfileSeller Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .myprofileseller {
     font-family: var(--font-cairo);
@@ -612,8 +623,7 @@
 
   }
 }
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 10- Style MyProfileSeller Page To Media Queris 576px .
 @media screen and (max-width: 576px) {
   .myprofileseller {
     &__top {
@@ -753,7 +763,7 @@
 
   }
 }
-
+// 11- Style MyProfileSeller Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
   .myprofileseller {
     &__top {
@@ -864,9 +874,6 @@
       }
     }
   }
-
-
-
   .modalsavedata {
     .modaldata {
       width: 95%;
@@ -880,6 +887,63 @@
         .text {
           font-size: 12px;
         }
+      }
+    }
+  }
+
+  #modalchangepasswordseller {
+
+    .modal-header {
+      padding: 15px 0px;
+
+      h5 {
+        font-size: 16px;
+      }
+    }
+
+    .modal-body {
+      >div {
+        margin-bottom: 15px;
+
+        .filedpassword {
+
+          .toggoleimg {
+            right: 2%;
+
+            img {
+              width: 20px;
+              height: 19px;
+              object-fit: contain;
+            }
+          }
+        }
+
+        label.form-label {
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
+        input.form-control {
+          height: 35px;
+          font-size: 12px;
+          padding: 5px;
+        }
+      }
+
+      .end {
+        flex-direction: column;
+
+        button {
+          height: 45px;
+          width: 100%;
+          font-size: 12px;
+        }
+
+        .btn-send {
+          margin-right: 0px;
+          margin-bottom: 10px;
+        }
+
       }
     }
   }

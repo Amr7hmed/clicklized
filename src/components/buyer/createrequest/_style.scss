@@ -756,27 +756,28 @@
 
       // - Style List
       .list {
-        margin-bottom: 10px;
-        height: 50px;
-
+        flex-direction: column;
+        height: auto;
+        margin: 15px 0px;
         li {
+          width: 100%;
           font-size: 14px;
 
           .icon {
             width: 30px;
             height: 30px;
           }
-
-          .icon.editedata {
-            background-color: #e8d173;
-            color: #231f20;
-          }
-
-          .icon.active {
-            background-color: #231f20;
-            color: #e8d173;
-          }
           .text {font-size: 14px;}
+          &:first-child{
+            justify-content: flex-start;
+          }
+          &:nth-of-type(2){
+            justify-content: center;
+            margin: 15px 0px;
+          }
+          &:last-child{
+            justify-content: flex-end;
+          }
         }
 
         .line {

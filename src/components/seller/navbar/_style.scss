@@ -34,7 +34,7 @@
         display: flex;
         align-items: center;
 
-        .btn-request {
+        .btn-requestseller {
             width: 120px;
             height: 40px;
             margin: 0px 30px;
@@ -192,7 +192,7 @@
 
             .dropdown-menu[data-bs-popper] {
                 top: 150%;
-                left: -25%;
+                left: -40%;
                 width: 200px;
                 border-radius: 2px;
                 box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.1);
@@ -203,7 +203,7 @@
                 &::after {
                     content: "";
                     position: absolute;
-                    top: -12%;
+                    top: -10%;
                     right: 6%;
                     z-index: 10;
                     width: 0;

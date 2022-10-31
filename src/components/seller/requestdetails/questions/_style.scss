@@ -1,5 +1,16 @@
-//- Style Screen One
-        .requestquestionsdata {
+/*
+1- Style RequestQuestionsData Page 
+2- Style RequestQuestionsData Page Tilte
+3- Style RequestQuestionsData Page QuestionsDatalistContener 
+4- Style RequestQuestionsData Page QuestionsDataList
+// ========== Media Queris ============= //
+5- Style RequestQuestionsData Page To Media Queris 992px.
+6- Style RequestQuestionsData Page To Media Queris 456px.
+7- Style RequestQuestionsData Page To Media Queris 300px.
+*/
+
+// 1- Style RequestQuestionsData Page 
+.requestquestionsdata {
             font-family: var(--font-cairo);
             height: 637px;
             border-radius: 18px;
@@ -7,7 +18,7 @@
             background-color: #fff;
             padding: 40px;
             margin-bottom: 50px;
-
+// 2- Style RequestQuestionsData Page Tilte
             .title {
                 h6 {
                     margin-bottom: 25px;
@@ -16,7 +27,7 @@
                     color: #343433;
                 }
             }
-
+// 3- Style RequestQuestionsData Page QuestionsDatalistContener 
             .questionsdatalistcontener {
                 padding: 0px 10px;
                 min-height: auto;
@@ -46,7 +57,7 @@
                 }
 
             }
-
+// 4- Style RequestQuestionsData Page QuestionsDataList
             .questionsdatalist {
                 width: 100%;
                 margin: 0px auto;
@@ -173,11 +184,8 @@
                     }
                 }
             }
-        }
-
-
-
-// 1- 2- Style Component To Media Queris Samll.
+}
+// 5- Style RequestQuestionsData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
             .requestquestionsdata {
                 padding: 20px;
@@ -187,8 +195,7 @@
     
             }
 }
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 6- Style RequestQuestionsData Page To Media Queris 456px.
 @media screen and (max-width: 456px) {
             .requestquestionsdata {
                 .title { h6 {font-size: 14px;} }
@@ -230,9 +237,7 @@
                 }
             }
 }
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 7- Style RequestQuestionsData Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
             .requestquestionsdata {
                 padding: 10px;

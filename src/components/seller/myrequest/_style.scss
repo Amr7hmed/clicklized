@@ -1,3 +1,15 @@
+/*
+1- Style MyRequestSeller Page  
+2- Style MyRequestSeller Page Headr
+3- Style MyRequestSeller Page Card
+4- Style MyRequestSeller Page Row
+5- Style MyRequestSeller Page Filter
+6- Style MyRequestSeller Page Pagination
+// ========== Media Queris ============= //
+7- Style MyRequestSeller Page To Media Queris 992px.
+8- Style MyRequestSeller Page To Media Queris 576px.
+*/
+// 1- Style MyRequestSeller Page  
 .myrequestseller {
     width: 100%;
     min-height: 100vh;
@@ -5,6 +17,7 @@
     padding-bottom: 1px;
     background-color: #f6f6f6;
     font-family: var(--font-cairo);
+// 2- Style MyRequestSeller Page Headr
     &__headr {
         margin: 40px 0px;
         display: flex;
@@ -50,6 +63,7 @@
             }
         }
     }
+// 3- Style MyRequestSeller Page Card
     &__card{
         min-height: 193px;
         max-height: auto;
@@ -105,11 +119,13 @@
             }
         }
     }
+// 4- Style MyRequestSeller Page Row
     &__row{
         margin: 40px 0px;
         display: flex;
         flex-direction: column;
     }
+// 5- Style MyRequestSeller Page Filter
     &__filter{
         opacity: 1;
         visibility: visible;
@@ -204,6 +220,7 @@
         -o-transition: all 1s;
         margin: 0px !important;
     }
+// 6- Style MyRequestSeller Page Pagination
     .pagination {
       justify-content: flex-end;
       align-items: center;
@@ -265,8 +282,7 @@
     }
 }
 
-
-// 1- 2- Style Navbar Component To Media Queris Samll.
+// 7- Style MyRequestSeller Page To Media Queris 992px
 @media screen and (max-width: 992px) {
     .myrequestseller {
         height: auto;
@@ -295,8 +311,7 @@
 
 }
 
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 8- Style MyRequestSeller Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
     .myrequestseller {
         &__headr {

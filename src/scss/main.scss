@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
-/* 
-    A- Variables Styles .
-    B- Style Genaral Classes .
- */
+/*
+1- Variables Styles .
+2- Style Genaral Classes .
+3- Import Buyer Style Pages .
+// ========== Media Queris ============= //
+4- Import Style Pages .
+5- Import Buyer Style Pages .
+6- Import Seller Style Pages
+*/
 
-// A- Variables Styles 
+// 1- Variables Styles 
 @font-face {
   font-family: "AJannatLT";
   src: url("A\ Jannat\ LT.ttf");
 }
-
 :root {
   --white-color: #ffffff;
   --black-color: #000000;
@@ -37,8 +41,7 @@
   --font-paragraphone-size: 24px;
   --font-paragraphtwo-size: 16px;
 }
-
-
+// 2- Style Genaral Classes .
 .Mask-1{
   border-radius: 8px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -64,8 +67,6 @@
   box-shadow: 0 32px 32px 0 rgba(0, 0, 0, 0.1);
   background-color: #f8f8f8;
 }
-
-// Styles Genral
 * {
   margin: 0;
   padding: 0;
@@ -73,84 +74,44 @@
   font-family: var(--font-cairo);
   &:focus-visible {outline: none !important;}
 }
-
 a {
   text-decoration: none !important;
   &:hover{
     color: #000 !important;
   }
 }
-
 body {
   user-select: none;
   color: var(--black-color);
-
 }
-
 ul {
   margin: 0;
   padding: 0;
-
-  li {
-    list-style-type: none;
-  }
+  li {list-style-type: none;}
 }
-
-img {
-  max-width: 100%;
-}
-
-.clearfix {
-  clear: both;
-}
-
+img {max-width: 100%;}
+.clearfix {clear: both;}
 .row {
   padding: 0 !important;
   margin: 0 !important;
 }
-
 .btn {
   &:focus {
     box-shadow: none;
     border-color: transparent;
   }
 }
-
-.form-control {
-  &:focus {
-    box-shadow: none;
-  }
-}
-input{
-    &::placeholder {  
-        color: #a5a5ac;
-      }
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-.mb_20 {
-  margin-bottom: 20px;
-}
-
+.form-control {&:focus {box-shadow: none;}}
+input{&::placeholder {  color: #a5a5ac;}}
+.hide {display: none;}
+.show {display: block;}
+.mb_20 {margin-bottom: 20px;}
 .errorfiled {
   color: red;
   font-size: 12px;
 }
-.form-label {
-  margin-bottom: 0.2rem;
-}
-
-.is-invalid {
-  border-color: #dc3545 !important;
-}
-//.main{}
+.form-label {margin-bottom: 0.2rem;}
+.is-invalid {border-color: #dc3545 !important;}
 input[type=radio] {
   appearance: none;
   background-color: #fff;
@@ -181,19 +142,13 @@ input[type=radio] {
     }
   }
 }
-
 .btn{
   &:active{
     border-color: transparent;
   }
 }
-
-
-.button-active{
-  pointer-events: auto;
- }
-
- .button-disabled{
+.button-active{pointer-events: auto;}
+.button-disabled{
   pointer-events: none;
   opacity: 0.51;
  }
@@ -203,16 +158,11 @@ input[type=radio] {
     box-shadow: none;
   }
  }
-
- .btn-close {
-  &:focus {
-    box-shadow: none !important;
-  }
-}
-
+.btn-close {&:focus {box-shadow: none !important;}}
+// 4- Import Style Pages
 @import "../layout/signup/_style.scss";
 @import "../layout/signin/_style.scss";
-// Buyer Style Pages
+// 5- Import Buyer Style Pages
 @import "../components/buyer/navbar/_style.scss";
 @import "../components/buyer/home/chart/_style.scss";
 @import "../components/buyer/home/_style.scss";
@@ -226,11 +176,11 @@ input[type=radio] {
 @import "../components/buyer/showrequest/questions/_style.scss";
 @import "../components/buyer/showrequest/offers/_style.scss";
 @import "../components/buyer/suppliers/_style.scss";
-// Seller Style Pages
+// 6- Import Seller Style Pages
 @import "../components/seller/home/detiles/_style.scss";
 @import "../components/seller/navbar/_style.scss";
 @import "../components/seller/myrequest/_style.scss";
+@import "../components/seller/requestdetails/_style.scss";
 @import "../components/seller/requestdetails/questions/_style.scss";
 @import "../components/seller/requestdetails/details/_style.scss";
-@import "../components/seller/requestdetails/_style.scss";
 @import "../components/seller/profile/_style.scss";

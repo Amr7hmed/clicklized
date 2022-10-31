@@ -1,21 +1,23 @@
 /*
-- Style Create Request Page
-    1- Style Top Page
-        - Style Head
-        - Style List 
-    2- Style Bottom Page
-        - Style Screen One
+1- Style RequestDetails Page  
+2- Style RequestDetails Page Bottom
+3- Style RequestDetails Page Screen
+4- Style RequestDetails Page Screen Top
+5- Style RequestDetails Page Screen Data
+// ========== Media Queris ============= //
+6- Style RequestDetails Page To Media Queris 992px.
+7- Style RequestDetails Page To Media Queris 576px.
+8- Style RequestDetails Page To Media Queris 456px.
 */
 
-//1- Style Create Request Page
 
+// 1- Style RequestDetails Page  
 .requestdetails {
 font-family: var(--font-cairo);
-  // 2- Style Bottom Page
+// 2- Style RequestDetails Page Bottom
   .requestdetailsbottom {
     width: calc(100% - 280px);
-
-    //- Style Screen One
+// 3- Style RequestDetails Page Screen
     .screenone {
       font-family: var(--font-cairo);
       height: auto;
@@ -26,7 +28,7 @@ font-family: var(--font-cairo);
       margin-bottom: 50px;
  
     }
-
+// 4- Style RequestDetails Page Screen Top
     &__top{
       display: flex;
       flex-direction: row;
@@ -50,6 +52,7 @@ font-family: var(--font-cairo);
         color: #231f20;
       }
     }
+// 5- Style RequestDetails Page Screen Data
     &__data{
       h6{
         font-size: 18px;
@@ -149,10 +152,7 @@ font-family: var(--font-cairo);
     }
   }
 }
-
-
-
-// 1- 2- Style Component To Media Queris Samll.
+// 6- Style RequestDetails Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .requestdetails {
     // 2- Style Bottom Page
@@ -162,8 +162,7 @@ font-family: var(--font-cairo);
     }
   }
 }
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 7- Style RequestDetails Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
   .requestdetails {
     // 2- Style Bottom Page
@@ -192,9 +191,7 @@ font-family: var(--font-cairo);
     }
   }
 }
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 8- Style RequestDetails Page To Media Queris 456px.
 @media screen and (max-width: 456px) {
   .requestdetails {
     // 2- Style Bottom Page

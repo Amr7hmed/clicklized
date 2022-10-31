@@ -6,7 +6,7 @@ function Showrequestrow(props) {
   const { id, name, Stylebuttons } = props;
 
   return (
-    <div className="requestdetailsdata__row">
+    <div className="showrequestdata__row">
       <NavList id={id} name={name} Stylebuttons={Stylebuttons} />
       <ShowQuestionsData/>
     </div>

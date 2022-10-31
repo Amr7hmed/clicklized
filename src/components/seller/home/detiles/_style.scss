@@ -1,7 +1,19 @@
+/*
+1- Style HomeSeller Page  
+2- Style HomeSeller Page Headr
+3- Style HomeSeller Page Filter
+4- Style HomeSeller Page Row
+5- Style HomeSeller Page Card
+
+// ========== Media Queris ============= //
+6- Style HomeSeller Page To Media Queris 992px.
+7- Style HomeSeller Page To Media Queris 576px.
+*/
+// 1- Style HomeSeller Page  
 .homerequests {
     margin: 40px 0px;
     font-family: var(--font-cairo);
-
+// 2- Style HomeSeller Page Headr
     &__headr {
         margin: 40px 0px;
         display: flex;
@@ -67,7 +79,7 @@
             }
         }
     }
-
+// 3- Style HomeSeller Page Filter
     &__filter {
         opacity: 1;
         visibility: visible;
@@ -78,11 +90,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transition: all 1s;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-        -ms-transition: all 1s;
-        -o-transition: all 1s;
 
         .top {
             h6 {
@@ -140,14 +147,9 @@
         opacity: 0;
         padding: 0px !important;
         visibility: hidden;
-        transition: all 1s;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-        -ms-transition: all 1s;
-        -o-transition: all 1s;
         margin: 0px !important;
     }
-
+// 4- Style HomeSeller Page Row
     &__row {
         margin: 50px 0px;
 
@@ -158,7 +160,7 @@
             }
         }
     }
-
+// 5- Style HomeSeller Page Card
     &__card {
         margin: 25px 5px;
         height: 200px;
@@ -232,62 +234,131 @@
             }
         }
     }
-
 }
-
-
-/*
-
-// 1- 2- Style Navbar Component To Media Queris Samll.
+// 6- Style HomeSeller Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
-    .myrequest {
-        height: auto;
-        padding-bottom: 1px;
+.homerequests {
+    margin: 20px 0px;
+    
+    &__headr {
+        margin: 10px 0px;
+        flex-direction: column;
+        min-height: auto;
+        align-items: flex-end;
+        .left {
+            height: 50px;
+            width: 100%;
+            margin-bottom: 25px;
+            h5 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            span {font-size: 14px;}
+        }
+
+        .right {
+            height: 50px;
+            .btn {  
+                height: 40px;
+                img {
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 5px 0 0;
+                }
+            }
+
+            .btn-filter {  
+                width: 136px;
+                margin-right: 10px;
+            }
+
+            .btn-request {
+                width: 200px;
+            }
+        }
     }
-
-}
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
-@media screen and (max-width: 576px) {
-    .myrequest {
-        &__headr {
-            margin: 40px 0px;
+    &__row {
+        margin: 20px 0px;
+    }
+    
+    &__card {
+        margin: 5px;
+        height: 150px;
+        padding: 5px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        .top{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: space-between;
-            align-items: flex-start;
-            height: auto;
-            .left{
-                width: 100%;
-                h5 {
-                    font-size: 20px;
-                }
-                span {
-                    font-size: 14px;
-                }
-            }
-            .right{
-                width: 100%;
-                justify-content: flex-end;
-            }
-        }
-        &__filter{
-            height: auto;
-            margin: 20px 0px 20px 0px;
-            .top{
-                h6{font-size: 18px;}
-                span{font-size: 14px;}
-            }
-            .bottom{
-                flex-direction: column;
-                height: auto;
-                align-items: flex-start;
-                select{margin-bottom: 10px;
+            align-items: center;
+            .text {font-size: 16px;}
+
+            .btn-edit {
+                width: 20px;
+                height: 20px;
+                img {
+                    width: 20px;
+                    height: 20px;
                 }
             }
         }
 
+        .bottom {
+            .time {
+                img {margin-right: 5px;}
+                .text {font-size: 12px;}
+            }
+
+            .button-data {
+                .btn {
+                    width: 100px;
+                    height: 30px;
+                    font-size: 12px;
+                    color: #231f20;
+}
+            }
+        }
     }
 }
-*/
+
+}
+// 7- Style HomeSeller Page To Media Queris 576px.
+@media screen and (max-width: 576px) {
+    .homerequests {
+        margin: 20px 0px;
+        
+        &__headr {
+    
+            .right {
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                .btn {  
+                    height: 40px;
+                    font-size: 12px;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 2px 0 0;
+                    }
+                }
+                
+    
+                .btn-filter {  
+                    width: 120px;
+                    margin-right: 0px;
+                    margin-bottom: 10px;
+                }
+    
+                .btn-request {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
