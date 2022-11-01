@@ -15,16 +15,13 @@ function Formprofile() {
     };
 
     const SendData = () => {
-        /*
         swal({
             text: "Good !",
             icon: "success",
             buttons: false,
             timer: 3000
         })
-        */
        window.location.reload();
-
     }
     const onSubmit = (values) => {
         console.log(values);

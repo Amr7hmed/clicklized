@@ -19,7 +19,9 @@
     background-color: #231f20;
     font-family: var(--font-cairo);
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: auto;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,8 +129,8 @@
 
             input {
                 border: solid 1px #a5a5ac;
-                padding: 8px 10px;
-                margin: 8px 0px;
+                padding: 5px 10px;
+                margin: 4px 0px;
                 font-size: 16px;
                 height: 42px;
                 border-radius: 2px;
@@ -165,6 +167,34 @@
                     font-weight: bold;
                     &:hover{
                         color: #a5a5ac !important;
+                    }
+                }
+            }
+            
+            .filedpassword {
+                position: relative;
+
+                .toggoleimg {
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    right: 1%;
+                    transform: translate(0%, -50%);
+                    -webkit-transform: translate(0%, -50%);
+                    -moz-transform: translate(0%, -50%);
+                    -ms-transform: translate(0%, -50%);
+                    -o-transform: translate(0%, -50%);
+                    padding: 0px;
+                    margin: 0px;
+                    display: block;
+                    cursor: pointer;
+
+                    img {
+                        width: 24px;
+                        height: 21px;
+                        object-fit: contain;
+                        filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+                        -webkit-filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
                     }
                 }
             }

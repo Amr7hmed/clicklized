@@ -1,6 +1,5 @@
-//import axios from "axios";
-//import swal from "sweetalert";
-//import { Api } from "./index.js";
+import axios from "axios";
+import { Api } from "./index.js";
 
 // Post Function Api
 export const login = async (state) => {
@@ -19,6 +18,25 @@ export const ForgetPasswordcode = async (state) => {
 export const EndForgetPassword = async () => {
   window.location.pathname = `/`;
 };
-export const Signup = async () => {
-  window.location.pathname = `/`;
+
+export const Signup = async (state) => {
+  const options = {
+    method: "POST",
+    url: `${Api}register`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+      //'Access-Control-Allow-Origin': '*',
+    },
+    data: JSON.stringify({
+      ...state,
+    }),
+  };
+  axios(options)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log("error",error);
+    });
 };

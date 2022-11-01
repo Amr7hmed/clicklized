@@ -127,7 +127,10 @@
       background-color: #fff;
       padding: 40px 50px;
       margin-bottom: 50px;
-
+      -webkit-border-radius: 18px;
+      -moz-border-radius: 18px;
+      -ms-border-radius: 18px;
+      -o-border-radius: 18px;
       .title {
         margin-bottom: 45px;
 
@@ -166,7 +169,7 @@
               background-color: #fff;
 
               &::placeholder {
-                padding: 8px 15px;
+                padding: 8px 5px;
                 font-size: 14px;
                 font-weight: normal;
                 color: #a5a5ac;
@@ -181,7 +184,7 @@
               background-color: #fff;
 
               &::placeholder {
-                padding: 8px 15px;
+                padding: 8px 5px;
                 font-size: 14px;
                 font-weight: normal;
                 color: #a5a5ac;
@@ -338,9 +341,10 @@
                   height: 45px;
                   border: solid 1px #a5a5ac;
                   background-color: #fff;
-
+                  color: #a5a5ac;
+                  font-size: 14px;
                   &::placeholder {
-                    padding: 8px 15px;
+                    padding: 8px 5px;
                     font-size: 14px;
                     font-weight: normal;
                     color: #a5a5ac;
@@ -361,10 +365,16 @@
             .btn-add {
               height: 45px;
               background-color: #e8d173;
-              width: 150px;
-              font-size: 14px;
+              min-width: 150px;
+              max-width: auto;
+              font-size: 12px;
               font-weight: bold;
               color: #231f20;
+              img{
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+              }
 
               &:active {
                 border-color: #e8d173;

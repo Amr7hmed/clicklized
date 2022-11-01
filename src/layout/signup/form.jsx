@@ -3,17 +3,23 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import { NavLink } from 'react-router-dom';
-import { Signup } from '../../api/actions';
+import Invisible from "../../images/icon/invisible.svg";
+import Visible from "../../images/icon/eye-regular.svg";
+import { Signup } from '../../api/actionsauth';
+import { useState } from 'react';
 
 function FormSignup() {
-    const state = {type: "", name: "", email: "" ,number:"",password:""};
+    const state = {user_type: "", name: "", email: "" ,phone:"",password:"",password_confirmation: ""};
+    const [toggle, setToggle] = useState(false);
+    const [togglechangepassword, setTogglechangepassword] = useState(false);
+
 
     const SendData=()=>{
         Signup();
     }
     const onSubmit = (values) => {
       console.log(values);
-      SendData();
+      Signup(values);
     }
 
     const form = (props) => {
@@ -21,11 +27,11 @@ function FormSignup() {
             <label className='title'>Choose user type</label>
             <ul className='signup__radio'>
                 <li>
-                    <Field type="radio" value="supplier" name="type" />
+                    <Field type="radio" value="3" name="user_type" />
                     <label >Supplier</label>
                 </li>
                 <li>
-                    <Field type="radio" value="buyer" name="type" />
+                    <Field type="radio" value="2" name="user_type" />
                     <label >Buyer</label>
                 </li>
             </ul>
@@ -47,17 +53,55 @@ function FormSignup() {
                 </div>
                 <div className='mb-1'>
                     <label className="form-label">Contact number</label>
-                    <Field type="text" 
-                    className={props.errors.number ? "form-control is-invalid" : "form-control"}
-                    placeholder="Enter your contact number" name="number"/>
-                    <ErrorMessage name="number" component="span" className='errorfiled'/>
+                    <Field type="number" 
+                    className={props.errors.phone ? "form-control is-invalid" : "form-control"}
+                    placeholder="Enter your contact number" name="phone"/>
+                    <ErrorMessage name="phone" component="span" className='errorfiled'/>
                 </div>
                 <div className='mb-1'>
                     <label className="form-label">Password</label>
-                    <Field type="password" 
-                    className={props.errors.password ? "form-control is-invalid" : "form-control"}
-                    placeholder="Enter password" name="password"/>
-                    <ErrorMessage name="password" component="span" className='errorfiled'/>
+                    <div className="filedpassword">
+                        <Field type={toggle === false?"password":"text"}
+                            className={props.errors.password ? "form-control is-invalid" : "form-control"}
+                            placeholder="Enter password" name="password" />
+                        <span className='toggoleimg' onClick={()=>setToggle(!toggle)}>
+                            {toggle === false?
+                            <img src={Invisible} alt="Invisible"
+                            className={props.errors.password ? "hide invisible_img" : "invisible_img"}
+                            />
+                            :
+                            <img src={Visible} alt="Visible"
+                            className={props.errors.password ? "hide invisible_img" : "invisible_img"}
+                            />
+                        }
+                        </span>
+
+
+                    </div>
+                    <ErrorMessage name="password" component="span" className='errorfiled' />
+                </div>
+
+                <div className='mb-1'>
+                    <label className="form-label">Reenter your password</label>
+                    <div className="filedpassword">
+                        <Field type={togglechangepassword === false?"password":"text"}
+                            className={props.errors.password_confirmation ? "form-control is-invalid" : "form-control"}
+                            placeholder="Re-enter The New Password" name="password_confirmation" />
+                        <span className='toggoleimg' onClick={()=>setTogglechangepassword(!togglechangepassword)}>
+                            {togglechangepassword === false?
+                            <img src={Invisible} alt="Invisible"
+                            className={"invisible_img"}
+                            />
+                            :
+                            <img src={Visible} alt="Visible"
+                            className={ "invisible_img"}
+                            />
+                        }
+                        </span>
+
+
+                    </div>
+                    <ErrorMessage name="password_confirmation" component="span" className='errorfiled' />
                 </div>
                 <div className='mb-1'>
                     <button className='btn btn-send' type="submit">Sign up</button>
@@ -75,11 +119,21 @@ function FormSignup() {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            type: Yup.string().required("Type Is Required"),
+            user_type: Yup.string().required("User Type Is Required"),
             name: Yup.string().required("Name Is Required"),
             email: Yup.string().required("Email Is Required"),
-            number: Yup.string().required("Contact Number Is Required"),
-            password: Yup.string().required("Password Is Required"),
+            phone: Yup.string().min(9, 'The Contact Number must be at least 9 Digits!').required("Contact Number Is Required"),
+            password: Yup.string()
+            .min(5, 'Too Short!')
+            .max(9, 'Too Long!')
+            .required('Required'), 
+            password_confirmation: Yup.string().when("password", {
+                is: val => (val && val.length > 0 ? true : false),
+                then: Yup.string().oneOf(
+                  [Yup.ref("password")],
+                  "Both password need to be the same"
+                )
+              }).required('Required'), 
         });
 
         return schema;

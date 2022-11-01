@@ -81,7 +81,7 @@ export function Inputcompany(props) {
         <div className="col-12 col-lg-4">
 
           <label className="form-label">Contact numebr</label>
-          <Field type="text" component="input"
+          <Field type="number" component="input"
             className={errors.contactnumebr ? "form-control is-invabuttond" : "form-control"}
             placeholder="Enter Contact numebr" name="contactnumebr" />
           <br />

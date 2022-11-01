@@ -1,4 +1,4 @@
-//export const Api = "https://test.hawzen.sa/zahr/api/";
+export const Api = "https://clicklized.hwzn.sa/api/";
 
 
 

@@ -59,9 +59,9 @@ function Form() {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            companyname: Yup.string().required("Company Name Required"),
-            companyemail: Yup.string().required("Company Email Required"),
-            contactnumebr: Yup.string().required("Contact Numebr Required"),
+            companyname: Yup.string(),
+            companyemail: Yup.string(),
+            contactnumebr: Yup.string(),
         });
 
 

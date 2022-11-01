@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom';
 function IconProfile() {
 
     const Signout = () => {
-        localStorage.removeItem("token");
-        window.location.reload();
+      localStorage.removeItem("tokenclicklized");
+      window.location.reload();
       }
 
   return (<>

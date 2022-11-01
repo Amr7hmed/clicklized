@@ -30,8 +30,8 @@ function App() {
         {localStorage.getItem("tokenclicklized") === null ?
         <Route path="/" element={<SignIn />} exact />
         :
-      //<Route path="/" element={<HomeBuyer />} exact />      
-      <Route path="/" element={<HomeSeller />} exact />
+      <Route path="/" element={<HomeBuyer />} exact />      
+      //<Route path="/" element={<HomeSeller />} exact />
       }
       <Route path="/signup" element={<Signup />} exact />
       <Route path="/forgetpassword" element={<ForgetPassword />} exact />

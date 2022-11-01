@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
 import forgetpassword from "../../images/icon/lock-gray.png";
-import { login } from '../../api/actions';
+import { login } from '../../api/actionsauth';
 import { NavLink } from 'react-router-dom';
 
 function FormSignIn() {

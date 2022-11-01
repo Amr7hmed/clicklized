@@ -24,7 +24,10 @@ function Form(props) {
 
     return (
         <div className="form">
-            <Formik initialValues={state} render={form}/>
+            <Formik 
+            enableReinitialize={true}
+            initialValues={state} 
+            render={form}/>
         </div>
     )
 }

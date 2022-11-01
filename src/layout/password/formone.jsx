@@ -1,7 +1,7 @@
 import React  from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { ForgetPassword } from '../../api/actions';
+import { ForgetPassword } from '../../api/actionsauth';
 
 function FormOne() {
     const state = { email: ""};

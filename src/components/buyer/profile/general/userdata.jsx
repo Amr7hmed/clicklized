@@ -53,7 +53,6 @@ function UserData(props) {
     }
 
     const SendData = () => {
-        console.log(image);
         setToggolemodal(false);
     }
   return (

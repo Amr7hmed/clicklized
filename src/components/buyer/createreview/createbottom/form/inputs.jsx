@@ -12,10 +12,10 @@ export function Inputquotations(props) {
       <label className="form-label">Number of required quotations</label>
       <Field type="text" component="input"
         id="inputquotations"
+        readOnly
         value={Data.values.numberrequired}
         className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
         placeholder="Enter Number of required quotations" name="numberrequired" />
-      <ErrorMessage name="numberrequired" component="span" className='errorfiled' />
     </div>
   )
 };
@@ -24,8 +24,8 @@ export function InputItems(props) {
   const { values, errors } = props;
   return (
     <div className='inputform'>
-      <FieldArray name="items">
-        {({ insert, remove, push }) => (
+      <FieldArray name="items" readOnly>
+        {({ insert }) => (
           <div className='inputform_items_row'>
             <div>
               {
@@ -33,43 +33,23 @@ export function InputItems(props) {
                   <div key={index} className='inputform_items' id={index}>
                     <div className="inputform_item">
                       <label htmlFor={`items.${index}.item`}>Item</label>
-                      <Field
+                      <Field readOnly
                         name={`items.${index}.item`}
                         placeholder="Jane Doe"
+                        value={item}
                         component="select"
                         className={"form-select"} >
-                        <option></option>
-                        <option value="one">One</option>
-                        <option value="two">Two</option>
+                        <option value={item}>{item.item}</option>
                       </Field>
                     </div>
                     <div className="inputform_item">
                       <label htmlFor={`items.${index}.quantity`}>Quantity</label>
-                      <Field
+                      <Field readOnly
                         name={`items.${index}.quantity`}
                         placeholder="Enter Quantity"
                         type="text"
                         className={"form-control"} />
                     </div>
-                    <div
-                      className={"inputform_close"}>
-                      <button
-                        type="button"
-                        className={values.items.length === 1 ? "btn btn-remove hide" : "btn btn-remove"}
-                        onClick={() => remove(index)}
-                      >
-                        Remove Item
-                      </button>
-                    </div>
-                    <button
-                      id={values.items[index].item === "" ||
-                        values.items[index].quantity === "" ? "button-disabled" : "button-active"}
-                      className={values.items.length === index + 1 ? "btn btn-add" : "btn btn-add hide"}
-                      type="button"
-                      onClick={() => push({ item: '', quantity: '' })}
-                    >
-                      Add Item
-                    </button>
                   </div>
                 ))}
 
@@ -78,9 +58,6 @@ export function InputItems(props) {
         )}
 
       </FieldArray>
-      <ErrorMessage
-        component="div"
-        className="errorfiled" errors={errors} name="items" />
     </div>
   )
 };
@@ -89,13 +66,11 @@ export function Inputaddress(props) {
   return (
     <div className='inputform'>
       <h6>Address</h6>
-      <label className="form-label">Required Debuttonvery Location</label>
-      <Field type="textarea" component="textarea"
+      <label className="form-label">Required Delivery Location</label>
+      <Field type="textarea" component="textarea" readOnly
         value={Data.values.address}
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Required Debuttonvery Location" name="address" />
-
-      <ErrorMessage name="address" component="span" className='errorfiled' />
+        placeholder="Enter Required Delivery Location" name="address" />
     </div>
   )
 };
@@ -104,9 +79,10 @@ export function Inputday(props) {
   const { data } = props;
   return (
     <div className='inputform inputformday'>
-      <label className="form-label">Required Debuttonvery Date/Deadbuttonne</label>
-      <DatePickerdata Data={data} />
-      <ErrorMessage name="day" component="span" className='errorfiled' />
+      <label className="form-label">Required Delivery Date/Deadline</label>
+      <Field readOnly
+      value={data.day} placeholder="Enter Quantity"
+      type="text" className={"form-control"} />
     </div>
   )
 };
@@ -122,7 +98,7 @@ export function Inputinsurance(props) {
           <label>
             <Field type="radio" name="inputinsurance" value={Data.values.inputinsurance} />
             {Data.values.inputinsurance === "yes" ?
-              "Yes" : Data.values.inputinsurance === "not_appbuttoncable" ? "Not appbuttoncable" :
+              "Yes" : Data.values.inputinsurance === "not_appcable" ? "Not applicable" :
                 "No"
             }
           </label>
@@ -161,7 +137,7 @@ export function Inputnotes(props) {
   return (
     <div className='inputform'>
       <label className="form-label">Notes</label>
-      <Field type="textarea" component="textarea"
+      <Field type="textarea" component="textarea" readOnly
         className={"form-control"}
         value={Data.values.notes}
         placeholder="Enter notes if you have" name="notes" />
@@ -213,7 +189,7 @@ export function Supplierslist(props) {
       </div>
       
     <div className='inputform'>
-          <Field type="checkbox" name="checkboxtoggle" 
+          <Field type="checkbox" name="checkboxtoggle" disabled="disabled"
           checked={Data.values.checkboxtoggle} />
             <label className="form-label formlabel-checkbox">
               Send invitations to all suppliers</label>

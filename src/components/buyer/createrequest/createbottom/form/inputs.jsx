@@ -3,6 +3,7 @@ import React from 'react';
 import IconLoction from '../../../../../images/icon/location-icon.svg';
 import UploadImage from "../../../../../images/icon/upload.png";
 import DatePickerdata from './datepicker';
+import AddItemIcon from '../../../../../images/icon/icon-add.png';
 
 export function Inputquotations(props) {
   const { errors } = props;
@@ -19,7 +20,6 @@ export function Inputquotations(props) {
     </div>
   )
 };
-
 
 export function InputItems(props) {
   const { values, errors } = props;
@@ -39,7 +39,7 @@ export function InputItems(props) {
                         placeholder="Jane Doe"
                         component="select"
                         className={"form-select"} >
-                        <option></option>
+                        <option>Choose Item</option>
                         <option value="one">One</option>
                         <option value="two">Two</option>
                       </Field>
@@ -69,7 +69,8 @@ export function InputItems(props) {
                       type="button"
                       onClick={() => push({ item: '', quantity: '' })}
                     >
-                      Add Item
+                      <img src={AddItemIcon} alt="Add Item Icon" />
+                      Add new item
                     </button>
                   </div>
                 ))}
@@ -90,10 +91,10 @@ export function Inputaddress(props) {
   return (
     <div className='inputform'>
       <h6>Address</h6>
-      <label className="form-label">Required Debuttonvery Location</label>
+      <label className="form-label">Required Delivery Location</label>
       <Field type="textarea" component="textarea"
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Required Debuttonvery Location" name="address" />
+        placeholder="Enter Required Delivery Location" name="address" />
       <button type='button' className='btn addloction'
        data-bs-toggle="modal" data-bs-target="#modalmap">
         <img src={IconLoction} alt="" />
@@ -109,7 +110,7 @@ export function Inputday(props) {
   const { data } = props;
   return (
     <div className='inputform inputformday'>
-      <label className="form-label">Required Debuttonvery Date/Deadbuttonne</label>
+      <label className="form-label">Required Delivery Date/Deadline</label>
       <DatePickerdata Data={data} />
       <ErrorMessage name="day" component="span" className='errorfiled' />
     </div>
@@ -137,10 +138,10 @@ export function Inputinsurance(props) {
           </label>
         </li>
         <li
-          className={Data.values.inputinsurance === "not_appbuttoncable" ? 'active' : ""}>
+          className={Data.values.inputinsurance === "not_applicable" ? 'active' : ""}>
           <label>
-            <Field type="radio" name="inputinsurance" value="not_appbuttoncable" />
-            Not appbuttoncable
+            <Field type="radio" name="inputinsurance" value="not_applicable" />
+            Not applicable
           </label>
         </li>
       </ul>
@@ -199,7 +200,7 @@ export function InputFiles() {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file"
-              name="files"  accept="application/pdf" multiple/>
+              name="files" multiple/>
             <img src={UploadImage} alt="" />
             Upload files
           </span>

@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { EndForgetPassword } from '../../api/actions';
+import { EndForgetPassword } from '../../api/actionsauth';
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
 

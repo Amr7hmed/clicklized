@@ -21,7 +21,7 @@ function Form() {
             },
         ],
         address: "21 set-test cairo",
-        day: "",
+        day: "25/10/2022",
         inputinsurance: "yes",
         transportation: "included",
         notes: "test data",
@@ -60,7 +60,7 @@ function Form() {
             <Inputquotations errors={props.errors} Data={props}/>
             <InputItems values={props.values} errors={props.errors} />
             <Inputaddress errors={props.errors} Data={props}/>
-            <Inputday data={props} />
+            <Inputday data={props.values} />
             <Inputinsurance Data={props} />
             <Inputtransportation Data={props} />
             <Inputnotes Data={props}/>
@@ -77,36 +77,14 @@ function Form() {
         </form>
     }
 
-    const schema = () => {
-        const schema = Yup.object().shape({
-            numberrequired: Yup.string()
-                .min(2, 'Too Short!')
-                .max(50, 'Too Long!').required("Number Required"),
-            address: Yup.string().required("Address Required"),
-            day: Yup.string().required("Day Is Required"),
-            files: Yup.string().required("Files Is Required"),
-            logo: Yup.string().required("Logo Is Required"),
-            
-            items: Yup.array()
-            .min(2, "You need at least one Item")
-            .required("")
-        });
 
-
-
-
-
-        return schema;
-    }
     return (
         <div className="form">
             <Formik
                 initialValues={state}
                 onSubmit={onSubmit}
                 render={form}
-                validationSchema={schema()}
-                validateOnChange={false}
-                validateOnBlur={false}
+                enableReinitialize={true}
             />
         </div>
     )
