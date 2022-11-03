@@ -1,22 +1,19 @@
 import React, { useState }  from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { EndForgetPassword } from '../../api/actionsauth';
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
+import { UpdatePassword } from '../../api/actionsauth';
 
 function FormThree() {
     const state = { password: "" ,changepassword: ""};
     const [toggle, setToggle] = useState(false);
     const [togglechangepassword, setTogglechangepassword] = useState(false);
+    const [message, setMessage] = useState("");
 
-    const SendData = () => {
-      EndForgetPassword()
-    }
     const onSubmit = (values) => {
         console.log(values);
-       // SendData(values.code);
-        SendData();
+        UpdatePassword(values.password,values.changepassword,setMessage);
     }
 
     
@@ -69,6 +66,14 @@ function FormThree() {
                     <ErrorMessage name="changepassword" component="span" className='errorfiled' />
                 </div>
 
+                <div className="mb-1">
+                    {message === ""? "" : message === "The password format is invalid." ?
+                    <span className='errorfiled'>
+                        Password must contain letters and numbers
+                    </span>:
+                    <span className='errorfiled'>{message}</span>
+                    }
+                </div>
 
                 <div className='mb-3'>
                     <button className='btn btn-send' type="submit">Save</button>
@@ -82,7 +87,7 @@ function FormThree() {
         const schema = Yup.object().shape({
             password: Yup.string()
             .min(5, 'Too Short!')
-            .max(9, 'Too Long!')
+            .max(12, 'Too Long!')
             .required('Required'), 
             changepassword: Yup.string().when("password", {
                 is: val => (val && val.length > 0 ? true : false),

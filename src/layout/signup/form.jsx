@@ -1,39 +1,70 @@
-import React from 'react';
+import React , {useState }from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
-import { Signup } from '../../api/actionsauth';
-import { useState } from 'react';
+import { Api } from '../../api';
+import axios from 'axios';
 
-function FormSignup() {
-    const state = {user_type: "", name: "", email: "" ,phone:"",password:"",password_confirmation: ""};
+function FormSignup(props) {
+    let navigate = useNavigate();
+    const {userTypes }=props;
+    const state = {user_type: "", name: "", email: "" ,phone:"",password:"",password_confirmation: "",
+    device_id:false};
     const [toggle, setToggle] = useState(false);
+    const [message, setMessage] = useState("");
     const [togglechangepassword, setTogglechangepassword] = useState(false);
 
 
-    const SendData=()=>{
-        Signup();
-    }
+    const Signup = async (values,device_id,device_type,setMessage) => {
+        const options = {
+          method: "POST",
+          url: `${Api}register`,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json;charset=UTF-8",
+            'Access-Control-Allow-Origin': '*',
+          },
+          data: JSON.stringify({
+            ...values,
+            device_id,
+            device_type
+          }),
+        };
+        axios(options)
+          .then(function (response) {
+            navigate(`/verification`);
+            setMessage("")
+          })
+          .catch(function (error) {
+            setMessage(error.response.data.message)
+          });
+      };
+
     const onSubmit = (values) => {
-      console.log(values);
-      Signup(values);
+        localStorage.setItem("emailclicklized", JSON.stringify(values.email));
+        if(values.device_id === true){
+          Signup(values,"granted","web",setMessage);
+      }else{
+         Signup(values,"denied","web",setMessage);
+      }
+
     }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
             <label className='title'>Choose user type</label>
             <ul className='signup__radio'>
-                <li>
-                    <Field type="radio" value="3" name="user_type" />
-                    <label >Supplier</label>
+            {userTypes.map(item =>
+                <li key={item.id}>
+                    <Field type="radio" value={item.id.toString()} 
+                    name="user_type" id={`user_type_${item.id}`}/>
+                    <label htmlFor={`user_type_${item.id}`}>
+                        {item.name}
+                    </label>
                 </li>
-                <li>
-                    <Field type="radio" value="2" name="user_type" />
-                    <label >Buyer</label>
-                </li>
+                    )}
             </ul>
             <ErrorMessage name="type" component="span" className='errorfiled'/>
             <div className="form">
@@ -81,7 +112,7 @@ function FormSignup() {
                     <ErrorMessage name="password" component="span" className='errorfiled' />
                 </div>
 
-                <div className='mb-1'>
+                <div className='mb-3'>
                     <label className="form-label">Reenter your password</label>
                     <div className="filedpassword">
                         <Field type={togglechangepassword === false?"password":"text"}
@@ -103,6 +134,17 @@ function FormSignup() {
                     </div>
                     <ErrorMessage name="password_confirmation" component="span" className='errorfiled' />
                 </div>
+                <div className="mb-1">
+                    <Field type="checkbox" name="device_id" id="device_id"/>
+                        <label className="form-label formlabel-checkbox" htmlFor='device_id'>
+                            Would you like to see notifications?
+                        </label>
+                </div>
+                <div className="mb-1">
+                    {message === ""? "":
+                    <span className='errorfiled'>{message}</span>
+                    }
+                </div>
                 <div className='mb-1'>
                     <button className='btn btn-send' type="submit">Sign up</button>
                 </div>
@@ -122,11 +164,14 @@ function FormSignup() {
             user_type: Yup.string().required("User Type Is Required"),
             name: Yup.string().required("Name Is Required"),
             email: Yup.string().required("Email Is Required"),
-            phone: Yup.string().min(9, 'The Contact Number must be at least 9 Digits!').required("Contact Number Is Required"),
+            phone: Yup.string()
+                .min(9, 'The Contact Number must be at least 9 Digits !')
+                .max(14, 'Contact Number Must Be No More Than 14 !')
+                .required("Contact Number Is Required"),
             password: Yup.string()
-            .min(5, 'Too Short!')
-            .max(9, 'Too Long!')
-            .required('Required'), 
+                .min(8, 'Password Must Not Be Less Than 8 Characters')
+                .max(14, 'Password Must Not Be More Than 14 Characters')
+            .required('Password Is Required'), 
             password_confirmation: Yup.string().when("password", {
                 is: val => (val && val.length > 0 ? true : false),
                 then: Yup.string().oneOf(

@@ -1,23 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
 import forgetpassword from "../../images/icon/lock-gray.png";
-import { login } from '../../api/actionsauth';
 import { NavLink } from 'react-router-dom';
+import { SignIn } from '../../api/actionsauth';
+import { Authcontext } from '../../store/context';
 
 function FormSignIn() {
-    const state = { email: "", password: "" };
+    const authcontext = useContext(Authcontext);
+    const setEmail = authcontext.setEmail;
+    const state = { email: "", password: "" ,device_id:false};
     const [toggle, setToggle] = useState(false);
+    const [message, setMessage] = useState("");
 
-    const SendData = (date) => {
-        login(date);
-    }
     const onSubmit = (values) => {
-        console.log(values);
-        SendData(values.email);
+        setEmail(values.email);
+        if(values.device_id === true){
+            SignIn(values.email,values.password,"granted","web",setMessage);
+        }else{
+           SignIn(values.email,values.password,"denied","web",setMessage);
+        }
     }
 
     const form = (props) => {
@@ -52,9 +56,25 @@ function FormSignIn() {
                     </div>
                     <ErrorMessage name="password" component="span" className='errorfiled' />
                 </div>
+                <div className="mb-1">
+                    <Field type="checkbox" name="device_id" id="device_id"/>
+                        <label className="form-label formlabel-checkbox" htmlFor='device_id'>
+                            Would you like to see notifications?
+                        </label>
+                </div>
                 <div className='forget_password'>
                     <img src={forgetpassword} />
                         <NavLink to={"/forgetpassword"}>Forget password?</NavLink>
+                </div>
+                <div className="mb-1">
+                    {message === ""? "": 
+                    message === "auth.not_active" ?
+                    <span className='errorfiled'>
+                        This account is not activated, to activate the account, please 
+                        <NavLink to={"/resendcode"}> Click here</NavLink>
+                    </span>:
+                    <span className='errorfiled'>{message}</span>
+                    }
                 </div>
                 <div className='mb-1'>
                     <button className='btn btn-send' type="submit">Sign in</button>

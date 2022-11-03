@@ -1,9 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormThree from '../../layout/password/formthree.jsx';
+import FormTwo from '../../layout/password/formtwo';
 
-function Updatepassword() {
+function ForgetPasswordCode() {
   return (
     <section className='signin'>
         <div className="vactor">
@@ -14,14 +14,12 @@ function Updatepassword() {
                 <div className="img">
                 <img src={Logo} alt="" />
                 </div>
-                <h5>Enter your password</h5>
+                <h5>Enter verification code</h5>
             </div>
-            
-            <FormThree/>
-             
+            <FormTwo/>
         </div>
     </section>
   )
 }
 
-export default Updatepassword;
+export default ForgetPasswordCode;

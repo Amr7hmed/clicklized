@@ -2,16 +2,16 @@ import React, { useState}  from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from 'react-router-dom';
-import {  FPasswordCode } from '../../api/actionsauth';
+import { ActivateAccount } from '../../api/actionsauth';
 
-function FormTwo() {
+function FormVerification() {
     const state = { code: ""};
     const [message, setMessage] = useState("");
     const email = JSON.parse(localStorage.getItem("emailclicklized"))
 
 
     const onSubmit = (values) => {
-        FPasswordCode(values.code,email,"default","web",setMessage);
+     ActivateAccount(values.code,email,"default","web",setMessage);
     }
 
     const form = (props) => {
@@ -28,7 +28,7 @@ function FormTwo() {
                     message === "auth.code_invalid" ?
                     <span className='errorfiled'>
                         The code is not valid to send it again Please
-                        <NavLink to={"/forgetpassword"}> Click here</NavLink>
+                        <NavLink to={"/resendcode"}> Click here</NavLink>
                     </span>:
                     <span className='errorfiled'>{message}</span>
                     }
@@ -62,4 +62,4 @@ function FormTwo() {
   )
 }
 
-export default FormTwo
+export default FormVerification

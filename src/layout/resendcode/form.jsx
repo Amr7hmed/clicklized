@@ -1,13 +1,12 @@
-import React  from 'react';
+import React   from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { ForgetPassword } from '../../api/actionsauth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Api } from '../../api';
 import axios from 'axios';
 
-function FormOne() {
+function FormResendCode() {
     const state = { email: ""};
     const [message, setMessage] = useState("");
     let navigate = useNavigate();
@@ -27,7 +26,7 @@ function FormOne() {
         };
         axios(options)
           .then(function (response) {
-            navigate(`/forgetpasswordcode`);
+            navigate(`/verification`);
             setMessage("")
           })
           .catch(function (error) {
@@ -46,7 +45,7 @@ function FormOne() {
                 <div className='mb-3'>
                     <Field type="email"
                         className={props.errors.email ? "form-control is-invalid" : "form-control"}
-                        placeholder="Enter your email" name="email" />
+                        placeholder="Enter your email" name="email"/>
                     <ErrorMessage name="email" component="span" className='errorfiled' />
                 </div>
                 <div className="mb-1">
@@ -83,4 +82,4 @@ function FormOne() {
   )
 }
 
-export default FormOne
+export default FormResendCode

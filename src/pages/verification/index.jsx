@@ -1,7 +1,7 @@
-import React from 'react';
+import React  from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormTwo from '../../layout/password/formtwo.jsx';
+import FormVerification from '../../layout/verification/form.jsx';
 
 function Verification() {
   return (
@@ -16,7 +16,7 @@ function Verification() {
                 </div>
                 <h5>Enter verification code</h5>
             </div>
-            <FormTwo/>
+            <FormVerification/>
         </div>
     </section>
   )
