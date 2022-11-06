@@ -2,12 +2,13 @@ import React from 'react';
 import Profile from '../../../images/icon/img-profile.jpg';
 import Account from '../../../images/icon/account.png';
 import { NavLink } from 'react-router-dom';
+import { Signoutacount } from '../../../api/actionsauth';
 
 function IconProfile() {
 
     const Signout = () => {
-        localStorage.removeItem("tokenclicklized");
         window.location.reload();
+        Signoutacount();
       }
 
   return (<>

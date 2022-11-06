@@ -2,10 +2,11 @@ import React from 'react';
 import IconSavemodal from "../../../../images/icon/savemodalicon.png";
 import IconClosemodal from "../../../../images/icon/closemodal.png";
 
-function SaveData(props) {
+function SaveDataCompany(props) {
     const {toggolemodal ,setToggolemodal ,SendData}=props
     return (
-        <div className={'modalsavedata'}>
+        <div className={toggolemodal === false ?
+             'modalsavedata hidemodal' :'modalsavedata showmodal'}>
 
             <div className="modaldata">
                 <div className="modaldataheader">
@@ -22,17 +23,18 @@ function SaveData(props) {
                 </div>
 
                 <div className="modaldataend">
-                    
                     <button type='button' className='btn btn-save'
-                    onClick={SendData}>Yes</button>
-                    
+                    onClick={SendData}>
+                    Yes
+                    </button>
                     <button type='button' className='btn btn-cancel'
-                    onClick={()=>setToggolemodal(false)}>Cancel</button>
-
+                        onClick={()=>setToggolemodal(false)} >
+                    Cancel
+                    </button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default SaveData;
+export default SaveDataCompany;

@@ -141,7 +141,10 @@ function FormSignup(props) {
                         </label>
                 </div>
                 <div className="mb-1">
-                    {message === ""? "":
+                {message === ""? "" : message === "The password format is invalid." ?
+                    <span className='errorfiled'>
+                        Password must contain letters and numbers
+                    </span>:
                     <span className='errorfiled'>{message}</span>
                     }
                 </div>
