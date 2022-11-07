@@ -6,7 +6,6 @@ import Imagecompany from '../../../../images/profile/image-two.jpg';
 
 function GeneralBottom(props) {
   const {Data}=props;
-    const DataCompany ={name:"Company Name", companyindustry:"Company Industry here",image:Data.logo};
   return (
     <div className='myprofile__bottom'>
         <UserData DataUser={Data}/>

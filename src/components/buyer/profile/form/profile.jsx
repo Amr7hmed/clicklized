@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import UploadImage from "../../../../images/icon/upload.png";
+import {GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateProfile} from "../../../../api/actionsprofile.js";
 
-function Formprofile() {
+function Formprofile(props) {
+    const {Data}=props;
+    const [dataindustries, setDataIndustries] = useState([]);
+    const [message, setMessage] = useState("");
+    const [messagecrfiles, setMessagecrfiles] = useState("");
+    const [messagevatfiles, setMessagevatfiles] = useState("");
+    const [loading, setLoading] = useState(false);
     const state = {
         name: "",
         email: "",
         phone: "",
         industry: "",
-        cr_files: "",
-        vat_files: ""
     };
+
+    
+    useEffect(() => {
+        GetDataIndustries(setLoading, setDataIndustries);
+    }, [loading]);
 
     const SendData = () => {
         swal({
@@ -25,12 +35,13 @@ function Formprofile() {
     }
     const onSubmit = (values) => {
         console.log(values);
-        SendData();
+        UpdateProfile(Data,values,setMessage)
     }
 
 
     const form = (props) => {
         return <>
+        {loading === false ? "" : 
             <form onSubmit={props.handleSubmit}>
                 <div className="modal-body">
                     <div className='row'>
@@ -54,23 +65,23 @@ function Formprofile() {
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">Contact Number</label>
-                            <Field type={"text"}
+                            <Field type={"number"}
                                 className={props.errors.phone ? "form-control is-invalid" : "form-control"}
                                 placeholder="Contact Number" name="phone" />
                             <ErrorMessage name="phone" component="span" className='errorfiled' />
                         </div>
                     </div>
 
-
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">Company Industry</label>
 
                             <Field name="industry" component="select"
-                                className={props.errors.industry ? "form-select is-invalid" : "form-select"} >
-                                <option></option>
-                                <option value="industry">industry</option>
-                                <option value="industrytwo">industrytwo</option>
+                                className={props.errors.industry ? "form-select is-invalid" : "form-select"}  >
+                                    <option></option>
+                                    {dataindustries.map(item =>
+                                    <option value={item.id} key={item.id}>{item.name}</option>
+                                    )}
                             </Field>
 
                             <ErrorMessage name="industry" component="span" className='errorfiled' />
@@ -80,45 +91,44 @@ function Formprofile() {
                             <label className="form-label">Company CR</label>
                             <button type='button'
                                 className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"} 
-                                accept="application/pdf" multiple
-                                className="input-file" name="cr_files" />
+                                <Field type={"file"} multiple className="input-file" name="cr_files" 
+                                onChange={e => {
+                                        UpdateCompanycr(Data, e.target.files, setMessagecrfiles)
+                                    }} />
                                 <img src={UploadImage} alt="" />
                                 Upload files
                             </button>
-                            <ErrorMessage name="cr_files" component="span" className='errorfiled' />
+                            {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
                         </div>
                     </div>
 
-
-
-
                     <div className='row'>
-
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">Company VAT</label>
                             <button type='button'
                                 className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
                                 <Field type={"file"} className="input-file" name="vat_files" 
-                                accept="application/pdf" multiple/>
+                                  onChange={e => {
+                                      UpdateCompanyvat(Data, e.target.files, setMessagevatfiles)
+                                  }}
+                                multiple accept="image/*"  />
                                 <img src={UploadImage} alt="" />
                                 Upload files
                             </button>
-                            <ErrorMessage name="vat_files" component="span" className='errorfiled' />
+                            {messagevatfiles === "" ? "" : <span className='errorfiled'>{messagevatfiles}</span>}
                         </div>
                     </div>
-
+                    {message === "" ? "" : <span className='errorfiled'>{message}</span>}
                     <div className='end'>
-
                         <button className={'btn btn-send button-active'}
                             type="submit" >Save</button>
-
                         <button type="button" className="btn btn-cancel"
                             data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
 
             </form>
+             }
         </>
     }
 
@@ -128,8 +138,6 @@ function Formprofile() {
             email: Yup.string().required('Bussiness Email Required'),
             phone: Yup.string().required('Contact Number Required'),
             industry: Yup.string().required('Company Industry Required'),
-            cr_files: Yup.string().required('Company CR Required'),
-            vat_files: Yup.string().required('Company VAT Required'),
         });
 
         return schema;

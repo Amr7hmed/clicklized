@@ -33,7 +33,6 @@ export const UpdateImageprofile = async (DataUser,file,setMessage) => {
   });
 };
 
-
 export const UpdateLogoprofile = async (DataUser,file,setMessage) => {
   console.log(DataUser);
   var data = new FormData();
@@ -73,7 +72,6 @@ export const UpdateCompanycr = async (DataUser,files,setMessage) => {
   data.append('user_type', DataUser.user_type_id);
   for (let i = 0; i < files.length; i++) {
     data.append("cr_files[]", files[i]);
-    console.log(files[i]);
   };
   data.append("device_id", "default");
   data.append("device_type","web");
@@ -106,11 +104,39 @@ export const UpdateCompanyvat = async (DataUser,files,setMessage) => {
   data.append('user_type', DataUser.user_type_id);
   for (let i = 0; i < files.length; i++) {
     data.append("vat_files[]", files[i]);
-    console.log(files[i]);
   };
   data.append("device_id", "default");
   data.append("device_type","web");
   data.append("industry_id", "1");
+  const  options = {
+    method: "post",
+    url: `${Api}update-profile`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+      'Access-Control-Allow-Origin': '*',
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+    },
+    data,
+  };
+    axios(options).then(function (response) {
+    setMessage("")
+  })
+  .catch(function (error) {
+    setMessage(error.response.data.message)
+  });
+  
+};
+
+export const UpdateProfile = async (Data,DataUser,setMessage) => {
+  var data = new FormData();
+  data.append('user_type', Data.user_type_id);
+  data.append("name", DataUser.name);
+  data.append("email", DataUser.email);
+  data.append("phone", DataUser.phone);
+  data.append("industry_id",DataUser.industry);
+  data.append("device_id", "default");
+  data.append("device_type","web");
   const  options = {
     method: "post",
     url: `${Api}update-profile`,

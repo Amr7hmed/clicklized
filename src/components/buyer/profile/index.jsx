@@ -25,7 +25,7 @@ function MyProfile() {
         <GeneralTop Username={username}/>
         <GeneralBottom Data={data}/>
         <ModalPassword/>
-        <ModelEditprofile/>
+        <ModelEditprofile Data={data}/>
         </div>
     </section>
     )}

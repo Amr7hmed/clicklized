@@ -1,7 +1,8 @@
 import React from 'react'
 import Formprofile from '../form/profile';
 
-function ModelEditprofile() {
+function ModelEditprofile(props) {
+  const {Data}=props;
   return (
     <div className="modal fade"
     id="modeleditprofilebuyer" tabIndex="-1" 
@@ -15,7 +16,7 @@ function ModelEditprofile() {
                     </h5>
                 </div>
 
-                <Formprofile/>
+                <Formprofile Data={Data}/>
             </div>
         </div>
     </div>
