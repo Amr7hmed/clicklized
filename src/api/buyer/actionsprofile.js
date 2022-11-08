@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api } from "./index.js";
+import { Api } from "../index.js";
 
 // Post Function Api
 
@@ -150,6 +150,7 @@ export const UpdateProfile = async (Data,DataUser,setMessage) => {
   };
     axios(options).then(function (response) {
     setMessage("")
+    window.location.pathname = `/profilebuyer`;
   })
   .catch(function (error) {
     setMessage(error.response.data.message)

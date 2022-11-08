@@ -146,6 +146,7 @@ export const Signoutacount=()=>{
   localStorage.removeItem("token")
   localStorage.removeItem("usertype")
   localStorage.removeItem("userid")
+  window.location.pathname = `/`;
 }
 // Get Function Api
 export const GetuserTypes = async (setUserTypes,setLoading) => {

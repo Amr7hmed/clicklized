@@ -4,15 +4,15 @@ import GeneralTop from './general/generaltop'
 import ModalPassword from './modal/modalpassword';
 import ModelEditprofile from './modal/modeleditprofile';
 
-function MyProfile() {
-  const [username,setUsername]=useState("Maged elrashid");
+function MyProfile(props) {
+  const {Data,Username}=props;
   return (
     <section className='myprofileseller'>
         <div className="container">
-        <GeneralTop Username={username}/>
-        <GeneralBottom/>
+        <GeneralTop Username={Username}/>
+        <GeneralBottom Data={Data}/>
         <ModalPassword/>
-        <ModelEditprofile/>
+        <ModelEditprofile Data={Data}/>
         </div>
     </section>
   )

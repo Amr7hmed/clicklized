@@ -1,60 +1,20 @@
 import React, { useState } from 'react';
+import { UpdateImageprofile } from '../../../../api/seller/actionsprofile';
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import Savedata from '../modal/savedata';
 
 function UserData(props) {
     const {DataUser}=props;
-    const [image, setImage] = useState("");
     const [toggolemodal, setToggolemodal] = useState(false);
-    const [urlimage, setUrlImage] = useState(null);
-    
-    const getBase64 = file => {
-        return new Promise(resolve => {
-            let fileInfo;
-            let baseURL = "";
-            // Make new FileReader
-            let reader = new FileReader();
-
-            // Convert the file to base64 text
-            reader.readAsDataURL(file);
-
-            // on reader load somthing...
-            reader.onload = () => {
-                // Make a fileInfo Object
-                // console.log("Called", reader);
-                baseURL = reader.result;
-                // console.log(baseURL);
-                resolve(baseURL);
-                setUrlImage(baseURL)
-            };
-            //  console.log(fileInfo);
-        });
-
-    };
-
-
-    const handleFileSelect = (e) => {
-        setImage(e.target.files[0]);
-        setToggolemodal(true);
-        const filesdata = e.target.files[0];
-
-        getBase64(filesdata)
-            .then(result => {
-                filesdata["base64"] = result;
-                //console.log("File Is", filesdata);
-                this.setState({
-                    base64URL: result,
-                    filesdata
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
+    const [message, setMessage] = useState("");
+    const [file, setFile] = useState(null);
 
     const SendData = () => {
-        console.log(image);
-        setToggolemodal(false);
+        setToggolemodal(!toggolemodal);
+        const usertype = localStorage.getItem("usertype");
+        console.log(file);
+        UpdateImageprofile(usertype,file,setMessage)
+        console.log(toggolemodal);
     }
   return (
     <div className='userdata'>
@@ -75,18 +35,31 @@ function UserData(props) {
             </ul>
         </div>
         <div className="right">
-            <img src={urlimage === null ? DataUser.image : urlimage}
+            <img src={file === null ? DataUser.image : file}
+                onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                    "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg";
+                }}
             alt={DataUser.name} />
+
             <button type='button' className='btn'>
-            <input type="file" className="input-file"
-            accept="image/*" 
-              onChange={e => handleFileSelect(e)} />
+            <input type="file" className="input-file" accept="image/*"
+             onChange={e => {
+                setFile(URL.createObjectURL(e.target.files[0]));
+                UpdateImageprofile(DataUser,e.target.files[0],setMessage) ;
+            }} />
                 <img src={Editeimage} alt="Edite image" />
                 Upload image
             </button>
+            {message === ""? "" :<span className='errorfiled'>{message}</span>}
         </div>
         
+        {toggolemodal === false ? 
+        "" 
+        :
         <Savedata toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
+             }
     </div>
   )
 }

@@ -1,11 +1,12 @@
 import React from 'react'
 import Form from './form/form'
 
-function CreateIssueBottom() {
+function CreateIssueBottom(props) {
+  const {Statedata}=props;
   return (
     <div className='createbottom'>
         <div className='screenone'>
-          <Form/>
+          <Form Statedata={Statedata}/>
         </div>
     </div>
   )

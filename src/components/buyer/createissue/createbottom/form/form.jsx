@@ -2,55 +2,42 @@ import React, { useState } from 'react';
 import { Formik } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
-import {Inputcheckbox, Inputcompany, InputSupplierslist} from "./inputs.jsx";
-import { useNavigate } from 'react-router-dom';
+import { Inputcheckbox, Inputcompany, InputSupplierslist } from "./inputs.jsx";
+import { NavLink, useNavigate } from 'react-router-dom';
 import ModalSuppliersList from './modallsupplierslist.jsx';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
-function Form() {
-    const [clickedLatLng, setClickedLatLng] = useState(null);
-    let navigate  = useNavigate();
-    const state = {
-        companyname: "",
-        companyemail: "",
-        contactnumebr:"",
-        checkboxtoggle: false,
-    };
-    const [SupplierslistItems,setSupplierslistItems]=useState([
+function Form(props) {
+    const {Statedata}=props;
+    let navigate = useNavigate();
+
+    const [SupplierslistItems, setSupplierslistItems] = useState([
         {
-            id:1,
-            img:IconProfile,
-            name:"Supplier name"
-        },{
-            id:2,
-            img:IconProfile,
-            name:"Supplier name"
+            id: 1,
+            img: IconProfile,
+            name: "Supplier name"
+        }, {
+            id: 2,
+            img: IconProfile,
+            name: "Supplier name"
         }
     ]);
 
-    const SendData = (date) => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-
-    }
     const onSubmit = (values) => {
         console.log(values);
-        console.log(clickedLatLng);
-        navigate(`/createreview`);
+        navigate(`/addrequest/createreview`);
     }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <InputSupplierslist SupplierslistItems={SupplierslistItems}/>
+            <InputSupplierslist SupplierslistItems={SupplierslistItems} />
             <Inputcompany errors={props.errors} />
-            <Inputcheckbox/>
-            <ModalSuppliersList setSupplierslistItems={setSupplierslistItems} SupplierslistItems={SupplierslistItems}/>
+            <Inputcheckbox />
+            <ModalSuppliersList setSupplierslistItems={setSupplierslistItems} SupplierslistItems={SupplierslistItems} />
             <div className='end'>
-                <button className='btn btn-cancel' type="type">Cancel</button>
+                <NavLink to={"/addrequest/createrequest"} className='btn btn-cancel' >
+                    Cancel
+                </NavLink>
                 <button className='btn btn-next' type="submit">Next</button>
             </div>
 
@@ -73,7 +60,7 @@ function Form() {
     return (
         <div className="createissue">
             <Formik
-                initialValues={state}
+                initialValues={Statedata}
                 onSubmit={onSubmit}
                 render={form}
                 validationSchema={schema()}

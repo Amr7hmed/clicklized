@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useState ,useEffect } from 'react';
 import MyProfile from '../../../components/seller/profile/index.jsx';
 import Navbar from '../../../components/seller/navbar/index.jsx';
+import { GetDataProfile } from '../../../api/seller/actionsprofile.js';
+import Loading from '../../../layout/loading/loading.jsx';
 
-function ProfileSeller() {
+function ProfileSeller() {  
+  const [username,setUsername]=useState("");
+const [loading, setLoading] = useState(false);
+const [data, setData] = useState([]);
+const userId=localStorage.getItem("userid");
+
+useEffect(() => {
+  GetDataProfile(userId,setLoading,setData);
+  setUsername(data.name)
+  console.log(data);
+}, [loading]);
   return (
-    <section className='profile'>
-    <Navbar/>
-    <MyProfile/>
-    </section>
+    <>
+    {loading === false ? (
+      <Loading/>
+    ) : (
+      <section className='profile'>
+      <Navbar/>
+      <MyProfile Data={data} Username={username}/>
+      </section>
+  )}
+  </>
   )
 }
 

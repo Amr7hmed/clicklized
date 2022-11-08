@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateLogoprofile } from '../../../../api/actionsprofile';
+import { GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateLogoprofile } from '../../../../api/buyer/actionsprofile';
 import UploadImage from "../../../../images/icon/upload.png";
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import SaveData from '../modal/savedata.jsx';

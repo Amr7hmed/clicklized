@@ -3,7 +3,8 @@ import RequestFilter from './filter/index.jsx'
 import RequestHeadr from './headr/index.jsx';
 import RequestRow from './row/index.jsx'
 
-function Requestitems() {
+function Requestitems(props) {
+  const {Data}=props;
   const [toggle,setToggole]=useState(false);
   return (
     <div className='requestitems'>
@@ -11,7 +12,7 @@ function Requestitems() {
             <RequestHeadr Title={"My requests"} Line={"7 requests"}
             Toggle={toggle} setToggole={setToggole}/>
             <RequestFilter Toggle={toggle}/>
-            <RequestRow/>
+            <RequestRow Data={Data}/>
       </div>
     </div>
   )

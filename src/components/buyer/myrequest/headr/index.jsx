@@ -17,7 +17,7 @@ function RequestHeadr(props) {
             <img src={FilterIcon} alt="Filter Icon" />
             Filter
           </button>
-          <NavLink to={"/createrequest"}  type='button' className='btn btn-request'>
+          <NavLink to={"/addrequest/createrequest"}  type='button' className='btn btn-request'>
             <img src={AddRequest} alt="Request Icon" />
             Add new request
           </NavLink>

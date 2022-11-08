@@ -1,0 +1,43 @@
+.empty-contener{
+    margin: 100px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+ font-family: var(--font-cairo);
+ .crsail{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ededed;
+    margin-bottom: 25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+ h5{
+    font-size: 28px;
+    font-weight: bold;
+    color: #252428;
+ }
+}
+
+
+
+// 1- 2- Style Navbar Component To Media Queris Samll.
+@media screen and (max-width: 576px) {
+    .empty-contener {
+        margin: 30px auto;
+    
+        h5 {
+            font-size: 24px;
+        }
+    
+        .crsail{
+            width: 150px;
+            height: 150px;
+        }
+    }   
+}

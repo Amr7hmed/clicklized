@@ -7,7 +7,6 @@ import { Signoutacount } from '../../../api/actionsauth';
 function IconProfile() {
 
     const Signout = () => {
-        window.location.reload();
         Signoutacount();
       }
 

@@ -4,8 +4,8 @@ import CompanyData from './companydata.jsx';
 import Imageprofile from '../../../../images/profile/image-one.jpg';
 import Imagecompany from '../../../../images/profile/image-two.jpg';
 
-function GeneralBottom() {
-    const DataUser={name:"Maged elrashid",email:"maged@company.com",phone:"00956654546",image:Imageprofile};
+function GeneralBottom(props) {
+  const {Data}=props;
     const DataCompany ={name:"Company Name here",
     business_sector:" Business Sector here",
     cr:"CR NO. here",
@@ -23,7 +23,7 @@ function GeneralBottom() {
     ,image:Imagecompany};
   return (
     <div className='myprofileseller__bottom'>
-        <UserData DataUser={DataUser}/>
+        <UserData DataUser={Data}/>
         <CompanyData DataCompany={DataCompany}/>
     </div>
   )

@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import { Inputaddress, Inputday, Fileslist, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation, Supplierslist } from './inputs';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 function Form() {
@@ -68,7 +68,9 @@ function Form() {
             <Supplierslist Data={props}/>
             <div className='end'>
                 <div>
-                <button className='btn btn-cancel' type="type">Cancel</button>
+                <NavLink to={"/addrequest/createreview"} className='btn btn-cancel' >
+                    Cancel
+                </NavLink>
                 <button className='btn btn-download'>Download as pdf</button>
                 </div>
                 <button className='btn btn-next' type="submit">Next</button>

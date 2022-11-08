@@ -3,7 +3,7 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import UploadImage from "../../../../images/icon/upload.png";
-import {GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateProfile} from "../../../../api/actionsprofile.js";
+import {GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateProfile} from "../../../../api/buyer/actionsprofile.js";
 
 function Formprofile(props) {
     const {Data}=props;

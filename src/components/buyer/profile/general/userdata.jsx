@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UpdateImageprofile } from '../../../../api/actionsprofile';
+import { UpdateImageprofile } from '../../../../api/buyer/actionsprofile';
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import SaveData from '../modal/savedata';
 
@@ -53,7 +53,7 @@ function UserData(props) {
                 <img src={Editeimage} alt="Edite image" />
                 Upload image
             </button>
-                    {message === ""? "" :<span className='errorfiled'>{message}</span>}
+            {message === ""? "" :<span className='errorfiled'>{message}</span>}
         </div>
         {toggolemodal === false ? 
         "" 

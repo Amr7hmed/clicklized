@@ -1,44 +1,19 @@
 import React, { useState } from 'react';
 import { Formik } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import { Inputaddress, Inputday, InputFiles, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
 import ModalMap from './modalmap';
 import { useNavigate } from 'react-router-dom';
+import { Createrequestdata } from '../../../../../api/buyer/actionrequest';
 
-function Form() {
-    const [clickedLatLng, setClickedLatLng] = useState(null);
+function Form(props) {
+    const {Statedata,clickedLatLng, setClickedLatLng}=props;
+    const [message, setMessage] = useState("");
     let navigate  = useNavigate();
-    const state = {
-        numberrequired: "",
-        items: [
-            {
-                item:"",
-                quantity:""
-            },
-        ],
-        address: "",
-        day: "",
-        inputinsurance: "yes",
-        transportation: "included",
-        notes: "",
-        files: "",
-        logo: "",
-    };
 
-    const SendData = (date) => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-
-    }
     const onSubmit = (values) => {
-        console.log(values);
-        console.log(clickedLatLng);
-        navigate(`/createissue`);
+       // navigate(`/addrequest/createissue`);
+        Createrequestdata(values)
     }
 
     const form = (props) => {
@@ -52,6 +27,7 @@ function Form() {
             <Inputnotes />
             <InputFiles />
             <ModalMap clickedLatLng={clickedLatLng} setClickedLatLng={setClickedLatLng}/>
+            {message === "" ? "" : <span className='errorfiled'>{message}</span>}
             <div className='end'>
                 <button className='btn btn-next' type="submit">Next</button>
             </div>
@@ -62,13 +38,12 @@ function Form() {
     const schema = () => {
         const schema = Yup.object().shape({
             numberrequired: Yup.string()
-                .min(2, 'Too Short!')
-                .max(50, 'Too Long!').required("Number Required"),
+                .min(8, 'Too Short!')
+                .max(14, 'Too Long!').required("Number Required"),
             address: Yup.string().required("Address Required"),
             day: Yup.string().required("Day Is Required"),
             files: Yup.string().required("Files Is Required"),
             logo: Yup.string().required("Logo Is Required"),
-            
             items: Yup.array()
             .min(2, "You need at least one Item")
             .required("")
@@ -83,7 +58,7 @@ function Form() {
     return (
         <div className="form">
             <Formik
-                initialValues={state}
+                initialValues={Statedata}
                 onSubmit={onSubmit}
                 render={form}
                 validationSchema={schema()}

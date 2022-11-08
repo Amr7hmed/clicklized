@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
+import { AddNewSupplier, GetDataCaity } from '../../../../../api/buyer/actionsuppliers';
 
 function FormAddSuppliers() {
     let navigate  = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [loadingcaity, setLoadingcaity] = useState(false);
+    const [dataindustries, setDataIndustries] = useState([]);
+    const [dataicaity, setDataicaity] = useState([]);
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        GetDataIndustries(setLoading, setDataIndustries);
+        GetDataCaity(setLoadingcaity,setDataicaity)
+    }, [loading]);
+
     const state = {
         name: "",
         email: "",
@@ -14,19 +27,9 @@ function FormAddSuppliers() {
         city: "",
     };
 
-    const SendData = () => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-       // navigate(`/suppliers`);
-       window.location.reload();
-    }
     const onSubmit = (values) => {
         console.log(values);
-        SendData();
+        AddNewSupplier(values,setMessage)
     }
 
 
@@ -46,14 +49,15 @@ function FormAddSuppliers() {
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">Company Industry</label>
 
+                            {loading === false ? "" : 
                             <Field name="industry" component="select"
                                 className={props.errors.industry ? "form-select is-invalid" : "form-select"} >
-                                <option>
-                                Company industry
-                                </option>
-                                <option value="industry">industry</option>
-                                <option value="industrytwo">industrytwo</option>
+                                <option>Company industry</option>
+                                {dataindustries.map(item =>
+                                <option value={item.id} key={item.id}>{item.name}</option>
+                                )}
                             </Field>
+                            }
 
                             <ErrorMessage name="industry" component="span" className='errorfiled' />
                         </div>
@@ -63,14 +67,15 @@ function FormAddSuppliers() {
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">City</label>
 
+                            {loadingcaity === false ? "" : 
                             <Field name="city" component="select"
                                 className={props.errors.city ? "form-select is-invalid" : "form-select"} >
-                                <option>
-                                City
-                                </option>
-                                <option value="cairo">Cairo</option>
-                                <option value="riyadh">Riyadh</option>
+                                <option>City</option>
+                                {dataicaity.map(item =>
+                                <option value={item.id} key={item.id}>{item.name}</option>
+                                )}
                             </Field>
+                            }
 
                             <ErrorMessage name="city" component="span" className='errorfiled' />
                         </div>
@@ -94,6 +99,7 @@ function FormAddSuppliers() {
                             <ErrorMessage name="email" component="span" className='errorfiled' />
                         </div>
                     </div>
+                    {message === "" ? "" : <span className='errorfiled'>{message}</span>}
 
 
                     <div className='end'>

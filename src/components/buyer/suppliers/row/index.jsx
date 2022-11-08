@@ -1,22 +1,23 @@
 import React from 'react';
+import EmptySuppliers from '../../../../layout/empty/emptysuppliers';
 import SuppliersCard from './card';
 
-function SuppliersRow() {
-  const Data = [
-    { id: 1, name: "Company Name", industry: "Company industry" },
-    { id: 2, name: "Company Name", industry: "Company industry" },
-    { id: 3, name: "Company Name", industry: "Company industry" },
-    { id: 4, name: "Company Name", industry: "Company industry" },
-    { id: 5, name: "Company Name", industry: "Company industry" },
-    { id: 6, name: "Company Name", industry: "Company industry" },
-  ]
+function SuppliersRow(props) {
+  const {Data ,setLoading}=props;
+  
   return (
     <div className='mysuppliers__row'>
+      {Data.length === 0 ? 
+      <EmptySuppliers/>
+      :
+      <>
       <div className="row">
         {Data.map(item =>
-          <SuppliersCard key={item.id} Item={item} />
+          <SuppliersCard key={item.id} Item={item} setLoading={setLoading}/>
         )}
       </div>
+      </>
+      }
     </div>
   )
 }

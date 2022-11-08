@@ -8,8 +8,6 @@ import ProfileBuyer from './pages/buyer/profile/index.jsx';
 import SignIn from './pages/signin/index.jsx';
 import Signup from './pages/signup/index.jsx';
 import CreateRequest from './pages/buyer/createrequest/index.jsx';
-import CreateIssue from './pages/buyer/createissue/index.jsx';
-import CreateReview from './pages/buyer/createreview/index.jsx';
 import ShowRequest from './pages/buyer/showrequest/index.jsx';
 import QuestionsBuyer from './pages/buyer/questionsbuyer/index.jsx';
 import Offers from './pages/buyer/offers/index.jsx';
@@ -33,8 +31,8 @@ function App() {
         {localStorage.getItem("token") === null ?
         <Route path="/" element={<SignIn />} exact />
         :
-      <Route path="/" element={<HomeBuyer />} exact />      
-      //<Route path="/" element={<HomeSeller />} exact />
+      //<Route path="/" element={<HomeBuyer />} exact />      
+      <Route path="/" element={<HomeSeller />} exact />
       }
       <Route path="/signup" element={<Signup/>} exact />
       <Route path="/resendcode" element={<ResendCode />} exact />
@@ -45,9 +43,7 @@ function App() {
       {/*This Is Buyer Pages*/}
       <Route path="/suppliers" element={<Suppliers />} exact />
       <Route path="/profilebuyer" element={<ProfileBuyer />} exact />
-      <Route path="/createrequest" element={<CreateRequest />} exact />
-      <Route path="/createissue" element={<CreateIssue />} exact />
-      <Route path="/createreview" element={<CreateReview />} exact />
+      <Route path="/addrequest/:name" element={<CreateRequest />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
       <Route path="/showrequestbuyer/:name/:id" element={<ShowRequest />} exact />
       <Route path="/questionsbuyer/:name/:id" element={<QuestionsBuyer />} exact />
