@@ -7,7 +7,8 @@ function DatePickerdata(props) {
   const {Data}=props;
   return (<div className='day'>
     <DatePicker 
-            className={Data.errors.day ? "data-input is-invalid" : "data-input"}
+        dateFormat="yyyy/MM/dd"
+        className={Data.errors.day ? "data-input is-invalid" : "data-input"}
         placeholderText='Choose Required Delivery Date/Deadline'
         selected={Data.values.day}
         minDate={new Date()} 

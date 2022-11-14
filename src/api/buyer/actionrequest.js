@@ -9,7 +9,7 @@ export const GetDataRequest = async (setLoading,setData) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
       },
     };
     axios(options)
@@ -59,7 +59,7 @@ export const Createrequestdata = async (Data) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };

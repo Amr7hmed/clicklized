@@ -3,22 +3,48 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import UploadImage from "../../../../images/icon/upload.png";
+import { GetDataIndustries, UpdateProfile } from '../../../../api/seller/actionsprofile';
+import { GetDataCaity, GetDataCountries } from '../../../../api/buyer/actionsuppliers';
+import { useEffect } from 'react';
+import DatePickerdatacrexpire from './datepickercrexpire';
+import DatePickerdatacrissue from './datepickerdatacrissue';
+import DatePickerregistration from './datepickerregistration';
 
-function Formprofileseller() {
+function Formprofileseller(props) {
+    const {Data}=props;
+    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [dataindustries, setDataIndustries] = useState([]);
+    const [loadingcaity, setLoadingcaity] = useState(false);
+    const [dataicaity, setDataicaity] = useState([]);
+    const [loadingcountries, setLoadingcountries] = useState(false);
+    const [dataicountries, setDataicountries] = useState([]);
+
+    useEffect(() => {
+        GetDataIndustries(setLoading, setDataIndustries);
+        GetDataCaity(setLoadingcaity,setDataicaity);
+    }, [loadingcaity]);
+
+    useEffect(() => {
+        GetDataCountries(setLoadingcountries,setDataicountries);
+    }, [loadingcountries]);
+
+
     const state = {
         companyname: "",
         business_sector: "",
+        fax:"",
         cr: "",
-        vat: "",
-        companycr:"",
-        vat_registration_date:"",
         website:"",
         country:"",
         city:"",
         address:"",
-        phone:"",
-        fax:"",
-        payment_terms:""
+        vat: "",
+        cr_issue_date:"",
+        cr_expire_date: "",
+        vat_registration_date:"",
+        company_email:"",
+        payment_terms:"",
     };
 
     const SendData = () => {
@@ -28,15 +54,20 @@ function Formprofileseller() {
             buttons: false,
             timer: 3000
         })
-        
        window.location.reload();
     }
     const onSubmit = (values) => {
-        console.log(values);
-        SendData();
+        //console.log(values.cr_issue_date);
+        //const cr_issue_dateday= values.cr_issue_date.getDate();
+        //const cr_issue_dateMonth= values.cr_issue_date.getMonth()+1;
+        //const cr_issue_dateyear= values.cr_issue_date.getFullYear();
+       // console.log(cr_issue_dateday);
+       // console.log(cr_issue_dateMonth);
+        //console.log(cr_issue_dateyear);
+
+
+       UpdateProfile(Data,values,setMessage)
     }
-
-
     const form = (props) => {
         return <>
             <form onSubmit={props.handleSubmit}>
@@ -52,9 +83,15 @@ function Formprofileseller() {
 
                         <div className='col-6 input_model'>
                             <label className="form-label">Business Sector</label>
-                            <Field type={"text"}
-                                className={props.errors.business_sector ? "form-control is-invalid" : "form-control"}
-                                placeholder="Business Sector here" name="business_sector" />
+                            {loading === false ? "" : 
+                            <Field name="business_sector" component="select"
+                                className={props.errors.business_sector ? "form-select is-invalid" : "form-select"} >
+                                <option>Business Sector here</option>
+                                {dataindustries.map(item =>
+                                <option value={item.id} key={item.id}>{item.name}</option>
+                                )}
+                            </Field>
+                            }
                             <ErrorMessage name="business_sector" component="span" className='errorfiled' />
                         </div>
                     </div>
@@ -78,29 +115,24 @@ function Formprofileseller() {
                     </div>
 
                     <div className='row'>
-                        <div className='col-6 input_model'>
-                            <label className="form-label">test</label>
-                            <Field type={"text"}
-                                className={props.errors.cr ? "form-control is-invalid" : "form-control"}
-                                placeholder="test . here" name="cr" />
-                            <ErrorMessage name="cr" component="span" className='errorfiled' />
-                        </div>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">Company CR</label>
-                            <Field type={"text"}
-                                className={props.errors.companycr ? "form-control is-invalid" : "form-control"}
-                                placeholder="Company CR. here" name="companycr" />
-                            <ErrorMessage name="companycr" component="span" className='errorfiled' />
+                            <label className="form-label">CR Issue Date</label>
+                            <DatePickerdatacrissue  Data={props} />
+                            <ErrorMessage name="cr_issue_date" component="span" className='errorfiled' />
+                        </div>
+                        
+                        <div className='col-6 input_model'>
+                            <label className="form-label">CR Expiry Date</label>
+                                <DatePickerdatacrexpire Data={props} />
+                                <ErrorMessage name="cr_expire_date" component="span" className='errorfiled' />
                         </div>
                     </div>
                     
                     <div className='row'>
                         <div className='col-6 input_model'>
                             <label className="form-label">VAT Registration Date</label>
-                            <Field type={"text"}
-                                className={props.errors.vat_registration_date ? "form-control is-invalid" : "form-control"}
-                                placeholder="VAT Registration Date . here" name="vat_registration_date" />
+                            <DatePickerregistration  Data={props}/>
                             <ErrorMessage name="vat_registration_date" component="span" className='errorfiled' />
                         </div>
                         <div className='col-6 input_model'>
@@ -122,9 +154,13 @@ function Formprofileseller() {
 
                         <div className='col-6 input_model'>
                             <label className="form-label">Country</label>
-                            <Field type={"text"}
-                                className={props.errors.country ? "form-control is-invalid" : "form-control"}
-                                placeholder="Country . here" name="country" />
+                            {loadingcountries === false ? "" : 
+                            <Field name="country" component="select"
+                                className={props.errors.country ? "form-select is-invalid" : "form-select"} >
+                                <option>Country . here</option>
+                                {dataicountries.map(item =><option value={item.id} key={item.id}>{item.name}</option>)}
+                            </Field>
+                            }
                             <ErrorMessage name="country" component="span" className='errorfiled' />
                         </div>
                     </div>
@@ -132,9 +168,13 @@ function Formprofileseller() {
                     <div className='row'>
                         <div className='col-6 input_model'>
                             <label className="form-label">City</label>
-                            <Field type={"text"}
-                                className={props.errors.city ? "form-control is-invalid" : "form-control"}
-                                placeholder="City. here" name="city" />
+                            {loadingcaity === false ? "" : 
+                            <Field name="city" component="select"
+                                className={props.errors.city ? "form-select is-invalid" : "form-select"} >
+                                <option>City here</option>
+                                {dataicaity.map(item =><option value={item.id} key={item.id}>{item.name}</option>)}
+                            </Field>
+                            }
                             <ErrorMessage name="city" component="span" className='errorfiled' />
                         </div>
 
@@ -149,11 +189,11 @@ function Formprofileseller() {
                     
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">Phone No.</label>
-                            <Field type={"number"}
-                                className={props.errors.phone ? "form-control is-invalid" : "form-control"}
-                                placeholder="Phone No. here" name="phone" />
-                            <ErrorMessage name="phone" component="span" className='errorfiled' />
+                            <label className="form-label">Company Email No.</label>
+                            <Field type={"email"}
+                                className={props.errors.company_email ? "form-control is-invalid" : "form-control"}
+                                placeholder="Company Email No. here" name="company_email" />
+                            <ErrorMessage name="company_email" component="span" className='errorfiled' />
                         </div>
 
                         <div className='col-6 input_model'>
@@ -164,6 +204,7 @@ function Formprofileseller() {
                             <ErrorMessage name="fax" component="span" className='errorfiled' />
                         </div>
                     </div>
+                    {message === "" ? "" : <span className='errorfiled'>{message}</span>}
 
                     <div className='end'>
                         <button className={'btn btn-send button-active'} type="submit" >Save</button>
@@ -181,17 +222,16 @@ function Formprofileseller() {
             business_sector: Yup.string().required('Required'),
             cr: Yup.string().required('Required'),
             vat: Yup.string().required('Required'),
-            companycr:Yup.string().required('Required'),
+            cr_issue_date:Yup.string().required('Required'),
             vat_registration_date:Yup.string().required('Required'),
             website:Yup.string().required('Required'),
             country:Yup.string().required('Required'),
             city:Yup.string().required('Required'),
             address:Yup.string().required('Required'),
-            phone: Yup.string()
-            .min(9, 'The phone number must be at least 9 Digits!')
-            .required("Required"),
+            company_email: Yup.string().required("Required"),
             fax:Yup.string().required('Required'),
             payment_terms:Yup.string().required('Required'),
+            cr_expire_date: Yup.string().required("Required"),
         });
 
         return schema;

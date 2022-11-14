@@ -21,7 +21,7 @@ export const UpdateImageprofile = async (DataUser,file,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };
@@ -52,7 +52,7 @@ export const UpdateLogoprofile = async (DataUser,file,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };
@@ -83,7 +83,7 @@ export const UpdateCompanycr = async (DataUser,files,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };
@@ -115,7 +115,7 @@ export const UpdateCompanyvat = async (DataUser,files,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };
@@ -144,7 +144,7 @@ export const UpdateProfile = async (Data,DataUser,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };
@@ -165,7 +165,7 @@ export const GetDataProfile = async (userid,setLoading,setData) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
     },
   };
   axios(options)
@@ -186,7 +186,7 @@ export const GetDataIndustries = async (setLoading,setData) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
     },
   };
   axios(options)

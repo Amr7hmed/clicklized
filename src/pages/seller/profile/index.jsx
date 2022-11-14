@@ -8,12 +8,11 @@ function ProfileSeller() {
   const [username,setUsername]=useState("");
 const [loading, setLoading] = useState(false);
 const [data, setData] = useState([]);
-const userId=localStorage.getItem("userid");
+const userId=localStorage.getItem("useridclicklized");
 
 useEffect(() => {
   GetDataProfile(userId,setLoading,setData);
   setUsername(data.name)
-  console.log(data);
 }, [loading]);
   return (
     <>

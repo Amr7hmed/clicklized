@@ -28,7 +28,7 @@ function App() {
     <main className={"main"}>
       <BrowserRouter>
         <Routes>
-        {localStorage.getItem("token") === null ?
+        {localStorage.getItem("tokenclicklized") === null ?
         <Route path="/" element={<SignIn />} exact />
         :
       //<Route path="/" element={<HomeBuyer />} exact />      

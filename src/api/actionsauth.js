@@ -22,9 +22,9 @@ export const SignIn = async (email,password,device_id,device_type,setMessage) =>
   };
   axios(options)
     .then(function (response) {
-      localStorage.setItem("token", JSON.stringify(response.data.data.user.token));
-      localStorage.setItem("usertype", JSON.stringify(response.data.data.user.user_type_id));
-      localStorage.setItem("userid", JSON.stringify(response.data.data.user.id));
+      localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
+      localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
+      localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
       setMessage("")
       window.location.reload();
     })
@@ -52,9 +52,9 @@ export const ActivateAccount = async (code,email,device_id,device_type,setMessag
   };
   axios(options)
     .then(function (response) {
-      localStorage.setItem("token", JSON.stringify(response.data.data.user.token));
-      localStorage.setItem("usertype", JSON.stringify(response.data.data.user.user_type_id));
-      localStorage.setItem("userid", JSON.stringify(response.data.data.user.id));
+      localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
+      localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
+      localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
       localStorage.removeItem("emailclicklized");
       window.location.pathname = `/`;
       setMessage("")
@@ -83,8 +83,8 @@ export const FPasswordCode = async (code,email,device_id,device_type,setMessage)
   };
   axios(options)
     .then(function (response) {
-      localStorage.setItem("token", JSON.stringify(response.data.data.user.token));
-      localStorage.setItem("usertype", JSON.stringify(response.data.data.user.user_type_id));
+      localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
+      localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
       localStorage.removeItem("emailclicklized");
       window.location.pathname = `/updatepassword`;
       setMessage("")
@@ -102,7 +102,7 @@ export const UpdatePassword = async (password,password_confirmation,setMessage) 
       Accept: "application/json",
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data: JSON.stringify({
       password,
@@ -126,7 +126,7 @@ export const UpdatePasswordprofile = async (password,password_confirmation,setMe
       Accept: "application/json",
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data: JSON.stringify({
       password,
@@ -143,9 +143,9 @@ export const UpdatePasswordprofile = async (password,password_confirmation,setMe
 };
 
 export const Signoutacount=()=>{
-  localStorage.removeItem("token")
-  localStorage.removeItem("usertype")
-  localStorage.removeItem("userid")
+  localStorage.removeItem("tokenclicklized")
+  localStorage.removeItem("usertypeclicklized")
+  localStorage.removeItem("useridclicklized")
   window.location.pathname = `/`;
 }
 // Get Function Api

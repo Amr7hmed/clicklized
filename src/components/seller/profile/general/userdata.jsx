@@ -11,7 +11,7 @@ function UserData(props) {
 
     const SendData = () => {
         setToggolemodal(!toggolemodal);
-        const usertype = localStorage.getItem("usertype");
+        const usertype = localStorage.getItem("usertypeclicklized");
         console.log(file);
         UpdateImageprofile(usertype,file,setMessage)
         console.log(toggolemodal);

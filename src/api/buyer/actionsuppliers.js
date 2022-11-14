@@ -9,7 +9,7 @@ export const GetDataSuppliers = async (setLoading,setData) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
       },
     };
     axios(options)
@@ -29,7 +29,7 @@ export const GetDataSuppliers = async (setLoading,setData) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
       },
     };
     axios(options)
@@ -42,6 +42,25 @@ export const GetDataSuppliers = async (setLoading,setData) => {
       });
   };
   
+  export const GetDataCountries = async (setLoading,setData) => {
+    const options = {
+      method: "get",
+      url: `${Api}countries`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      },
+    };
+    axios(options)
+      .then(function (response) {
+        setLoading(true);
+        setData(response.data.data);
+      })
+      .catch(function (error) {
+        setLoading(true);
+      });
+  };
 // Delete Function Api 
 export const DeleteSupplier = (Id, setLoading) => {
     const options = {
@@ -50,7 +69,7 @@ export const DeleteSupplier = (Id, setLoading) => {
       headers: {
         Accept: "application/json",
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
       }
     };
     axios(options).then(function (response) {
@@ -76,7 +95,7 @@ export const AddNewSupplier = async (DataUser,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`, 
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
     },
     data,
   };
