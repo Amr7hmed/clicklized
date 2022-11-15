@@ -27,30 +27,33 @@ export const GetDataRequest = async (setLoading,setData) => {
   
 // Post Function Api
   
-export const Createrequestdata = async (Data) => {
-
+export const Createrequestdata = async (Data,clickedLatLng,setMessage) => {
+const products=[];
   var data = new FormData();
     data.append("offers_allowed", Data.numberrequired);
-    data.append("lat", "1.31313212");
-    data.append("lng", "1.032465465");
-    data.append("address", "test");
-    data.append("delivery_date", "11/11/2022");
-    data.append("has_insurance", "yes");
-    data.append("transportation", "included");
-    data.append("notes", "test");
-    //data.append("logo", fileInput.files[0], "/C:/xampp/htdocs/HWZN/direction/public/site/images/newsletter-image-bg.jpg");
-    data.append("company_name", "test");
-    data.append("email", "asmaaelfeky6@gmail.com");
-    data.append("contact_number", "0131213244");
+    data.append("address", Data.address);
+    data.append("lat", clickedLatLng.lat);
+    data.append("lng", clickedLatLng.lng);
+    data.append("delivery_date",
+    `${Data.day.getMonth()+1}/${Data.day.getDate()}/${Data.day.getFullYear()}`);
+    data.append("has_insurance", Data.inputinsurance);
+    data.append("transportation", Data.transportation);
+    data.append("notes", Data.notes);
+   // data.append("logo", fileInput.files[0], Data.logo);
+   
+    for (let i = 0; i < Data.items.length; i++) {
+      if(Data.items[i].item_id !== undefined )
+        data.append("products["+i+"][quantity]", Data.items[i].quantity);
+        data.append("products["+i+"][item_id]", Data.items[i].item_id);
+    };
+    data.append("company_name", Data.companyname);
+    data.append("email", Data.companyemail);
+    data.append("contact_number", Data.contactnumebr);
     data.append("industry_id", "1");
     data.append("payment_id", "1");
     //data.append("files[]", fileInput.files[0], "/C:/xampp/htdocs/HWZN/direction/public/site/images/hero-video-bg.jpg");
-    data.append("products[0][item_id]", "1");
-    data.append("products[0][quantity]", "20");
-    data.append("products[1][item_id]", "2");
-    data.append("products[1][quantity]", "100");
     data.append("suppliers[]", "1");
-    data.append("send_all", "true");
+    data.append("send_all", Data.checkboxtoggle);
 
   const  options = {
     method: "post",
@@ -64,11 +67,12 @@ export const Createrequestdata = async (Data) => {
     data,
   };
     axios(options).then(function (response) {
-    //setMessage("")
+    setMessage("")
     console.log(response);
   })
   .catch(function (error) {
-   // setMessage(error.response.data.message)
+    //console.log(error.response.data.message);
+   setMessage(error.response.data.message)
   });
   
 };

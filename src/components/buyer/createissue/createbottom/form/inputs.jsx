@@ -6,7 +6,6 @@ import IconClose from "../../../../../images/icon/ic-close.svg";
 
 export function InputSupplierslist(props) {
   const { SupplierslistItems } = props;
-  console.log(SupplierslistItems);
   const [SuppliersItems, setSuppliersItems] = useState([]);
 
   useEffect(() => {
@@ -63,30 +62,29 @@ export function Inputcompany(props) {
         <div className="col-12 col-lg-4">
           <label className="form-label">Company name</label>
           <Field type="text" component="input"
-            className={errors.companyname ? "form-control is-invabuttond" : "form-control"}
+            className={errors.companyname === "" ? "form-control is-invabuttond" : "form-control"}
             placeholder="Enter Company Name" name="companyname" />
           <br />
-          <ErrorMessage name="companyname" component="span" className='errorfiled' />
+          {errors.companyname === "" ? <span className='errorfiled'>Company Name is Required</span>:""}
         </div>
         <div className="col-12 col-lg-4">
 
           <label className="form-label">Company Email</label>
           <Field type="email" component="input"
-            className={errors.companyemail ? "form-control is-invabuttond" : "form-control"}
+            className={errors.companyemail === "" ? "form-control is-invabuttond" : "form-control"}
             placeholder="Enter Email" name="companyemail" />
           <br />
-          <ErrorMessage name="companyemail" component="span" className='errorfiled' />
+          {errors.companyemail === "" ? <span className='errorfiled'>Company Email is Required</span>:""}
 
         </div>
         <div className="col-12 col-lg-4">
 
           <label className="form-label">Contact numebr</label>
           <Field type="number" component="input"
-            className={errors.contactnumebr ? "form-control is-invabuttond" : "form-control"}
+            className={errors.contactnumebr === "" ? "form-control is-invabuttond" : "form-control"}
             placeholder="Enter Contact numebr" name="contactnumebr" />
           <br />
-          <ErrorMessage name="contactnumebr" component="span" className='errorfiled' />
-
+          {errors.contactnumebr === "" ? <span className='errorfiled'>Company Numebr is Required</span>:""}
         </div>
       </div>
 
@@ -101,6 +99,7 @@ export function Inputcheckbox(props) {
       <Field type="checkbox" name="checkboxtoggle" />
       <label className="form-label formlabel-checkbox">
         Send invitations to all suppliers</label>
+      <ErrorMessage name="checkboxtoggle" component="span" className='errorfiled' />
     </div>
   )
 };

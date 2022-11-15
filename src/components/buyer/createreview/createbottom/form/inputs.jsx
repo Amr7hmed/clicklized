@@ -6,83 +6,63 @@ import IconProfile from "../../../../../images/icon/img-profile.jpg";
 import DatePickerdata from './datepicker';
 
 export function Inputquotations(props) {
-  const { errors, Data } = props;
+  const { Data } = props;
   return (
     <div className='inputform'>
       <label className="form-label">Number of required quotations</label>
       <Field type="text" component="input"
         id="inputquotations"
-        readOnly
-        value={Data.values.numberrequired}
-        className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Number of required quotations" name="numberrequired" />
+        readOnly value={Data.numberrequired} className={"form-control"} name="numberrequired" />
     </div>
   )
 };
 
 export function InputItems(props) {
-  const { values, errors } = props;
+  const { Itemsresults } = props;
   return (
-    <div className='inputform'>
-      <FieldArray name="items" readOnly>
-        {({ insert }) => (
-          <div className='inputform_items_row'>
-            <div>
-              {
-                values.items.map((item, index) => (
-                  <div key={index} className='inputform_items' id={index}>
-                    <div className="inputform_item">
-                      <label htmlFor={`items.${index}.item`}>Item</label>
-                      <Field readOnly
-                        name={`items.${index}.item`}
-                        placeholder="Jane Doe"
-                        value={item}
-                        component="select"
-                        className={"form-select"} >
-                        <option value={item}>{item.item}</option>
-                      </Field>
-                    </div>
-                    <div className="inputform_item">
-                      <label htmlFor={`items.${index}.quantity`}>Quantity</label>
-                      <Field readOnly
-                        name={`items.${index}.quantity`}
-                        placeholder="Enter Quantity"
-                        type="text"
-                        className={"form-control"} />
-                    </div>
-                  </div>
-                ))}
+    <div>
+      {Itemsresults.map((item, index) => (
+        <div className='row' key={index}>
+          <div className="col-12 col-sm-6">
 
+            <div className='inputform_item  mb-3'>
+              <label className="form-label">Item</label>
+              <Field type="text" component="input"
+                readOnly value={item.item_id} className={"form-control"} />
             </div>
           </div>
-        )}
+          <div className="col-12 col-sm-6">
 
-      </FieldArray>
+            <div className='inputform_item  mb-3'>
+              <label className="form-label">Quantity</label>
+              <Field type="text" component="input"
+                readOnly value={item.quantity} className={"form-control"} />
+            </div>
+          </div>
+        </div>
+      ))}
+
     </div>
   )
 };
 export function Inputaddress(props) {
-  const { errors, Data } = props;
+  const { Data } = props;
   return (
     <div className='inputform'>
       <h6>Address</h6>
       <label className="form-label">Required Delivery Location</label>
       <Field type="textarea" component="textarea" readOnly
-        value={Data.values.address}
-        className={errors.address ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Required Delivery Location" name="address" />
+        value={Data.address} className={ "form-control"} />
     </div>
   )
 };
 
 export function Inputday(props) {
-  const { data } = props;
+  const { Data } = props;
   return (
     <div className='inputform inputformday'>
       <label className="form-label">Required Delivery Date/Deadline</label>
-      <Field readOnly
-      value={data.day} placeholder="Enter Quantity"
-      type="text" className={"form-control"} />
+      <Field readOnly value={Data} type="text" className={"form-control"} />
     </div>
   )
 };
@@ -96,9 +76,9 @@ export function Inputinsurance(props) {
 
         <li className={'active'}>
           <label>
-            <Field type="radio" name="inputinsurance" value={Data.values.inputinsurance} />
-            {Data.values.inputinsurance === "yes" ?
-              "Yes" : Data.values.inputinsurance === "not_appcable" ? "Not applicable" :
+            <Field type="radio" name="inputinsurance" value={Data.inputinsurance} />
+            {Data.inputinsurance === "yes" ?
+              "Yes" : Data.inputinsurance === "not_appcable" ? "Not applicable" :
                 "No"
             }
           </label>
@@ -118,10 +98,10 @@ export function Inputtransportation(props) {
 
         <li className={'active'}>
           <label>
-            <Field type="radio" name="inputinsurance" value={Data.values.transportation} />
-            {Data.values.transportation === "included" ?
+            <Field type="radio" name="inputinsurance" value={Data.transportation} />
+            {Data.transportation === "included" ?
               "Included" :
-              Data.values.transportation === "not-included" ?
+              Data.transportation === "not-included" ?
                 "Not Included" :
                 "Self collection"
             }
@@ -139,7 +119,7 @@ export function Inputnotes(props) {
       <label className="form-label">Notes</label>
       <Field type="textarea" component="textarea" readOnly
         className={"form-control"}
-        value={Data.values.notes}
+        value={Data.notes}
         placeholder="Enter notes if you have" name="notes" />
     </div>
   )
@@ -161,7 +141,7 @@ export function Fileslist(props) {
 
 
 export function Supplierslist(props) {
-  const { Data } = props;
+  const { Data ,Arraydataone } = props;
   const objArr = [...Data.values.supplierslist];
   const RemoveItem = (id) => {
     console.log(id);
@@ -187,13 +167,13 @@ export function Supplierslist(props) {
         )}
 
       </div>
-      
-    <div className='inputform'>
-          <Field type="checkbox" name="checkboxtoggle" disabled="disabled"
-          checked={Data.values.checkboxtoggle} />
-            <label className="form-label formlabel-checkbox">
-              Send invitations to all suppliers</label>
-    </div>
+
+      <div className='inputform'>
+        <Field type="checkbox" name="checkboxtoggle" disabled="disabled"
+          checked={Arraydataone.checkboxtoggle} />
+        <label className="form-label formlabel-checkbox">
+          Send invitations to all suppliers</label>
+      </div>
     </div>
   )
 };

@@ -33,15 +33,15 @@ export function InputItems(props) {
                 values.items.map((item, index) => (
                   <div key={index} className='inputform_items' id={index}>
                     <div className="inputform_item">
-                      <label htmlFor={`items.${index}.item`}>Item</label>
+                      <label htmlFor={`items.${index}.item_id`}>Item</label>
                       <Field
-                        name={`items.${index}.item`}
+                        name={`items.${index}.item_id`}
                         placeholder="Jane Doe"
                         component="select"
                         className={"form-select"} >
                         <option>Choose Item</option>
-                        <option value="one">One</option>
-                        <option value="two">Two</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
                       </Field>
                     </div>
                     <div className="inputform_item">
@@ -63,7 +63,7 @@ export function InputItems(props) {
                       </button>
                     </div>
                     <button
-                    id={values.items[index].item === "" || 
+                    id={values.items[index].item_id === "" || 
                     values.items[index].quantity === "" ? "button-disabled" :"button-active"}
                     className={values.items.length === index+1 ?"btn btn-add":"btn btn-add hide"}
                       type="button"
@@ -163,16 +163,16 @@ export function Inputtransportation(props) {
           </label>
         </li>
         <li
-          className={Data.values.transportation === "not-included" ? 'active' : ""}>
+          className={Data.values.transportation === "not_included" ? 'active' : ""}>
           <label>
-            <Field type="radio" name="transportation" value="not-included" />
+            <Field type="radio" name="transportation" value="not_included" />
             Not Included
           </label>
         </li>
         <li
-          className={Data.values.transportation === "self-collection" ? 'active' : ""}>
+          className={Data.values.transportation === "self_collection" ? 'active' : ""}>
           <label>
-            <Field type="radio" name="transportation" value="self-collection" />
+            <Field type="radio" name="transportation" value="self_collection" />
             Self collection
           </label>
         </li>
@@ -192,7 +192,8 @@ export function Inputnotes() {
   )
 };
 
-export function InputFiles() {
+export function InputFiles(props) {
+  const {AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
   return (
     <div className='inputform inputfiles'>
       <div>
@@ -200,23 +201,34 @@ export function InputFiles() {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file"
-              name="files" multiple/>
+              name="files" multiple 
+              onChange={e => {
+                AddImagesfiles(e)
+            }}
+            />
             <img src={UploadImage} alt="" />
             Upload files
           </span>
           <br />
-          <ErrorMessage name="files" component="span" className='errorfiled' />
+          {imagesfiles.length === 0 ? 
+          <span className="errorfiled">Files Is Required</span>
+          :""}
         </span>
 
         <span className='item'>
 
           <span className='btn-upload'>
-            <Field type="file" className="input-file" accept="image/*" name="logo" />
+            <Field type="file" className="input-file" accept="image/*" name="logo" 
+            onChange={e => {
+              AddImageslogo(e)
+          }}/>
             <img src={UploadImage} alt="" />
             Upload logo
           </span>
           <br />
-          <ErrorMessage name="logo" component="span" className='errorfiled' />
+          {imageslogo === null ? 
+          <span className="errorfiled">Logo Is Required</span>
+          :""}
         </span>
 
       </div>

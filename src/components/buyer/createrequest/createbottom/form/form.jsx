@@ -4,16 +4,15 @@ import * as Yup from "yup";
 import { Inputaddress, Inputday, InputFiles, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
 import ModalMap from './modalmap';
 import { useNavigate } from 'react-router-dom';
-import { Createrequestdata } from '../../../../../api/buyer/actionrequest';
 
 function Form(props) {
-    const {Statedata,clickedLatLng, setClickedLatLng}=props;
+    const {Statedata,clickedLatLng, setClickedLatLng,screnonedataone ,AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
     const [message, setMessage] = useState("");
     let navigate  = useNavigate();
 
     const onSubmit = (values) => {
-       // navigate(`/addrequest/createissue`);
-        Createrequestdata(values)
+       navigate(`/addrequest/createissue`);
+       screnonedataone(values);
     }
 
     const form = (props) => {
@@ -25,7 +24,8 @@ function Form(props) {
             <Inputinsurance Data={props} />
             <Inputtransportation Data={props} />
             <Inputnotes />
-            <InputFiles />
+            <InputFiles AddImagesfiles={AddImagesfiles} imagesfiles={imagesfiles}
+            AddImageslogo={AddImageslogo} imageslogo={imageslogo}/>
             <ModalMap clickedLatLng={clickedLatLng} setClickedLatLng={setClickedLatLng}/>
             {message === "" ? "" : <span className='errorfiled'>{message}</span>}
             <div className='end'>
@@ -42,17 +42,10 @@ function Form(props) {
                 .max(14, 'Too Long!').required("Number Required"),
             address: Yup.string().required("Address Required"),
             day: Yup.string().required("Day Is Required"),
-            files: Yup.string().required("Files Is Required"),
-            logo: Yup.string().required("Logo Is Required"),
             items: Yup.array()
             .min(2, "You need at least one Item")
             .required("")
         });
-
-
-
-
-
         return schema;
     }
     return (

@@ -8,9 +8,8 @@ import ModalSuppliersList from './modallsupplierslist.jsx';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 function Form(props) {
-    const {Statedata}=props;
+    const { Statedata ,screnonedatatwo } = props;
     let navigate = useNavigate();
-
     const [SupplierslistItems, setSupplierslistItems] = useState([
         {
             id: 1,
@@ -24,37 +23,31 @@ function Form(props) {
     ]);
 
     const onSubmit = (values) => {
-        console.log(values);
-        navigate(`/addrequest/createreview`);
+       navigate(`/addrequest/createreview`);
+       screnonedatatwo(values)
     }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <InputSupplierslist SupplierslistItems={SupplierslistItems} />
-            <Inputcompany errors={props.errors} />
-            <Inputcheckbox />
-            <ModalSuppliersList setSupplierslistItems={setSupplierslistItems} SupplierslistItems={SupplierslistItems} />
-            <div className='end'>
-                <NavLink to={"/addrequest/createrequest"} className='btn btn-cancel' >
-                    Cancel
-                </NavLink>
-                <button className='btn btn-next' type="submit">Next</button>
-            </div>
-
+                    <InputSupplierslist SupplierslistItems={SupplierslistItems} />
+                    <Inputcompany errors={props.errors}/>
+                    <Inputcheckbox />
+                    <ModalSuppliersList setSupplierslistItems={setSupplierslistItems} SupplierslistItems={SupplierslistItems} />
+                    <div className='end'>
+                        <NavLink to={"/addrequest/createrequest"} className='btn btn-cancel' >
+                            Cancel
+                        </NavLink>
+                        <button className='btn btn-next' type="submit">Next</button>
+                    </div>
         </form>
     }
 
     const schema = () => {
         const schema = Yup.object().shape({
-            companyname: Yup.string(),
-            companyemail: Yup.string(),
-            contactnumebr: Yup.string(),
+            companyname: Yup.string().required(""),
+            companyemail: Yup.string().required(""),
+            contactnumebr: Yup.string().required(""),
         });
-
-
-
-
-
         return schema;
     }
     return (

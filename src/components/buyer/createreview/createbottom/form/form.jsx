@@ -6,7 +6,17 @@ import { Inputaddress, Inputday, Fileslist, Inputinsurance, InputItems, Inputnot
 import { NavLink, useNavigate } from 'react-router-dom';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
-function Form() {
+function Form(props) {
+    const {Arraydataone,Arraydatatwo}=props;
+    console.log(Arraydataone);
+    console.log(Arraydatatwo);
+
+    const Itemsresults = Arraydataone.items.filter(obj => {
+        return obj.quantity !== "";
+      });
+    console.log(Itemsresults);
+
+    const daydata=`${Arraydataone.day.getMonth()+1}/${Arraydataone.day.getDate()}/${Arraydataone.day.getFullYear()}`;
     let navigate  = useNavigate();
     const state = {
         numberrequired: "test",
@@ -57,15 +67,15 @@ function Form() {
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <Inputquotations errors={props.errors} Data={props}/>
-            <InputItems values={props.values} errors={props.errors} />
-            <Inputaddress errors={props.errors} Data={props}/>
-            <Inputday data={props.values} />
-            <Inputinsurance Data={props} />
-            <Inputtransportation Data={props} />
-            <Inputnotes Data={props}/>
+            <Inputquotations Data={Arraydataone}/>
+            <InputItems Itemsresults={Itemsresults}/>
+            <Inputaddress Data={Arraydataone}/>
+            <Inputday Data={daydata} />
+            <Inputinsurance Data={Arraydataone} />
+            <Inputtransportation Data={Arraydataone} />
+            <Inputnotes Data={Arraydataone}/>
             <Fileslist Data={props}/>
-            <Supplierslist Data={props}/>
+            <Supplierslist Data={props} Arraydataone={Arraydataone}/>
             <div className='end'>
                 <div>
                 <NavLink to={"/addrequest/createreview"} className='btn btn-cancel' >
