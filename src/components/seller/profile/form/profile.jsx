@@ -57,15 +57,6 @@ function Formprofileseller(props) {
        window.location.reload();
     }
     const onSubmit = (values) => {
-        //console.log(values.cr_issue_date);
-        //const cr_issue_dateday= values.cr_issue_date.getDate();
-        //const cr_issue_dateMonth= values.cr_issue_date.getMonth()+1;
-        //const cr_issue_dateyear= values.cr_issue_date.getFullYear();
-       // console.log(cr_issue_dateday);
-       // console.log(cr_issue_dateMonth);
-        //console.log(cr_issue_dateyear);
-
-
        UpdateProfile(Data,values,setMessage)
     }
     const form = (props) => {

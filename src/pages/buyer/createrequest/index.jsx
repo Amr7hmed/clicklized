@@ -31,14 +31,18 @@ function CreateRequest() {
   const [arraydatatwo,setArraydatatwo]=useState({});
   const [imagesfiles,setImagesfiles]=useState([]);
   const [imageslogo,setImageslogo]=useState(null);
+  const [paramsname,setParamsname]=useState("");
+  const [Suppliers, setSuppliers] = useState([]);
 
   const screnonedataone = (values) => {
     console.log(values);
     setArraydataone(values);
+    setParamsname("createissue");
  }
  const screnonedatatwo = (values) => {
   console.log(values);
   setArraydatatwo(values);
+  setParamsname("createreview");
 }
 
 const AddImagesfiles=(e)=>{
@@ -55,17 +59,26 @@ const [clickedLatLng, setClickedLatLng] = useState({ lat: 23.392899070336068 , l
     <section className='createrequest'>
       <Navbar />
       <div className="container">
-        {name === "createrequest"?
+        {paramsname === "createissue"?
+
+        <CreateIssueData Statedata={statedatatwo} Arraydataone={arraydataone} screnonedatatwo={screnonedatatwo}
+        Suppliers={Suppliers} setSuppliers={setSuppliers} setParamsname={setParamsname}/>
+
+        :paramsname === "createreview"?
+
+        <CreateReviewData Arraydataone={arraydataone} Arraydatatwo={arraydatatwo}/>
+
+        :
+        
+        <CreateIssueData Statedata={statedatatwo} Arraydataone={arraydataone} screnonedatatwo={screnonedatatwo}
+        Suppliers={Suppliers} setSuppliers={setSuppliers} setParamsname={setParamsname}/>
+        /*
         <CreateOne Statedata={statedataone} clickedLatLng={clickedLatLng}
-         setClickedLatLng={setClickedLatLng} screnonedataone={screnonedataone}
+        setClickedLatLng={setClickedLatLng} screnonedataone={screnonedataone}
         AddImagesfiles={AddImagesfiles} AddImageslogo={AddImageslogo}
         imageslogo={imageslogo} imagesfiles={imagesfiles}/>
-        :name === "createissue"?
-        <CreateIssueData Statedata={statedatatwo} Arraydataone={arraydataone} screnonedatatwo={screnonedatatwo}
-         imagesfiles={imagesfiles} imageslogo={imageslogo}/>
-        :name === "createreview"?
-        <CreateReviewData Arraydataone={arraydataone} Arraydatatwo={arraydatatwo}/>
-        :""}
+      */
+        }
         
       </div>
     </section>

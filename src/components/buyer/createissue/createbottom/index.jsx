@@ -2,11 +2,11 @@ import React from 'react'
 import Form from './form/form'
 
 function CreateIssueBottom(props) {
-  const {Statedata ,screnonedatatwo}=props;
+  const {Statedata ,screnonedatatwo ,setParamsname}=props;
   return (
     <div className='createbottom'>
         <div className='screenone'>
-          <Form Statedata={Statedata} screnonedatatwo={screnonedatatwo}/>
+          <Form Statedata={Statedata} screnonedatatwo={screnonedatatwo} setParamsname={setParamsname}/>
         </div>
     </div>
   )

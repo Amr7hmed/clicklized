@@ -3,24 +3,36 @@ import { Api } from "../index.js";
 
 // Post Function Api
 
-export const UpdateImageprofile = async (DataUser,file,setMessage) => {
-  console.log(DataUser);
+export const UpdateImageprofile = async (file,setMessage) => {
   var data = new FormData();
-  data.append("name", DataUser.name);
-  data.append("company_name", DataUser.supplier.company_name);
-  data.append("address", "test");
-  data.append("cr_number", DataUser.supplier.cr_number);
-  data.append("cr_issue_date", DataUser.supplier.cr_issue_date);
-  data.append("email", DataUser.email);
-  data.append("phone", DataUser.phone);
-  data.append('user_type', DataUser.user_type_id);
   data.append('image', file);
-  data.append("device_id", "default");
-  data.append("device_type","web");
-  data.append("industry_id", "1");
   const  options = {
     method: "post",
-    url: `${Api}update-profile`,
+    url: `${Api}update-image`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+      'Access-Control-Allow-Origin': '*',
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+    },
+    data,
+  };
+    axios(options).then(function (response) {
+    setMessage("")
+  })
+  .catch(function (error) {
+    setMessage(error.response.data.message)
+  });
+};
+
+export const UpdateLogoprofile = async (file,setMessage) => {
+
+  var data = new FormData();
+  data.append('logo', file);
+
+  const  options = {
+    method: "post",
+    url: `${Api}update-image`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
@@ -43,8 +55,8 @@ export const UpdateProfile = async (Data,values,setMessage) => {
     data.append('name',  Data.name);
     data.append('email', Data.email);
     data.append('phone', Data.phone);
-    data.append('image', Data.image);
-    data.append('logo', Data.logo);
+    //data.append('image', Data.image);
+    //data.append('logo', Data.logo);
     data.append('industry_id', values.business_sector);
     data.append('company_name', values.companyname);
     data.append('city_id', values.city);
@@ -56,11 +68,11 @@ export const UpdateProfile = async (Data,values,setMessage) => {
     data.append('cr_number', values.cr);
     data.append('vat_number', values.vat);
     data.append('cr_issue_date',
-     `${values.cr_issue_date.getMonth()+1}/${values.cr_issue_date.getDate()}/${values.cr_issue_date.getFullYear()}`);
+     `${values.cr_issue_date.getFullYear()}/${values.cr_issue_date.getMonth()+1}/${values.cr_issue_date.getDate()}`);
     data.append('cr_expire_date',
-    `${values.cr_expire_date.getMonth()+1}/${values.cr_expire_date.getDate()}/${values.cr_expire_date.getFullYear()}`);
+    `${values.cr_expire_date.getFullYear()}/${values.cr_expire_date.getMonth()+1}/${values.cr_expire_date.getDate()}`);
     data.append('vat_registration_date',
-    `${values.vat_registration_date.getMonth()+1}/${values.vat_registration_date.getDate()}/${values.vat_registration_date.getFullYear()}`);
+    `${values.vat_registration_date.getFullYear()}/${values.vat_registration_date.getMonth()+1}/${values.vat_registration_date.getDate()}`);
     data.append('business_email', values.company_email);
     data.append("device_id", "default");
     data.append("device_type","web");
@@ -78,42 +90,12 @@ export const UpdateProfile = async (Data,values,setMessage) => {
   };
     axios(options).then(function (response) {
     setMessage("")
-    //window.location.pathname = `/profilebuyer`;
+    window.location.reload();
   })
   .catch(function (error) {
     setMessage(error.response.data.message)
   });
   
-};
-export const UpdateLogoprofile = async (DataUser,file,setMessage) => {
-  console.log(DataUser);
-  var data = new FormData();
-  data.append("name", DataUser.name);
-  data.append("email", DataUser.email);
-  data.append("phone", DataUser.phone);
-  data.append('user_type', DataUser.user_type_id);
-  //data.append('image', URL.createObjectURL(DataUser.image));
-  data.append('logo', file);
-  data.append("device_id", "default");
-  data.append("device_type","web");
-  data.append("industry_id", "1");
-  const  options = {
-    method: "post",
-    url: `${Api}update-profile`,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
-    },
-    data,
-  };
-    axios(options).then(function (response) {
-    setMessage("")
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
-  });
 };
 
 export const UpdateCompanycr = async (DataUser,files,setMessage) => {

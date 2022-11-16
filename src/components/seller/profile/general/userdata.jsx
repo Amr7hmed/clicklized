@@ -7,14 +7,12 @@ function UserData(props) {
     const {DataUser}=props;
     const [toggolemodal, setToggolemodal] = useState(false);
     const [message, setMessage] = useState("");
+    const [imagedata,setImagedata]=useState(null);
     const [file, setFile] = useState(null);
 
     const SendData = () => {
         setToggolemodal(!toggolemodal);
-        const usertype = localStorage.getItem("usertypeclicklized");
-        console.log(file);
-        UpdateImageprofile(usertype,file,setMessage)
-        console.log(toggolemodal);
+        UpdateImageprofile(imagedata,setMessage) ;
     }
   return (
     <div className='userdata'>
@@ -47,7 +45,8 @@ function UserData(props) {
             <input type="file" className="input-file" accept="image/*"
              onChange={e => {
                 setFile(URL.createObjectURL(e.target.files[0]));
-                UpdateImageprofile(DataUser,e.target.files[0],setMessage) ;
+                setToggolemodal(!toggolemodal);
+                setImagedata(e.target.files[0]);
             }} />
                 <img src={Editeimage} alt="Edite image" />
                 Upload image
@@ -59,7 +58,7 @@ function UserData(props) {
         "" 
         :
         <Savedata toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
-             }
+        }
     </div>
   )
 }

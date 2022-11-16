@@ -5,10 +5,6 @@ import FormSignIn from '../../layout/signin/form';
 import { useEffect } from 'react';
 
 function SignIn() {
-  
-  
-
-   
   return (
     <section className='signin'>
         <div className="vactor">
@@ -29,28 +25,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
-/*
-
-useEffect(() => {
-      console.log(Notification.permission);
-      if (!("Notification" in window)) {
-        // Check if the browser supports notifications
-        alert("This browser does not support desktop notification");
-      } else if (Notification.permission === "granted") {
-        // Check whether notification permissions have already been granted;
-        // if so, create a notification
-        const notification = new Notification("Hi there on!");
-        // …
-      } else if (Notification.permission !== "denied") {
-        // We need to ask the user for permission
-        Notification.requestPermission().then((permission) => {
-          // If the user accepts, let's create a notification
-          if (permission === "granted") {
-            const notification = new Notification("Hi there no!");
-            // …
-          }
-        });
-      }
-  }, []);
-*/

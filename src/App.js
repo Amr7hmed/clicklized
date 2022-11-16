@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // This Is Buyer Pages
-import HomeBuyer from './pages/buyer/home/index.jsx';
 import Myrequest from './pages/buyer/myrequest/index.jsx';
 import Updatepassword from './pages/password/updatepassword.jsx';
 import Verification from './pages/verification/index.jsx';
@@ -13,7 +12,6 @@ import QuestionsBuyer from './pages/buyer/questionsbuyer/index.jsx';
 import Offers from './pages/buyer/offers/index.jsx';
 import Suppliers from './pages/buyer/suppliers/index.jsx';
 // This Is Seller Pages
-import HomeSeller from './pages/seller/home/index.jsx';
 import MyRequestSeller from './pages/seller/myrequest/index.jsx';
 import RequestDetails from './pages/seller/requestdetails/index.jsx';
 import QuestionsSeller from './pages/seller/questionsseller/index.jsx';
@@ -22,6 +20,7 @@ import { useState } from 'react';
 import ResendCode from './pages/resendcode/index.jsx';
 import ForgetPasswordEmail from './pages/password/forgetpasswordemail.jsx';
 import ForgetPasswordCode from './pages/password/forgetpasswordcode.jsx';
+import Home from './layout/home/index.jsx';
 
 function App() {
   return (
@@ -31,8 +30,7 @@ function App() {
         {localStorage.getItem("tokenclicklized") === null ?
         <Route path="/" element={<SignIn />} exact />
         :
-      <Route path="/" element={<HomeBuyer />} exact />      
-      //<Route path="/" element={<HomeSeller />} exact />
+      <Route path="/" element={<Home />} exact />      
       }
       <Route path="/signup" element={<Signup/>} exact />
       <Route path="/resendcode" element={<ResendCode />} exact />
@@ -43,7 +41,7 @@ function App() {
       {/*This Is Buyer Pages*/}
       <Route path="/suppliers" element={<Suppliers />} exact />
       <Route path="/profilebuyer" element={<ProfileBuyer />} exact />
-      <Route path="/addrequest/:name" element={<CreateRequest />} exact />
+      <Route path="/addrequest" element={<CreateRequest />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
       <Route path="/showrequestbuyer/:name/:id" element={<ShowRequest />} exact />
       <Route path="/questionsbuyer/:name/:id" element={<QuestionsBuyer />} exact />

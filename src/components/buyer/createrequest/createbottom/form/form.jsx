@@ -11,7 +11,6 @@ function Form(props) {
     let navigate  = useNavigate();
 
     const onSubmit = (values) => {
-       navigate(`/addrequest/createissue`);
        screnonedataone(values);
     }
 

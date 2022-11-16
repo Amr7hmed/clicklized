@@ -62,7 +62,6 @@ function Form(props) {
     }
     const onSubmit = (values) => {
         console.log(values);
-        //navigate(`/createissue`);
     }
 
     const form = (props) => {

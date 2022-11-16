@@ -24,7 +24,8 @@ function GeneralBottom(props) {
   return (
     <div className='myprofileseller__bottom'>
         <UserData DataUser={Data}/>
-        <CompanyData DataCompany={DataCompany}/>
+        <CompanyData DataCompany={DataCompany} Data={Data}/>
+         
     </div>
   )
 }

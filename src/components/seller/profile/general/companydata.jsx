@@ -1,79 +1,23 @@
 import React, { useState } from 'react';
+import { UpdateLogoprofile } from '../../../../api/seller/actionsprofile';
 import UploadImage from "../../../../images/icon/upload.png";
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import Savedata from '../modal/savedata';
 
 function CompanyData(props) {
-    const { DataCompany } = props;
-    const [logo, setLogo] = useState("");
+    const { DataCompany ,Data } = props;
     const [toggolemodal, setToggolemodal] = useState(false);
+    const [message, setMessage] = useState("");
+    const [imagedata,setImagedata]=useState(null);
+    const [file, setFile] = useState(null);
 
-    const [state, setState] = useState({
-        cr_files: "",
-        vat_files: "",
-    });
-
-    const [urlimage, setUrlImage] = useState(null);
-
-    const getBase64 = file => {
-        return new Promise(resolve => {
-            let fileInfo;
-            let baseURL = "";
-            // Make new FileReader
-            let reader = new FileReader();
-
-            // Convert the file to base64 text
-            reader.readAsDataURL(file);
-
-            // on reader load somthing...
-            reader.onload = () => {
-                // Make a fileInfo Object
-                // console.log("Called", reader);
-                baseURL = reader.result;
-                // console.log(baseURL);
-                resolve(baseURL);
-                setUrlImage(baseURL)
-            };
-            //  console.log(fileInfo);
-        });
-
-    };
-
-
-    const handleFileSelect = (e) => {
-        console.log(e.target.files[0]);
-        setToggolemodal(true);
-        const filesdata = e.target.files[0];
-        setLogo(filesdata);
-
-        getBase64(filesdata)
-            .then(result => {
-                filesdata["base64"] = result;
-                //console.log("File Is", filesdata);
-                this.setState({
-                    base64URL: result,
-                    filesdata
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-
-    const handleChange = (e) => {
-        const value = e.target.files[0];
-        setState({
-            ...state,
-            [e.target.name]: value,
-        });
-        setToggolemodal(true);
-    };
+    console.log(Data);
 
     const SendData = () => {
-        console.log(state);
-        console.log(logo);
-        setToggolemodal(false);
+        setToggolemodal(!toggolemodal);
+        UpdateLogoprofile(imagedata,setMessage) ;
     }
+
     return (
         <div className='companydata'>
             <div className="left">
@@ -82,13 +26,13 @@ function CompanyData(props) {
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">Company Name</span>
-                                <span className="data">{DataCompany.name}</span>
+                                <span className="data">{Data.supplier.company_name}</span>
                             </span>
                         </span>
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">Business Sector</span>
-                                <span className="data">{DataCompany.business_sector}</span>
+                                <span className="data">{"DataCompany.business_sector"}</span>
                             </span>
                         </span>
                     </li>
@@ -96,19 +40,19 @@ function CompanyData(props) {
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">CR NO.</span>
-                                <span className="data">{DataCompany.cr}</span>
+                                <span className="data">{Data.supplier.cr_number}</span>
                             </span>
                         </span>
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">CR Issue Date</span>
-                                <span className="data">{DataCompany.cr_issue_date}</span>
+                                <span className="data">{Data.supplier.cr_issue_date}</span>
                             </span>
                         </span>
                         <span className="col-4">
-                        <span className="item">
+                            <span className="item">
                                 <span className="title">CR Expiry Date</span>
-                                <span className="data">{DataCompany.cr_expiry_date}</span>
+                                <span className="data">{Data.supplier.cr_expire_date}</span>
                             </span>
                         </span>
                     </li>
@@ -116,13 +60,13 @@ function CompanyData(props) {
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">VAT NO.</span>
-                                <span className="data">{DataCompany.vat}</span>
+                                <span className="data">{Data.supplier.vat_number}</span>
                             </span>
                         </span>
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">VAT Registration Date</span>
-                                <span className="data">{DataCompany.vat_registration_date}</span>
+                                <span className="data">{Data.supplier.vat_registration_date}</span>
                             </span>
                         </span>
                     </li>
@@ -130,19 +74,19 @@ function CompanyData(props) {
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">Website</span>
-                                <span className="data">{DataCompany.website}</span>
+                                <span className="data">{Data.supplier.website}</span>
                             </span>
                         </span>
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">Country</span>
-                                <span className="data">{DataCompany.country}</span>
+                                <span className="data">{"Data.supplier.country"}</span>
                             </span>
                         </span>
                         <span className="col-4">
-                        <span className="item">
+                            <span className="item">
                                 <span className="title">City</span>
-                                <span className="data">{DataCompany.city}</span>
+                                <span className="data">{Data.city.name}</span>
                             </span>
                         </span>
                     </li>
@@ -150,19 +94,19 @@ function CompanyData(props) {
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">Address</span>
-                                <span className="data">{DataCompany.address}</span>
+                                <span className="data">{"Data.supplier.address"}</span>
                             </span>
                         </span>
                         <span className="col-4">
                             <span className="item">
-                                <span className="title">Phone No.</span>
-                                <span className="data">{DataCompany.phone}</span>
+                                <span className="title">Company Email</span>
+                                <span className="data">{Data.supplier.business_email}</span>
                             </span>
                         </span>
                         <span className="col-4">
-                        <span className="item">
+                            <span className="item">
                                 <span className="title">Fax No.</span>
-                                <span className="data">{DataCompany.fax}</span>
+                                <span className="data">{Data.supplier.fax_number}</span>
                             </span>
                         </span>
                     </li>
@@ -170,25 +114,30 @@ function CompanyData(props) {
                         <span className="col-4">
                             <span className="item">
                                 <span className="title">Payment Terms</span>
-                                <span className="data">{DataCompany.payment_terms}</span>
+                                <span className="data">{Data.supplier.payment_terms}</span>
                             </span>
                         </span>
                     </li>
                 </ul>
             </div>
             <div className="right">
-                <img
-                    src={urlimage === null ? DataCompany.image : urlimage}
-                    alt={DataCompany.companyindustry} />
+                <img src={file === null ? Data.logo : file}
+                    alt={Data.id} />
                 <button type='button' className='btn'>
                     <input type="file" className="input-file"
-                        name='logo' onChange={e => handleFileSelect(e)} />
+                        name='logo'  onChange={e => {
+                            setFile(URL.createObjectURL(e.target.files[0]));
+                            setToggolemodal(!toggolemodal);
+                            setImagedata(e.target.files[0]);
+                        }} />
+                        
                     <img src={Editeimage} alt="Edite image" />
                     Upload image
                 </button>
             </div>
 
-            <Savedata toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
+            {toggolemodal === false ?""
+                :<Savedata toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />}
         </div>
     )
 

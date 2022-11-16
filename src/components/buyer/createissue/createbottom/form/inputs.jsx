@@ -5,17 +5,15 @@ import IconClose from "../../../../../images/icon/ic-close.svg";
 
 
 export function InputSupplierslist(props) {
-  const { SupplierslistItems } = props;
+  const { SupplierslistItems ,setSupplierslistItems } = props;
   const [SuppliersItems, setSuppliersItems] = useState([]);
 
-  useEffect(() => {
-    setSuppliersItems(SupplierslistItems)
-  }, [SupplierslistItems]);
 
   const RemoveItem = (id) => {
     console.log(id);
-    let remainingArr = SuppliersItems.filter(data => data.id != id);
+    let remainingArr = SupplierslistItems.filter(data => data.id != id);
     console.log(remainingArr);
+    setSupplierslistItems([...remainingArr])
   }
   return (
     <div className='inputsupplierslist'>
@@ -33,11 +31,11 @@ export function InputSupplierslist(props) {
         <>
 
           <div className="listitems">
-            {SuppliersItems.map(item =>
+            {SupplierslistItems.map(item =>
               <span key={item.id} className="listitem">
                 <span>
-                  <img src={item.img} alt={item} className="iconprofile" />
-                  {item.name}
+                  <img src={item.image} alt={item} className="iconprofile" />
+                  {item.company_name}
                 </span>
 
                 <button className='btn btn-close' onClick={() => RemoveItem(item.id)}>
@@ -49,6 +47,7 @@ export function InputSupplierslist(props) {
           </div>
         </>
       }
+      {SupplierslistItems.length === 0 ? <span className='errorfiled'>Add Supplier is Required</span>:""}
     </div>
   )
 };

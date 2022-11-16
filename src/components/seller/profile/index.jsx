@@ -10,6 +10,7 @@ function MyProfile(props) {
     <section className='myprofileseller'>
         <div className="container">
         <GeneralTop Username={Username}/>
+        
         <GeneralBottom Data={Data}/>
         <ModalPassword/>
         <ModelEditprofile Data={Data}/>

@@ -8,35 +8,36 @@ import ModalSuppliersList from './modallsupplierslist.jsx';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 function Form(props) {
-    const { Statedata ,screnonedatatwo } = props;
+    const { Statedata ,screnonedatatwo ,setParamsname,} = props;
     let navigate = useNavigate();
-    const [SupplierslistItems, setSupplierslistItems] = useState([
-        {
-            id: 1,
-            img: IconProfile,
-            name: "Supplier name"
-        }, {
-            id: 2,
-            img: IconProfile,
-            name: "Supplier name"
-        }
-    ]);
+    const [SupplierslistItems, setSupplierslistItems] = useState([]);
+
 
     const onSubmit = (values) => {
-       navigate(`/addrequest/createreview`);
-       screnonedatatwo(values)
+        if(SupplierslistItems.length === 0){
+            return false;
+        }else{
+            screnonedatatwo(values)
+        }
     }
+
+    
+  const AddSuppliers = (item) => {
+    setSupplierslistItems([...SupplierslistItems, item])
+  }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-                    <InputSupplierslist SupplierslistItems={SupplierslistItems} />
+                    <InputSupplierslist SupplierslistItems={SupplierslistItems} setSupplierslistItems={setSupplierslistItems}/>
                     <Inputcompany errors={props.errors}/>
                     <Inputcheckbox />
-                    <ModalSuppliersList setSupplierslistItems={setSupplierslistItems} SupplierslistItems={SupplierslistItems} />
+                    <ModalSuppliersList AddSuppliers={AddSuppliers} />
                     <div className='end'>
-                        <NavLink to={"/addrequest/createrequest"} className='btn btn-cancel' >
-                            Cancel
-                        </NavLink>
+                        <button className='btn btn-cancel' onClick={()=>{
+                        setParamsname("");
+                        }} >
+                            Back
+                        </button>
                         <button className='btn btn-next' type="submit">Next</button>
                     </div>
         </form>
