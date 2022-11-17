@@ -3,7 +3,7 @@ import { GetDataSuppliers } from '../../../../../api/buyer/actionsuppliers';
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 function ModalSuppliersList(props) {
-  const {AddSuppliers } = props;
+  const {AddSuppliers ,DoneAdded,RemoveallSuppliers} = props;
   const [loading, setLoading] = useState(false);
   const [supplierslist, setSupplierslist] = useState([]);
 
@@ -42,7 +42,7 @@ function ModalSuppliersList(props) {
                       <button type='button'
                        className={'btn btn-add-item'}
                        // className={item.status === 0 ? 'btn btn-add-item' : 'btn btn-add-item active'}
-                        onClick={() => AddSuppliers(item)}>
+                        onClick={(e) => AddSuppliers(e,item)}>
                           Add
                       </button>
                     </div>
@@ -52,8 +52,10 @@ function ModalSuppliersList(props) {
             </>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-save" data-bs-dismiss="modal">Done</button>
-            <button type="button" className="btn btn-close_modal" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" className="btn btn-save" data-bs-dismiss="modal"
+            onClick={DoneAdded}>Done</button>
+            <button type="button" className="btn btn-close_modal" data-bs-dismiss="modal"
+            onClick={RemoveallSuppliers}>Cancel</button>
           </div>
         </div>
       </div>

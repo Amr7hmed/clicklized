@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Inputaddress, Inputday, InputFiles, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
+import { Inputaddress, Inputday, InputFiles, InputIndustry, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
 import ModalMap from './modalmap';
-import { useNavigate } from 'react-router-dom';
 
 function Form(props) {
     const {Statedata,clickedLatLng, setClickedLatLng,screnonedataone ,AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
-    const [message, setMessage] = useState("");
-    let navigate  = useNavigate();
 
     const onSubmit = (values) => {
-       screnonedataone(values);
+      screnonedataone(values);
     }
+
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
             <Inputquotations errors={props.errors} />
             <InputItems values={props.values} errors={props.errors} />
             <Inputaddress errors={props.errors} />
+            <InputIndustry errors={props.errors} />
             <Inputday data={props} />
             <Inputinsurance Data={props} />
             <Inputtransportation Data={props} />
@@ -26,7 +25,6 @@ function Form(props) {
             <InputFiles AddImagesfiles={AddImagesfiles} imagesfiles={imagesfiles}
             AddImageslogo={AddImageslogo} imageslogo={imageslogo}/>
             <ModalMap clickedLatLng={clickedLatLng} setClickedLatLng={setClickedLatLng}/>
-            {message === "" ? "" : <span className='errorfiled'>{message}</span>}
             <div className='end'>
                 <button className='btn btn-next' type="submit">Next</button>
             </div>
@@ -36,14 +34,13 @@ function Form(props) {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            numberrequired: Yup.string()
-                .min(8, 'Too Short!')
-                .max(14, 'Too Long!').required("Number Required"),
+            numberrequired: Yup.string().max(5, 'Too Long!').required("Number Required"),
             address: Yup.string().required("Address Required"),
             day: Yup.string().required("Day Is Required"),
             items: Yup.array()
             .min(2, "You need at least one Item")
-            .required("")
+            .required(""),
+            industry:Yup.string().required("Industry Is Required"),
         });
         return schema;
     }

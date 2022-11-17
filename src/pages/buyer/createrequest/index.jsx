@@ -20,6 +20,7 @@ function CreateRequest() {
     inputinsurance: "yes",
     transportation: "included",
     notes: "",
+    industry:""
       };
   const statedatatwo={
     companyname: "",
@@ -32,29 +33,25 @@ function CreateRequest() {
   const [imagesfiles,setImagesfiles]=useState([]);
   const [imageslogo,setImageslogo]=useState(null);
   const [paramsname,setParamsname]=useState("");
-  const [Suppliers, setSuppliers] = useState([]);
+  const [SuppliersItems, setSuppliersItems] = useState([]);
+  const [clickedLatLng, setClickedLatLng] = useState({ lat: 23.392899070336068 , lng: 42.86244913615009 });
 
   const screnonedataone = (values) => {
-    console.log(values);
     setArraydataone(values);
     setParamsname("createissue");
  }
  const screnonedatatwo = (values) => {
-  console.log(values);
   setArraydatatwo(values);
   setParamsname("createreview");
 }
 
 const AddImagesfiles=(e)=>{
-console.log(e.target.files);
 setImagesfiles(e.target.files);
 }
 
 const AddImageslogo=(e)=>{
-  console.log(e.target.files[0]);
   setImageslogo(e.target.files[0]);
   }
-const [clickedLatLng, setClickedLatLng] = useState({ lat: 23.392899070336068 , lng: 42.86244913615009 });
   return (
     <section className='createrequest'>
       <Navbar />
@@ -62,22 +59,20 @@ const [clickedLatLng, setClickedLatLng] = useState({ lat: 23.392899070336068 , l
         {paramsname === "createissue"?
 
         <CreateIssueData Statedata={statedatatwo} Arraydataone={arraydataone} screnonedatatwo={screnonedatatwo}
-        Suppliers={Suppliers} setSuppliers={setSuppliers} setParamsname={setParamsname}/>
+        setParamsname={setParamsname} setSuppliersItems={setSuppliersItems}/>
 
         :paramsname === "createreview"?
 
-        <CreateReviewData Arraydataone={arraydataone} Arraydatatwo={arraydatatwo}/>
+        <CreateReviewData Arraydataone={arraydataone} Arraydatatwo={arraydatatwo}
+        SuppliersItems={SuppliersItems} imagesfiles={imagesfiles} imageslogo={imageslogo}
+        setParamsname={setParamsname} clickedLatLng={clickedLatLng}/>
 
         :
         
-        <CreateIssueData Statedata={statedatatwo} Arraydataone={arraydataone} screnonedatatwo={screnonedatatwo}
-        Suppliers={Suppliers} setSuppliers={setSuppliers} setParamsname={setParamsname}/>
-        /*
         <CreateOne Statedata={statedataone} clickedLatLng={clickedLatLng}
         setClickedLatLng={setClickedLatLng} screnonedataone={screnonedataone}
         AddImagesfiles={AddImagesfiles} AddImageslogo={AddImageslogo}
         imageslogo={imageslogo} imagesfiles={imagesfiles}/>
-      */
         }
         
       </div>

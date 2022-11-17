@@ -5,8 +5,7 @@ import IconClose from "../../../../../images/icon/ic-close.svg";
 
 
 export function InputSupplierslist(props) {
-  const { SupplierslistItems ,setSupplierslistItems } = props;
-  const [SuppliersItems, setSuppliersItems] = useState([]);
+  const { SupplierslistItems ,setSupplierslistItems ,SuppliersItems, setSuppliersItems} = props;
 
 
   const RemoveItem = (id) => {

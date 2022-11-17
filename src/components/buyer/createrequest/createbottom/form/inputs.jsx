@@ -1,9 +1,10 @@
 import { ErrorMessage, Field, FieldArray } from 'formik';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import IconLoction from '../../../../../images/icon/location-icon.svg';
 import UploadImage from "../../../../../images/icon/upload.png";
 import DatePickerdata from './datepicker';
 import AddItemIcon from '../../../../../images/icon/icon-add.png';
+import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
 
 export function Inputquotations(props) {
   const { errors } = props;
@@ -11,7 +12,7 @@ export function Inputquotations(props) {
     <div className='inputform'>
       <label className="form-label">Number of required quotations</label>
       <Field type="text" component="input"
-      id="inputquotations"
+        id="inputquotations"
         className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
         placeholder="Enter Number of required quotations" name="numberrequired" />
 
@@ -56,18 +57,18 @@ export function InputItems(props) {
                       className={"inputform_close"}>
                       <button
                         type="button"
-                        className={values.items.length === 1 ?"btn btn-remove hide":"btn btn-remove"}
+                        className={values.items.length === 1 ? "btn btn-remove hide" : "btn btn-remove"}
                         onClick={() => remove(index)}
                       >
                         Remove Item
                       </button>
                     </div>
                     <button
-                    id={values.items[index].item_id === "" || 
-                    values.items[index].quantity === "" ? "button-disabled" :"button-active"}
-                    className={values.items.length === index+1 ?"btn btn-add":"btn btn-add hide"}
+                      id={values.items[index].item_id === "" ||
+                        values.items[index].quantity === "" ? "button-disabled" : "button-active"}
+                      className={values.items.length === index + 1 ? "btn btn-add" : "btn btn-add hide"}
                       type="button"
-                      onClick={() => push({ item: '', quantity: '' })}
+                      onClick={() => push({ item_id: '', quantity: '' })}
                     >
                       <img src={AddItemIcon} alt="Add Item Icon" />
                       Add new item
@@ -86,6 +87,8 @@ export function InputItems(props) {
     </div>
   )
 };
+
+
 export function Inputaddress(props) {
   const { errors } = props;
   return (
@@ -96,7 +99,7 @@ export function Inputaddress(props) {
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
         placeholder="Enter Required Delivery Location" name="address" />
       <button type='button' className='btn addloction'
-       data-bs-toggle="modal" data-bs-target="#modalmap">
+        data-bs-toggle="modal" data-bs-target="#modalmap">
         <img src={IconLoction} alt="" />
         Choose location on map
       </button>
@@ -106,6 +109,31 @@ export function Inputaddress(props) {
   )
 };
 
+export function InputIndustry(props) {
+  const [dataindustries, setDataIndustries] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    GetDataIndustries(setLoading, setDataIndustries);
+  }, [loading]);
+
+  const { errors } = props;
+  return (
+    <div className='inputform'>
+      <label className="form-label">Company Industry</label>
+
+      <Field name="industry" component="select"
+        className={errors.industry ? "form-select is-invalid" : "form-select"}  >
+        <option></option>
+        {dataindustries.map(item =>
+          <option value={item.id} key={item.id}>{item.name}</option>
+        )}
+      </Field>
+
+      <ErrorMessage name="industry" component="span" className='errorfiled' />
+
+    </div>
+  )
+};
 export function Inputday(props) {
   const { data } = props;
   return (
@@ -193,7 +221,7 @@ export function Inputnotes() {
 };
 
 export function InputFiles(props) {
-  const {AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
+  const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo } = props;
   return (
     <div className='inputform inputfiles'>
       <div>
@@ -201,34 +229,34 @@ export function InputFiles(props) {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file"
-              name="files" multiple 
+              name="files" multiple
               onChange={e => {
                 AddImagesfiles(e)
-            }}
+              }}
             />
             <img src={UploadImage} alt="" />
             Upload files
           </span>
           <br />
-          {imagesfiles.length === 0 ? 
-          <span className="errorfiled">Files Is Required</span>
-          :""}
+          {imagesfiles.length === 0 ?
+            <span className="errorfiled">Files Is Required</span>
+            : ""}
         </span>
 
         <span className='item'>
 
           <span className='btn-upload'>
-            <Field type="file" className="input-file" accept="image/*" name="logo" 
-            onChange={e => {
-              AddImageslogo(e)
-          }}/>
+            <Field type="file" className="input-file" accept="image/*" name="logo"
+              onChange={e => {
+                AddImageslogo(e)
+              }} />
             <img src={UploadImage} alt="" />
             Upload logo
           </span>
           <br />
-          {imageslogo === null ? 
-          <span className="errorfiled">Logo Is Required</span>
-          :""}
+          {imageslogo === null ?
+            <span className="errorfiled">Logo Is Required</span>
+            : ""}
         </span>
 
       </div>

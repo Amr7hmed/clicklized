@@ -126,13 +126,13 @@ export function Inputnotes(props) {
 };
 
 export function Fileslist(props) {
-  const { Data } = props;
+  const { Imagesfiles} = props;
   return (
     <div className='fileslist'>
-      {Data.values.fileslist.map((item, index) =>
+      {Imagesfiles.map((item, index) =>
         <span key={index} className="files">
           <img src={IconPdf} alt={item} />
-          {item}
+          {item.name}
         </span>
       )}
     </div>
@@ -141,31 +141,35 @@ export function Fileslist(props) {
 
 
 export function Supplierslist(props) {
-  const { Data ,Arraydataone } = props;
-  const objArr = [...Data.values.supplierslist];
+  const {SupplierslistItems ,Arraydataone} = props;
+
   const RemoveItem = (id) => {
     console.log(id);
-    let remainingArr = objArr.filter(data => data.id != id);
-    console.log(remainingArr);
-    objArr.push(remainingArr);
   }
   return (
     <div className='supplierslist'>
       <h6>Suppliers list</h6>
       <div className="listitems">
-        {objArr.map(item =>
-          <span key={item.id} className="listitem">
-            <span>
-              <img src={item.img} alt={item} className="iconprofile" />
-              {item.name}
-            </span>
+      {SupplierslistItems.length === 0 ? "" :
+        <>
 
-            <button className='btn btn-close' onClick={() => RemoveItem(item.id)}>
-              <img src={IconClose} alt="Icon Close" />
-            </button>
-          </span>
-        )}
+          <div className="listitems">
+            {SupplierslistItems.map(item =>
+              <span key={item.id} className="listitem">
+                <span>
+                  <img src={item.image} alt={item} className="iconprofile" />
+                  {item.company_name}
+                </span>
 
+                <button className='btn btn-close' onClick={() => RemoveItem(item.id)}>
+                  <img src={IconClose} alt="Icon Close" />
+                </button>
+              </span>
+            )}
+
+          </div>
+        </>
+      }
       </div>
 
       <div className='inputform'>

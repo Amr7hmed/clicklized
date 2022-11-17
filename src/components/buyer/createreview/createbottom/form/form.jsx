@@ -1,67 +1,38 @@
 import React, { useState } from 'react';
 import { Formik } from "formik";
-import * as Yup from "yup";
-import swal from 'sweetalert';
 import { Inputaddress, Inputday, Fileslist, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation, Supplierslist } from './inputs';
-import { NavLink, useNavigate } from 'react-router-dom';
-import IconProfile from "../../../../../images/icon/img-profile.jpg";
+import { Createrequestdata } from '../../../../../api/buyer/actionrequest';
 
 function Form(props) {
-    const {Arraydataone,Arraydatatwo}=props;
+    const {Arraydataone,Arraydatatwo ,SuppliersItems,imagesfiles ,imageslogo,setParamsname ,clickedLatLng}=props;
+    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
+    const Suppliers =[];
+
     console.log(Arraydataone);
     console.log(Arraydatatwo);
-
+    console.log(SuppliersItems);
+    console.log(imagesfiles);
+    console.log(imageslogo);
+    console.log(clickedLatLng);
     const Itemsresults = Arraydataone.items.filter(obj => {
         return obj.quantity !== "";
       });
-    console.log(Itemsresults);
 
-    const daydata=`${Arraydataone.day.getMonth()+1}/${Arraydataone.day.getDate()}/${Arraydataone.day.getFullYear()}`;
-    let navigate  = useNavigate();
-    const state = {
-        numberrequired: "test",
-        items: [
-            {
-                item:"one",
-                quantity:"1"
-            },
-            {
-                item:"two",
-                quantity:"2"
-            },
-        ],
-        address: "21 set-test cairo",
-        day: "25/10/2022",
-        inputinsurance: "yes",
-        transportation: "included",
-        notes: "test data",
-        fileslist: ["file.pdf","fileone.pdf","filetwo.pdf"],
-        supplierslist: [
-            {
-                id:1,
-                img:IconProfile,
-                name:"Supplier name"
-            },{
-                id:2,
-                img:IconProfile,
-                name:"Supplier name"
-            }
-        ],
-        checkboxtoggle: true,
-        logo: "",
-    };
-
-    const SendData = (date) => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-
+    for (let index = 0; index < SuppliersItems.length; index++) {
+        Suppliers.push(SuppliersItems[index].id);
     }
+    console.log(Suppliers);
+    const daydata=`${Arraydataone.day.getFullYear()}/${Arraydataone.day.getMonth()+1}/${Arraydataone.day.getDate()}`;
+    const arrayimagesfiles =[...imagesfiles];
+
+    console.log(Arraydatatwo.checkboxtoggle );
+    
     const onSubmit = (values) => {
         console.log(values);
+        setLoading(true);
+        Createrequestdata(setLoading,Arraydataone,clickedLatLng,Itemsresults,daydata,SuppliersItems,imageslogo
+            ,arrayimagesfiles,Arraydatatwo,setMessage);
     }
 
     const form = (props) => {
@@ -73,16 +44,25 @@ function Form(props) {
             <Inputinsurance Data={Arraydataone} />
             <Inputtransportation Data={Arraydataone} />
             <Inputnotes Data={Arraydataone}/>
-            <Fileslist Data={props}/>
-            <Supplierslist Data={props} Arraydataone={Arraydataone}/>
+            <Fileslist Imagesfiles={arrayimagesfiles}/>
+            <Supplierslist SupplierslistItems={SuppliersItems} Arraydataone={Arraydatatwo}/>
+            {message === "" ? "" : <span className='errorfiled'>{message}</span>}
             <div className='end'>
                 <div>
-                <NavLink to={"/addrequest/createreview"} className='btn btn-cancel' >
-                    Cancel
-                </NavLink>
-                <button className='btn btn-download'>Download as pdf</button>
+                {loading === false?
+                <button className='btn btn-cancel' onClick={()=>{setParamsname("createissue");}}>Back</button>
+                :<button className="btn btn-cancel button-disabled" type="button">Back</button>}
+
+                
+                {/*<button className='btn btn-download'>Download as pdf</button>*/}
                 </div>
+                {loading === false?
                 <button className='btn btn-next' type="submit">Next</button>
+                :
+                <button className="btn btn-next button-disabled">
+                  Loading 
+                  <span class="spinner"></span>
+                </button>}
             </div>
 
         </form>
@@ -92,10 +72,10 @@ function Form(props) {
     return (
         <div className="form">
             <Formik
-                initialValues={state}
                 onSubmit={onSubmit}
                 render={form}
                 enableReinitialize={true}
+                initialValues={Arraydataone}
             />
         </div>
     )

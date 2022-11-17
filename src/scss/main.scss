@@ -162,6 +162,26 @@ input[type=radio] {
   }
  }
 .btn-close {&:focus {box-shadow: none !important;}}
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0px 10px;
+  border: 4px solid rgba(0, 0, 0, .1);
+  border-left: 4px solid #231f20;
+  border-right: 4px solid #231f20;
+  animation: spinner 1s linear infinite forwards;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+       -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+          border-radius: 50%
+}
+
+@keyframes spinner {
+  0% {transform: rotate(0deg);}
+  100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); }
+}
 
 // Loading Styling
 @import "../layout/loading/_style.scss";
