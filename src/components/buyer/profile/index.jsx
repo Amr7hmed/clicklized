@@ -5,13 +5,13 @@ import ModalPassword from './modal/modalpassword';
 import ModelEditprofile from './modal/modeleditprofile';
 
 function MyProfile(props) {
-  const {Data,Username}=props;
+  const {Data,Username ,setLoadingdata}=props;
 
   return (
     <section className='myprofile'>
         <div className="container">
         <GeneralTop Username={Username}/>
-        <GeneralBottom Data={Data}/>
+        <GeneralBottom Data={Data} setLoadingdata={setLoadingdata}/>
         <ModalPassword/>
         <ModelEditprofile Data={Data}/>
         </div>

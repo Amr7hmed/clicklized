@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './form.jsx';
-import Imagecompony from "../../../../../images/profile/image-two.jpg";
+import Imagecompony from "../../../../images/profile/image-two.jpg";
 
 function RequestDatatBottom(props) {
   const {state}=props;

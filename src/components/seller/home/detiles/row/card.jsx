@@ -9,9 +9,7 @@ function HomeRequestsCard(props) {
 
     
     const ShowId=(name,id)=>{
-        console.log(name);
-        console.log(id);
-        //navigate(`/showrequest/${name}/${id}`);
+        navigate(`/showrequestseller/${name}/${id}`);
     }
   return (
     <div className="col-12 col-md-6 col-lg-4">

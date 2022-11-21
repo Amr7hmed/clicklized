@@ -1,16 +1,22 @@
 import React from 'react'
-import NavList from '../list/index.jsx';
-import ShowQuestionsData from './detiles/index.jsx';
+import QuestionsDataList from './list.jsx'
 
-function Showrequestrow(props) {
-  const { id, name, Stylebuttons } = props;
-
+function ShowQuestionsData() {
   return (
-    <div className="showrequestdata__row">
-      <NavList id={id} name={name} Stylebuttons={Stylebuttons} />
-      <ShowQuestionsData/>
+    <div className='showrequestbottom'>
+        <div className="showquestionsdata">
+            <div className="title">
+                <h6>Questions</h6>
+            </div>
+            <div className="questionsdatalistcontener">
+
+            <QuestionsDataList/>
+            <QuestionsDataList/>
+            <QuestionsDataList/>
+            </div>
+        </div>
     </div>
   )
 }
 
-export default Showrequestrow;
+export default ShowQuestionsData

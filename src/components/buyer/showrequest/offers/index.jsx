@@ -1,16 +1,21 @@
-import React from 'react'
-import NavList from '../list/index.jsx';
-import OffersDetiles from './detiles/index.jsx';
+import React, { useState } from 'react';
+import OffersFilter from './filter';
+import OffersTabel from './tabel';
+import OffersTop from './top';
 
-function Offersrow(props) {
-  const { id, name, Stylebuttons } = props;
-
+function OffersDetiles() {
+  const [toggle,setToggole]=useState(false);
   return (
-    <div className="showrequestdata__row">
-      <NavList id={id} name={name} Stylebuttons={Stylebuttons} />
-      <OffersDetiles/>
+    <div className='offersbottom'>
+      <div className="offersdetiles">
+        <OffersTop Toggle={toggle} setToggole={setToggole}/>
+        <OffersFilter Toggle={toggle}/>
+        <div className="offerscontener">
+          <OffersTabel/>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default Offersrow;
+export default OffersDetiles;

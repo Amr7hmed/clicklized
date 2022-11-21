@@ -7,9 +7,7 @@ import ProfileBuyer from './pages/buyer/profile/index.jsx';
 import SignIn from './pages/signin/index.jsx';
 import Signup from './pages/signup/index.jsx';
 import CreateRequest from './pages/buyer/createrequest/index.jsx';
-import ShowRequest from './pages/buyer/showrequest/index.jsx';
-import QuestionsBuyer from './pages/buyer/questionsbuyer/index.jsx';
-import Offers from './pages/buyer/offers/index.jsx';
+import ShowRequestbuyer from './pages/buyer/showrequest/index.jsx';
 import Suppliers from './pages/buyer/suppliers/index.jsx';
 // This Is Seller Pages
 import MyRequestSeller from './pages/seller/myrequest/index.jsx';
@@ -21,6 +19,7 @@ import ResendCode from './pages/resendcode/index.jsx';
 import ForgetPasswordEmail from './pages/password/forgetpasswordemail.jsx';
 import ForgetPasswordCode from './pages/password/forgetpasswordcode.jsx';
 import Home from './layout/home/index.jsx';
+import ShowRequestseller from './pages/seller/showrequest/index.jsx';
 
 function App() {
   return (
@@ -41,16 +40,15 @@ function App() {
       {/*This Is Buyer Pages*/}
       <Route path="/suppliers" element={<Suppliers />} exact />
       <Route path="/profilebuyer" element={<ProfileBuyer />} exact />
-      <Route path="/addrequest" element={<CreateRequest />} exact />
+      <Route path="/addrequestbuyer" element={<CreateRequest />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
-      <Route path="/showrequestbuyer/:name/:id" element={<ShowRequest />} exact />
-      <Route path="/questionsbuyer/:name/:id" element={<QuestionsBuyer />} exact />
-      <Route path="/offersbuyer/:name/:id" element={<Offers />} exact />
+      <Route path="/showrequestbuyer/:name/:id" element={<ShowRequestbuyer />} exact />
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
       <Route path="/requestdetailsseller/:name/:id" element={<RequestDetails />} exact />
       <Route path="/questionsseller/:name/:id" element={<QuestionsSeller />} exact />
       <Route path="/profileseller" element={<ProfileSeller />} exact />
+      <Route path="/showrequestseller/:name/:id" element={<ShowRequestseller />} exact />
       
         </Routes>
       </BrowserRouter>

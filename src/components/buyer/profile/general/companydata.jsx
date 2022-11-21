@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateLogoprofile } from '../../../../api/buyer/actionsprofile';
+import { DeleteItem, GetDataIndustries, UpdateCompanycrprofile, UpdateCompanyvatprofile, UpdateLogoprofile } from '../../../../api/buyer/actionsprofile';
 import UploadImage from "../../../../images/icon/upload.png";
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import SaveData from '../modal/savedata.jsx';
+import Deletimage from "../../../../images/icon/delet-image.svg";
+import ModelGallaryImage from '../modal/modelimages';
 
 function CompanyData(props) {
-    const { DataCompany } = props;
+    const { DataCompany, setLoadingdata } = props;
     const [logo, setLogo] = useState(null);
     const [toggolemodal, setToggolemodal] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [loadingcrfiles, setLoadingcrfiles] = useState(false);
+    const [loadingvatfiles, setLoadingvatfiles] = useState(false);
     const [data, setData] = useState([]);
     const [messagelogo, setMessagelogo] = useState("");
     const [messagecrfiles, setMessagecrfiles] = useState("");
     const [messagevatfiles, setMessagevatfiles] = useState("");
 
-    const [state, setState] = useState({
-        cr_files: "",
-        vat_files: "",
-    });
     useEffect(() => {
         GetDataIndustries(setLoading, setData);
     }, [loading]);
@@ -28,10 +28,12 @@ function CompanyData(props) {
     var newArray = data.filter(function (el) {
         return el.id === parseInt("1");
     });
-    // console.log(data);
-    // console.log(newArray);
+    console.log(DataCompany.cr_files);
+    console.log(DataCompany.vat_files);
+    console.log(newArray);
 
     const SendData = () => { }
+
     return (<>
         {loading === false ? (
             ""
@@ -46,29 +48,81 @@ function CompanyData(props) {
                         </li>
                         <li>
                             <span className="title">Company CR</span>
-                            <button type='button' className='btn btn-upload'>
-                                <input type="file" className="input-file" multiple name="cr_files"
-                                    onChange={e => {
-                                        UpdateCompanycr(DataCompany, e.target.files, setMessagecrfiles)
-                                    }} />
-                                <img src={UploadImage} alt="" />
-                                Upload files
-                            </button>
-                            {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
+                            {DataCompany.cr_files.length > 0 ? <div className="imgagegallary">
+                                {DataCompany.cr_files.map(item =>
+                                    <div className="img" key={item.id}>
+                                        <button className='btn btn-deletimage'
+                                            onClick={() => DeleteItem(item.id, setLoadingdata)}><img src={Deletimage} /></button>
+                                        <img src={item.image} alt={item.id} className={"img_gallary"} 
+                                        data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`}/>
+                                        <ModelGallaryImage Data={item.image} Id={item.id}/>
+                                    </div>
+                                )}
+                            </div> :
+                                <>
+                                    {loadingcrfiles === false ?
+                                        <button type='button' className='btn btn-upload'>
+                                            <input type="file" className="input-file" multiple name="cr_files"
+                                                accept="image/*"
+                                                onChange={e => {
+                                                    UpdateCompanycrprofile(
+                                                        DataCompany,
+                                                        e.target.files,
+                                                        setMessagecrfiles,
+                                                        setLoadingdata,
+                                                        setLoadingcrfiles)
+                                                }} />
+                                            <img src={UploadImage} alt="" />
+                                            Upload files
+                                        </button>
+                                        :
+                                        <button type='button' className='btn btn-upload button-disabled'>
+                                            <span class="spinner"></span>
+                                            Loading
+                                        </button>}
+                                    {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
+                                </>
+                                }
                         </li>
                         <li>
                             <span className="title">Company VAT</span>
-                            <button type='button' className='btn btn-upload'>
-                                <input type="file" className="input-file" multiple accept="image/*"
-                                    name="vat_files"
-                                    onChange={e => {
-                                        UpdateCompanyvat(DataCompany, e.target.files, setMessagevatfiles)
-                                    }}
-                                />
-                                <img src={UploadImage} alt="" />
-                                Upload files
-                            </button>
-                            {messagevatfiles === "" ? "" : <span className='errorfiled'>{messagevatfiles}</span>}
+
+                            {DataCompany.vat_files.length > 0 ?
+
+                                <div className="imgagegallary">
+                                    {DataCompany.vat_files.map(item =>
+                                        <div className="img" key={item.id}>
+                                            <button className='btn btn-deletimage'
+                                                onClick={() => DeleteItem(item.id, setLoadingdata)}><img src={Deletimage} /></button>
+                                            <img src={item.image} alt={item.id} className={"img_gallary"}  
+                                        data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`}/>
+                                        <ModelGallaryImage Data={item.image} Id={item.id}/>
+                                        </div>
+                                    )}
+                                </div>
+                                :
+                                <>{loadingvatfiles === false ?
+                                        <button type='button' className='btn btn-upload'>
+                                            <input type="file" className="input-file" multiple name="cr_files"
+                                                accept="image/*"
+                                                onChange={e => {
+                                                    UpdateCompanyvatprofile(
+                                                        DataCompany,
+                                                        e.target.files,
+                                                        setMessagecrfiles,
+                                                        setLoadingdata,
+                                                        setLoadingvatfiles)
+                                                }} />
+                                            <img src={UploadImage} alt="" />
+                                            Upload files
+                                        </button>
+                                        :
+                                        <button type='button' className='btn btn-upload button-disabled'>
+                                            <span class="spinner"></span>
+                                            Loading
+                                        </button>}
+                                    {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
+                                </>}
                         </li>
                     </ul>
                 </div>
@@ -102,4 +156,7 @@ function CompanyData(props) {
 
 }
 
-export default CompanyData
+export default CompanyData;
+/*
+
+*/

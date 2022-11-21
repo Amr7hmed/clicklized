@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Iconprofile from "../../../../../images/profile/image-one.jpg";
-import IconClock from "../../../../../images/icon/icon-clock.png";
-import IconPlay from "../../../../../images/icon/icon-play.png";
+import Iconprofile from "../../../../images/profile/image-one.jpg";
+import IconClock from "../../../../images/icon/icon-clock.png";
+import IconPlay from "../../../../images/icon/icon-play.png";
 
 function QuestionsDataList() {
     const [message,setMessage]=useState("");

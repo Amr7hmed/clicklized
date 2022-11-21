@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterIcon from '../../../../../../images/icon/icon-filter.png';
+import FilterIcon from '../../../../../images/icon/icon-filter.png';
 
 function OffersTop(props) {
 const {Toggle ,setToggole}=props;

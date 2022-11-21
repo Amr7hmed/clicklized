@@ -92,6 +92,7 @@ function Formprofile(props) {
                             <button type='button'
                                 className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
                                 <Field type={"file"} multiple className="input-file" name="cr_files" 
+                                accept="image/*" 
                                 onChange={e => {
                                         UpdateCompanycr(Data, e.target.files, setMessagecrfiles)
                                     }} />

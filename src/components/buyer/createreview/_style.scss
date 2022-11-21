@@ -392,7 +392,8 @@
                         flex-direction: row;
 
                         .files {
-                            width: 180px;
+                            min-width: 180px;
+                            max-width: auto;
                             height: 60px;
                             background-color: #f8f0d2;
                             font-size: 16px;
@@ -437,7 +438,8 @@
                                 align-items: center;
                                 justify-content: space-around;
                                 margin-right: 15px;
-                                width: 220px;
+                                min-width: 220px;
+                                max-width: auto;
                                 height: 70px;
                                 border-radius: 5px;
                                 background-color: #ebebeb;

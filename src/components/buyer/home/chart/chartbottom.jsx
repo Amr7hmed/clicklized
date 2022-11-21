@@ -7,7 +7,7 @@ function ChartBottom() {
     <div className='chart__bottom'>
         <h6>You don’t have any request</h6>
         <span>Start adding requests now</span>
-        <NavLink to={"/addrequest"} className='addrequests'>
+        <NavLink to={"/addrequestbuyer"} className='addrequests'>
         <img src={AddRequest} alt="AddRequest" />
         Add new request
         </NavLink>

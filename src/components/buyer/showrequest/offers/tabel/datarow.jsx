@@ -1,5 +1,5 @@
 import React from 'react';
-import Icondeopdwon from "../../../../../../images/icon/icon-dropdown.png";
+import Icondeopdwon from "../../../../../images/icon/icon-dropdown.png";
 
 function Datarow() {
   return (

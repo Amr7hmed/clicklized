@@ -22,7 +22,7 @@ function ProfileBuyer() {
     ) : (
     <section className='profile'>
     <Navbar/>
-    <MyProfile Data={data} Username={username}/>
+    <MyProfile Data={data} Username={username} setLoadingdata={setLoading}/>
     </section>
   )}
   </>

@@ -190,13 +190,15 @@
       align-items: center;
 
       .left {
-        height: 320px;
+        min-height: 320px;
+        max-height: auto;
 
         ul {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          height: 320px;
+          min-height: 320px;
+          max-height: auto;
 
           li {
             display: flex;
@@ -206,6 +208,7 @@
 
             .title {
               font-weight: normal;
+              margin-bottom: 9px;
             }
 
             .data {
@@ -220,7 +223,6 @@
               justify-content: center;
               width: 250px;
               height: 54px;
-              margin-top: 9px;
               border: solid 2px #e8d173;
               background-color: #f8f0d2;
               cursor: pointer;
@@ -249,6 +251,49 @@
                 object-fit: contain;
               }
             }
+            .imgagegallary{
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              .img{    
+                width: 70px;
+                height: 75px;
+                padding: 2.5px;
+                border: 1px solid #887529;
+                text-align: center;
+                margin: 5px;
+                position: relative;
+                img.img_gallary{       
+                   width: 100%;
+                  height: 100%;
+                  display: block;
+                  margin: 0px auto;
+                  cursor: pointer;
+                }
+                .btn-deletimage{
+                  padding: 0px;
+                  position: absolute;
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  top: -20%;
+                  right: -10%;
+                  -webkit-border-radius: 50%;
+                  -moz-border-radius: 50%;
+                  -ms-border-radius: 50%;
+                  -o-border-radius: 50%;
+                  background-color: #fff;
+                  &:active{
+                    border-color: transparent;
+                  }
+                  img{
+                    width: 20px;
+                    height: 20px;
+                    filter: invert(46%) sepia(57%) saturate(481%) hue-rotate(11deg) brightness(87%) contrast(90%);
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -257,7 +302,8 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 320px;
+        min-height: 320px;
+        max-height: auto;
 
         img {
           width: 190px;
@@ -313,6 +359,8 @@
     }
   }
 }
+
+
 // 6- Style MyProfile Page Form ModalChangePasswordBuyer
 #modalchangepasswordbuyer {
   font-family: var(--font-cairo);
@@ -526,6 +574,21 @@
     }
   }
 
+}
+.modelgallaryimage{
+  .modal-content{
+    height: 800px;
+  }
+  .modal-body{
+    .image{
+    width: 100%;
+    height: 100%;
+    img{
+    width: 100%;
+    height: 100%;
+    }
+    }
+  }
 }
 // 8- Style MyProfile Page Form ModalSaveData
 .modalsavedata {
@@ -808,6 +871,13 @@
     }
 
   }
+  .modelgallaryimage{
+    .modal-content{
+      height: 550px;
+      width: 75%;
+      margin: 0px auto;
+    }
+  }
 }
 // 11- Style MyProfile Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
@@ -1067,5 +1137,12 @@
       }
     }
 
+  }
+  .modelgallaryimage{
+    .modal-content{
+      height: 400px;
+      width: 95%;
+      margin: 0px auto;
+  }
   }
 }

@@ -1,10 +1,10 @@
 import { ErrorMessage, Field, FieldArray } from 'formik';
 import React from 'react';
-import IconPdf from "../../../../../images/icon/icon-pdf.png";
-import IconClose from "../../../../../images/icon/ic-close.svg";
-import IconProfile from "../../../../../images/icon/img-profile.jpg";
-import IconCleander from "../../../../../images/icon/calendar-icon.png";
-import IconPdfDownload from "../../../../../images/icon/icon-short-pdf.png";
+import IconPdf from "../../../../images/icon/icon-pdf.png";
+import IconClose from "../../../../images/icon/ic-close.svg";
+import IconProfile from "../../../../images/icon/img-profile.jpg";
+import IconCleander from "../../../../images/icon/calendar-icon.png";
+import IconPdfDownload from "../../../../images/icon/icon-short-pdf.png";
 
 export function Inputquotations(props) {
   const { errors, Data } = props;

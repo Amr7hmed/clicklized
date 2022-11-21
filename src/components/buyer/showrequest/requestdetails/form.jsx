@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Formik } from "formik";
-import { Inputaddress, Inputday, Fileslist, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation, Supplierslist } from './inputs';
+import { Inputaddress, Inputday, Fileslist, Inputinsurance,
+     InputItems, Inputnotes, Inputquotations, Inputtransportation, 
+     Supplierslist } from './inputs';
 
 function Form(props) {
     const {state}=props;
