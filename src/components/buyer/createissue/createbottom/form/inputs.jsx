@@ -51,8 +51,7 @@ export function InputSupplierslist(props) {
   )
 };
 
-export function Inputcompany(props) {
-  const { errors } = props;
+export function Inputcompany() {
   return (
     <div className='inputform'>
       <h6>Send invitation to supplier outside system</h6>
@@ -60,29 +59,26 @@ export function Inputcompany(props) {
         <div className="col-12 col-lg-4">
           <label className="form-label">Company name</label>
           <Field type="text" component="input"
-            className={errors.companyname === "" ? "form-control is-invabuttond" : "form-control"}
+            className={"form-control"}
             placeholder="Enter Company Name" name="companyname" />
           <br />
-          {errors.companyname === "" ? <span className='errorfiled'>Company Name is Required</span>:""}
         </div>
         <div className="col-12 col-lg-4">
 
           <label className="form-label">Company Email</label>
           <Field type="email" component="input"
-            className={errors.companyemail === "" ? "form-control is-invabuttond" : "form-control"}
+            className={"form-control"}
             placeholder="Enter Email" name="companyemail" />
           <br />
-          {errors.companyemail === "" ? <span className='errorfiled'>Company Email is Required</span>:""}
 
         </div>
         <div className="col-12 col-lg-4">
 
           <label className="form-label">Contact numebr</label>
           <Field type="number" component="input"
-            className={errors.contactnumebr === "" ? "form-control is-invabuttond" : "form-control"}
+            className={"form-control"}
             placeholder="Enter Contact numebr" name="contactnumebr" />
           <br />
-          {errors.contactnumebr === "" ? <span className='errorfiled'>Company Numebr is Required</span>:""}
         </div>
       </div>
 

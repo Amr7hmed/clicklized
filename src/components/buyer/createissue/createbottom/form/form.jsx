@@ -46,7 +46,7 @@ function Form(props) {
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
                     <InputSupplierslist SupplierslistItems={SupplierslistItems} setSupplierslistItems={setSupplierslistItems}/>
-                    <Inputcompany errors={props.errors}/>
+                    <Inputcompany />
                     <Inputcheckbox />
                     <ModalSuppliersList AddSuppliers={AddSuppliers} DoneAdded={DoneAdded} RemoveallSuppliers={RemoveallSuppliers}/>
 
@@ -61,21 +61,13 @@ function Form(props) {
         </form>
     }
 
-    const schema = () => {
-        const schema = Yup.object().shape({
-            companyname: Yup.string().required(""),
-            companyemail: Yup.string().required(""),
-            contactnumebr: Yup.string().required(""),
-        });
-        return schema;
-    }
+
     return (
         <div className="createissue">
             <Formik
                 initialValues={Statedata}
                 onSubmit={onSubmit}
                 render={form}
-                validationSchema={schema()}
                 validateOnChange={false}
                 validateOnBlur={false}
             />
