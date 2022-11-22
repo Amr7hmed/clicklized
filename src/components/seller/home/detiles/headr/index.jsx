@@ -17,10 +17,6 @@ function HomeRequestsHeadr(props) {
             <img src={FilterIcon} alt="Filter Icon" />
             Filter
           </button>
-          <button  type='button' className='btn btn-request'>
-            <img src={AddRequest} alt="Request Icon" />
-            Add new request
-          </button>
         </div>
     </div>
   )

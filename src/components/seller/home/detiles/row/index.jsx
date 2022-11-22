@@ -1,19 +1,28 @@
 import React from 'react';
+import { useState } from 'react';
 import HomeRequestsCard from './card';
 
-function HomeRequestsRow() {
-  const Data = [
-    { id: 1, name: "3586", time: "20/02/2022",offer:1},
-    { id: 2, name: "3587", time: "20/02/2022",offer:1},
-    { id: 3, name: "3588", time: "20/02/2022",offer:1},
-    { id: 4, name: "3589", time: "20/02/2022",offer:1},
-    { id: 5, name: "3590", time: "20/02/2022",offer:1},
-    { id: 6, name: "3591", time: "20/02/2022",offer:0},
-  ]
+function HomeRequestsRow(props) {
+  const {Data}=props;
+  let Newdata=[];
+  var Datareverse = [...Data].reverse();
+
+  for (let i = 0; i < 6; i++) {
+    Newdata.push(Datareverse[i])
+  }
+
+  function removeChars(element, index, array) {
+    return (element !== undefined);
+  }
+
+  var Datarequest = Newdata.filter(removeChars);
+  
+  console.log(Datarequest);
+
   return (
     <div className='homerequests__row'>
       <div className="row">
-        {Data.map(item =>
+        {Datarequest.map(item  =>
           <HomeRequestsCard key={item.id} Item={item} />
         )}
       </div>

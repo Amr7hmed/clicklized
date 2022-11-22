@@ -1,6 +1,6 @@
 import React from 'react';
-import IconSavemodal from "../../../../images/icon/savemodalicon.png";
-import IconClosemodal from "../../../../images/icon/closemodal.png";
+import IconSavemodal from "../../images/icon/savemodalicon.png";
+import IconClosemodal from "../../images/icon/closemodal.png";
 
 function SaveData(props) {
     const {toggolemodal ,setToggolemodal ,SendData}=props

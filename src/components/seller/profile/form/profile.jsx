@@ -17,17 +17,12 @@ function Formprofileseller(props) {
     const [dataindustries, setDataIndustries] = useState([]);
     const [loadingcaity, setLoadingcaity] = useState(false);
     const [dataicaity, setDataicaity] = useState([]);
-    const [loadingcountries, setLoadingcountries] = useState(false);
-    const [dataicountries, setDataicountries] = useState([]);
 
     useEffect(() => {
         GetDataIndustries(setLoading, setDataIndustries);
         GetDataCaity(setLoadingcaity,setDataicaity);
     }, [loadingcaity]);
 
-    useEffect(() => {
-        GetDataCountries(setLoadingcountries,setDataicountries);
-    }, [loadingcountries]);
 
 
     const state = {
@@ -36,7 +31,6 @@ function Formprofileseller(props) {
         fax:"",
         cr: "",
         website:"",
-        country:"",
         city:"",
         address:"",
         vat: "",
@@ -57,6 +51,7 @@ function Formprofileseller(props) {
        window.location.reload();
     }
     const onSubmit = (values) => {
+        console.log(values);
        UpdateProfile(Data,values,setMessage)
     }
     const form = (props) => {
@@ -144,15 +139,11 @@ function Formprofileseller(props) {
                         </div>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">Country</label>
-                            {loadingcountries === false ? "" : 
-                            <Field name="country" component="select"
-                                className={props.errors.country ? "form-select is-invalid" : "form-select"} >
-                                <option>Country . here</option>
-                                {dataicountries.map(item =><option value={item.id} key={item.id}>{item.name}</option>)}
-                            </Field>
-                            }
-                            <ErrorMessage name="country" component="span" className='errorfiled' />
+                            <label className="form-label">Fax No.</label>
+                            <Field type={"number"}
+                                className={props.errors.fax ? "form-control is-invalid" : "form-control"}
+                                placeholder="Fax No. here" name="fax" />
+                            <ErrorMessage name="fax" component="span" className='errorfiled' />
                         </div>
                     </div>
 
@@ -187,13 +178,6 @@ function Formprofileseller(props) {
                             <ErrorMessage name="company_email" component="span" className='errorfiled' />
                         </div>
 
-                        <div className='col-6 input_model'>
-                            <label className="form-label">Fax No.</label>
-                            <Field type={"number"}
-                                className={props.errors.fax ? "form-control is-invalid" : "form-control"}
-                                placeholder="Fax No. here" name="fax" />
-                            <ErrorMessage name="fax" component="span" className='errorfiled' />
-                        </div>
                     </div>
                     {message === "" ? "" : <span className='errorfiled'>{message}</span>}
 
@@ -216,7 +200,6 @@ function Formprofileseller(props) {
             cr_issue_date:Yup.string().required('Required'),
             vat_registration_date:Yup.string().required('Required'),
             website:Yup.string().required('Required'),
-            country:Yup.string().required('Required'),
             city:Yup.string().required('Required'),
             address:Yup.string().required('Required'),
             company_email: Yup.string().required("Required"),

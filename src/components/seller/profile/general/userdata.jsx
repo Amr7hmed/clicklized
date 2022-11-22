@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { UpdateImageprofile } from '../../../../api/seller/actionsprofile';
+import { UpdateImageprofile } from '../../../../api/profile';
 import Editeimage from '../../../../images/icon/uploadimage.png';
-import Savedata from '../modal/savedata';
+import SaveData from '../../../../layout/modal/savedata';
 
 function UserData(props) {
     const {DataUser}=props;
     const [toggolemodal, setToggolemodal] = useState(false);
     const [message, setMessage] = useState("");
     const [imagedata,setImagedata]=useState(null);
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState(DataUser.image);
+    const ImageError = "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg";
 
     const SendData = () => {
         setToggolemodal(!toggolemodal);
@@ -33,7 +34,7 @@ function UserData(props) {
             </ul>
         </div>
         <div className="right">
-            <img src={file === null ? DataUser.image : file}
+            <img src={file === null ? ImageError : file}
                 onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -57,7 +58,7 @@ function UserData(props) {
         {toggolemodal === false ? 
         "" 
         :
-        <Savedata toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
+        <SaveData toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
         }
     </div>
   )

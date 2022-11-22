@@ -1,5 +1,4 @@
-import React from 'react'
-import Formprofile from '../form/profile';
+import React from 'react';
 
 function ModelGallaryImage(props) {
   const { Data ,Id} = props;
@@ -10,10 +9,10 @@ function ModelGallaryImage(props) {
       <div
         className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div className="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div className="modal-header">
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <div className="image">
               <img src={Data} alt="" />
             </div>

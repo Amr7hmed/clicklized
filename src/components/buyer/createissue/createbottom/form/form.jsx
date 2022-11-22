@@ -5,59 +5,59 @@ import { Inputcheckbox, Inputcompany, InputSupplierslist } from "./inputs.jsx";
 import ModalSuppliersList from './modallsupplierslist.jsx';
 
 function Form(props) {
-    const { Statedata ,screnonedatatwo ,setParamsname, setSuppliersItems} = props;
+    const { Statedata, screnonedatatwo, setParamsname, setSuppliersItems } = props;
 
     const [SupplierslistItems, setSupplierslistItems] = useState([]);
 
     const onSubmit = (values) => {
-        if(SupplierslistItems.length === 0){
+        if (SupplierslistItems.length === 0) {
             return false;
-        }else{
+        } else {
             screnonedatatwo(values)
         }
     }
 
 
-        const AddSuppliers = (e,item) => {
-        if(e.target.classList.contains('active')){
+    const AddSuppliers = (e, item) => {
+        if (e.target.classList.contains('active')) {
             e.target.classList.remove('active');
             e.target.innerHTML = "Add";
 
             let remainingArr = SupplierslistItems.filter(data => data.id != item.id);
             setSupplierslistItems([...remainingArr]);
             setSuppliersItems([...remainingArr]);
-        }else{
+        } else {
             e.target.classList.add('active');
             e.target.innerHTML = "Added";
             setSupplierslistItems([...SupplierslistItems, item])
             setSuppliersItems([...SupplierslistItems, item]);
         }
-        }
-        const DoneAdded = () => {
+    }
+    const DoneAdded = () => {
         setSupplierslistItems([...SupplierslistItems]);
         setSuppliersItems([...SupplierslistItems]);
-        }
+    }
 
-        const RemoveallSuppliers = () => {
+    const RemoveallSuppliers = () => {
         setSupplierslistItems([]);
         setSuppliersItems([]);
-        }
+    }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-                    <InputSupplierslist SupplierslistItems={SupplierslistItems} setSupplierslistItems={setSupplierslistItems}/>
-                    <Inputcompany />
-                    <Inputcheckbox />
-                    <ModalSuppliersList AddSuppliers={AddSuppliers} DoneAdded={DoneAdded} RemoveallSuppliers={RemoveallSuppliers}/>
+            <InputSupplierslist SupplierslistItems={SupplierslistItems} setSupplierslistItems={setSupplierslistItems} />
+            <Inputcompany />
+            <Inputcheckbox />
+            <ModalSuppliersList AddSuppliers={AddSuppliers} DoneAdded={DoneAdded} RemoveallSuppliers={RemoveallSuppliers} />
 
 
 
-                    <div className='end'>
-                        <button className='btn btn-cancel' onClick={()=>{setParamsname("");}} >
-                            Back
-                        </button>
-                        <button className='btn btn-next' type="submit">Next</button>
-                    </div>
+            <div className='end'>
+                <button className='btn btn-cancel' onClick={() => { setParamsname(""); }} >
+                    Back
+                </button>
+                <button className='btn btn-next' type="submit">Next</button>
+            </div>
         </form>
     }
 

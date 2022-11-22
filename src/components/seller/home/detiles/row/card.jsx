@@ -1,35 +1,26 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Editicon from "../../../../../images/icon/edit-green.png";
 import IconTimer from "../../../../../images/icon/icon-timer.png";
 
 function HomeRequestsCard(props) {
     const{Item}=props;
-    let navigate  = useNavigate();
-
-    
-    const ShowId=(name,id)=>{
-        navigate(`/showrequestseller/${name}/${id}`);
-    }
+const day = Item.delivery_date.split('T')[0];
   return (
     <div className="col-12 col-md-6 col-lg-4">
     <div className='homerequests__card'>
         <div className="top">
-            <span className='text'>{Item.name}</span>
+            <span className='text'>{Item.order_num}</span>
 
-            {Item.offer === 1 ? "":
-            <button type='button' className="btn btn-edit"
-            onClick={()=>ShowId(Item.name,Item.id)}>
-                <img src={Editicon} alt="Edit icon" />
-            </button>
-            }
 
         </div>
 
         <div className="bottom">
             <div className="time">
                 <img src={IconTimer} alt="IconTimer" />
-                <span className="text">End {Item.time}</span>
+                <span className="text">End {day}
+                
+                {/*`${Item.delivery_date.getFullYear()}/${Item.delivery_date.getMonth()+1}/${Item.delivery_date.getDate()}`*/}
+                </span>
             </div>
             <div className="button-data">
                 <button className="btn" type='button'>

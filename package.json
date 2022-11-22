@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/charts": "^1.4.2",
     "@coreui/coreui": "^4.2.2",
     "@coreui/react-chartjs": "^2.1.0",
     "@emotion/react": "^11.10.5",

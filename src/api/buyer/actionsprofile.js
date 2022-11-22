@@ -3,68 +3,8 @@ import { Api } from "../index.js";
 
 // Post Function Api
 
-export const UpdateImageprofile = async (DataUser,file,setMessage) => {
-  console.log(DataUser);
-  var data = new FormData();
-  data.append("name", DataUser.name);
-  data.append("email", DataUser.email);
-  data.append("phone", DataUser.phone);
-  data.append('user_type', DataUser.user_type_id);
-  data.append('image', file);
-  data.append("device_id", "default");
-  data.append("device_type","web");
-  data.append("industry_id", "1");
-  const  options = {
-    method: "post",
-    url: `${Api}update-profile`,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
-    },
-    data,
-  };
-    axios(options).then(function (response) {
-    setMessage("")
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
-  });
-};
-
-export const UpdateLogoprofile = async (DataUser,file,setMessage) => {
-  console.log(DataUser);
-  var data = new FormData();
-  data.append("name", DataUser.name);
-  data.append("email", DataUser.email);
-  data.append("phone", DataUser.phone);
-  data.append('user_type', DataUser.user_type_id);
-  //data.append('image', URL.createObjectURL(DataUser.image));
-  data.append('logo', file);
-  data.append("device_id", "default");
-  data.append("device_type","web");
-  data.append("industry_id", "1");
-  const  options = {
-    method: "post",
-    url: `${Api}update-profile`,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
-    },
-    data,
-  };
-    axios(options).then(function (response) {
-    setMessage("")
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
-  });
-};
-
-export const UpdateCompanycr = async (DataUser,files,setMessage) => {
+export const UpdateCompanycr = async (DataUser,files,setMessage,setLoadingcrfiles) => {
+  setLoadingcrfiles(true);
   var data = new FormData();
   data.append("name", DataUser.name);
   data.append("email", DataUser.email);
@@ -89,9 +29,12 @@ export const UpdateCompanycr = async (DataUser,files,setMessage) => {
   };
     axios(options).then(function (response) {
     setMessage("")
+    setLoadingcrfiles(false);
+    console.log(response);
   })
   .catch(function (error) {
     setMessage(error.response.data.message)
+    setLoadingcrfiles(false);
   });
   
 };
@@ -130,7 +73,8 @@ export const UpdateCompanycrprofile = async (DataUser,files,setMessage,setLoadin
   
 };
 
-export const UpdateCompanyvat = async (DataUser,files,setMessage) => {
+export const UpdateCompanyvat = async (DataUser,files,setMessage,setLoadingvatfiles) => {
+  setLoadingvatfiles(true)
   var data = new FormData();
   data.append("name", DataUser.name);
   data.append("email", DataUser.email);
@@ -155,9 +99,11 @@ export const UpdateCompanyvat = async (DataUser,files,setMessage) => {
   };
     axios(options).then(function (response) {
     setMessage("")
+    setLoadingvatfiles(false)
   })
   .catch(function (error) {
     setMessage(error.response.data.message)
+    setLoadingvatfiles(false)
   });
   
 };

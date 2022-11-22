@@ -12,6 +12,8 @@ function Formprofile(props) {
     const [messagecrfiles, setMessagecrfiles] = useState("");
     const [messagevatfiles, setMessagevatfiles] = useState("");
     const [loading, setLoading] = useState(false);
+    const [loadingcrfiles, setLoadingcrfiles] = useState(false);
+    const [loadingvatfiles, setLoadingvatfiles] = useState(false);
     const state = {
         name: "",
         email: "",
@@ -89,16 +91,25 @@ function Formprofile(props) {
 
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">Company CR</label>
-                            <button type='button'
-                                className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"} multiple className="input-file" name="cr_files" 
-                                accept="image/*" 
-                                onChange={e => {
-                                        UpdateCompanycr(Data, e.target.files, setMessagecrfiles)
-                                    }} />
-                                <img src={UploadImage} alt="" />
-                                Upload files
-                            </button>
+                            
+
+                            
+                            {loadingcrfiles === false ?
+                                      <button type='button'
+                                      className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
+                                      <Field type={"file"} multiple className="input-file" name="cr_files" 
+                                      accept="image/*" 
+                                      onChange={e => {
+                                              UpdateCompanycr(Data, e.target.files, setMessagecrfiles , setLoadingcrfiles)
+                                          }} />
+                                      <img src={UploadImage} alt="" />
+                                      Upload files
+                                  </button>
+                                        :
+                                        <button type='button' className='btn btn-upload button-disabled'>
+                                            <span className="spinner"></span>
+                                            Loading
+                                        </button>}
                             {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
                         </div>
                     </div>
@@ -106,16 +117,26 @@ function Formprofile(props) {
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
                             <label className="form-label">Company VAT</label>
-                            <button type='button'
-                                className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
-                                <Field type={"file"} className="input-file" name="vat_files" 
-                                  onChange={e => {
-                                      UpdateCompanyvat(Data, e.target.files, setMessagevatfiles)
-                                  }}
-                                multiple accept="image/*"  />
-                                <img src={UploadImage} alt="" />
-                                Upload files
-                            </button>
+                            
+                            
+                            {loadingvatfiles === false ?
+                                      <button type='button'
+                                      className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
+                                      <Field type={"file"} className="input-file" name="vat_files" 
+                                        onChange={e => {
+                                            UpdateCompanyvat(Data, e.target.files, setMessagevatfiles,setLoadingvatfiles)
+                                        }}
+                                      multiple accept="image/*"  />
+                                      <img src={UploadImage} alt="" />
+                                      Upload files
+                                  </button>
+                                        :
+                                        <button type='button' className='btn btn-upload button-disabled'>
+                                            <span className="spinner"></span>
+                                            Loading
+                                        </button>}
+
+                            
                             {messagevatfiles === "" ? "" : <span className='errorfiled'>{messagevatfiles}</span>}
                         </div>
                     </div>

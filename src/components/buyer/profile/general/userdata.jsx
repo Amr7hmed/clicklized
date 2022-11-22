@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import { UpdateImageprofile } from '../../../../api/buyer/actionsprofile';
+import { UpdateImageprofile } from '../../../../api/profile';
 import Editeimage from '../../../../images/icon/uploadimage.png';
-import SaveData from '../modal/savedata';
+import SaveData from '../../../../layout/modal/savedata';
 
 function UserData(props) {
     const {DataUser}=props;
     const [toggolemodal, setToggolemodal] = useState(false);
     const [message, setMessage] = useState("");
-    const [file, setFile] = useState(null);
-
+    const [imagedata,setImagedata]=useState(null);
+    const [file, setFile] = useState(DataUser.image);
+    const ImageError = "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg";
   
+
     const SendData = () => {
         setToggolemodal(!toggolemodal);
-        const usertype = localStorage.getItem("usertypeclicklized");
-        console.log(file);
-        UpdateImageprofile(usertype,file,setMessage)
-        console.log(toggolemodal);
+        UpdateImageprofile(imagedata,setMessage) ;
     }
   return (
     <div className='userdata'>
@@ -36,7 +35,7 @@ function UserData(props) {
             </ul>
         </div>
         <div className="right">
-            <img src={file === null ? DataUser.image : file}
+            <img src={file === null ? ImageError : file}
                 onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -48,7 +47,8 @@ function UserData(props) {
             <input type="file" className="input-file" accept="image/*"
              onChange={e => {
                 setFile(URL.createObjectURL(e.target.files[0]));
-                UpdateImageprofile(DataUser,e.target.files[0],setMessage) ;
+                setToggolemodal(!toggolemodal);
+                setImagedata(e.target.files[0]);
             }} />
                 <img src={Editeimage} alt="Edite image" />
                 Upload image
