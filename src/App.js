@@ -45,8 +45,8 @@ function App() {
       <Route path="/showrequestbuyer/:name/:id" element={<ShowRequestbuyer />} exact />
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
-      <Route path="/requestdetailsseller/:name/:id" element={<RequestDetails />} exact />
-      <Route path="/questionsseller/:name/:id" element={<QuestionsSeller />} exact />
+      <Route path="/requestdetailsseller/:id" element={<RequestDetails />} exact />
+      <Route path="/questionsseller/:id" element={<QuestionsSeller />} exact />
       <Route path="/profileseller" element={<ProfileSeller />} exact />
       <Route path="/showrequestseller/:name/:id" element={<ShowRequestseller />} exact />
       

@@ -1,7 +1,6 @@
 import { ErrorMessage, Field, FieldArray } from 'formik';
 import React from 'react';
 import IconPdf from "../../../../../images/icon/icon-pdf.png";
-import IconClose from "../../../../../images/icon/ic-close.svg";
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 import DatePickerdata from './datepicker';
 
@@ -143,9 +142,6 @@ export function Fileslist(props) {
 export function Supplierslist(props) {
   const {SupplierslistItems ,Arraydataone} = props;
 
-  const RemoveItem = (id) => {
-    console.log(id);
-  }
   return (
     <div className='supplierslist'>
       <h6>Suppliers list</h6>
@@ -157,13 +153,11 @@ export function Supplierslist(props) {
             {SupplierslistItems.map(item =>
               <span key={item.id} className="listitem">
                 <span>
-                  <img src={item.image} alt={item} className="iconprofile" />
+                  <img  src={item.image === undefined ? IconProfile: item.image }
+                   alt={item} className="iconprofile" />
                   {item.company_name}
                 </span>
 
-                <button className='btn btn-close' onClick={() => RemoveItem(item.id)}>
-                  <img src={IconClose} alt="Icon Close" />
-                </button>
               </span>
             )}
 

@@ -17,7 +17,6 @@ function HomeRequestsRow(props) {
 
   var Datarequest = Newdata.filter(removeChars);
   
-  console.log(Datarequest);
 
   return (
     <div className='homerequests__row'>

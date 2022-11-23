@@ -1,12 +1,10 @@
 import React , { useState }from 'react';
-import { useParams } from 'react-router-dom';
 import CreateIssueData from '../../../components/buyer/createissue/index.jsx';
 import CreateOne from '../../../components/buyer/createrequest/index.jsx';
 import CreateReviewData from '../../../components/buyer/createreview/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 function CreateRequest() {
-  const { name } = useParams();
   const statedataone = {
     numberrequired: "",
     items: [

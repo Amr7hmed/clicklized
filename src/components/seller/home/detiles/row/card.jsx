@@ -19,7 +19,6 @@ const day = Item.delivery_date.split('T')[0];
                 <img src={IconTimer} alt="IconTimer" />
                 <span className="text">End {day}
                 
-                {/*`${Item.delivery_date.getFullYear()}/${Item.delivery_date.getMonth()+1}/${Item.delivery_date.getDate()}`*/}
                 </span>
             </div>
             <div className="button-data">

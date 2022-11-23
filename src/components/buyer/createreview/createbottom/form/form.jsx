@@ -9,12 +9,6 @@ function Form(props) {
     const [loading, setLoading] = useState(false);
     const Suppliers =[];
 
-    console.log(Arraydataone);
-    console.log(Arraydatatwo);
-    console.log(SuppliersItems);
-    console.log(imagesfiles);
-    console.log(imageslogo);
-    console.log(clickedLatLng);
     const Itemsresults = Arraydataone.items.filter(obj => {
         return obj.quantity !== "";
       });
@@ -26,8 +20,6 @@ function Form(props) {
     const daydata=`${Arraydataone.day.getFullYear()}/${Arraydataone.day.getMonth()+1}/${Arraydataone.day.getDate()}`;
     const arrayimagesfiles =[...imagesfiles];
 
-    console.log(Arraydatatwo.checkboxtoggle );
-    
     const onSubmit = (values) => {
         console.log(values);
         setLoading(true);

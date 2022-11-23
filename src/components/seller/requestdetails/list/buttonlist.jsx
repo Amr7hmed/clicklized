@@ -7,7 +7,7 @@ function ButtonList(props) {
     <ul>
         <li>
             <NavLink 
-            to={`/requestdetailsseller/${name}/${id}`}
+            to={`/requestdetailsseller/${id}`}
             className={Stylebuttons === "requestdetails"
             ?"btn btn_navlist activeitem":"btn btn_navlist"}>
                 Request details
@@ -15,7 +15,7 @@ function ButtonList(props) {
         </li>
         <li>
             <NavLink 
-            to={`/questionsseller/${name}/${id}`}
+            to={`/questionsseller/${id}`}
             className={Stylebuttons === "questions"
             ?"btn btn_navlist activeitem":"btn btn_navlist"}>
                 Questions

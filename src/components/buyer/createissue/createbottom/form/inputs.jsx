@@ -2,6 +2,7 @@ import { ErrorMessage, Field, FieldArray } from 'formik';
 import React, { useEffect, useState } from 'react';
 import IconAdd from '../../../../../images/icon/add-gray.png';
 import IconClose from "../../../../../images/icon/ic-close.svg";
+import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 
 export function InputSupplierslist(props) {
@@ -14,6 +15,7 @@ export function InputSupplierslist(props) {
     console.log(remainingArr);
     setSupplierslistItems([...remainingArr])
   }
+
   return (
     <div className='inputsupplierslist'>
       <div className="supplierslist">
@@ -33,7 +35,7 @@ export function InputSupplierslist(props) {
             {SupplierslistItems.map(item =>
               <span key={item.id} className="listitem">
                 <span>
-                  <img src={item.image} alt={item} className="iconprofile" />
+                  <img src={item.image === undefined ? IconProfile: item.image } alt={item} className="iconprofile" />
                   {item.company_name}
                 </span>
 
@@ -90,8 +92,8 @@ export function Inputcheckbox(props) {
   const { errors } = props;
   return (
     <div className='inputform'>
-      <Field type="checkbox" name="checkboxtoggle" />
-      <label className="form-label formlabel-checkbox">
+      <Field type="checkbox" name="checkboxtoggle" id="checkboxtoggle"/>
+      <label className="form-label formlabel-checkbox" htmlFor='checkboxtoggle'>
         Send invitations to all suppliers</label>
       <ErrorMessage name="checkboxtoggle" component="span" className='errorfiled' />
     </div>

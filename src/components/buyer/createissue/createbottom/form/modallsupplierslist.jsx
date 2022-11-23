@@ -11,6 +11,8 @@ function ModalSuppliersList(props) {
     GetDataSuppliers(setLoading, setSupplierslist);
   }, [loading]);
 
+  console.log(supplierslist);
+
   return (
     <div className="modal fade" id="modallsupplierslist" tabIndex="-1"
       aria-labelledby="modallsupplierslistLabel" aria-hidden="true">
@@ -31,7 +33,7 @@ function ModalSuppliersList(props) {
                   {supplierslist.map(item =>
                     <div className="item" key={item.id}>
                       <span className='data'>
-                        <img src={IconProfile} alt={item.company_name} 
+                        <img src={item.image === undefined ? IconProfile: item.image } alt={item.company_name} 
                           onError={(e) => {
                             e.target.onerror = null;
                             e.target.src =
