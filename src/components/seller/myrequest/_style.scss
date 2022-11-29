@@ -4,10 +4,9 @@
 3- Style MyRequestSeller Page Card
 4- Style MyRequestSeller Page Row
 5- Style MyRequestSeller Page Filter
-6- Style MyRequestSeller Page Pagination
 // ========== Media Queris ============= //
-7- Style MyRequestSeller Page To Media Queris 992px.
-8- Style MyRequestSeller Page To Media Queris 576px.
+6- Style MyRequestSeller Page To Media Queris 992px.
+7- Style MyRequestSeller Page To Media Queris 576px.
 */
 // 1- Style MyRequestSeller Page  
 .myrequestseller {
@@ -220,69 +219,9 @@
         -o-transition: all 1s;
         margin: 0px !important;
     }
-// 6- Style MyRequestSeller Page Pagination
-    .pagination {
-      justify-content: flex-end;
-      align-items: center;
-      margin: 30px 0px;
-
-      .page-item {
-        width: 32px;
-        height: 32px;
-        margin-left: 5px;
-
-        .page-link {
-          background-color: transparent;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          font-family: var(--font-cairo);
-          font-size: 12px;
-          color: #343433;
-          padding: 0px;
-          line-height: 29px;  
-          border: solid 1px rgba(0, 0, 0, 0.1);
-          text-align: center;
-          &:focus{
-            box-shadow: none !important;
-          }
-        }
-
-        &:first-child {
-          margin-right: 5px;
-          width: 50px;
-          a {
-            color: #343433;
-            font-size: 14px;
-            border: none;
-            background-color: transparent;
-        }
-        }
-
-        &:last-of-type {
-            margin-left: 5px;
-            width: 50px;
-            a {
-                color: #343433;
-                font-size: 14px;
-                border: none;
-                background-color: transparent;
-            }
-          
-        }
-      }
-
-      .page-item.active {
-        .page-link {
-            background-color: #e9d173;
-          border: none;
-          color: var(--white-color);
-        }
-      }
-    }
 }
 
-// 7- Style MyRequestSeller Page To Media Queris 992px
+// 6- Style MyRequestSeller Page To Media Queris 992px
 @media screen and (max-width: 992px) {
     .myrequestseller {
         height: auto;
@@ -311,7 +250,7 @@
 
 }
 
-// 8- Style MyRequestSeller Page To Media Queris 576px.
+// 7- Style MyRequestSeller Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
     .myrequestseller {
         &__headr {

@@ -6,14 +6,14 @@ import IconProfile from "../../../../../images/icon/img-profile.jpg";
 
 
 export function InputSupplierslist(props) {
-  const { SupplierslistItems ,setSupplierslistItems ,SuppliersItems, setSuppliersItems} = props;
+  const { supplierslistrequest ,setSupplierslistrequest ,SuppliersItems, setSuppliersItems} = props;
 
 
   const RemoveItem = (id) => {
     console.log(id);
-    let remainingArr = SupplierslistItems.filter(data => data.id != id);
+    let remainingArr = supplierslistrequest.filter(data => data.id != id);
     console.log(remainingArr);
-    setSupplierslistItems([...remainingArr])
+    setSupplierslistrequest([...remainingArr])
   }
 
   return (
@@ -28,11 +28,11 @@ export function InputSupplierslist(props) {
         </button>
 
       </div>
-      {SupplierslistItems.length === 0 ? "" :
+      {supplierslistrequest.length === 0 ? "" :
         <>
 
           <div className="listitems">
-            {SupplierslistItems.map(item =>
+            {supplierslistrequest.map(item =>
               <span key={item.id} className="listitem">
                 <span>
                   <img src={item.image === undefined ? IconProfile: item.image } alt={item} className="iconprofile" />
@@ -48,7 +48,7 @@ export function InputSupplierslist(props) {
           </div>
         </>
       }
-      {SupplierslistItems.length === 0 ? <span className='errorfiled'>Add Supplier is Required</span>:""}
+      {supplierslistrequest.length === 0 ? <span className='errorfiled'>Add Supplier is Required</span>:""}
     </div>
   )
 };

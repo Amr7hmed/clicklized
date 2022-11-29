@@ -8,14 +8,20 @@ function Requestitems(props) {
   const { Data } = props;
   const [toggle, setToggole] = useState(false);
   return (
-      <div className='requestitems'>
+    <div className='requestitems'>
+      {Data.length === 0 ?
+
+        <EmptyRequest />
+
+        :
         <div className="container">
           <RequestHeadr Title={"My requests"} Line={`${Data.length} requests`}
             Toggle={toggle} setToggole={setToggole} />
           <RequestFilter Toggle={toggle} />
           <RequestRow Data={Data} />
         </div>
-      </div>
+      }
+    </div>
   )
 }
 

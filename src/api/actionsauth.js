@@ -34,7 +34,7 @@ export const SignIn = async (email,password,device_id,device_type,setMessage) =>
     });
 };
 
-export const ActivateAccount = async (code,email,device_id,device_type,setMessage) => {
+export const ActivateAccount = async (code,email,device_id,device_type,setMessage,setLoading) => {
   const options = {
     method: "POST",
     url: `${Api}activate-account`,
@@ -58,14 +58,16 @@ export const ActivateAccount = async (code,email,device_id,device_type,setMessag
       localStorage.removeItem("emailclicklized");
       window.location.pathname = `/`;
       setMessage("")
+      setLoading(false);
     })
     .catch(function (error) {
       setMessage(error.response.data.message)
+      setLoading(false);
     });
 };
 
 
-export const FPasswordCode = async (code,email,device_id,device_type,setMessage) => {
+export const FPasswordCode = async (code,email,device_id,device_type,setMessage,setLoading) => {
   const options = {
     method: "POST",
     url: `${Api}activate-account`,
@@ -88,13 +90,15 @@ export const FPasswordCode = async (code,email,device_id,device_type,setMessage)
       localStorage.removeItem("emailclicklized");
       window.location.pathname = `/updatepassword`;
       setMessage("")
+      setLoading(false);
     })
     .catch(function (error) {
       setMessage(error.response.data.message)
+      setLoading(false);
     });
 };
 
-export const UpdatePassword = async (password,password_confirmation,setMessage) => {
+export const UpdatePassword = async (password,password_confirmation,setMessage,setLoading) => {
   const  options = {
     method: "post",
     url: `${Api}update-password`,
@@ -112,9 +116,11 @@ export const UpdatePassword = async (password,password_confirmation,setMessage) 
     axios(options).then(function (response) {
     setMessage("")
     window.location.pathname = `/`;
+    setLoading(false);
   })
   .catch(function (error) {
     setMessage(error.response.data.message)
+    setLoading(false);
   });
 };
 

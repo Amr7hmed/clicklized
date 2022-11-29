@@ -3,10 +3,11 @@
 1- Variables Styles .
 2- Style Genaral Classes .
 3- Import Buyer Style Pages .
+4- Style MyRequestSeller Page Pagination
 // ========== Media Queris ============= //
-4- Import Style Pages .
-5- Import Buyer Style Pages .
-6- Import Seller Style Pages
+5- Import Style Pages .
+6- Import Buyer Style Pages .
+7- Import Seller Style Pages
 */
 
 // 1- Variables Styles 
@@ -83,6 +84,7 @@ a {
 body {
   user-select: none;
   color: var(--black-color);
+  background-color: #f6f6f6;
 }
 ul {
   margin: 0;
@@ -183,15 +185,86 @@ input[type=radio] {
   100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); }
 }
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+  appearance: textfield;
+    -moz-appearance:textfield;
+}
+// 4- Style MyRequestSeller Page Pagination
+.pagination {
+  justify-content: flex-end;
+  align-items: center;
+  margin: 30px 0px;
+
+  .page-item {
+    width: 32px;
+    height: 32px;
+    margin-left: 5px;
+
+    .page-link {
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      font-family: var(--font-cairo);
+      font-size: 12px;
+      color: #343433;
+      padding: 0px;
+      line-height: 29px;  
+      border: solid 1px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      &:focus{
+        box-shadow: none !important;
+      }
+    }
+
+    &:first-child {
+      margin-right: 5px;
+      width: 50px;
+      a {
+        color: #343433;
+        font-size: 14px;
+        border: none;
+        background-color: transparent;
+    }
+    }
+
+    &:last-of-type {
+        margin-left: 5px;
+        width: 50px;
+        a {
+            color: #343433;
+            font-size: 14px;
+            border: none;
+            background-color: transparent;
+        }
+      
+    }
+  }
+
+  .page-item.active {
+    .page-link {
+        background-color: #e9d173;
+      border: none;
+      color: var(--white-color);
+    }
+  }
+}
 // Loading Styling
 @import "../layout/loading/_style.scss";
 // Empty Styling
 @import "../layout/empty/_style.scss";
 
-// 4- Import Style Pages
+// 5- Import Style Pages
 @import "../layout/signup/_style.scss";
 @import "../layout/signin/_style.scss";
-// 5- Import Buyer Style Pages
+// 6- Import Buyer Style Pages
 @import "../components/buyer/navbar/_style.scss";
 @import "../components/buyer/home/chart/_style.scss";
 @import "../components/buyer/home/_style.scss";
@@ -205,7 +278,7 @@ input[type=radio] {
 @import "../components/buyer/showrequest/questions/_style.scss";
 @import "../components/buyer/showrequest/offers/_style.scss";
 @import "../components/buyer/suppliers/_style.scss";
-// 6- Import Seller Style Pages
+// 7- Import Seller Style Pages
 @import "../components/seller/home/detiles/_style.scss";
 @import "../components/seller/navbar/_style.scss";
 @import "../components/seller/myrequest/_style.scss";

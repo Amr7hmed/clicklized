@@ -80,6 +80,7 @@ export const Createrequestdata = async (setLoading,Arraydataone, clickedLatLng, 
   })
     .catch(function (error) {
       setMessage(error.response.data.message)
+      setLoading(false);
     });
 
 };

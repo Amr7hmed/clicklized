@@ -4,7 +4,7 @@ import AddRequest from "../../../../images/icon/addrequests.png";
 import { NavLink } from 'react-router-dom';
 
 function SuppliersHeadr(props) {
-    const {Title , Line ,Toggle ,setToggole}=props;
+    const {Title , Line ,Toggle ,setToggole,Data}=props;
   return (
     <div className="mysuppliers__headr">
         <div className="left">
@@ -17,11 +17,14 @@ function SuppliersHeadr(props) {
             <img src={AddRequest} alt="Request Icon" />
             Add new supplier
           </button>
+          
+        {Data.length === 0 ? "" :
           <button type='button' className='btn btn-filter'
           onClick={()=>setToggole(!Toggle)}>
             <img src={FilterIcon} alt="Filter Icon" />
             Filter
           </button>
+        }
         </div>
     </div>
   )

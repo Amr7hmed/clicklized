@@ -3,13 +3,35 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Inputaddress, Inputday, InputFiles, InputIndustry, Inputinsurance, InputItems, Inputnotes, Inputquotations, Inputtransportation } from './inputs';
 import ModalMap from './modalmap';
+import { Authcontext } from '../../../../../store/context';
+import { useContext } from 'react';
 
 function Form(props) {
-    const {Statedata,clickedLatLng, setClickedLatLng,screnonedataone ,AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
-
-    const onSubmit = (values) => {
-      screnonedataone(values);
-    }
+  const authcontext = useContext(Authcontext);
+    const setNumberrequest = authcontext.setNumberrequest;
+    const setItemsrequest = authcontext.setItemsrequest;
+    const setAddressrequest = authcontext.setAddressrequest;
+    const setIndustryrequest = authcontext.setIndustryrequest;
+    const setInputinsurancerequest = authcontext.setInputinsurancerequest;
+    const setTransportationrequest = authcontext.setTransportationrequest;
+    const setNotesrequest = authcontext.setNotesrequest;
+    const setDayrequest = authcontext.setDayrequest; 
+     const imagesfilesrequest = authcontext.imagesfilesrequest;
+     
+     
+     const {Statedata,clickedLatLng, setClickedLatLng,screnonedataone ,AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
+     
+     const onSubmit = (values) => {
+         setNumberrequest(values.numberrequired);
+         setItemsrequest([...values.items])
+         setAddressrequest(values.address)
+         setInputinsurancerequest(values.inputinsurance)
+         setTransportationrequest(values.transportation)
+         setNotesrequest(values.notes)
+         setIndustryrequest(values.industry)
+         setDayrequest(values.day)
+         screnonedataone(values);
+        }
 
 
     const form = (props) => {

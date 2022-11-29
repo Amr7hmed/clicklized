@@ -14,6 +14,7 @@ function FormSignup(props) {
     device_id:false};
     const [toggle, setToggle] = useState(false);
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
     const [togglechangepassword, setTogglechangepassword] = useState(false);
 
 
@@ -36,9 +37,11 @@ function FormSignup(props) {
           .then(function (response) {
             navigate(`/verification`);
             setMessage("")
+            setLoading(false);
           })
           .catch(function (error) {
             setMessage(error.response.data.message)
+            setLoading(false);
           });
       };
 
@@ -46,8 +49,10 @@ function FormSignup(props) {
         localStorage.setItem("emailclicklized", JSON.stringify(values.email));
         if(values.device_id === true){
           Signup(values,"granted","web",setMessage);
+          setLoading(true);
       }else{
          Signup(values,"denied","web",setMessage);
+         setLoading(true);
       }
 
     }
@@ -149,7 +154,13 @@ function FormSignup(props) {
                     }
                 </div>
                 <div className='mb-1'>
+                {loading === false?
                     <button className='btn btn-send' type="submit">Sign up</button>
+                :
+                <button className="btn btn-send button-disabled">
+                  Loading 
+                  <span class="spinner"></span>
+                </button>}
                 </div>
                 <div>
                     <span className='end'>

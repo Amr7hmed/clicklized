@@ -1,47 +1,92 @@
+/*
+1- Style Chart Page .
+2- Style Chart Row .
+3- Style Chart Headr .
+4- Style Chart Item .
+5- Style Chart Bottom .
+6- Style Charts Style .
+
+// ========== Media Queris ============= //
+
+7- Style CreateReview Page To Media Queris 992px.
+8- Style CreateReview Page To Media Queris 576px.
+9- Style CreateReview Page To Media Queris 300px.
+
+*/
+
+// 1- Style chart Page .
 .chart {
     margin: 40px 0px;
     font-family: var(--font-cairo);
+    // 2- Style chart row.
+    .row{
+        .col-xl-4{
+            padding: 0px 5px;
+        }
+        .col-lg-12{
+            margin: 10px 0px;
+            
+        .spends,
+        .requests,
+        .category {
+            width: 75%;
+            margin: 0px auto;
+        }
+        }
+        .col-sm-12{   
+            margin: 10px 0px;
+            .spends,
+            .requests,
+            .category {
+                width: 100%;
+                margin: 0px auto;
+            }
 
+        }
+    }
+    // 3- Style Chart Headr .
     &__headr {
         margin-top: 40px;
+        margin-bottom: 40px;
+
         h5 {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        span{
+
+        span {
             font-size: 16px;
-  font-weight: normal;
-  color: #a5a5ac;
+            font-weight: normal;
+            color: #a5a5ac;
         }
     }
-
+    // 4- Style Chart Item .
     &__item {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         min-height: 400px;
         max-height: auto;
     }
-
-    &__bottom{
+    // 5- Style Chart Bottom .
+    &__bottom {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 60px auto;
-        h6{
+
+        h6 {
             font-size: 18px;
             font-weight: bold;
             color: #231f20;
         }
-        span{
+
+        span {
             font-size: 16px;
             font-weight: normal;
             color: #a5a5ac;
             margin: 15px 0px;
         }
-        .addrequests{
+
+        .addrequests {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -58,26 +103,28 @@
             -moz-border-radius: 5px;
             -ms-border-radius: 5px;
             -o-border-radius: 5px;
-            img{
-                    width: 24px;
-                    height: 24px;
-                    margin: 0 15px 0 0;
-                    object-fit: contain;
-                  
+
+            img {
+                width: 24px;
+                height: 24px;
+                margin: 0 15px 0 0;
+                object-fit: contain;
+
             }
-            &:hover{
+
+            &:hover {
                 background-color: #e8d173;
                 color: #231f20;
             }
         }
     }
+    // 6- Style Charts Style .
     .spends,
     .requests,
     .category {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 32%;
         height: 100%;
         border-radius: 5px;
         box-shadow: 0 4px 19px 0 rgba(0, 0, 0, 0.1);
@@ -155,31 +202,45 @@
     }
 }
 
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 7- Style CreateReview Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
     .chart {
         &__item {
             flex-direction: column;
         }
+
         .spends,
         .requests,
         .category {
-            width: 80%;
             height: 100%;
             margin-bottom: 40px;
         }
+
         &__headr {
             margin-bottom: 40px;
         }
     }
 }
-
-
-// 1- 2- Style Chart Component To Media Queris Samll.
+// 8- Style CreateReview Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
     .chart {
+
+        .spends,
+        .requests,
+        .category {
+            width: 100%;
+
+            .cartitem {
+                width: 100%;
+                height: 350px;
+            }
+        }
+    }
+}
+// 9- Style CreateReview Page To Media Queris 300px.
+@media screen and (max-width: 300px) {
+    .chart {
+
         .spends,
         .requests,
         .category {

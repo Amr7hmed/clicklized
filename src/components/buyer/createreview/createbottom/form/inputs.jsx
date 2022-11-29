@@ -2,7 +2,7 @@ import { ErrorMessage, Field, FieldArray } from 'formik';
 import React from 'react';
 import IconPdf from "../../../../../images/icon/icon-pdf.png";
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
-import DatePickerdata from './datepicker';
+import ModelGallaryImagerequest from './modelimages';
 
 export function Inputquotations(props) {
   const { Data } = props;
@@ -51,7 +51,7 @@ export function Inputaddress(props) {
       <h6>Address</h6>
       <label className="form-label">Required Delivery Location</label>
       <Field type="textarea" component="textarea" readOnly
-        value={Data.address} className={ "form-control"} />
+        value={Data.address} className={"form-control"} />
     </div>
   )
 };
@@ -125,45 +125,58 @@ export function Inputnotes(props) {
 };
 
 export function Fileslist(props) {
-  const { Imagesfiles} = props;
-  return (
+  const { Imagesfiles } = props;
+  return (<>
+  {/*
     <div className='fileslist'>
       {Imagesfiles.map((item, index) =>
         <span key={index} className="files">
-          <img src={IconPdf} alt={item} />
+          <img src={URL.createObjectURL(item)} alt={item.name} />
           {item.name}
         </span>
       )}
     </div>
+        */}
+
+    <div className="imgagegallary">
+      {Imagesfiles.map((item,index) =>
+        <div className="img" key={index}>
+          <img src={URL.createObjectURL(item)} alt={item.name} className={"img_gallary"}
+            data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`} />
+          <ModelGallaryImagerequest Data={item} Id={index} />
+        </div>
+      )}
+    </div>
+  </>
   )
 };
 
 
 export function Supplierslist(props) {
-  const {SupplierslistItems ,Arraydataone} = props;
+  const { SupplierslistItems, Arraydataone } = props;
 
   return (
     <div className='supplierslist'>
       <h6>Suppliers list</h6>
       <div className="listitems">
-      {SupplierslistItems.length === 0 ? "" :
-        <>
+        {SupplierslistItems.length === 0 ? "" :
+          <>
 
-          <div className="listitems">
-            {SupplierslistItems.map(item =>
-              <span key={item.id} className="listitem">
-                <span>
-                  <img  src={item.image === undefined ? IconProfile: item.image }
-                   alt={item} className="iconprofile" />
-                  {item.company_name}
+            <div className="listitems">
+              {SupplierslistItems.map(item =>
+                <span key={item.id} className="listitem">
+                  <span>
+                    <img src={item.image === undefined ? IconProfile : item.image}
+                      alt={item} className="iconprofile" />
+                    {item.company_name}
+                  </span>
+
                 </span>
+              )}
 
-              </span>
-            )}
-
-          </div>
-        </>
-      }
+            </div>
+          </>
+        }
       </div>
 
       <div className='inputform'>

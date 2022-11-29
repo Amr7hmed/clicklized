@@ -11,7 +11,6 @@ function ModalSuppliersList(props) {
     GetDataSuppliers(setLoading, setSupplierslist);
   }, [loading]);
 
-  console.log(supplierslist);
 
   return (
     <div className="modal fade" id="modallsupplierslist" tabIndex="-1"

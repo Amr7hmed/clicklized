@@ -59,9 +59,9 @@ const BarChart = (props) => {
         labels: {
           usePointStyle: true,
           pointStyle: 'circle',
-          padding: 20,
+          padding: 5,
           font: {
-            size: 8
+            size: 5
           }
         }
       }

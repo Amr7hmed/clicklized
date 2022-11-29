@@ -158,7 +158,10 @@ function Formprofile(props) {
         const schema = Yup.object().shape({
             name: Yup.string().required('User name Required'),
             email: Yup.string().required('Bussiness Email Required'),
-            phone: Yup.string().required('Contact Number Required'),
+            phone: Yup.string()
+                .min(9, 'The Contact Number must be at least 9 Digits !')
+                .max(14, 'Contact Number Must Be No More Than 14 !')
+                .required("Contact Number Is Required"),
             industry: Yup.string().required('Company Industry Required'),
         });
 

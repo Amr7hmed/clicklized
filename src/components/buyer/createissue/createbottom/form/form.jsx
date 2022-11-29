@@ -3,17 +3,29 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Inputcheckbox, Inputcompany, InputSupplierslist } from "./inputs.jsx";
 import ModalSuppliersList from './modallsupplierslist.jsx';
+import { Authcontext } from '../../../../../store/context.js';
+import { useContext } from 'react';
 
 function Form(props) {
     const { Statedata, screnonedatatwo, setParamsname, setSuppliersItems } = props;
 
-    const [SupplierslistItems, setSupplierslistItems] = useState([]);
+    const authcontext = useContext(Authcontext);
+    const setCheckboxtogglerequest = authcontext.setCheckboxtogglerequest;
+    const setSupplierslistrequest = authcontext.setSupplierslistrequest;
+    const setCompanynamerequest = authcontext.setCompanynamerequest;
+    const setCompanyemailrequest = authcontext.setCompanyemailrequest;
+    const setContactnumebrrequest = authcontext.setContactnumebrrequest;
+    const supplierslistrequest = authcontext.supplierslistrequest;
 
     const onSubmit = (values) => {
-        if (SupplierslistItems.length === 0) {
+        if (supplierslistrequest.length === 0) {
             return false;
         } else {
             screnonedatatwo(values)
+            setCheckboxtogglerequest(values.checkboxtoggle);
+            setCompanynamerequest(values.companyname);
+            setCompanyemailrequest(values.companyemail);
+            setContactnumebrrequest(values.contactnumebr);
         }
     }
 
@@ -23,29 +35,29 @@ function Form(props) {
             e.target.classList.remove('active');
             e.target.innerHTML = "Add";
 
-            let remainingArr = SupplierslistItems.filter(data => data.id != item.id);
-            setSupplierslistItems([...remainingArr]);
+            let remainingArr = supplierslistrequest.filter(data => data.id != item.id);
+            setSupplierslistrequest([...remainingArr]);
             setSuppliersItems([...remainingArr]);
         } else {
             e.target.classList.add('active');
             e.target.innerHTML = "Added";
-            setSupplierslistItems([...SupplierslistItems, item])
-            setSuppliersItems([...SupplierslistItems, item]);
+            setSupplierslistrequest([...supplierslistrequest, item])
+            setSuppliersItems([...supplierslistrequest, item]);
         }
     }
     const DoneAdded = () => {
-        setSupplierslistItems([...SupplierslistItems]);
-        setSuppliersItems([...SupplierslistItems]);
+        setSupplierslistrequest([...supplierslistrequest]);
+        setSuppliersItems([...supplierslistrequest]);
     }
 
     const RemoveallSuppliers = () => {
-        setSupplierslistItems([]);
+        setSupplierslistrequest([]);
         setSuppliersItems([]);
     }
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <InputSupplierslist SupplierslistItems={SupplierslistItems} setSupplierslistItems={setSupplierslistItems} />
+            <InputSupplierslist supplierslistrequest={supplierslistrequest} setSupplierslistrequest={setSupplierslistrequest} />
             <Inputcompany />
             <Inputcheckbox />
             <ModalSuppliersList AddSuppliers={AddSuppliers} DoneAdded={DoneAdded} RemoveallSuppliers={RemoveallSuppliers} />
@@ -60,7 +72,15 @@ function Form(props) {
             </div>
         </form>
     }
+    const schema = () => {
+        const schema = Yup.object().shape({
+            contactnumebr: Yup.string()
+                .min(9, 'The Contact Number must be at least 9 Digits !')
+                .max(14, 'Contact Number Must Be No More Than 14 !'),
+        });
 
+        return schema;
+    }
 
     return (
         <div className="createissue">
@@ -68,6 +88,7 @@ function Form(props) {
                 initialValues={Statedata}
                 onSubmit={onSubmit}
                 render={form}
+                validationSchema={schema()}
                 validateOnChange={false}
                 validateOnBlur={false}
             />

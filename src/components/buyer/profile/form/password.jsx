@@ -7,10 +7,10 @@ import Visible from "../../../../images/icon/eye-regular.svg";
 import { UpdatePasswordprofile } from '../../../../api/actionsauth';
 
 function Formpassword() {
-    const state = { 
-    newpassword: "", 
-    reenterpassword: "" 
-};
+    const state = {
+        newpassword: "",
+        reenterpassword: ""
+    };
     const [togglenewpassword, setTogglenewpassword] = useState(false);
     const [togglerenternewpassword, setTogglerenternewpassword] = useState(false);
     const [message, setMessage] = useState("");
@@ -18,7 +18,7 @@ function Formpassword() {
 
     const onSubmit = (values) => {
         console.log(values);
-        UpdatePasswordprofile(values.newpassword,values.reenterpassword,setMessage);
+        UpdatePasswordprofile(values.newpassword, values.reenterpassword, setMessage);
     }
 
 
@@ -75,15 +75,15 @@ function Formpassword() {
 
 
                     <div className="mb-3">
-                    {message === ""? "" : message === "The password format is invalid." ?
-                    <span className='errorfiled'>Password must contain letters and numbers</span>
-                    :<span className='errorfiled'>{message}</span>}
-                </div>
+                        {message === "" ? "" : message === "The password format is invalid." ?
+                            <span className='errorfiled'>Password must contain letters and numbers</span>
+                            : <span className='errorfiled'>{message}</span>}
+                    </div>
 
                     <div className='end'>
 
                         <button className={'btn btn-send button-active'}
-                        type="submit">Save</button>
+                            type="submit">Save</button>
 
                         <button type="button" className="btn btn-cancel"
                             data-bs-dismiss="modal">Cancel</button>
@@ -97,9 +97,9 @@ function Formpassword() {
     const schema = () => {
         const schema = Yup.object().shape({
             newpassword: Yup.string()
-                .min(5, 'Too Short!')
-                .max(12, 'Too Long!')
-                .required('Required'),
+                .min(8, 'Password Must Not Be Less Than 8 Characters')
+                .max(14, 'Password Must Not Be More Than 14 Characters')
+                .required('Password Is Required'),
 
             reenterpassword: Yup.string().when("newpassword", {
                 is: val => (val && val.length > 0 ? true : false),

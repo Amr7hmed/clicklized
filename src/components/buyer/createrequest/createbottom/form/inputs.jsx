@@ -5,6 +5,9 @@ import UploadImage from "../../../../../images/icon/upload.png";
 import DatePickerdata from './datepicker';
 import AddItemIcon from '../../../../../images/icon/icon-add.png';
 import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
+import ModelGallaryImagerequest from '../../../createreview/createbottom/form/modelimages';
+import { Authcontext } from '../../../../../store/context';
+import { useContext } from 'react';
 
 export function Inputquotations(props) {
   const { errors } = props;
@@ -27,7 +30,7 @@ export function InputItems(props) {
   return (
     <div className='inputform'>
       <FieldArray name="items">
-        {({ insert, remove, push }) => (
+        {({ insert, remove, unshift }) => (
           <div className='inputform_items_row'>
             <div>
               {
@@ -57,7 +60,7 @@ export function InputItems(props) {
                       className={"inputform_close"}>
                       <button
                         type="button"
-                        className={values.items.length === 1 ? "btn btn-remove hide" : "btn btn-remove"}
+                        className={index === 0 ? "btn btn-remove hide" : "btn btn-remove"}
                         onClick={() => remove(index)}
                       >
                         Remove Item
@@ -66,9 +69,9 @@ export function InputItems(props) {
                     <button
                       id={values.items[index].item_id === "" ||
                         values.items[index].quantity === "" ? "button-disabled" : "button-active"}
-                      className={values.items.length === index + 1 ? "btn btn-add" : "btn btn-add hide"}
+                      className={index === 0 ? "btn btn-add" : "btn btn-add hide"}
                       type="button"
-                      onClick={() => push({ item_id: '', quantity: '' })}
+                      onClick={() => unshift({ item_id: '', quantity: '' })}
                     >
                       <img src={AddItemIcon} alt="Add Item Icon" />
                       Add new item
@@ -222,6 +225,8 @@ export function Inputnotes() {
 
 export function InputFiles(props) {
   const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo } = props;
+  const authcontext = useContext(Authcontext);
+  const imagesfilesrequest = authcontext.imagesfilesrequest;
   return (
     <div className='inputform inputfiles'>
       <div>
@@ -237,10 +242,6 @@ export function InputFiles(props) {
             <img src={UploadImage} alt="" />
             Upload files
           </span>
-          <br />
-          {imagesfiles.length === 0 ?
-            <span className="errorfiled">Files Is Required</span>
-            : ""}
         </span>
 
         <span className='item'>
@@ -253,12 +254,38 @@ export function InputFiles(props) {
             <img src={UploadImage} alt="" />
             Upload logo
           </span>
-          <br />
-          {imageslogo === null ?
-            <span className="errorfiled">Logo Is Required</span>
-            : ""}
         </span>
+      </div>
 
+      <div>
+        {imagesfiles.length === 0 ?
+          <span className="errorfiled">Files Is Required</span>
+          :
+          <span className="imgagegallary">
+            {imagesfilesrequest.map((item, index) =>
+              <div className="img" key={index}>
+                <img src={URL.createObjectURL(item)} alt={item.name} className={"img_gallary"}
+                  data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`} />
+                <ModelGallaryImagerequest Data={item} Id={index} />
+              </div>
+            )}
+          </span>
+        }
+
+
+
+        {imageslogo === null ?
+          <span className="errorfiled">Logo Is Required</span>
+          : 
+          <span className="imgagegallary">
+
+              <div className="img">
+                <img src={URL.createObjectURL(imageslogo)}  className={"img_gallary"}
+                  data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${imageslogo.size}`} />
+                <ModelGallaryImagerequest Data={imageslogo} Id={imageslogo.size} />
+              </div>
+          </span>
+          }
       </div>
     </div>
   )

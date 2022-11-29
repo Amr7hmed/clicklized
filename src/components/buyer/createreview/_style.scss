@@ -14,10 +14,12 @@
 .createrequest {
     font-family: var(--font-cairo);
     background-color: #f6f6f6;
-// 2- Style CreateReview Page Bottom .
+
+    // 2- Style CreateReview Page Bottom .
     .createreview {
-// 3- Style CreateReview Page Bottom Screen .
-      .screenone {
+
+        // 3- Style CreateReview Page Bottom Screen .
+        .screenone {
             font-family: var(--font-cairo);
             height: auto;
             border-radius: 18px;
@@ -25,7 +27,8 @@
             background-color: #fff;
             padding: 40px 50px;
             margin-bottom: 50px;
-// 4- Style CreateReview Page Bottom Screen Title .
+
+            // 4- Style CreateReview Page Bottom Screen Title .
             .title {
                 margin-bottom: 45px;
 
@@ -35,7 +38,8 @@
                     color: #343433;
                 }
             }
-// 5- Style CreateReview Page Bottom Screen Form .
+
+            // 5- Style CreateReview Page Bottom Screen Form .
             .form {
                 form {
                     .inputform {
@@ -385,12 +389,12 @@
                         }
                     }
 
+                    /*
                     .fileslist {
                         width: 100%;
                         margin-bottom: 30px;
                         display: flex;
                         flex-direction: row;
-
                         .files {
                             min-width: 180px;
                             max-width: auto;
@@ -411,7 +415,34 @@
                                 object-fit: contain;
                             }
                         }
+                 
 
+                    }
+
+                    */
+
+                    .imgagegallary {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+
+                        .img {
+                            width: 70px;
+                            height: 75px;
+                            padding: 2.5px;
+                            border: 1px solid #887529;
+                            text-align: center;
+                            margin: 5px;
+                            position: relative;
+
+                            img.img_gallary {
+                                width: 100%;
+                                height: 100%;
+                                display: block;
+                                margin: 0px auto;
+                                cursor: pointer;
+                            }
+                        }
                     }
 
                     .supplierslist {
@@ -504,7 +535,8 @@
                             color: #a5a5ac;
                             line-height: 45px;
                         }
-                        .btn-download{
+
+                        .btn-download {
                             background-color: transparent;
                             margin-left: 15px;
                             font-family: Cairo;
@@ -520,538 +552,571 @@
                     }
                 }
             }
-            .row{
-                 .col-12.col-sm-6{
-                    padding-left: 0px; 
-                } 
+
+            .row {
+                .col-12.col-sm-6 {
+                    padding-left: 0px;
+                }
             }
         }
     }
 }
+
 // 7- Style CreateReview Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
     .createrequest {
-  
+
         .createreview {
-  
-          .screenone {
-            padding: 40px 20px;
-  
-            .form {
-              form {
-                .inputform {
-                  padding-top: 15px;
-                  margin-bottom: 10px;
-                  border-bottom: 1px solid #efefef;
-                  padding-bottom: 40px;
-  
-                  input#inputquotations {
-                    width: 100%;
-                  }
-  
-                  input {
-                    &::placeholder {
-                      font-size: 14px;
-                    }
-                  }
-  
-                  textarea {
-                    width: 100%;
-                  }
-  
-                  .day {
-                    width: 100%;
-                  }
-  
-                  ul {
-                    justify-content: space-between;
-                  }
-                }
-  
-                .inputform_items_row {
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: space-between;
-  
-                  >div {
-                    width: 100%;
-                  }
-  
-                  .inputform_items {
-  
-                    .inputform_item {
-                      width: auto;
-                      margin-right: 2%;
-  
-                      input,
-                      select {
-                        width: 100px;
-  
-                        &::placeholder {
-                          font-size: 12px;
-                          padding: 0px 2px;
+
+            .screenone {
+                padding: 40px 20px;
+
+                .form {
+                    form {
+                        .inputform {
+                            padding-top: 15px;
+                            margin-bottom: 10px;
+                            border-bottom: 1px solid #efefef;
+                            padding-bottom: 40px;
+
+                            input#inputquotations {
+                                width: 100%;
+                            }
+
+                            input {
+                                &::placeholder {
+                                    font-size: 14px;
+                                }
+                            }
+
+                            textarea {
+                                width: 100%;
+                            }
+
+                            .day {
+                                width: 100%;
+                            }
+
+                            ul {
+                                justify-content: space-between;
+                            }
                         }
-                      }
+
+                        .inputform_items_row {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            >div {
+                                width: 100%;
+                            }
+
+                            .inputform_items {
+
+                                .inputform_item {
+                                    width: auto;
+                                    margin-right: 2%;
+
+                                    input,
+                                    select {
+                                        width: 100px;
+
+                                        &::placeholder {
+                                            font-size: 12px;
+                                            padding: 0px 2px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .btn-remove {
+                                width: 120px;
+                                font-size: 14px;
+                            }
+
+                            .btn-add {
+                                width: 120px;
+                                font-size: 14px;
+                            }
+                        }
+
+                        .inputformday {
+                            margin-bottom: 50px;
+                        }
+
+                        .inputfiles {
+                            >div {
+                                width: 100%;
+                                padding: 30px 0px;
+
+                                .item {
+                                    height: 70px;
+                                }
+                            }
+
+                            .btn-upload {
+                                font-size: 16px;
+
+                                img {
+                                    width: 35px;
+                                    height: 35px;
+                                }
+                            }
+                        }
                     }
-                  }
-  
-                  .btn-remove {
-                    width: 120px;
-                    font-size: 14px;
-                  }
-  
-                  .btn-add {
-                    width: 120px;
-                    font-size: 14px;
-                  }
                 }
-  
-                .inputformday {
-                  margin-bottom: 50px;
-                }
-  
-                .inputfiles {
-                  >div {
-                    width: 100%;
-                    padding: 30px 0px;
-  
-                    .item {
-                      height: 70px;
-                    }
-                  }
-  
-                  .btn-upload {
-                    font-size: 16px;
-  
-                    img {
-                      width: 35px;
-                      height: 35px;
-                    }
-                  }
-                }
-              }
             }
-          }
-        
-      }
+
+        }
     }
-  
+
 }
+
 // 8- Style CreateReview Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
 
     .createrequest {
-      .createreview {
-      
-  
-          .screenone {
-            padding: 40px 20px;
-  
-            .form {
-              form {
-                .inputform {
-                  input {
-                    &::placeholder {
-                      font-size: 12px;
-                      padding: 2px;
+        .createreview {
+
+
+            .screenone {
+                padding: 40px 20px;
+
+                .form {
+                    form {
+                        .inputform {
+                            input {
+                                &::placeholder {
+                                    font-size: 12px;
+                                    padding: 2px;
+                                }
+                            }
+
+                            textarea {
+                                width: 100%;
+
+                                &::placeholder {
+                                    font-size: 12px;
+                                    padding: 2px;
+                                }
+                            }
+
+                            ul {
+                                flex-direction: column;
+                                align-items: center;
+
+                                li {
+                                    margin: 5px 0px 10px 0px;
+                                }
+                            }
+                        }
+
+                        .inputform_items_row {
+
+                            >div {
+                                width: 100%;
+                            }
+
+                            .inputform_items {
+                                flex-direction: column;
+                                align-items: center;
+                                padding-bottom: 50px;
+                                border-bottom: 1px solid #b9afaf;
+
+                                &:last-of-type {
+                                    padding-bottom: 0px;
+                                    border-bottom: none;
+                                }
+
+                                .inputform_item {
+                                    width: 100%;
+                                    margin-right: 0%;
+                                    margin-bottom: 10px;
+
+                                    input,
+                                    select {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+
+                            .inputform_close {
+                                width: 100%;
+
+                                .btn-remove {
+                                    width: 100%;
+                                    font-size: 14px;
+                                    margin-right: 0px;
+                                }
+                            }
+
+                            .btn-add {
+                                width: 100%;
+                                font-size: 14px;
+                                margin-top: 15px;
+                            }
+                        }
+
+                        .inputformday {
+                            margin-bottom: 50px;
+                        }
+
+                        .inputfiles {
+                            >div {
+                                flex-direction: column;
+
+                                .item {
+                                    width: 100%;
+                                    margin: 15px 0px;
+                                }
+                            }
+
+                            .btn-upload {
+                                font-size: 16px;
+
+                                img {
+                                    width: 35px;
+                                    height: 35px;
+                                }
+                            }
+                        }
+
+                        .fileslist {
+                            width: 100%;
+                            margin-bottom: 30px;
+                            display: flex;
+                            flex-direction: column;
+
+                            .files {
+                                width: 160px;
+                                padding: 0px 15px;
+                                height: 50px;
+                                font-size: 14px;
+                                font-weight: bold;
+                                justify-content: flex-start;
+                                margin-right: 0px;
+                                margin-bottom: 15px;
+
+                                img {
+                                    width: 20px;
+                                    height: 24px;
+                                    margin-right: 5px;
+                                }
+                            }
+
+                        }
+
+                        .supplierslist {
+                            width: 100%;
+                            margin-bottom: 30px;
+
+                            h6 {
+                                font-size: 14px;
+                            }
+
+
+                            .listitems {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+
+                                .listitem {
+                                    margin-bottom: 15px;
+                                    margin-right: 0px;
+                                    width: 200px;
+                                    height: 70px;
+
+                                    span {
+                                        display: flex;
+                                        align-items: center;
+                                    }
+
+                                    img.iconprofile {
+                                        width: 35px;
+                                        height: 35px;
+                                        border-radius: 50%;
+                                        margin-right: 5px;
+                                        -webkit-border-radius: 50%;
+                                        -moz-border-radius: 50%;
+                                        -ms-border-radius: 50%;
+                                        -o-border-radius: 50%;
+                                    }
+
+                                    .btn-close {
+                                        width: 20px;
+                                        height: 20px;
+
+                                        img {
+                                            width: 18px;
+                                            height: 18px;
+                                            object-fit: contain;
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
                     }
-                  }
-  
-                  textarea {
-                    width: 100%;
-  
-                    &::placeholder {
-                      font-size: 12px;
-                      padding: 2px;
-                    }
-                  }
-  
-                  ul {
-                    flex-direction: column;
-                    align-items: center;
-  
-                    li {
-                      margin: 5px 0px 10px 0px;
-                    }
-                  }
                 }
-  
-                .inputform_items_row {
-  
-                  >div {width: 100%;}
-  
-                  .inputform_items {
-                    flex-direction: column;
-                    align-items: center;
-                    padding-bottom: 50px;
-                    border-bottom: 1px solid #b9afaf;
-                    &:last-of-type{
-                      padding-bottom: 0px;
-                      border-bottom: none;
-                    }
-                    .inputform_item {
-                      width: 100%;
-                      margin-right: 0%;
-                      margin-bottom: 10px;
-  
-                      input,
-                      select {
-                        width: 100%;
-                      }
-                    }
-                  }
-  
-                  .inputform_close {
-                    width: 100%;
-  
-                    .btn-remove {
-                      width: 100%;
-                      font-size: 14px;
-                      margin-right: 0px;
-                    }
-                  }
-  
-                  .btn-add {
-                    width: 100%;
-                    font-size: 14px;
-                    margin-top: 15px;
-                  }
-                }
-  
-                .inputformday {
-                  margin-bottom: 50px;
-                }
-  
-                .inputfiles {
-                  >div {
-                    flex-direction: column;
-  
-                    .item {
-                      width: 100%;
-                      margin: 15px 0px;
-                    }
-                  }
-  
-                  .btn-upload {
-                    font-size: 16px;
-                    img {
-                      width: 35px;
-                      height: 35px;
-                    }
-                  }
-                }
-
-                .fileslist {
-                  width: 100%;
-                  margin-bottom: 30px;
-                  display: flex;
-                  flex-direction: column;
-
-                  .files {
-                      width: 160px;
-                      padding: 0px 15px;
-                      height: 50px;
-                      font-size: 14px;
-                      font-weight: bold;
-                      justify-content: flex-start;
-                      margin-right: 0px;
-                      margin-bottom: 15px;
-
-                      img {
-                          width: 20px;
-                          height: 24px;
-                          margin-right: 5px;
-                      }
-                  }
-
-              }
-
-              .supplierslist {
-                  width: 100%;
-                  margin-bottom: 30px;
-
-                  h6 {
-                      font-size: 14px;
-                  }
-
-                 
-                .listitems {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  align-items: center;
-                  .listitem {
-                      margin-bottom: 15px;
-                      margin-right: 0px;
-                      width: 200px;
-                      height: 70px;
-
-                      span {
-                          display: flex;
-                          align-items: center;
-                      }
-
-                      img.iconprofile {
-                          width: 35px;
-                          height: 35px;
-                          border-radius: 50%;
-                          margin-right: 5px;
-                          -webkit-border-radius: 50%;
-                          -moz-border-radius: 50%;
-                          -ms-border-radius: 50%;
-                          -o-border-radius: 50%;
-                      }
-
-                      .btn-close {
-                          width: 20px;
-                          height:20px;
-
-                          img {
-                              width: 18px;
-                              height: 18px;
-                              object-fit: contain;
-                          }
-                      }
-
-                  }
-              }
-              }
-
-              }
             }
-          }
-        
-      }
+
+        }
     }
-  
+
 }
+
 // 9- Style CreateRequest Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
-  .createrequest {
-    .createreview {
-      // 3- Style CreateReview Page Bottom Screen .
+    .createrequest {
+        .createreview {
+
+            // 3- Style CreateReview Page Bottom Screen .
             .screenone {
-                  padding: 20px 10px;
-                  margin-bottom: 50px;
-      // 4- Style CreateReview Page Bottom Screen Title .
-                  .title {
-                      margin-bottom: 15px;
-                      h6 {font-size: 14px;}
-                  }
-      // 5- Style CreateReview Page Bottom Screen Form .
-                  .form {
-                      form {
-                          .inputform {
-                              width: 100%;
-                              padding-top: 5px;
-                              margin-bottom: 10px;
-                              padding-bottom: 10px;
-                              h6 {
-                                  margin-bottom: 10px;
-                                  font-size: 14px;
-                              }
-      
-                              label {
-                                  font-size: 14px;
-                                  margin-bottom: 5px;
-                              }
-      
-                              input {
-                                  width: 100%;
-                                  height: 35px;
-                                  padding: 5px;
-                                  font-size: 12px;
-      
-                                  &::placeholder {
+                padding: 20px 10px;
+                margin-bottom: 50px;
+
+                // 4- Style CreateReview Page Bottom Screen Title .
+                .title {
+                    margin-bottom: 15px;
+
+                    h6 {
+                        font-size: 14px;
+                    }
+                }
+
+                // 5- Style CreateReview Page Bottom Screen Form .
+                .form {
+                    form {
+                        .inputform {
+                            width: 100%;
+                            padding-top: 5px;
+                            margin-bottom: 10px;
+                            padding-bottom: 10px;
+
+                            h6 {
+                                margin-bottom: 10px;
+                                font-size: 14px;
+                            }
+
+                            label {
+                                font-size: 14px;
+                                margin-bottom: 5px;
+                            }
+
+                            input {
+                                width: 100%;
+                                height: 35px;
+                                padding: 5px;
+                                font-size: 12px;
+
+                                &::placeholder {
                                     padding: 5px;
                                     font-size: 12px;
-                                  }
-                              }
-      
-                              textarea {
-                                  width: 100%;
-                                  height: 120px;
-                                  margin-right: 0px;
-                                  font-size: 12px;
-      
-                                  &::placeholder {
-                                      padding: 5px;
-                                      font-size: 12px;
-                                  }
-                              }
-      
-                              .addloction {
-                                  font-size: 12px;
-                                  margin-top: 5px;
-                                  margin-bottom: 5px;
-                              }
-      
-                              .day {
-                                  height: 35px;
-                                  width: 100%;
-                                  position: relative;
-      
-                                  .react-datepicker-wrapper {
-                                      .react-datepicker__input-container {.data-input {padding: 5px;}}
-                                  }
-                              }
-      
-                              ul {
-                                  display: flex;
-      
-                                  li {
-                                      width: 100%;
-                                      height: 45px;
-                                      &:nth-child(2) {margin: 0px;}
-      
-                                  }
-                              }
-      
-      
-                              label.formlabel-checkbox {font-size: 12px;}
-                          }
-      
-                          .inputform_items_row {
-                              flex-direction: column;
-                              .inputform_items {
-                                  flex-direction: column;
-      
-                                  .inputform_item {
-                                      width: 100%;
-                                      margin-right: 0%;
-                                      margin-bottom: 5px;
-                                      label {
-                                          font-size: 14px;
-                                          margin-bottom: 5px;
-                                      }
-      
-                                      input,
-                                      select {
-                                          width: 100%;
-                                          height: 35px;
-      
-                                          &::placeholder {
-                                              padding: 5px;
-                                              font-size: 12px;
-                                          }
-                                      }
-                                  }
-                              }
-      
-                              .btn-remove {
-                                  height: 40px;
-                                  width: 100%;
-                                  margin-right: 0px;
-                                  font-size: 12px;
-                              }
-      
-                              .btn-add {
+                                }
+                            }
+
+                            textarea {
+                                width: 100%;
+                                height: 120px;
+                                margin-right: 0px;
+                                font-size: 12px;
+
+                                &::placeholder {
+                                    padding: 5px;
+                                    font-size: 12px;
+                                }
+                            }
+
+                            .addloction {
+                                font-size: 12px;
+                                margin-top: 5px;
+                                margin-bottom: 5px;
+                            }
+
+                            .day {
+                                height: 35px;
+                                width: 100%;
+                                position: relative;
+
+                                .react-datepicker-wrapper {
+                                    .react-datepicker__input-container {
+                                        .data-input {
+                                            padding: 5px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            ul {
+                                display: flex;
+
+                                li {
+                                    width: 100%;
+                                    height: 45px;
+
+                                    &:nth-child(2) {
+                                        margin: 0px;
+                                    }
+
+                                }
+                            }
+
+
+                            label.formlabel-checkbox {
+                                font-size: 12px;
+                            }
+                        }
+
+                        .inputform_items_row {
+                            flex-direction: column;
+
+                            .inputform_items {
+                                flex-direction: column;
+
+                                .inputform_item {
+                                    width: 100%;
+                                    margin-right: 0%;
+                                    margin-bottom: 5px;
+
+                                    label {
+                                        font-size: 14px;
+                                        margin-bottom: 5px;
+                                    }
+
+                                    input,
+                                    select {
+                                        width: 100%;
+                                        height: 35px;
+
+                                        &::placeholder {
+                                            padding: 5px;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .btn-remove {
                                 height: 40px;
-                                  width: 100%;
-                                  font-size: 12px;
-                                  margin-top: 10px;
-                              }
-                          }
-      
-                          .inputformday {margin-bottom: 20px;}
-      
-                          .inputfiles {
-                              width: 100%;
-                              margin-bottom: 30px;
-      
-                              >div {
-                                  width: 100%;
-                                  display: flex;
-                                  flex-direction: column;
-                                  .item {
-                                      width: 100%;
-                                      height: 75px;
-                                  }
-                              }
-                          }
-      
-                          .fileslist {
-                              margin-bottom: 10px;
-                              flex-direction: column;
-      
-                              .files {
-                                  width: 100%;
-                                  height: 50px;
-                                  font-size: 14px;
-                                  margin-right: 0px;
-                                  margin-bottom: 5px;
-      
-                                  img {
-                                      width: 20px;
-                                      height: 22px;
-                                      margin-right: 5px;
-                                  }
-                              }
-      
-                          }
-      
-                          .supplierslist {
-                              width: 100%;
-                              margin-bottom: 10px;
-      
-                              h6 {
-                                  margin: 20px 0px;
-                                  font-size: 14px;
-                              }
-      
-                              .listitems {
-                                  flex-direction: column;
-      
-                                  .listitem {
-                                      font-size: 12px;
-                                      margin-right: 0px;
-                                      margin-bottom: 5px;
-                                      width: 100%;
-                                      height: 50px;
-                                      img.iconprofile {
-                                          width: 30px;
-                                          height: 30px;
-                                          margin-right: 10px;
-                                      }
-      
-                                      .btn-close {
+                                width: 100%;
+                                margin-right: 0px;
+                                font-size: 12px;
+                            }
+
+                            .btn-add {
+                                height: 40px;
+                                width: 100%;
+                                font-size: 12px;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        .inputformday {
+                            margin-bottom: 20px;
+                        }
+
+                        .inputfiles {
+                            width: 100%;
+                            margin-bottom: 30px;
+
+                            >div {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+
+                                .item {
+                                    width: 100%;
+                                    height: 75px;
+                                }
+                            }
+                        }
+
+                        .fileslist {
+                            margin-bottom: 10px;
+                            flex-direction: column;
+
+                            .files {
+                                width: 100%;
+                                height: 50px;
+                                font-size: 14px;
+                                margin-right: 0px;
+                                margin-bottom: 5px;
+
+                                img {
+                                    width: 20px;
+                                    height: 22px;
+                                    margin-right: 5px;
+                                }
+                            }
+
+                        }
+
+                        .supplierslist {
+                            width: 100%;
+                            margin-bottom: 10px;
+
+                            h6 {
+                                margin: 20px 0px;
+                                font-size: 14px;
+                            }
+
+                            .listitems {
+                                flex-direction: column;
+
+                                .listitem {
+                                    font-size: 12px;
+                                    margin-right: 0px;
+                                    margin-bottom: 5px;
+                                    width: 100%;
+                                    height: 50px;
+
+                                    img.iconprofile {
+                                        width: 30px;
+                                        height: 30px;
+                                        margin-right: 10px;
+                                    }
+
+                                    .btn-close {
                                         padding: 0px;
-                                          width: 25px;
-                                          height: 25px;
-      
-                                          img {
-                                              width: 18px;
-                                              height: 18px;
-                                          }
-                                      }
-      
-                                  }
-                              }
-      
-                              .inputform {
-                                  margin-top: 10px;
-                              }
-                          }
-      
-                          .end {
-                              margin-top: 20px;
-                              flex-direction: column;
-      
-                              .btn {
-                                  width: 100%;
-                                  height: 40px;
-                                  font-size: 12px;
-                              }
-                              .btn-download{
+                                        width: 25px;
+                                        height: 25px;
+
+                                        img {
+                                            width: 18px;
+                                            height: 18px;
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            .inputform {
+                                margin-top: 10px;
+                            }
+                        }
+
+                        .end {
+                            margin-top: 20px;
+                            flex-direction: column;
+
+                            .btn {
+                                width: 100%;
+                                height: 40px;
+                                font-size: 12px;
+                            }
+
+                            .btn-download {
                                 background-color: #eaeaee;
                                 margin: 15px 0px;
                                 color: #a5a5ac;
                                 margin-left: 0px;
-                              }
-                          }
-                      }
-                  }
-              }
+                            }
+                        }
+                    }
+                }
             }
-  }
+        }
+    }
 }

@@ -1,17 +1,19 @@
-import React, { useState}  from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from 'react-router-dom';
 import { ActivateAccount } from '../../api/actionsauth';
 
 function FormVerification() {
-    const state = { code: ""};
+    const state = { code: "" };
     const [message, setMessage] = useState("");
     const email = JSON.parse(localStorage.getItem("emailclicklized"))
+    const [loading, setLoading] = useState(false);
 
 
     const onSubmit = (values) => {
-     ActivateAccount(values.code,email,"default","web",setMessage);
+        ActivateAccount(values.code, email, "default", "web", setMessage,setLoading);
+        setLoading(true);
     }
 
     const form = (props) => {
@@ -24,17 +26,23 @@ function FormVerification() {
                     <ErrorMessage name="code" component="span" className='errorfiled' />
                 </div>
                 <div className="mb-1">
-                {message === ""? "": 
-                    message === "auth.code_invalid" ?
-                    <span className='errorfiled'>
-                        The code is not valid to send it again Please
-                        <NavLink to={"/resendcode"}> Click here</NavLink>
-                    </span>:
-                    <span className='errorfiled'>{message}</span>
+                    {message === "" ? "" :
+                        message === "auth.code_invalid" ?
+                            <span className='errorfiled'>
+                                The code is not valid to send it again Please
+                                <NavLink to={"/resendcode"}> Click here</NavLink>
+                            </span> :
+                            <span className='errorfiled'>{message}</span>
                     }
                 </div>
                 <div className='mb-5'>
-                    <button className='btn btn-send' type="submit">Confirm</button>
+                    {loading === false ?
+                        <button className='btn btn-send' type="submit">Confirm</button>
+                        :
+                        <button className="btn btn-send button-disabled">
+                            Loading
+                            <span class="spinner"></span>
+                        </button>}
                 </div>
             </div>
 
@@ -48,18 +56,18 @@ function FormVerification() {
 
         return schema;
     }
-  return (
-    <div className="signin__form">
-        <Formik
-            initialValues={state}
-            onSubmit={onSubmit}
-            render={form}
-            validationSchema={schema()}
-            validateOnChange={false}
-            validateOnBlur={false}
-        />
-    </div>
-  )
+    return (
+        <div className="signin__form">
+            <Formik
+                initialValues={state}
+                onSubmit={onSubmit}
+                render={form}
+                validationSchema={schema()}
+                validateOnChange={false}
+                validateOnBlur={false}
+            />
+        </div>
+    )
 }
 
 export default FormVerification

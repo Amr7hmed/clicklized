@@ -10,10 +10,12 @@ function FormThree() {
     const [toggle, setToggle] = useState(false);
     const [togglechangepassword, setTogglechangepassword] = useState(false);
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = (values) => {
         console.log(values);
-        UpdatePassword(values.password,values.changepassword,setMessage);
+        UpdatePassword(values.password,values.changepassword,setMessage,setLoading);
+        setLoading(true);
     }
 
     
@@ -76,7 +78,13 @@ function FormThree() {
                 </div>
 
                 <div className='mb-3'>
+                    {loading === false ?
                     <button className='btn btn-send' type="submit">Save</button>
+                        :
+                        <button className="btn btn-send button-disabled">
+                            Loading
+                            <span class="spinner"></span>
+                        </button>}
                 </div>
             </div>
 
