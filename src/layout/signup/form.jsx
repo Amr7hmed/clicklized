@@ -6,8 +6,13 @@ import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
 import { Api } from '../../api';
 import axios from 'axios';
+import { Authcontext } from '../../store/context';
+import { useContext } from 'react';
 
 function FormSignup(props) {
+    const authcontext = useContext(Authcontext);
+    const setEmail = authcontext.setEmail;
+
     let navigate = useNavigate();
     const {userTypes }=props;
     const state = {user_type: "", name: "", email: "" ,phone:"",password:"",password_confirmation: "",
@@ -46,7 +51,7 @@ function FormSignup(props) {
       };
 
     const onSubmit = (values) => {
-        localStorage.setItem("emailclicklized", JSON.stringify(values.email));
+        setEmail(values.email);
         if(values.device_id === true){
           Signup(values,"granted","web",setMessage);
           setLoading(true);
@@ -159,7 +164,7 @@ function FormSignup(props) {
                 :
                 <button className="btn btn-send button-disabled">
                   Loading 
-                  <span class="spinner"></span>
+                  <span className="spinner"></span>
                 </button>}
                 </div>
                 <div>

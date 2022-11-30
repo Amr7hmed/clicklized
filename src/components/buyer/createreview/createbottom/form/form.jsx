@@ -93,7 +93,7 @@ function Form(props) {
                     :
                     <button className="btn btn-next button-disabled">
                         Loading
-                        <span class="spinner"></span>
+                        <span className="spinner"></span>
                     </button>}
             </div>
 

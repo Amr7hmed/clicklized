@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { DeleteItem, GetDataIndustries, UpdateCompanycrprofile, UpdateCompanyvatprofile } from '../../../../api/buyer/actionsprofile';
+import { DeleteItem, UpdateCompanycrprofile, UpdateCompanyvatprofile } from '../../../../api/buyer/actionsprofile';
 import UploadImage from "../../../../images/icon/upload.png";
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import SaveData from '../../../../layout/modal/savedata.jsx';
@@ -13,32 +12,30 @@ function CompanyData(props) {
     const [logo, setLogo] = useState(DataCompany.logo);
     const [toggolemodal, setToggolemodal] = useState(false);
     const [imagedatalogo,setImagedatalogo]=useState(null);
-    //const [loading, setLoading] = useState(false);
     const [loadingcrfiles, setLoadingcrfiles] = useState(false);
     const [loadingvatfiles, setLoadingvatfiles] = useState(false);
     const [messagelogo, setMessagelogo] = useState("");
     const [messagecrfiles, setMessagecrfiles] = useState("");
     const [messagevatfiles, setMessagevatfiles] = useState("");
+    const [imagesfilesvat, setImagesfilesvat] = useState(DataCompany.vat_files);
+    const [imagesfilescr, setImagesfilescr] = useState(DataCompany.cr_files);
+
     const ImageError = "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg";
-
-
-    /*
-    useEffect(() => {
-        GetDataIndustries(setLoading, setData);
-    }, [loading]);
-
-
-    var newArray = data.filter(function (el) {
-        return el.id === parseInt("1");
-    });
-    console.log(newArray);
-    */
-
+    
     const SendData = () => {
         setToggolemodal(!toggolemodal);
         UpdateLogoprofile(imagedatalogo,setMessagelogo) ;
     }
-
+    
+    const RemoveImagesfilesvat = (arr,setArr,value) => {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+        setArr([...arr]);
+        DeleteItem(value.id)
+      }
+    
     return (
             <div className='companydata'>
                 <div className="left">
@@ -52,11 +49,13 @@ function CompanyData(props) {
                         </li>
                         <li>
                             <span className="title">Company CR</span>
-                            {DataCompany.cr_files.length > 0 ? <div className="imgagegallary">
-                                {DataCompany.cr_files.map(item =>
+                            {imagesfilescr.length > 0 ? <div className="imgagegallary">
+                                {imagesfilescr.map(item =>
                                     <div className="img" key={item.id}>
                                         <button className='btn btn-deletimage'
-                                            onClick={() => DeleteItem(item.id, setLoadingdata)}><img src={Deletimage} /></button>
+                                            onClick={() => RemoveImagesfilesvat(imagesfilescr,setImagesfilescr,item)}>
+                                            <img src={Deletimage} />
+                                            </button>
                                         <img src={item.image} alt={item.id} className={"img_gallary"} 
                                         data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`}/>
                                         <ModelGallaryImage Data={item.image} Id={item.id}/>
@@ -92,13 +91,14 @@ function CompanyData(props) {
                         <li>
                             <span className="title">Company VAT</span>
 
-                            {DataCompany.vat_files.length > 0 ?
+                            {imagesfilesvat.length > 0 ?
 
                                 <div className="imgagegallary">
-                                    {DataCompany.vat_files.map(item =>
+                                    {imagesfilesvat.map(item =>
                                         <div className="img" key={item.id}>
                                             <button className='btn btn-deletimage'
-                                                onClick={() => DeleteItem(item.id, setLoadingdata)}><img src={Deletimage} /></button>
+                                                onClick={() => RemoveImagesfilesvat(imagesfilesvat,setImagesfilesvat,item)}>
+                                                    <img src={Deletimage} /></button>
                                             <img src={item.image} alt={item.id} className={"img_gallary"}  
                                         data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`}/>
                                         <ModelGallaryImage Data={item.image} Id={item.id}/>

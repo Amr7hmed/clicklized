@@ -27,7 +27,6 @@ function Formpassword() {
     window.location.reload();
   };
   const onSubmit = (values) => {
-    console.log(values);
     SendData();
   };
 

@@ -6,6 +6,7 @@ import DatePickerdata from './datepicker';
 import AddItemIcon from '../../../../../images/icon/icon-add.png';
 import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
 import ModelGallaryImagerequest from '../../../createreview/createbottom/form/modelimages';
+import Deletimage from "../../../../../images/icon/delet-image.svg";
 import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
 
@@ -224,7 +225,7 @@ export function Inputnotes() {
 };
 
 export function InputFiles(props) {
-  const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo } = props;
+  const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo ,RemoveImagesfiles ,RemoveImageslogo} = props;
   const authcontext = useContext(Authcontext);
   const imagesfilesrequest = authcontext.imagesfilesrequest;
   return (
@@ -233,12 +234,8 @@ export function InputFiles(props) {
         <span className='item'>
 
           <span className='btn-upload'>
-            <Field type="file" className="input-file"
-              name="files" multiple
-              onChange={e => {
-                AddImagesfiles(e)
-              }}
-            />
+            <Field type="file" className="input-file" name="files" multiple accept="image/*"
+              onChange={e => {AddImagesfiles(e)}}/>
             <img src={UploadImage} alt="" />
             Upload files
           </span>
@@ -248,9 +245,7 @@ export function InputFiles(props) {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file" accept="image/*" name="logo"
-              onChange={e => {
-                AddImageslogo(e)
-              }} />
+              onChange={e => {AddImageslogo(e)}}/>
             <img src={UploadImage} alt="" />
             Upload logo
           </span>
@@ -264,6 +259,9 @@ export function InputFiles(props) {
           <span className="imgagegallary">
             {imagesfilesrequest.map((item, index) =>
               <div className="img" key={index}>
+              <button className='btn btn-deletimage' type='button'
+                  onClick={() => RemoveImagesfiles(item)}><img src={Deletimage} /></button>
+
                 <img src={URL.createObjectURL(item)} alt={item.name} className={"img_gallary"}
                   data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`} />
                 <ModelGallaryImagerequest Data={item} Id={index} />
@@ -280,6 +278,9 @@ export function InputFiles(props) {
           <span className="imgagegallary">
 
               <div className="img">
+              <button className='btn btn-deletimage' type='button'
+                  onClick={() => RemoveImageslogo()}><img src={Deletimage} /></button>
+
                 <img src={URL.createObjectURL(imageslogo)}  className={"img_gallary"}
                   data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${imageslogo.size}`} />
                 <ModelGallaryImagerequest Data={imageslogo} Id={imageslogo.size} />

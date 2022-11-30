@@ -10,9 +10,7 @@ export function InputSupplierslist(props) {
 
 
   const RemoveItem = (id) => {
-    console.log(id);
     let remainingArr = supplierslistrequest.filter(data => data.id != id);
-    console.log(remainingArr);
     setSupplierslistrequest([...remainingArr])
   }
 
@@ -81,6 +79,7 @@ export function Inputcompany() {
             className={"form-control"}
             placeholder="Enter Contact numebr" name="contactnumebr" />
           <br />
+      <ErrorMessage name="contactnumebr" component="span" className='errorfiled' />
         </div>
       </div>
 

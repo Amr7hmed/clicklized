@@ -36,7 +36,6 @@ function FormResendCode() {
         setLoading(false);
       })
       .catch(function (error) {
-        console.log(error.response.data.message);
         setMessage(error.response.data.message)
         setLoading(false);
       });
@@ -67,7 +66,7 @@ function FormResendCode() {
             :
             <button className="btn btn-send button-disabled">
               Loading
-              <span class="spinner"></span>
+              <span className="spinner"></span>
             </button>}
         </div>
       </div>

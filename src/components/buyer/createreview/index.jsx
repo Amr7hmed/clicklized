@@ -4,6 +4,7 @@ import CreateTop from '../createrequest/createtop';
 
 function CreateReviewData(props) {
   const {Arraydataone,Arraydatatwo,SuppliersItems ,imagesfiles,imageslogo,setParamsname,clickedLatLng}=props;
+  
   return (
     <section className='create'>
     <CreateTop StyleScreen="createreviewdata_top"/>

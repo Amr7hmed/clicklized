@@ -15,7 +15,6 @@ export const GetDataRequestSupplier = async (setLoading, setData) => {
   axios(options)
     .then(function (response) {
       setLoading(true);
-      //console.log(response.data.data);
       setData(response.data.data);
     })
     .catch(function (error) {

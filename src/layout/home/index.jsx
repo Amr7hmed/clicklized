@@ -10,6 +10,7 @@ import Loading from '../loading/loading';
 function Home() {
   const [userTypes, setUserTypes] = useState([]);
   const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
       GetuserTypes(setUserTypes,setLoading);

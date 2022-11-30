@@ -169,9 +169,7 @@ export function Supplierslist(props) {
   const { Data } = props;
   const objArr = [...Data.values.supplierslist];
   const RemoveItem = (id) => {
-    console.log(id);
     let remainingArr = objArr.filter(data => data.id != id);
-    console.log(remainingArr);
     objArr.push(remainingArr);
   }
   return (

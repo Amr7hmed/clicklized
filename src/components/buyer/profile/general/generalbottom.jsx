@@ -6,7 +6,6 @@ import Imagecompany from '../../../../images/profile/image-two.jpg';
 
 function GeneralBottom(props) {
   const {Data , setLoadingdata}=props;
-  console.log(Data);
   return (
     <div className='myprofile__bottom'>
         <UserData DataUser={Data}/>

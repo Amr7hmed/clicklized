@@ -30,7 +30,6 @@ export const UpdateCompanycr = async (DataUser,files,setMessage,setLoadingcrfile
     axios(options).then(function (response) {
     setMessage("")
     setLoadingcrfiles(false);
-    console.log(response);
   })
   .catch(function (error) {
     setMessage(error.response.data.message)
@@ -216,7 +215,7 @@ export const GetDataIndustries = async (setLoading,setData) => {
 };
 
 
-export const DeleteItem = (Id,setLoadingdata) => {
+export const DeleteItem = (Id) => {
   const options = {
     method: "delete",
     url: `${Api}delete-attachment/${Id}`,
@@ -227,7 +226,6 @@ export const DeleteItem = (Id,setLoadingdata) => {
     },
   };
   axios(options).then(function (response) {
-    setLoadingdata(false);
   })
     .catch(function (error) {
     });

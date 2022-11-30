@@ -20,7 +20,6 @@ function RequestRowSeller(props) {
   const handlePageClick = (e) => {
     const newOffest = (e.selected * itemPerpage) % Data.length;
     setItemOffset(newOffest);
-    console.log(newOffest);
   };
 
 

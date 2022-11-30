@@ -9,7 +9,7 @@ function RequestRow(props) {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemPerpage = 4;
+  const itemPerpage = 9;
 
 
   useEffect(() => {
@@ -21,7 +21,6 @@ function RequestRow(props) {
   const handlePageClick = (e) => {
     const newOffest = (e.selected * itemPerpage) % Data.length;
     setItemOffset(newOffest);
-    console.log(newOffest);
   };
 
   return (

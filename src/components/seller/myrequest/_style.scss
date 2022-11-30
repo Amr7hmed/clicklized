@@ -123,6 +123,8 @@
         margin: 40px 0px;
         display: flex;
         flex-direction: column;
+        min-height: 70vh;
+        max-height: auto;
     }
 // 5- Style MyRequestSeller Page Filter
     &__filter{

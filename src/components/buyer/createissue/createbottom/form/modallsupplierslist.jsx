@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GetDataSuppliers } from '../../../../../api/buyer/actionsuppliers';
-import IconProfile from "../../../../../images/icon/img-profile.jpg";
+import ItemSupplier from './itemsupplier.jsx';
 
 function ModalSuppliersList(props) {
   const {AddSuppliers ,DoneAdded,RemoveallSuppliers} = props;
@@ -30,23 +30,7 @@ function ModalSuppliersList(props) {
               ) : (
                 <div className="listitems">
                   {supplierslist.map(item =>
-                    <div className="item" key={item.id}>
-                      <span className='data'>
-                        <img src={item.image === undefined ? IconProfile: item.image } alt={item.company_name} 
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src =
-                            "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg";
-                        }}/>
-                        <span className="text">{item.company_name}</span>
-                      </span>
-                      <button type='button'
-                       className={'btn btn-add-item'}
-                       // className={item.status === 0 ? 'btn btn-add-item' : 'btn btn-add-item active'}
-                        onClick={(e) => AddSuppliers(e,item)}>
-                          Add
-                      </button>
-                    </div>
+                    <ItemSupplier key={item.id} item={item} AddSuppliers={AddSuppliers}/>
                   )}
                 </div>
               )}

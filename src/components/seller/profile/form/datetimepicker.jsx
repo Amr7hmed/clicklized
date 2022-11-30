@@ -5,7 +5,6 @@ import DatePicker from 'react-bootstrap-date-picker';
 export default function DateTimePicker() {
 const [value,setValue]=useState("22/11/2022");
 const handleChange=()=>{
-    console.log(value);
 }
   return (<div>
 

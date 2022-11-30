@@ -30,7 +30,6 @@ function FormEditSuppliers() {
     
 
     const onSubmit = (values) => {
-        console.log(values);
        // AddNewSupplier(values,setMessage)
     }
 

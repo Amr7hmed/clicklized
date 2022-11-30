@@ -29,7 +29,6 @@ export const SignIn = async (email,password,device_id,device_type,setMessage) =>
       window.location.reload();
     })
     .catch(function (error) {
-      console.log(error.response.data.message);
       setMessage(error.response.data.message)
     });
 };
@@ -171,7 +170,6 @@ export const GetuserTypes = async (setUserTypes,setLoading) => {
       setLoading(true)
     })
     .catch(function (error) {
-      console.log(error);
       setLoading(true)
     });
 }

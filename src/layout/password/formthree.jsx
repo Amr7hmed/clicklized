@@ -13,7 +13,6 @@ function FormThree() {
     const [loading, setLoading] = useState(false);
 
     const onSubmit = (values) => {
-        console.log(values);
         UpdatePassword(values.password,values.changepassword,setMessage,setLoading);
         setLoading(true);
     }
@@ -83,7 +82,7 @@ function FormThree() {
                         :
                         <button className="btn btn-send button-disabled">
                             Loading
-                            <span class="spinner"></span>
+                            <span className="spinner"></span>
                         </button>}
                 </div>
             </div>

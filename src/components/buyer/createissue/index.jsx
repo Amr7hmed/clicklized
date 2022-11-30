@@ -4,6 +4,8 @@ import CreateIssueBottom from './createbottom/index.jsx';
 
 function CreateIssueData(props) {
     const {Statedata,screnonedatatwo,setParamsname, setSuppliersItems}=props;
+    
+
     return (
         <section className='create createissuedata'>
             <CreateTop  StyleScreen="createissue_top"/>

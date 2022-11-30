@@ -359,7 +359,7 @@
             .btn-remove {
               height: 45px;
               width: 150px;
-              background-color: #c5c5c5;
+              background-color: #747171;
               color: #fff;
             }
 
@@ -435,6 +435,28 @@
                         display: block;
                         margin: 0px auto;
                         cursor: pointer;
+                    }
+                    .btn-deletimage{
+                      padding: 0px;
+                      position: absolute;
+                      width: 20px;
+                      height: 20px;
+                      border-radius: 50%;
+                      top: -20%;
+                      right: -10%;
+                      -webkit-border-radius: 50%;
+                      -moz-border-radius: 50%;
+                      -ms-border-radius: 50%;
+                      -o-border-radius: 50%;
+                      background-color: #fff;
+                      &:active{
+                        border-color: transparent;
+                      }
+                      img{
+                        width: 20px;
+                        height: 20px;
+                        filter: invert(46%) sepia(57%) saturate(481%) hue-rotate(11deg) brightness(87%) contrast(90%);
+                      }
                     }
                 }
             }

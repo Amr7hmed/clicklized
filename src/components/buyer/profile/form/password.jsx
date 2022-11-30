@@ -17,7 +17,6 @@ function Formpassword() {
 
 
     const onSubmit = (values) => {
-        console.log(values);
         UpdatePasswordprofile(values.newpassword, values.reenterpassword, setMessage);
     }
 

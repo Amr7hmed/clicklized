@@ -3,11 +3,14 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from 'react-router-dom';
 import { FPasswordCode } from '../../api/actionsauth';
+import { Authcontext } from '../../store/context';
+import { useContext } from 'react';
 
 function FormTwo() {
+    const authcontext = useContext(Authcontext);
+    const email = authcontext.email;
     const state = { code: "" };
     const [message, setMessage] = useState("");
-    const email = JSON.parse(localStorage.getItem("emailclicklized"))
     const [loading, setLoading] = useState(false);
 
 
@@ -41,7 +44,7 @@ function FormTwo() {
                         :
                         <button className="btn btn-send button-disabled">
                             Loading
-                            <span class="spinner"></span>
+                            <span className="spinner"></span>
                         </button>}
                 </div>
             </div>

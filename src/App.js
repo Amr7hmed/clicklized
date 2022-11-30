@@ -20,8 +20,10 @@ import ForgetPasswordEmail from './pages/password/forgetpasswordemail.jsx';
 import ForgetPasswordCode from './pages/password/forgetpasswordcode.jsx';
 import Home from './layout/home/index.jsx';
 import ShowRequestseller from './pages/seller/showrequest/index.jsx';
+import OfferRequest from './pages/seller/offerrequest/index.jsx';
 
 function App() {
+  // JSON.parse(localStorage.getItem("emailclicklized"))
   return (
     <main className={"main"}>
       <BrowserRouter>
@@ -47,6 +49,8 @@ function App() {
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
       <Route path="/requestdetailsseller/:id" element={<RequestDetails />} exact />
       <Route path="/questionsseller/:id" element={<QuestionsSeller />} exact />
+      <Route path="/offerrequest/:id" element={<OfferRequest />} exact />
+      
       <Route path="/profileseller" element={<ProfileSeller />} exact />
       <Route path="/showrequestseller/:name/:id" element={<ShowRequestseller />} exact />
       

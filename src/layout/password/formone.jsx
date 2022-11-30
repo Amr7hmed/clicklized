@@ -6,9 +6,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Api } from '../../api';
 import axios from 'axios';
+import { Authcontext } from '../../store/context';
+import { useContext } from 'react';
 
 function FormOne() {
-  const state = { email: "" };
+  const authcontext = useContext(Authcontext);
+  const email = authcontext.email;
+  const setEmail = authcontext.setEmail;
+
+  const state = {email};
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
@@ -33,13 +39,12 @@ function FormOne() {
         setLoading(false);
       })
       .catch(function (error) {
-        console.log(error.response.data.message);
         setMessage(error.response.data.message)
         setLoading(false);
       });
   };
   const onSubmit = (values) => {
-    localStorage.setItem("emailclicklized", JSON.stringify(values.email));
+    setEmail(values.email);
     ResendCode(values.email, setMessage);
     setLoading(true);
   }
@@ -64,7 +69,7 @@ function FormOne() {
             :
             <button className="btn btn-send button-disabled">
               Loading
-              <span class="spinner"></span>
+              <span className="spinner"></span>
             </button>}
         </div>
       </div>

@@ -7,7 +7,6 @@ function QuestionsDataList() {
     const [message,setMessage]=useState("");
 
     const Sendmessage=()=>{
-        console.log(message);
         setMessage("");
     }
 

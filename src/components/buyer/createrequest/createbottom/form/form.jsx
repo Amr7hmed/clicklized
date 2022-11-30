@@ -7,7 +7,9 @@ import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
 
 function Form(props) {
-  const authcontext = useContext(Authcontext);
+    const {Statedata,clickedLatLng, setClickedLatLng,screnonedataone ,AddImagesfiles ,
+        imagesfiles,AddImageslogo,imageslogo ,RemoveImagesfiles ,RemoveImageslogo}=props;
+    const authcontext = useContext(Authcontext);
     const setNumberrequest = authcontext.setNumberrequest;
     const setItemsrequest = authcontext.setItemsrequest;
     const setAddressrequest = authcontext.setAddressrequest;
@@ -16,10 +18,8 @@ function Form(props) {
     const setTransportationrequest = authcontext.setTransportationrequest;
     const setNotesrequest = authcontext.setNotesrequest;
     const setDayrequest = authcontext.setDayrequest; 
-     const imagesfilesrequest = authcontext.imagesfilesrequest;
      
      
-     const {Statedata,clickedLatLng, setClickedLatLng,screnonedataone ,AddImagesfiles ,imagesfiles,AddImageslogo,imageslogo}=props;
      
      const onSubmit = (values) => {
          setNumberrequest(values.numberrequired);
@@ -45,10 +45,14 @@ function Form(props) {
             <Inputtransportation Data={props} />
             <Inputnotes />
             <InputFiles AddImagesfiles={AddImagesfiles} imagesfiles={imagesfiles}
-            AddImageslogo={AddImageslogo} imageslogo={imageslogo}/>
+            AddImageslogo={AddImageslogo} imageslogo={imageslogo} RemoveImagesfiles={RemoveImagesfiles}
+            RemoveImageslogo={RemoveImageslogo}/>
             <ModalMap clickedLatLng={clickedLatLng} setClickedLatLng={setClickedLatLng}/>
             <div className='end'>
-                <button className='btn btn-next' type="submit">Next</button>
+                <button 
+                className={imagesfiles.length === 0 || imageslogo === null? 
+                'btn btn-next button-disabled' : 'btn btn-next button-active'}
+                 type="submit">Next</button>
             </div>
 
         </form>

@@ -5,7 +5,6 @@ import IconLeft from '../../../../images/icon/arrow-left.svg';
 function ShowTop(props) {
     const { id, name } = props;
     const SendData=(value)=>{
-        console.log(value);
     }
     return (
         <div className='showrequestdata__top'>

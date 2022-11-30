@@ -101,7 +101,6 @@ export const AddNewSupplier = async (DataUser,setMessage) => {
   };
     axios(options).then(function (response) {
     setMessage("")
-    console.log(response);
     window.location.pathname = `/suppliers`;
   })
   .catch(function (error) {

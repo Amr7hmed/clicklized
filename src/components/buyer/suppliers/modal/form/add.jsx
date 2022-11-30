@@ -28,7 +28,6 @@ function FormAddSuppliers() {
     };
 
     const onSubmit = (values) => {
-        console.log(values);
         AddNewSupplier(values,setMessage)
     }
 

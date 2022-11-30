@@ -36,7 +36,6 @@ function Formprofile(props) {
        window.location.reload();
     }
     const onSubmit = (values) => {
-        console.log(values);
         UpdateProfile(Data,values,setMessage)
     }
 
