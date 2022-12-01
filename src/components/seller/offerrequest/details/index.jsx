@@ -23,7 +23,6 @@ function Showrequestrow() {
 
     return (
         <div className="requestdetailsdata__row">
-            <NavList />
             <RequestDatatBottom request={request} />
         </div>
     )

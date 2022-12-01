@@ -22,8 +22,8 @@ function OfferRequest() {
     {loading === false ? (
       <Loading />
     ) : (
-        <section className='requestdetails'>
-        <Navbar Styleclass={"btnmyrequestseller"}/>
+        <section className='offerdetails'>
+        <Navbar/>
             <div className="container">
                 <div className='requestdetailsdata'>
                     <ShowTop name={id} />

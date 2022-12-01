@@ -2,7 +2,6 @@
 1- Style RequestDetails Page  
 2- Style RequestDetails Page Bottom
 3- Style RequestDetails Page Screen
-4- Style RequestDetails Page Screen Top
 5- Style RequestDetails Page Screen Data
 // ========== Media Queris ============= //
 6- Style RequestDetails Page To Media Queris 992px.
@@ -12,11 +11,11 @@
 
 
 // 1- Style RequestDetails Page  
-.requestdetails {
+.offerdetails {
 font-family: var(--font-cairo);
 // 2- Style RequestDetails Page Bottom
-  .requestdetailsbottom {
-    width: calc(100% - 280px);
+  .offerdetailsbottom {
+    width: 100% ;
 // 3- Style RequestDetails Page Screen
     .screenone {
       font-family: var(--font-cairo);
@@ -28,30 +27,6 @@ font-family: var(--font-cairo);
       margin-bottom: 50px;
  
     }
-// 4- Style RequestDetails Page Screen Top
-    &__top{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      height: 56px;
-      align-items: center;
-      margin-bottom: 40px;
-      h5{
-        font-size: 20px;
-        font-weight: bold;
-        color: #252428;
-      }
-      .btn__sendoffer{
-        height: 56px;
-        width: 200px;
-        border-radius: 5px;
-        background-color: var(--primary-one-color);
-        font-size: 14px;
-        font-weight: bold;
-        text-align: center;
-        color: #231f20;
-      }
-    }
 // 5- Style RequestDetails Page Screen Data
     &__data{
       h6{
@@ -60,103 +35,28 @@ font-family: var(--font-cairo);
         color: #020524;
         margin-bottom: 17px;
       }
-      ul.list{
-        width: 100%;
-        li{
+      .end{
+        .btn{
           width: 100%;
-          display: flex;
-          flex-direction: row;
+          background-color: #e8d173;
+          height: 55px;
+          color: #231f20;
+          font-family: var(--font-cairo);
           font-size: 16px;
-          font-weight: normal;
-          color: #020524;
-          .left,.right{
-            width: 50%;
-            text-align: left;
-          }
-          &:last-child{
-            font-weight: bold;
-            margin-top: 10px;
-          }
-        }
-      }
-      .about{
-        font-size: 16px;
-        h6{
-          margin-top: 32px;
-          margin-bottom: 16px;
-          font-weight: normal;
-          color: #020524;
-        }
-        p{
-          width: 90%;
           font-weight: bold;
         }
-        .btn-files{
-          width: 167px;
-          height: 50px;
-          margin-top: 20px;
-          border-radius: 4px;
-          background-color: #f8f0d2;
-          font-weight: normal;
-          color: #343433;
-          img{
-            margin-right: 9px;
-            width: 24px;
-            height: 27px;
-            object-fit: contain;
-          }
-        }
       }
-      .address{
-        margin-top: 30px;
-        h5{
-          font-size: 18px;
-          font-weight: normal;
-          color: #020524;
-        }
-        div{
-          margin-top: 16px;
-          font-size: 16px;
-          color: #020524;
-          h6{
-          font-size: 16px;
-          font-weight: normal;
-          margin-bottom: 25px;
-          }
-          p{
-            width: 90%;
-            font-weight: bold;
-            margin-bottom: 32px;
-          }
-        }
-        ul.conditions{
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          span{
-            font-size: 18px;
-            font-weight: normal;
-            color: #020524;
-            margin-bottom: 10px;
-          }
-          li{
-            margin: 4px 0px;
-            width: 100%;
-            font-size: 16px;
-            font-weight: bold;
-            color: #020524;
-
-          }
-        }
+      textarea{
+        height: 100px;
       }
     }
   }
 }
 // 6- Style RequestDetails Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
-  .requestdetails {
+  .offerdetails {
     // 2- Style Bottom Page
-    .requestdetailsbottom {
+    .offerdetailsbottom {
       width: 100%;
       .screenone {padding: 40px 20px;}
     }
@@ -164,9 +64,9 @@ font-family: var(--font-cairo);
 }
 // 7- Style RequestDetails Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
-  .requestdetails {
+  .offerdetails {
     // 2- Style Bottom Page
-    .requestdetailsbottom {
+    .offerdetailsbottom {
       .screenone {
         padding: 40px 20px;
       }
@@ -193,9 +93,9 @@ font-family: var(--font-cairo);
 }
 // 8- Style RequestDetails Page To Media Queris 456px.
 @media screen and (max-width: 456px) {
-  .requestdetails {
+  .offerdetails {
     // 2- Style Bottom Page
-    .requestdetailsbottom {
+    .offerdetailsbottom {
       .screenone { padding: 40px 20px;}
       &__top{
         flex-direction: column;
@@ -254,3 +154,5 @@ font-family: var(--font-cairo);
     }
   }
 }
+
+
