@@ -1,7 +1,13 @@
 import React from 'react'
+import { useContext } from 'react';
+import { Authcontext } from '../../../../store/context';
 
 function List(props) {
     const { StyleScreen } = props;
+
+    const authcontext = useContext(Authcontext);
+    const language = authcontext.language;
+
     return (
         <ul className='list'>
             <li>
@@ -19,7 +25,9 @@ function List(props) {
                         'text active'
                         : StyleScreen === "createreviewdata_top" ?
                             'text active' : "text"}>
-                    Request details</span>
+
+                    {language === "Ar" ? "تفاصيل الطلب" : "Request details"}
+                </span>
             </li>
             <span className={StyleScreen === "createrequest_top" ? 'line editedata'
                 : StyleScreen === "createissue_top" ? 'line active'
@@ -47,7 +55,9 @@ function List(props) {
                         : StyleScreen === "createreviewdata_top" ?
                             'text active' :
                             "text"}>
-                    Choose suppliers
+                    {language === "Ar" ?
+                        "اختيار الموردين" :
+                        "Choose suppliers"}
                 </span>
             </li>
             <span className={StyleScreen === "createissue_top" ?
@@ -66,7 +76,8 @@ function List(props) {
                 <span className={StyleScreen === "createreviewdata_top" ?
                     'text editedata'
                     : "text"}>
-                    Review request</span>
+                    {language === "Ar" ? "مراجعة الطلب" : "Review request"}
+                </span>
             </li>
         </ul>
     )

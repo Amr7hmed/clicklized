@@ -198,7 +198,7 @@ input[type=number] {
 }
 // 4- Style MyRequestSeller Page Pagination
 .pagination {
-  justify-content: flex-end;
+  font-family: var(--font-cairo);
   align-items: center;
   margin: 30px 0px;
 
@@ -226,7 +226,7 @@ input[type=number] {
 
     &:first-child {
       margin-right: 5px;
-      width: 50px;
+      width: 100px;
       a {
         color: #343433;
         font-size: 14px;
@@ -237,7 +237,7 @@ input[type=number] {
 
     &:last-of-type {
         margin-left: 5px;
-        width: 50px;
+        width: 100px;
         a {
             color: #343433;
             font-size: 14px;
@@ -256,6 +256,12 @@ input[type=number] {
     }
   }
 }
+input:disabled {
+  background: #f9f9f9 !important;
+}
+
+.En{.pagination {justify-content: flex-end;}}
+.Ar{.pagination {justify-content: flex-start;}}
 // Loading Styling
 @import "../layout/loading/_style.scss";
 // Empty Styling

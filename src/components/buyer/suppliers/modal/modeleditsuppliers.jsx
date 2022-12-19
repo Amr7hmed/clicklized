@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Authcontext } from '../../../../store/context.js';
 import FormEditSuppliers from './form/edit.jsx';
 
 function ModelEditSuppliers(props) {
   const {Id}=props;
+
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
+
   return (
     <div className="modal fade modeleditsuppliers"
     id={"modeleditsuppliers-"+ Id} tabIndex="-1" 
@@ -12,7 +17,7 @@ function ModelEditSuppliers(props) {
             <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title" id="modeleditsuppliersLabel">
-                    Edit supplier
+                    {language === "Ar" ?"تعديل بيانات المورد":" Edit supplier"}
                     </h5>
                 </div>
 

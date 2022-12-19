@@ -15,7 +15,7 @@ export const UpdateCompanycr = async (DataUser,files,setMessage,setLoadingcrfile
   };
   data.append("device_id", "default");
   data.append("device_type","web");
-  data.append("industry_id", "1");
+  data.append("industry_id", DataUser.industry.id);
   const  options = {
     method: "post",
     url: `${Api}update-profile`,
@@ -49,7 +49,7 @@ export const UpdateCompanycrprofile = async (DataUser,files,setMessage,setLoadin
   };
   data.append("device_id", "default");
   data.append("device_type","web");
-  data.append("industry_id", "1");
+  data.append("industry_id", DataUser.industry.id);
   const  options = {
     method: "post",
     url: `${Api}update-profile`,
@@ -84,7 +84,7 @@ export const UpdateCompanyvat = async (DataUser,files,setMessage,setLoadingvatfi
   };
   data.append("device_id", "default");
   data.append("device_type","web");
-  data.append("industry_id", "1");
+  data.append("industry_id", DataUser.industry.id);
   const  options = {
     method: "post",
     url: `${Api}update-profile`,
@@ -119,7 +119,7 @@ export const UpdateCompanyvatprofile = async (DataUser,files,setMessage,setLoadi
   };
   data.append("device_id", "default");
   data.append("device_type","web");
-  data.append("industry_id", "1");
+  data.append("industry_id", DataUser.industry.id);
   const  options = {
     method: "post",
     url: `${Api}update-profile`,
@@ -173,10 +173,10 @@ export const UpdateProfile = async (Data,DataUser,setMessage) => {
   
 };
 // Get Function Api 
-export const GetDataProfile = async (userid,setLoading,setData) => {
+export const GetDataProfile = async (userid,setLoading,setData ,language) => {
   const options = {
     method: "get",
-    url: `${Api}profile/${userid}`,
+    url: `${Api}profile/${userid}?Accept-Language=${language==="Ar"?"ar":"en"}`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",

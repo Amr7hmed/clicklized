@@ -11,14 +11,21 @@ import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
 
 export function Inputquotations(props) {
+
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   const { errors } = props;
   return (
     <div className='inputform'>
-      <label className="form-label">Number of required quotations</label>
+      <label className="form-label">
+        {language === "Ar" ? "العدد المطلوب" : "Number of required quotations"}
+      </label>
       <Field type="text" component="input"
         id="inputquotations"
         className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Number of required quotations" name="numberrequired" />
+        placeholder=
+        {language === "Ar" ? "العدد المطلوب" : "Number of required quotations"}
+         name="numberrequired" />
 
 
       <ErrorMessage name="numberrequired" component="span" className='errorfiled' />
@@ -28,6 +35,8 @@ export function Inputquotations(props) {
 
 export function InputItems(props) {
   const { values, errors } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
       <FieldArray name="items">
@@ -38,24 +47,47 @@ export function InputItems(props) {
                 values.items.map((item, index) => (
                   <div key={index} className='inputform_items' id={index}>
                     <div className="inputform_item">
-                      <label htmlFor={`items.${index}.item_id`}>Item</label>
+                      <label htmlFor={`items.${index}.item_id`}>
+                        {language === "Ar" ? "العنصر" : "Item"}
+                      </label>
                       <Field
                         name={`items.${index}.item_id`}
                         placeholder="Jane Doe"
                         component="select"
                         className={"form-select"} >
-                        <option>Choose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
+                        <option>
+                          {language === "Ar" ? "أختيار عنصر" : "Choose Item"}
+                        </option>
+                        <option value="1">Item One</option>
+                        <option value="2">Item Two</option>
                       </Field>
                     </div>
                     <div className="inputform_item">
-                      <label htmlFor={`items.${index}.quantity`}>Quantity</label>
+                      <label htmlFor={`items.${index}.quantity`}>
+                          {language === "Ar" ? "الكمية" : "Quantity"}
+                          </label>
                       <Field
                         name={`items.${index}.quantity`}
-                        placeholder="Enter Quantity"
-                        type="text"
-                        className={"form-control"} />
+                        maxLength={4}
+                        placeholder=
+                        {language === "Ar" ? "أدخال الكمية" : "Enter Quantity"}
+                        type={"text"}
+                        //type={values.items[index].quantity === "" ?"number":"text"}
+                        className={"form-control"}
+                        disabled={values.items[index].item_id === "" ? "disabled" : ""}
+                        pattern="^[0-9]*[.,]?[0-9]*$"
+                        onKeyUp={(e) => {
+                          if (e.key === "Enter") {
+                            if (values.items[index].quantity === "") {
+                              return false;
+                            } else {
+                              unshift({ item_id: '', quantity: '' })
+                            }
+                          }
+                        }
+                        }
+                      />
+
                     </div>
                     <div
                       className={"inputform_close"}>
@@ -64,9 +96,10 @@ export function InputItems(props) {
                         className={index === 0 ? "btn btn-remove hide" : "btn btn-remove"}
                         onClick={() => remove(index)}
                       >
-                        Remove Item
+                      {language === "Ar" ? "مسح" : "Remove Item"}
                       </button>
                     </div>
+
                     <button
                       id={values.items[index].item_id === "" ||
                         values.items[index].quantity === "" ? "button-disabled" : "button-active"}
@@ -75,8 +108,10 @@ export function InputItems(props) {
                       onClick={() => unshift({ item_id: '', quantity: '' })}
                     >
                       <img src={AddItemIcon} alt="Add Item Icon" />
-                      Add new item
+                      
+                      {language === "Ar" ? "أضافه عنصر جديد" : "Add new item"}
                     </button>
+
                   </div>
                 ))}
 
@@ -92,23 +127,35 @@ export function InputItems(props) {
   )
 };
 
-
 export function Inputaddress(props) {
-  const { errors } = props;
+  const { errors, address, setAddress } = props;
+  const authcontext = useContext(Authcontext);
+  const setAddressrequest = authcontext.setAddressrequest;
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <h6>Address</h6>
-      <label className="form-label">Required Delivery Location</label>
+      <h6>
+          {language === "Ar" ? "العنوان" : "Address"}
+      </h6>
+      <label className="form-label">
+          {language === "Ar" ? "مكان التسليم المطلوب" : " Required Delivery Location"}
+      </label>
       <Field type="textarea" component="textarea"
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Required Delivery Location" name="address" />
+        placeholder=
+        {language === "Ar" ? "تسجيل مكان التسليم المطلوب" : "Enter Required Delivery Location"}
+         name="address" value={address}
+        onChange={(e) => {
+          setAddress(e.target.value)
+          setAddressrequest(e.target.value)
+        }
+        } />
       <button type='button' className='btn addloction'
         data-bs-toggle="modal" data-bs-target="#modalmap">
         <img src={IconLoction} alt="" />
-        Choose location on map
+        {language === "Ar" ? "اختر الموقع على الخريطة" : "Choose location on map"}
       </button>
 
-      <ErrorMessage name="address" component="span" className='errorfiled' />
     </div>
   )
 };
@@ -116,6 +163,9 @@ export function Inputaddress(props) {
 export function InputIndustry(props) {
   const [dataindustries, setDataIndustries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
+
   useEffect(() => {
     GetDataIndustries(setLoading, setDataIndustries);
   }, [loading]);
@@ -123,7 +173,9 @@ export function InputIndustry(props) {
   const { errors } = props;
   return (
     <div className='inputform'>
-      <label className="form-label">Company Industry</label>
+      <label className="form-label">
+          {language === "Ar" ? "قطاع الشركة" : "Company Industry"}
+        </label>
 
       <Field name="industry" component="select"
         className={errors.industry ? "form-select is-invalid" : "form-select"}  >
@@ -140,9 +192,13 @@ export function InputIndustry(props) {
 };
 export function Inputday(props) {
   const { data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform inputformday'>
-      <label className="form-label">Required Delivery Date/Deadline</label>
+      <label className="form-label">
+          {language === "Ar" ? "تاريخ التسليم المطلوب / الموعد النهائي" : "Required Delivery Date/Deadline"}
+        </label>
       <DatePickerdata Data={data} />
       <ErrorMessage name="day" component="span" className='errorfiled' />
     </div>
@@ -225,7 +281,7 @@ export function Inputnotes() {
 };
 
 export function InputFiles(props) {
-  const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo ,RemoveImagesfiles ,RemoveImageslogo} = props;
+  const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo, RemoveImagesfiles, RemoveImageslogo } = props;
   const authcontext = useContext(Authcontext);
   const imagesfilesrequest = authcontext.imagesfilesrequest;
   return (
@@ -235,7 +291,7 @@ export function InputFiles(props) {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file" name="files" multiple accept="image/*"
-              onChange={e => {AddImagesfiles(e)}}/>
+              onChange={e => { AddImagesfiles(e) }} />
             <img src={UploadImage} alt="" />
             Upload files
           </span>
@@ -245,7 +301,7 @@ export function InputFiles(props) {
 
           <span className='btn-upload'>
             <Field type="file" className="input-file" accept="image/*" name="logo"
-              onChange={e => {AddImageslogo(e)}}/>
+              onChange={e => { AddImageslogo(e) }} />
             <img src={UploadImage} alt="" />
             Upload logo
           </span>
@@ -259,7 +315,7 @@ export function InputFiles(props) {
           <span className="imgagegallary">
             {imagesfilesrequest.map((item, index) =>
               <div className="img" key={index}>
-              <button className='btn btn-deletimage' type='button'
+                <button className='btn btn-deletimage' type='button'
                   onClick={() => RemoveImagesfiles(item)}><img src={Deletimage} /></button>
 
                 <img src={URL.createObjectURL(item)} alt={item.name} className={"img_gallary"}
@@ -274,19 +330,19 @@ export function InputFiles(props) {
 
         {imageslogo === null ?
           <span className="errorfiled">Logo Is Required</span>
-          : 
+          :
           <span className="imgagegallary">
 
-              <div className="img">
+            <div className="img">
               <button className='btn btn-deletimage' type='button'
-                  onClick={() => RemoveImageslogo()}><img src={Deletimage} /></button>
+                onClick={() => RemoveImageslogo()}><img src={Deletimage} /></button>
 
-                <img src={URL.createObjectURL(imageslogo)}  className={"img_gallary"}
-                  data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${imageslogo.size}`} />
-                <ModelGallaryImagerequest Data={imageslogo} Id={imageslogo.size} />
-              </div>
+              <img src={URL.createObjectURL(imageslogo)} className={"img_gallary"}
+                data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${imageslogo.size}`} />
+              <ModelGallaryImagerequest Data={imageslogo} Id={imageslogo.size} />
+            </div>
           </span>
-          }
+        }
       </div>
     </div>
   )

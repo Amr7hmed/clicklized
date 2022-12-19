@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Authcontext } from '../../../../store/context';
 import Formprofile from '../form/profile';
 
 function ModelEditprofile(props) {
   const {Data}=props;
+  
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className="modal fade"
     id="modeleditprofilebuyer" tabIndex="-1" 
@@ -12,7 +16,7 @@ function ModelEditprofile(props) {
             <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title" id="modeleditprofilebuyerLabel">
-                    Edit Company Information
+                    {language === "Ar" ?"تعديل معلومات الشركة":"Edit Company Information"}
                     </h5>
                 </div>
 

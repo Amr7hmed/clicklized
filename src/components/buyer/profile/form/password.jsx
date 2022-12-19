@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import Invisible from "../../../../images/icon/invisible.svg";
 import Visible from "../../../../images/icon/eye-regular.svg";
 import { UpdatePasswordprofile } from '../../../../api/actionsauth';
+import { Authcontext } from '../../../../store/context';
 
 function Formpassword() {
+    const authcontext = useContext(Authcontext);
+    const language = authcontext.language;
     const state = {
         newpassword: "",
         reenterpassword: ""
@@ -26,11 +29,14 @@ function Formpassword() {
             <form onSubmit={props.handleSubmit}>
                 <div className="modal-body">
                     <div>
-                        <label className="form-label">New Password</label>
+                        <label className="form-label">
+                        {language === "Ar" ?"كلمة السر الجديدة":"New Password"}
+                        </label>
                         <div className="filedpassword">
                             <Field type={togglenewpassword === false ? "password" : "text"}
                                 className={props.errors.newpassword ? "form-control is-invalid" : "form-control"}
-                                placeholder="Re-enter The New Password" name="newpassword" />
+                                placeholder={language === "Ar" ?"كلمة السر الجديدة":"New Password"} 
+                                name="newpassword" />
                             <span className='toggoleimg' onClick={() => setTogglenewpassword(!togglenewpassword)}>
                                 {togglenewpassword === false ?
                                     <img src={Invisible} alt="Invisible"
@@ -50,11 +56,14 @@ function Formpassword() {
 
 
                     <div>
-                        <label className="form-label">Re-enter The New Password</label>
+                        <label className="form-label">
+                        {language === "Ar" ?"أعد إدخال كلمة المرور الجديدة":"Re-enter The New Password"}
+                        </label>
                         <div className="filedpassword">
                             <Field type={togglerenternewpassword === false ? "password" : "text"}
                                 className={props.errors.reenterpassword ? "form-control is-invalid" : "form-control"}
-                                placeholder="Re-enter The New Password" name="reenterpassword" />
+                                placeholder={language === "Ar" ?"أعد إدخال كلمة المرور الجديدة":"Re-enter The New Password"}
+                                 name="reenterpassword" />
                             <span className='toggoleimg' onClick={() => setTogglerenternewpassword(!togglerenternewpassword)}>
                                 {togglerenternewpassword === false ?
                                     <img src={Invisible} alt="Invisible"
@@ -75,17 +84,25 @@ function Formpassword() {
 
                     <div className="mb-3">
                         {message === "" ? "" : message === "The password format is invalid." ?
-                            <span className='errorfiled'>Password must contain letters and numbers</span>
+                            <span className='errorfiled'>
+                            {language === "Ar" ?
+                            "يجب أن تحتوي كلمة المرور على أحرف وأرقام "
+                            :"Password must contain letters and numbers"}
+                            </span>
                             : <span className='errorfiled'>{message}</span>}
                     </div>
 
                     <div className='end'>
 
                         <button className={'btn btn-send button-active'}
-                            type="submit">Save</button>
+                            type="submit">
+                            {language === "Ar" ?"حفظ":"Save"}
+                            </button>
 
                         <button type="button" className="btn btn-cancel"
-                            data-bs-dismiss="modal">Cancel</button>
+                            data-bs-dismiss="modal">
+                            {language === "Ar" ?"ألغاء":"Cancel"}
+                            </button>
                     </div>
                 </div>
 

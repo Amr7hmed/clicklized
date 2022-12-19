@@ -46,7 +46,6 @@ export function InputSupplierslist(props) {
           </div>
         </>
       }
-      {supplierslistrequest.length === 0 ? <span className='errorfiled'>Add Supplier is Required</span>:""}
     </div>
   )
 };

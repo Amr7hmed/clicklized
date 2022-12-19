@@ -21,11 +21,14 @@ import ForgetPasswordCode from './pages/password/forgetpasswordcode.jsx';
 import Home from './layout/home/index.jsx';
 import ShowRequestseller from './pages/seller/showrequest/index.jsx';
 import OfferRequest from './pages/seller/offerrequest/index.jsx';
+import { Authcontext } from './store/context.js';
+import { useContext } from 'react';
 
 function App() {
-  // JSON.parse(localStorage.getItem("emailclicklized"))
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
-    <main className={"main"}>
+    <main className={language}>
       <BrowserRouter>
         <Routes>
         {localStorage.getItem("tokenclicklized") === null ?

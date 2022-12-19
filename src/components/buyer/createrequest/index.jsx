@@ -4,15 +4,17 @@ import CreateTop from './createtop/index.jsx'
 
 function CreateOne(props) {
   const {Statedata,clickedLatLng, setClickedLatLng ,screnonedataone ,AddImagesfiles ,imagesfiles ,
-    AddImageslogo,imageslogo ,RemoveImagesfiles,RemoveImageslogo}=props;
+    AddImageslogo,imageslogo ,RemoveImagesfiles,RemoveImageslogo,
+   address,setAddress ,showaddress}=props;
 
   return (
         <section className='create'>
         <CreateTop StyleScreen="createrequest_top"/>
         <CreateRequestBottom Statedata={Statedata} clickedLatLng={clickedLatLng}
          setClickedLatLng={setClickedLatLng} screnonedataone={screnonedataone} AddImagesfiles={AddImagesfiles}
-         AddImageslogo={AddImageslogo} imageslogo={imageslogo}
-         imagesfiles={imagesfiles} RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo}/>
+         AddImageslogo={AddImageslogo} imageslogo={imageslogo} address={address} setAddress={setAddress}
+         imagesfiles={imagesfiles} RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo}
+         showaddress={showaddress}/>
     </section>
   )
 }

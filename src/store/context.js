@@ -1,8 +1,10 @@
 import React, {  useState } from 'react';
+import { useEffect } from 'react';
 
 export const Authcontext = React.createContext();
 
 export function Contextprovider(props) {
+    const [language, setLanguage] = useState("En");
     const [email, setEmail] = useState("");
     const [numberrequest, setNumberrequest] = useState("");
     const [itemsrequest, setItemsrequest] = useState([
@@ -24,9 +26,18 @@ export function Contextprovider(props) {
     const [imageslogorequest,setImageslogorequest]=useState(null);
     const [checkboxtogglerequest,setCheckboxtogglerequest]=useState(false);
     const [supplierslistrequest, setSupplierslistrequest] = useState([]);
+    const [centerrequest, setCenterrequest] = useState({ lat: 23.392899070336068 , lng: 42.86244913615009 });
 
     
     
+    useEffect(() => {
+        if(localStorage.getItem("languagecklized") !== null){
+            setLanguage("Ar")
+        }else{
+            setLanguage("En")
+        }
+      }, [language]);
+
     const value = {
         email: email,
         setEmail: setEmail,
@@ -59,7 +70,11 @@ export function Contextprovider(props) {
         companyemailrequest:companyemailrequest,
         setCompanyemailrequest:setCompanyemailrequest,
         contactnumebrrequest:contactnumebrrequest,
-        setContactnumebrrequest:setContactnumebrrequest
+        setContactnumebrrequest:setContactnumebrrequest,
+        centerrequest:centerrequest, 
+        setCenterrequest :setCenterrequest,
+        language: language,
+        setLanguage: setLanguage,
     }
 
     return (

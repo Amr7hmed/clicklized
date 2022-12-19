@@ -18,27 +18,28 @@ function Formprofileseller(props) {
     const [loadingcaity, setLoadingcaity] = useState(false);
     const [dataicaity, setDataicaity] = useState([]);
 
+    console.log(Data);
+    console.log(Data.supplier.company_name);
+    
     useEffect(() => {
         GetDataIndustries(setLoading, setDataIndustries);
         GetDataCaity(setLoadingcaity,setDataicaity);
     }, [loadingcaity]);
 
-
-
     const state = {
-        companyname: "",
-        business_sector: "",
-        fax:"",
-        cr: "",
-        website:"",
-        city:"",
-        address:"",
-        vat: "",
+        companyname: Data.supplier.company_name,
+        business_sector: Data.industry.id,
+        fax:Data.supplier.fax_number,
+        cr: Data.supplier.cr_number,
+        website:Data.supplierwebsite,
+        city:Data.city.id,
+        address:Data.supplier.address,
+        vat: Data.supplier.vat_number,
         cr_issue_date:"",
         cr_expire_date: "",
         vat_registration_date:"",
-        company_email:"",
-        payment_terms:"",
+        company_email:Data.supplier.business_email,
+        payment_terms:Data.supplier.payment_terms,
     };
 
     const SendData = () => {

@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import ReactPaginate from "react-paginate";
+import { Authcontext } from '../../../../store/context';
 import RequestCard from './card';
 
 function RequestRow(props) {
   const { Data } = props;
+
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
 
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -41,8 +45,10 @@ function RequestRow(props) {
             </div>
 
             <ReactPaginate
-              previousLabel="< Back"
-              nextLabel="Next >"
+              previousLabel=
+              {language === "Ar" ? "< السابق" : "< Back"}
+              nextLabel=
+              {language === "Ar" ? "التالي >" : "Next >"}
               breakLabel={"..."}
               pageCount={pageCount}
               postsPerPage={2}

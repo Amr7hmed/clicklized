@@ -30,7 +30,6 @@ function CreateRequest() {
   const statedataone = {
     numberrequired: numberrequest,
     items: itemsrequest,
-    address: addressrequest,
     day: dayrequest,
     inputinsurance: inputinsurancerequest,
     transportation: transportationrequest,
@@ -47,13 +46,19 @@ function CreateRequest() {
   const [arraydatatwo, setArraydatatwo] = useState({});
   const [imagesfiles, setImagesfiles] = useState(imagesfilesrequest);
   const [imageslogo, setImageslogo] = useState(imageslogorequest);
+  const [showaddress ,setShowaddress] = useState(true);
   const [paramsname, setParamsname] = useState("");
+  const [address, setAddress] = useState(addressrequest);
   const [SuppliersItems, setSuppliersItems] = useState(supplierslistrequest);
   const [clickedLatLng, setClickedLatLng] = useState({ lat: 23.392899070336068, lng: 42.86244913615009 });
 
   const screnonedataone = (values) => {
-    setArraydataone(values);
-    setParamsname("createissue");
+    if(address === ""){
+      setShowaddress(false);
+    }else{
+      setArraydataone(values);
+      setParamsname("createissue");
+    }
   }
   const screnonedatatwo = (values) => {
     setArraydatatwo(values);
@@ -101,6 +106,7 @@ function CreateRequest() {
 
             <CreateReviewData Arraydataone={arraydataone} Arraydatatwo={arraydatatwo}
               SuppliersItems={SuppliersItems} imagesfiles={imagesfiles} imageslogo={imageslogo}
+              address={address}
               setParamsname={setParamsname} clickedLatLng={clickedLatLng} />
 
             :
@@ -109,7 +115,8 @@ function CreateRequest() {
               setClickedLatLng={setClickedLatLng} screnonedataone={screnonedataone}
               AddImagesfiles={AddImagesfiles} AddImageslogo={AddImageslogo}
               imageslogo={imageslogo} imagesfiles={imagesfiles}
-              RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo} />
+              RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo} 
+              address={address} setAddress={setAddress} showaddress={showaddress}/>
         }
 
       </div>

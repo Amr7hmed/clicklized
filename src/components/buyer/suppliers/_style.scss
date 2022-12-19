@@ -21,7 +21,6 @@
     &__headr {
         margin: 40px 0px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         min-height: 65px;
@@ -42,7 +41,6 @@
         .right {
             height: 65px;
             display: flex;
-            flex-direction: row;
             align-items: center;
 
             .btn {
@@ -59,7 +57,6 @@
                 img {
                     width: 24px;
                     height: 24px;
-                    margin: 0 8px 0 0;
                     object-fit: contain;
                 }
             }
@@ -75,7 +72,6 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                margin-right: 20px;
                 border: 2px #e8d173;
                 background-color: #f8f0d2;
                 border-style: dashed;
@@ -98,7 +94,6 @@
 
         .top {
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: center;
             height: 30px;
@@ -150,6 +145,8 @@
                 font-size: 14px;
                 font-weight: normal;
                 color: #a5a5ac;
+                width: 100%;
+                display: inline-block;
             }
         }
     }
@@ -183,7 +180,6 @@
         .bottom {
             width: 100%;
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: center;
             height: 50px;
@@ -346,7 +342,6 @@
 
             .btn-send {
                 background-color: #e9d173;
-                margin-right: 15px;
                 color: #231f20;
             }
 
@@ -357,6 +352,79 @@
         }
     }
 
+}
+
+.En{
+    .mysuppliers {
+        &__headr {
+            flex-direction: row;
+            .right {
+                flex-direction: row;
+                .btn {img {margin: 0 8px 0 0;}}
+                .btn-suppliers {margin-right: 20px;}
+            }
+        }
+        &__card {
+            .top {flex-direction: row;}
+            .bottom {.text {text-align: left;}}
+        }
+        &__filter {
+            .top {text-align: left;}
+            .bottom {
+                flex-direction: row;
+                select {direction: ltr;}
+            }
+        }
+    }
+    .modeleditsuppliers {
+        .modal-body {
+            direction: ltr;
+            .end {
+                .btn-send {margin-right: 15px;}
+            }
+        }
+    
+    }
+}
+
+.Ar{
+    .mysuppliers {
+        &__headr {
+            flex-direction: row-reverse;
+            .right {
+                flex-direction: row-reverse;
+                .btn {img {margin: 0 0 0 8px;}}
+                .btn-filter {margin-right: 20px;}
+            }
+        }
+        &__card {
+            .top {flex-direction: row-reverse;}
+            .bottom {.text {text-align: right;}}
+        }
+        &__filter {
+            .top {text-align: right;}
+            .bottom {
+                flex-direction: row-reverse;
+                select {direction: rtl;}
+            }
+        }
+        &__hide {
+            height: 0px;
+            opacity: 0;
+            padding: 0px !important;
+            visibility: hidden;
+            margin: 0px !important;
+        }
+    }
+    .modeleditsuppliers {
+        .modal-body {
+            direction: rtl;
+            .end {
+                .btn-cancel {margin-right: 15px;}
+            }
+        }
+    
+    }
 }
 // 8- Style MySuppliers Page To Media Queris 992px.
 @media screen and (max-width: 992px) {

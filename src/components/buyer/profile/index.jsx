@@ -11,7 +11,6 @@ function MyProfile(props) {
     <section className='myprofile'>
         <div className="container">
         <GeneralTop Username={Username}/>
-        
         <GeneralBottom Data={Data} setLoadingdata={setLoadingdata}/>
         <ModalPassword/>
         <ModelEditprofile Data={Data}/>

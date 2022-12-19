@@ -20,7 +20,6 @@
     &__headr {
         margin: 40px 0px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         min-height: 65px;
@@ -41,7 +40,6 @@
         .right{
             height: 65px;
             display: flex;
-            flex-direction: row;
             align-items: center;
             .btn{
                 height: 56px;
@@ -56,13 +54,11 @@
                 img{
                     width: 24px;
                     height: 24px;
-                    margin: 0 8px 0 0;
                     object-fit: contain;
                 }
             }
             .btn-filter{
                 width: 112px;
-                margin-right: 20px;
             }
             .btn-request{
                 width: 186px;
@@ -96,7 +92,6 @@
         justify-content: space-between;
         .top{
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: center;
             .text{
@@ -121,12 +116,11 @@
             img{
                 width: 16px;
                 height: 16px;
-                margin-right: 10px;
             }
             .text{
                 font-size: 14px;
-  font-weight: normal;
-  color: #a5a5ac;
+                font-weight: normal;
+                color: #a5a5ac;
             }
         }
     }
@@ -162,7 +156,6 @@
         .bottom{
             width: 100%;
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: center;
             height: 50px;
@@ -202,6 +195,76 @@
         -ms-transition: all 1s;
         -o-transition: all 1s;
         margin: 0px !important;
+    }
+}
+
+.En{
+    .myrequest {
+        &__headr {
+            flex-direction: row;
+            text-align: left;
+            .right{
+                flex-direction: row;
+                .btn{
+                    img{
+                        margin: 0 8px 0 0;
+                    }
+                }
+                .btn-filter{
+                    margin-right: 20px;
+                }
+            }
+        }
+        &__card{
+            .top{flex-direction: row;}
+            .bottom{
+                direction: ltr;
+                img{margin-right: 10px;}
+            }
+        }
+        &__filter{
+            .top{text-align: left;}
+            .bottom{
+                flex-direction: row;
+                select{direction: ltr;}
+            }
+        }
+    }
+
+}
+.Ar{
+    .myrequest {
+        &__headr {
+            text-align: right;
+            flex-direction: row-reverse;
+            .right{
+                flex-direction: row-reverse;
+                .btn{
+                    img{
+                        margin: 0 0 0 8px;
+                    }
+                }
+                .btn-request{
+                    margin-right: 20px;
+                }
+            }
+        }
+        &__card{
+            .top{
+                flex-direction: row-reverse;
+            }
+            .bottom{
+                direction: rtl;
+                img{margin-left: 10px;}
+            }
+        }
+        &__filter{
+            .top{text-align: right;}
+            .bottom{
+                flex-direction: row-reverse;
+                select{direction: rtl;}
+            }
+        }
     }
 }
 // 7- Style MyRequest Page To Media Queris 992px.

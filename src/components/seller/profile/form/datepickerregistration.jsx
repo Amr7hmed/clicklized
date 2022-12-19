@@ -13,7 +13,10 @@ function DatePickerregistration(props) {
         minDate={new Date()} 
         placeholder={"date"}
         value={Data.values.vat_registration_date}
-        onChange={value => Data.setFieldValue("vat_registration_date", value)}
+        onChange={value => {
+          Data.setFieldValue("vat_registration_date", value)
+        console.log(value);
+        }}
         />
         {/*
       <img src={IconCleander} alt="Icon Cleander" />

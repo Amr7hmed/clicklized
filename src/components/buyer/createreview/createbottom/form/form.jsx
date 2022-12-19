@@ -6,7 +6,7 @@ import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
 
 function Form(props) {
-    const { Arraydataone, Arraydatatwo, SuppliersItems, imagesfiles, imageslogo, setParamsname, clickedLatLng } = props;
+    const { Arraydataone, Arraydatatwo, SuppliersItems, imagesfiles, imageslogo, setParamsname, clickedLatLng ,address} = props;
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -63,7 +63,7 @@ function Form(props) {
         setCheckboxtogglerequest(false);
 
         Createrequestdata(setLoading, Arraydataone, clickedLatLng, Itemsresults, daydata, SuppliersItems, imageslogo
-            , arrayimagesfiles, Arraydatatwo, setMessage);
+            , arrayimagesfiles, Arraydatatwo,address, setMessage );
 
     }
 
@@ -71,7 +71,7 @@ function Form(props) {
         return <form onSubmit={props.handleSubmit}>
             <Inputquotations Data={Arraydataone} />
             <InputItems Itemsresults={Itemsresults} />
-            <Inputaddress Data={Arraydataone} />
+            <Inputaddress Data={address} />
             <Inputday Data={daydata} />
             <Inputinsurance Data={Arraydataone} />
             <Inputtransportation Data={Arraydataone} />

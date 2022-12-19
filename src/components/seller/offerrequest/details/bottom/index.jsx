@@ -11,15 +11,15 @@ function RequestDatatBottom() {
 
         <div className="offerdetailsbottom__data">
 
-          <ItemOffer />
+          <ItemOffer Item={"Item 1"}/>
           <br />
-          <ItemOffer />
+          <ItemOffer Item={"Item 2"}/>
           <br />
-          <ItemOffer />
+          <ItemOffer Item={"Item 3"}/>
           <br />
-          <ItemOffer />
+          <ItemOffer Item={"Item 4"}/>
           <br />
-          <ItemOffer />
+          <ItemOffer Item={"Item 5"}/>
           <br />
           <NotesOffer />
 

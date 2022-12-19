@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import swal from 'sweetalert';
 import UploadImage from "../../../../images/icon/upload.png";
 import {GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateProfile} from "../../../../api/buyer/actionsprofile.js";
+import { Authcontext } from '../../../../store/context';
 
 function Formprofile(props) {
+    const authcontext = useContext(Authcontext);
+    const language = authcontext.language;
+
     const {Data}=props;
     const [dataindustries, setDataIndustries] = useState([]);
     const [message, setMessage] = useState("");
@@ -15,10 +19,10 @@ function Formprofile(props) {
     const [loadingcrfiles, setLoadingcrfiles] = useState(false);
     const [loadingvatfiles, setLoadingvatfiles] = useState(false);
     const state = {
-        name: "",
-        email: "",
-        phone: "",
-        industry: "",
+        name: Data.name,
+        email: Data.email,
+        phone: Data.phone,
+        industry: Data.industry.id,
     };
 
     
@@ -47,35 +51,49 @@ function Formprofile(props) {
                 <div className="modal-body">
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">User Name</label>
+                            <label className="form-label">
+                        {language === "Ar" ?"الأسم":"User name"}
+                        </label>
                             <Field type={"text"}
                                 className={props.errors.name ? "form-control is-invalid" : "form-control"}
-                                placeholder="User Name" name="name" />
+                                placeholder=
+                                {language === "Ar" ?"الأسم":"User name"}
+                                 name="name" />
                             <ErrorMessage name="name" component="span" className='errorfiled' />
                         </div>
 
                         <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Bussiness Email</label>
+                            <label className="form-label">
+                        {language === "Ar" ?"الأيميل":"Business Email"}
+                        </label>
                             <Field type={"email"}
                                 className={props.errors.email ? "form-control is-invalid" : "form-control"}
-                                placeholder="Bussiness Email" name="email" />
+                                placeholder=
+                                {language === "Ar" ?"الأيميل":"Business Email"}
+                                 name="email" />
                             <ErrorMessage name="email" component="span" className='errorfiled' />
                         </div>
                     </div>
 
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Contact Number</label>
+                            <label className="form-label">
+                        {language === "Ar" ?"رقم الهاتف":"Contact Number"}
+                        </label>
                             <Field type={"number"}
                                 className={props.errors.phone ? "form-control is-invalid" : "form-control"}
-                                placeholder="Contact Number" name="phone" />
+                                placeholder=
+                                {language === "Ar" ?"رقم الهاتف":"Contact Number"}
+                                 name="phone" />
                             <ErrorMessage name="phone" component="span" className='errorfiled' />
                         </div>
                     </div>
 
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Company Industry</label>
+                            <label className="form-label">
+                            {language === "Ar" ? "قطاع الشركة" : "Company Industry"}
+                            </label>
 
                             <Field name="industry" component="select"
                                 className={props.errors.industry ? "form-select is-invalid" : "form-select"}  >
@@ -89,7 +107,9 @@ function Formprofile(props) {
                         </div>
 
                         <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Company CR</label>
+                            <label className="form-label">
+                            {language === "Ar" ? "السجل التجاري" : "Company CR"}
+                            </label>
                             
 
                             
@@ -101,13 +121,17 @@ function Formprofile(props) {
                                       onChange={e => {
                                               UpdateCompanycr(Data, e.target.files, setMessagecrfiles , setLoadingcrfiles)
                                           }} />
-                                      <img src={UploadImage} alt="" />
-                                      Upload files
+                                          {language === "Ar" ?
+                                              <>تحميل الملفات<img src={UploadImage} alt="" /></>
+                                              :<><img src={UploadImage} alt="" />Upload files</>
+                                          }
                                   </button>
                                         :
                                         <button type='button' className='btn btn-upload button-disabled'>
-                                            <span className="spinner"></span>
-                                            Loading
+                                           {language === "Ar" ?
+                                            <>جاري التحميل<span className="spinner"></span></>
+                                            :<><span className="spinner"></span>Loading</>
+                                        }
                                         </button>}
                             {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
                         </div>
@@ -115,7 +139,9 @@ function Formprofile(props) {
 
                     <div className='row'>
                         <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">Company VAT</label>
+                            <label className="form-label">
+                            {language === "Ar" ? "ملف ضريبة القيمة المضافة" : "Company VAT"}
+                            </label>
                             
                             
                             {loadingvatfiles === false ?
@@ -126,13 +152,18 @@ function Formprofile(props) {
                                             UpdateCompanyvat(Data, e.target.files, setMessagevatfiles,setLoadingvatfiles)
                                         }}
                                       multiple accept="image/*"  />
-                                      <img src={UploadImage} alt="" />
-                                      Upload files
+                                       {language === "Ar" ?
+                                        <>تحميل الملفات<img src={UploadImage} alt="" /></>
+                                        :<><img src={UploadImage} alt="" />Upload files</>
+                                    }
                                   </button>
                                         :
                                         <button type='button' className='btn btn-upload button-disabled'>
                                             <span className="spinner"></span>
-                                            Loading
+                                            {language === "Ar" ?
+                                            <>جاري التحميل<span className="spinner"></span></>
+                                            :<><span className="spinner"></span>Loading</>
+                                        }
                                         </button>}
 
                             
@@ -142,9 +173,13 @@ function Formprofile(props) {
                     {message === "" ? "" : <span className='errorfiled'>{message}</span>}
                     <div className='end'>
                         <button className={'btn btn-send button-active'}
-                            type="submit" >Save</button>
+                            type="submit" >
+                            {language === "Ar" ?"حفظ":"Save"}
+                            </button>
                         <button type="button" className="btn btn-cancel"
-                            data-bs-dismiss="modal">Cancel</button>
+                            data-bs-dismiss="modal">
+                            {language === "Ar" ?"ألغاء":"Cancel"}
+                            </button>
                     </div>
                 </div>
 

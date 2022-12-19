@@ -24,7 +24,6 @@
     height: 74px;
     background-color: #f5e9bd;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     -webkit-border-radius: 8px;
@@ -53,7 +52,6 @@
 
     .right {
       display: flex;
-      flex-direction: row;
 
       .btn {
         width: 200px;
@@ -63,11 +61,6 @@
         font-weight: bold;
         color: #231f20;
         position: relative;
-
-        &:first-of-type {
-          margin-right: 15px;
-        }
-
         &:active {
           border-color: #e8d173;
         }
@@ -76,7 +69,6 @@
       img {
         width: 19.2px;
         height: 19.2px;
-        margin-right: 15px;
         object-fit: contain;
       }
     }
@@ -89,12 +81,15 @@
     background-color: #fff;
     padding: 1px;
     margin-bottom: 85px;
-// 4- Style MyProfile Page Bottom UserData
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+    // 4- Style MyProfile Page Bottom UserData    
     .userdata {
       margin: 40px 70px;
       padding: 20px 0px 70px 0px;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e7e7e7;
@@ -154,7 +149,10 @@
           justify-content: center;
           align-items: center;
           position: relative;
-
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
           &:active {
             border-color: #e8d173;
           }
@@ -163,7 +161,6 @@
             width: 19px;
             height: 19px;
             object-fit: contain;
-            margin-right: 20px;
             margin-bottom: 0px;
           }
 
@@ -185,7 +182,6 @@
       margin: 40px 70px;
       padding: 70px 0px 20px 0px;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
 
@@ -247,13 +243,11 @@
               img {
                 width: 40px;
                 height: 40px;
-                margin: 0 12px 0 0;
                 object-fit: contain;
               }
             }
             .imgagegallary{
               display: flex;
-              flex-direction: row;
               flex-wrap: wrap;
               .img{    
                 width: 70px;
@@ -277,7 +271,6 @@
                   height: 20px;
                   border-radius: 50%;
                   top: -20%;
-                  right: -10%;
                   -webkit-border-radius: 50%;
                   -moz-border-radius: 50%;
                   -ms-border-radius: 50%;
@@ -325,7 +318,6 @@
           font-weight: bold;
           color: #231f20;
           display: flex;
-          flex-direction: row;
           justify-content: center;
           align-items: center;
           position: relative;
@@ -338,7 +330,6 @@
             width: 19px;
             height: 19px;
             object-fit: contain;
-            margin-right: 20px;
             margin-bottom: 0px;
           }
 
@@ -359,6 +350,8 @@
     }
   }
 }
+
+
 
 
 // 6- Style MyProfile Page Form ModalChangePasswordBuyer
@@ -388,7 +381,6 @@
           position: absolute;
           z-index: 2;
           top: 50%;
-          right: 1%;
           transform: translate(0%, -50%);
           -webkit-transform: translate(0%, -50%);
           -moz-transform: translate(0%, -50%);
@@ -424,7 +416,6 @@
 
     .end {
       display: flex;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
 
@@ -439,7 +430,6 @@
 
       .btn-send {
         background-color: #e9d173;
-        margin-right: 15px;
         color: #231f20;
       }
 
@@ -563,7 +553,6 @@
 
       .btn-send {
         background-color: #e9d173;
-        margin-right: 15px;
         color: #231f20;
       }
 
@@ -598,7 +587,7 @@
   background-color: rgba(0, 0, 0, .5);
   top: 0;
   left: 0%;
-
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -682,6 +671,184 @@
   display: flex !important;
   justify-content: center;
   align-items: center;
+}
+
+.En{
+  .myprofile {
+    &__top {
+      flex-direction: row;
+      .left {.text {text-align: left;}}
+      .right {
+        flex-direction: row;
+        .btn {&:first-of-type {margin-right: 15px;}}
+  
+        img {
+          margin-right: 15px;
+        }
+      }
+    }
+    &__bottom {
+      .userdata {
+        flex-direction: row;
+        .left {ul {li {text-align: left;}}}
+        .right {
+          .btn {img {margin-right: 20px;}}
+        }
+      }
+      .companydata {
+        flex-direction: row;
+        .left {
+          ul {
+            li {
+              text-align: left;
+              .btn-upload {
+                img {
+                  margin: 0px 12px 0px 0px;
+                }
+              }
+              .imgagegallary{
+                flex-direction: row;
+                .img{    
+                  .btn-deletimage{
+                    right: -10%;
+                  }
+                }
+              }
+            }
+          }
+        }
+        
+      .right {
+        .btn {
+          flex-direction: row;
+          img {
+            margin-right: 20px;
+          }
+        }
+      }
+  
+      }
+    }
+  }
+  #modalchangepasswordbuyer {
+    .modal-body {
+      >div {
+        .filedpassword {
+          .toggoleimg {right: 1%;}
+        }
+      }
+      .end {
+        flex-direction: row;
+  
+        .btn-send {
+          margin-right: 15px;
+        }
+  
+      }
+    }
+  }
+  #modeleditprofilebuyer {
+    .modal-body {
+      direction: ltr;
+      .end {
+        .btn-send {
+          margin-right: 15px;
+        }
+      }
+    }
+  
+  }
+}
+.Ar{
+  .myprofile {
+    &__top {
+      flex-direction: row-reverse;
+      .left {.text {text-align: right;}}
+      .right {
+        flex-direction: row-reverse;
+        .btn {&:first-of-type {margin-left: 15px;}}
+  
+        img {
+          margin-left: 15px;
+        }
+      }
+    }
+    &__bottom {
+      .userdata {
+        flex-direction: row-reverse;
+        .left {ul {li {text-align: right;}}}
+        .right {
+          .btn {img {margin-left: 20px;}}
+        }
+      }
+      .companydata {
+        flex-direction: row-reverse;
+        .left {
+          ul {
+            li {
+              text-align: right;
+              .btn-upload {
+                img {
+                  margin: 0 0px 0 12px;
+                }
+              }
+              .imgagegallary{
+                flex-direction: row-reverse;
+                .img{    
+                  .btn-deletimage{
+                    left: -10%;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .right {
+          .btn {
+            flex-direction: row-reverse;
+            img {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #modalchangepasswordbuyer {
+    .modal-body {
+      >div {
+        text-align: right;
+        .filedpassword {
+          .toggoleimg {left: 1%;}
+          input{
+            text-align: right;
+            &::placeholder{
+              text-align: right;
+            }
+          }
+        }
+      }
+      .end {
+        flex-direction: row-reverse;
+  
+        .btn-send {
+          margin-left: 15px;
+        }
+  
+      }
+    }
+  }
+  #modeleditprofilebuyer {
+    .modal-body {
+      direction: rtl;
+      .end {
+        .btn-cancel {
+          margin-right: 15px;
+        }
+      }
+    }
+  
+  }
 }
 // 9- Style MyProfile Page To Media Queris 992px.
 @media screen and (max-width: 992px) {

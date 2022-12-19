@@ -16,17 +16,36 @@ function Form(props) {
     const setCompanyemailrequest = authcontext.setCompanyemailrequest;
     const setContactnumebrrequest = authcontext.setContactnumebrrequest;
     const supplierslistrequest = authcontext.supplierslistrequest;
+    const [showsupplerslist,setShowsupplerslist]=useState(true);
 
     const onSubmit = (values) => {
         if (supplierslistrequest.length === 0) {
-            return false;
+
+            if(values.companyname === ""|| values.companyemail === "" || values.contactnumebr === ""){
+
+                if(values.checkboxtoggle === false){
+                    setShowsupplerslist(false)
+                }else{
+                    SendData(values)                
+                    setShowsupplerslist(false)
+                }
+
+            }else{
+                SendData(values)                
+                setShowsupplerslist(false)
+            }
+
         } else {
-            screnonedatatwo(values)
-            setCheckboxtogglerequest(values.checkboxtoggle);
-            setCompanynamerequest(values.companyname);
-            setCompanyemailrequest(values.companyemail);
-            setContactnumebrrequest(values.contactnumebr);
+            SendData(values)                
+            setShowsupplerslist(false)
         }
+    }
+    const SendData=(values)=>{
+        screnonedatatwo(values)
+        setCheckboxtogglerequest(values.checkboxtoggle);
+        setCompanynamerequest(values.companyname);
+        setCompanyemailrequest(values.companyemail);
+        setContactnumebrrequest(values.contactnumebr);
     }
 
 
@@ -57,10 +76,11 @@ function Form(props) {
 
     const form = (props) => {
         return <form onSubmit={props.handleSubmit}>
-            <InputSupplierslist supplierslistrequest={supplierslistrequest} setSupplierslistrequest={setSupplierslistrequest} />
+            <InputSupplierslist supplierslistrequest={supplierslistrequest} setSupplierslistrequest={setSupplierslistrequest}/>
             <Inputcompany />
             <Inputcheckbox />
             <ModalSuppliersList AddSuppliers={AddSuppliers} DoneAdded={DoneAdded} RemoveallSuppliers={RemoveallSuppliers} />
+      {showsupplerslist === false ? <span className='errorfiled'>Add Supplier is Required</span>:""}
 
 
 

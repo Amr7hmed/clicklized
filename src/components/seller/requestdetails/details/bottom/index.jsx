@@ -1,14 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function RequestDatatBottom(props) {
-  const { request } = props;
+  const { request ,id} = props;
+  let navigate = useNavigate();
 
+
+  const Showpageoffer = (id) => {
+    navigate(`/offerrequest/${id}`);
+}
   return (
     <div className='requestdetailsbottom'>
       <div className='screenone'>
         <div className="requestdetailsbottom__top">
           <h5>Request details</h5>
-          <button className='btn btn__sendoffer'>
+          <button className='btn btn__sendoffer' type='button'
+          onClick={()=>Showpageoffer(id)}>
             Send offer
           </button>
         </div>

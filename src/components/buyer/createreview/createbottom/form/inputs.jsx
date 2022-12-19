@@ -51,7 +51,7 @@ export function Inputaddress(props) {
       <h6>Address</h6>
       <label className="form-label">Required Delivery Location</label>
       <Field type="textarea" component="textarea" readOnly
-        value={Data.address} className={"form-control"} />
+        value={Data} className={"form-control"} />
     </div>
   )
 };

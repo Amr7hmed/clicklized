@@ -15,6 +15,12 @@ function UserData(props) {
         setToggolemodal(!toggolemodal);
         UpdateImageprofile(imagedata,setMessage) ;
     }
+
+    const CansalchingImage=()=>{
+        setFile(DataUser.image);
+        setToggolemodal(!toggolemodal);
+        setImagedata(null);
+    }
   return (
     <div className='userdata'>
         <div className="left">
@@ -58,7 +64,8 @@ function UserData(props) {
         {toggolemodal === false ? 
         "" 
         :
-        <SaveData toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />
+        <SaveData toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} 
+        CansalchingImage={CansalchingImage}/>
         }
     </div>
   )

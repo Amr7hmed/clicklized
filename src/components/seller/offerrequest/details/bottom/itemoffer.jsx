@@ -1,9 +1,10 @@
 import React from 'react'
 
-function ItemOffer() {
+function ItemOffer(props) {
+    const {Item}=props;
     return (<div className="inputform_item">
         <div className="row">
-            <h6 className='col-12'>Item 1</h6>
+            <h6 className='col-12'>{Item}</h6>
             <div className="col-lg-6 col-md-12">
                 <label>Quantity</label>
                 <br />

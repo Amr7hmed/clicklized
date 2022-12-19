@@ -16,6 +16,12 @@ function CompanyData(props) {
         UpdateLogoprofile(imagedata, setMessage);
     }
 
+    const CansalchingImage=()=>{
+        setFile(Data.logo);
+        setToggolemodal(!toggolemodal);
+        setImagedata(null);
+    }
+
     return (
         <div className='companydata'>
             <div className="left">
@@ -167,7 +173,8 @@ function CompanyData(props) {
             </div>
 
             {toggolemodal === false ? ""
-                : <SaveData toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} />}
+                : <SaveData toggolemodal={toggolemodal} setToggolemodal={setToggolemodal} SendData={SendData} 
+                CansalchingImage={CansalchingImage}/>}
         </div>
     )
 

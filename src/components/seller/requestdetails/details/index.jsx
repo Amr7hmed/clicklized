@@ -25,7 +25,7 @@ function Showrequestrow(props) {
     return (
         <div className="requestdetailsdata__row">
             <NavList id={id} name={name} Stylebuttons={Stylebuttons} />
-            <RequestDatatBottom request={request} />
+            <RequestDatatBottom request={request} id={id}/>
         </div>
     )
 }

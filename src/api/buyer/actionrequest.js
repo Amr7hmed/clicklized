@@ -27,11 +27,11 @@ export const GetDataRequest = async (setLoading, setData) => {
 // Post Function Api
 
 export const Createrequestdata = async (setLoading,Arraydataone, clickedLatLng, Itemsresults, 
-  daydata, SuppliersItems, imageslogo, arrayimagesfiles, Arraydatatwo, setMessage) => {
+  daydata, SuppliersItems, imageslogo, arrayimagesfiles, Arraydatatwo,address, setMessage) => {
   const products = [];
   var data = new FormData();
   data.append("offers_allowed", Arraydataone.numberrequired);
-  data.append("address", Arraydataone.address);
+  data.append("address", address);
   data.append("lat", clickedLatLng.lat);
   data.append("lng", clickedLatLng.lng);
   data.append("delivery_date", daydata);
@@ -76,7 +76,7 @@ export const Createrequestdata = async (setLoading,Arraydataone, clickedLatLng, 
   axios(options).then(function (response) {
     setMessage("")
     setLoading(false);
-    window.location.pathname = `/myrequest`;
+   window.location.pathname = `/myrequest`;
   })
     .catch(function (error) {
       setMessage(error.response.data.message)

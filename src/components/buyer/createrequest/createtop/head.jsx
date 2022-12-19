@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import IconLeft from '../../../../images/icon/arrow-left.svg';
+import { Authcontext } from '../../../../store/context';
 
 function Head(props) {
   const {StyleScreen}=props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
+
   return (
     <div className="head">
       {StyleScreen === "createrequest_top"?
@@ -25,7 +29,9 @@ function Head(props) {
       <img src={IconLeft} alt="Icon Left" className='iconleft'/>
       </NavLink>
       }
-        <h4>Create new issue</h4>
+        <h4>
+          {language === "Ar" ? "إنشاء طلب جديد" : "Create new issue"}
+          </h4>
     </div>
   )
 }

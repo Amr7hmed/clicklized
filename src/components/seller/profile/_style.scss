@@ -456,6 +456,11 @@
   background-color: rgba(0, 0, 0, .5);
   top: 0;
   left: 0%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .modaldata {
     width: 382px;
