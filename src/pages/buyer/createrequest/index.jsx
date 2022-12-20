@@ -46,16 +46,16 @@ function CreateRequest() {
   const [arraydatatwo, setArraydatatwo] = useState({});
   const [imagesfiles, setImagesfiles] = useState(imagesfilesrequest);
   const [imageslogo, setImageslogo] = useState(imageslogorequest);
-  const [showaddress ,setShowaddress] = useState(true);
+  const [showaddress, setShowaddress] = useState(true);
   const [paramsname, setParamsname] = useState("");
   const [address, setAddress] = useState(addressrequest);
   const [SuppliersItems, setSuppliersItems] = useState(supplierslistrequest);
   const [clickedLatLng, setClickedLatLng] = useState({ lat: 23.392899070336068, lng: 42.86244913615009 });
 
   const screnonedataone = (values) => {
-    if(address === ""){
+    if (address === "") {
       setShowaddress(false);
-    }else{
+    } else {
       setArraydataone(values);
       setParamsname("createissue");
     }
@@ -115,8 +115,8 @@ function CreateRequest() {
               setClickedLatLng={setClickedLatLng} screnonedataone={screnonedataone}
               AddImagesfiles={AddImagesfiles} AddImageslogo={AddImageslogo}
               imageslogo={imageslogo} imagesfiles={imagesfiles}
-              RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo} 
-              address={address} setAddress={setAddress} showaddress={showaddress}/>
+              RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo}
+              address={address} setAddress={setAddress} showaddress={showaddress} />
         }
 
       </div>

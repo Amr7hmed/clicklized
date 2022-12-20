@@ -29,12 +29,10 @@
       // - Style Head
       .head {
         display: flex;
-        flex-direction: row;
         align-items: center;
         .iconleft{
           width: 33px;
           height: 25px;
-          margin-right: 11px;
         }
         h4 {
           font-size: 22px;
@@ -48,7 +46,6 @@
         margin-bottom: 25px;
         height: 98px;
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: space-around;
 
@@ -71,7 +68,6 @@
             -moz-border-radius: 50%;
             -ms-border-radius: 50%;
             -o-border-radius: 50%;
-            margin-right: 10px;
             background-color: #e4e4e4;
             color: #bcbcbc;
           }
@@ -164,7 +160,6 @@
             input {
               width: 40%;
               height: 45px;
-              margin-right: 5%;
               border: solid 1px #a5a5ac;
               background-color: #fff;
 
@@ -183,7 +178,6 @@
             textarea {
               width: 85%;
               height: 120px;
-              margin-right: 5%;
               border: solid 1px #a5a5ac;
               background-color: #fff;
 
@@ -210,7 +204,6 @@
                 width: 14px;
                 height: 19px;
                 filter: invert(0%) sepia(92%) saturate(30%) hue-rotate(137deg) brightness(103%) contrast(106%);
-                margin-right: 5px;
               }
 
               &:active {
@@ -253,7 +246,6 @@
                 position: absolute;
                 right: 5%;
                 top: 50%;
-                right: 1%;
                 top: 50%;
                 transform: translate(-1%, -50%);
               }
@@ -281,7 +273,6 @@
                   width: 100%;
                   height: 100%;
                   display: flex;
-                  flex-direction: row;
                   justify-content: center;
                   align-items: center;
                   font-size: 14px;
@@ -311,7 +302,6 @@
           .inputform_items_row {
             margin-bottom: 50px;
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: flex-end;
 
@@ -323,12 +313,10 @@
               margin-top: 25px;
               width: 100%;
               display: flex;
-              flex-direction: row;
               align-items: flex-end;
 
               .inputform_item {
                 width: 40%;
-                margin-right: 5%;
                 display: flex;
                 flex-direction: column;
 
@@ -374,7 +362,6 @@
               img{
                 width: 20px;
                 height: 20px;
-                margin-right: 5px;
               }
 
               &:active {
@@ -407,7 +394,6 @@
             >div {
               width: 85%;
               display: flex;
-              flex-direction: row;
               justify-content: space-between;
               align-items: center;
               >span{
@@ -417,7 +403,6 @@
               }
               .imgagegallary {
                 display: flex;
-                flex-direction: row;
                 flex-wrap: wrap;
   
                 .img {
@@ -443,7 +428,6 @@
                       height: 20px;
                       border-radius: 50%;
                       top: -20%;
-                      right: -10%;
                       -webkit-border-radius: 50%;
                       -moz-border-radius: 50%;
                       -ms-border-radius: 50%;
@@ -465,7 +449,6 @@
             .btn-upload {
               position: relative;
               display: flex;
-              flex-direction: row;
               align-items: center;
               justify-content: center;
               margin-top: 9px;
@@ -496,7 +479,6 @@
               img {
                 width: 40px;
                 height: 40px;
-                margin: 0 12px 0 0;
                 object-fit: contain;
               }
             }
@@ -506,7 +488,6 @@
           .end {
             margin-top: 90px;
             display: flex;
-            flex-direction: row;
             justify-content: flex-start;
 
             .btn {
@@ -658,8 +639,153 @@
   }
 }
 
-.En{}
-.Ar{}
+.En{
+  .createrequest {
+    .create {
+      .top {
+        .head {
+          flex-direction: row;
+          .iconleft{margin-right: 11px;}
+        }
+        .list {
+          flex-direction: row;
+          li {
+            flex-direction: row;
+            .icon {margin-right: 10px;}}
+        }
+      }
+    }
+    .createbottom {
+      // 4- Style CreateRequest Page Bottom Screen One
+          .screenone {
+            .form {
+              form {
+                .inputform {
+                  direction: ltr;
+                  input {margin-right: 5%;}
+                  textarea {margin-right: 5%;}
+                  .addloction {img {margin-right: 5px;}}
+                  .day {img {right: 1%;}}
+                  ul {li {label {flex-direction: row-reverse;}}}
+                }
+      
+                .inputform_items_row {
+                  direction: ltr;
+                  .inputform_items {.inputform_item {margin-right: 5%;}}
+                  .btn-add {img{margin-right: 5px;}
+                  }
+                }
+      
+                .inputfiles {
+      
+                  >div {
+                    flex-direction: row;
+                    .imgagegallary {
+                      flex-direction: row;
+                      .img {.btn-deletimage{right: -10%;}}
+                  }
+                  }
+      
+                  .btn-upload {
+                    flex-direction: row;
+                    img {margin: 0 12px 0 0px;}
+                  }
+      
+                }
+      
+                .end {flex-direction: row;}
+              }
+            }
+          }
+        }
+  }}
+.Ar{
+  .createrequest {
+    .create {
+      .top {
+        .head {
+          flex-direction: row-reverse;
+          .iconleft{
+            transform: rotate(180deg);
+            margin-left: 11px;}
+        }
+        .list {
+          flex-direction: row-reverse;
+          li {
+            flex-direction: row-reverse;
+            .icon {margin-left: 10px;}}
+        }
+      }
+    }
+  }
+  .createbottom {
+        .screenone {
+          .form {
+            form {
+              .inputform {
+                direction: rtl;
+                input {margin-left: 5%;}
+                textarea {margin-left: 5%;}
+                .addloction {img {margin-left: 5px;}}
+                .day {img {left: 1%;}}
+                ul {li {label {flex-direction: row-reverse;}}}
+              }
+    
+              .inputform_items_row {
+                direction: rtl;
+                .inputform_items {
+                  .inputform_item {margin-left: 5%;}
+                }
+    
+    
+                .btn-add {
+                  img{
+                    margin-left: 5px;
+                  }
+                }
+              }
+    
+              .inputfiles {
+    
+                >div {
+                  flex-direction: row;
+                  .imgagegallary {
+                    flex-direction: row;
+      
+                    .img {
+                        .btn-deletimage{
+                          right: -10%;
+                        }
+                    }
+                }
+                }
+    
+                .btn-upload {
+                  flex-direction: row-reverse;
+                  img {margin: 0 12px 0 0 ;}
+                }
+    
+              }
+    
+              .end {flex-direction: row-reverse;}
+            }
+          }
+        }
+    }
+    #modalmap {
+      .modal-dialog {
+        .modal-content {
+          .modal-header{
+            flex-direction: row-reverse;
+            .btn-close {
+              margin: 0px;
+            }
+          }
+        }
+        .modal-footer {flex-direction: row-reverse;}
+      }
+    }
+}
 // 7- Style CreateRequest Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .createrequest {

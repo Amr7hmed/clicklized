@@ -9,6 +9,7 @@ function ItemSupplier(props) {
 
     const authcontext = useContext(Authcontext);
     const supplierslistrequest = authcontext.supplierslistrequest;
+    const language = authcontext.language;
 
     var newArray = supplierslistrequest.filter(function (el) {
         return el.id === item.id;
@@ -27,7 +28,13 @@ function ItemSupplier(props) {
             <button type='button'
                 className={newArray.length === 0 ? 'btn btn-add-item' : 'btn btn-add-item active'}
                 onClick={(e) => AddSuppliers(e, item)}>
-                {newArray.length === 0 ? "Add" : "Added"}
+                {newArray.length === 0 ?
+                <>
+            {language === "Ar" ? "أضافه": "Add"}
+                </>  : <>
+            {language === "Ar" ? "مضاف":  "Added"}
+                </>
+                }
             </button>
         </div>
     )

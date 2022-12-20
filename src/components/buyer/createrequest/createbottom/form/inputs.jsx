@@ -25,7 +25,7 @@ export function Inputquotations(props) {
         className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
         placeholder=
         {language === "Ar" ? "العدد المطلوب" : "Number of required quotations"}
-         name="numberrequired" />
+        name="numberrequired" />
 
 
       <ErrorMessage name="numberrequired" component="span" className='errorfiled' />
@@ -64,8 +64,8 @@ export function InputItems(props) {
                     </div>
                     <div className="inputform_item">
                       <label htmlFor={`items.${index}.quantity`}>
-                          {language === "Ar" ? "الكمية" : "Quantity"}
-                          </label>
+                        {language === "Ar" ? "الكمية" : "Quantity"}
+                      </label>
                       <Field
                         name={`items.${index}.quantity`}
                         maxLength={4}
@@ -96,7 +96,7 @@ export function InputItems(props) {
                         className={index === 0 ? "btn btn-remove hide" : "btn btn-remove"}
                         onClick={() => remove(index)}
                       >
-                      {language === "Ar" ? "مسح" : "Remove Item"}
+                        {language === "Ar" ? "مسح" : "Remove Item"}
                       </button>
                     </div>
 
@@ -108,7 +108,7 @@ export function InputItems(props) {
                       onClick={() => unshift({ item_id: '', quantity: '' })}
                     >
                       <img src={AddItemIcon} alt="Add Item Icon" />
-                      
+
                       {language === "Ar" ? "أضافه عنصر جديد" : "Add new item"}
                     </button>
 
@@ -135,16 +135,16 @@ export function Inputaddress(props) {
   return (
     <div className='inputform'>
       <h6>
-          {language === "Ar" ? "العنوان" : "Address"}
+        {language === "Ar" ? "العنوان" : "Address"}
       </h6>
       <label className="form-label">
-          {language === "Ar" ? "مكان التسليم المطلوب" : " Required Delivery Location"}
+        {language === "Ar" ? "مكان التسليم المطلوب" : " Required Delivery Location"}
       </label>
       <Field type="textarea" component="textarea"
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
         placeholder=
         {language === "Ar" ? "تسجيل مكان التسليم المطلوب" : "Enter Required Delivery Location"}
-         name="address" value={address}
+        name="address" value={address}
         onChange={(e) => {
           setAddress(e.target.value)
           setAddressrequest(e.target.value)
@@ -174,8 +174,8 @@ export function InputIndustry(props) {
   return (
     <div className='inputform'>
       <label className="form-label">
-          {language === "Ar" ? "قطاع الشركة" : "Company Industry"}
-        </label>
+        {language === "Ar" ? "قطاع الشركة" : "Company Industry"}
+      </label>
 
       <Field name="industry" component="select"
         className={errors.industry ? "form-select is-invalid" : "form-select"}  >
@@ -197,8 +197,8 @@ export function Inputday(props) {
   return (
     <div className='inputform inputformday'>
       <label className="form-label">
-          {language === "Ar" ? "تاريخ التسليم المطلوب / الموعد النهائي" : "Required Delivery Date/Deadline"}
-        </label>
+        {language === "Ar" ? "تاريخ التسليم المطلوب / الموعد النهائي" : "Required Delivery Date/Deadline"}
+      </label>
       <DatePickerdata Data={data} />
       <ErrorMessage name="day" component="span" className='errorfiled' />
     </div>
@@ -207,29 +207,27 @@ export function Inputday(props) {
 
 export function Inputinsurance(props) {
   const { Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Insurance (optional)</label>
+      <label className="form-label">
+        {language === "Ar" ? "التأمين" : "Insurance"}
+      </label>
       <ul>
         <li
           className={Data.values.inputinsurance === "yes" ? 'active' : ""}>
           <label>
             <Field type="radio" name="inputinsurance" value="yes" />
-            Yes
+            {language === "Ar" ? "موافق" : "Yes"}
           </label>
         </li>
         <li
           className={Data.values.inputinsurance === "no" ? 'active' : ""}>
           <label>
             <Field type="radio" name="inputinsurance" value="no" />
-            No
-          </label>
-        </li>
-        <li
-          className={Data.values.inputinsurance === "not_applicable" ? 'active' : ""}>
-          <label>
-            <Field type="radio" name="inputinsurance" value="not_applicable" />
-            Not applicable
+            {language === "Ar" ? "غير موافق" : "No"}
+
           </label>
         </li>
       </ul>
@@ -239,29 +237,33 @@ export function Inputinsurance(props) {
 
 export function Inputtransportation(props) {
   const { Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Transportation</label>
+      <label className="form-label">
+        {language === "Ar" ? "النقل" : "Transportation"}
+      </label>
       <ul>
         <li
           className={Data.values.transportation === "included" ? 'active' : ""}>
           <label>
             <Field type="radio" name="transportation" value="included" />
-            Included
+            {language === "Ar" ? "يشمل النقل" : "Included"}
           </label>
         </li>
         <li
           className={Data.values.transportation === "not_included" ? 'active' : ""}>
           <label>
             <Field type="radio" name="transportation" value="not_included" />
-            Not Included
+            {language === "Ar" ? "لا يشمل النقل" : "Not Included"}
           </label>
         </li>
         <li
           className={Data.values.transportation === "self_collection" ? 'active' : ""}>
           <label>
             <Field type="radio" name="transportation" value="self_collection" />
-            Self collection
+            {language === "Ar" ? "نقل من خلالى" : "Self collection"}
           </label>
         </li>
       </ul>
@@ -270,12 +272,18 @@ export function Inputtransportation(props) {
 };
 
 export function Inputnotes() {
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Notes</label>
+      <label className="form-label">
+        {language === "Ar" ? "الملاحظات" : "Notes"}
+      </label>
       <Field type="textarea" component="textarea"
         className={"form-control"}
-        placeholder="Enter notes if you have" name="notes" />
+        placeholder=
+        {language === "Ar" ? "أدخل الملاحظات هنا" : "Enter notes if you have"}
+        name="notes" />
     </div>
   )
 };
@@ -284,6 +292,7 @@ export function InputFiles(props) {
   const { AddImagesfiles, imagesfiles, AddImageslogo, imageslogo, RemoveImagesfiles, RemoveImageslogo } = props;
   const authcontext = useContext(Authcontext);
   const imagesfilesrequest = authcontext.imagesfilesrequest;
+  const language = authcontext.language;
   return (
     <div className='inputform inputfiles'>
       <div>
@@ -292,8 +301,16 @@ export function InputFiles(props) {
           <span className='btn-upload'>
             <Field type="file" className="input-file" name="files" multiple accept="image/*"
               onChange={e => { AddImagesfiles(e) }} />
-            <img src={UploadImage} alt="" />
-            Upload files
+            {language === "Ar" ?
+              <>
+                <img src={UploadImage} alt="" />
+                تحميل الملفات
+              </> :
+              <>
+                <img src={UploadImage} alt="" />
+                Upload files
+              </>
+            }
           </span>
         </span>
 
@@ -302,15 +319,25 @@ export function InputFiles(props) {
           <span className='btn-upload'>
             <Field type="file" className="input-file" accept="image/*" name="logo"
               onChange={e => { AddImageslogo(e) }} />
-            <img src={UploadImage} alt="" />
-            Upload logo
+            {language === "Ar" ?
+              <>
+                <img src={UploadImage} alt="" />
+                تحميل الشعار
+              </> :
+              <>
+                <img src={UploadImage} alt="" />
+                Upload logo
+              </>
+            }
           </span>
         </span>
       </div>
 
       <div>
         {imagesfiles.length === 0 ?
-          <span className="errorfiled">Files Is Required</span>
+          <span className="errorfiled">
+          {language === "Ar" ? "الملفات مطلوبة" : "Files Is Required"}
+          </span>
           :
           <span className="imgagegallary">
             {imagesfilesrequest.map((item, index) =>
@@ -329,7 +356,9 @@ export function InputFiles(props) {
 
 
         {imageslogo === null ?
-          <span className="errorfiled">Logo Is Required</span>
+          <span className="errorfiled">
+          {language === "Ar" ? "الشعار مطلوب" : "Logo Is Required"}
+          </span>
           :
           <span className="imgagegallary">
 

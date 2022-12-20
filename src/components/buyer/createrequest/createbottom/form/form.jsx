@@ -60,7 +60,9 @@ function Form(props) {
                 <button 
                 className={imagesfiles.length === 0 || imageslogo === null? 
                 'btn btn-next button-disabled' : 'btn btn-next button-active'}
-                 type="submit">Next</button>
+                 type="submit">
+                 {language === "Ar" ? "التالي" : "Next"}
+                 </button>
             </div>
 
         </form>
@@ -68,12 +70,17 @@ function Form(props) {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            numberrequired: Yup.string().max(5, 'Too Long!').required("Number Required"),
-            day: Yup.string().required("Day Is Required"),
+            numberrequired: Yup.string().max(5,<>{language === "Ar" ? 'طويل جدا!' : 'Too Long!'}</>)
+            .required(<>{language === "Ar" ? "الرقم المطلوب" : "Number Required"}</>),
+
+            day: Yup.string().required(<>{language === "Ar" ? 'التاريخ مطلوب' : "Day Is Required"}</>),
+
             items: Yup.array()
-            .min(1, "You need at least one Item")
+            .min(1, <>{language === "Ar" ? "أنت بحاجة إلى عنصر واحد على الأقل": "You need at least one Item"}</>)
+
             .required(""),
-            industry:Yup.string().required("Industry Is Required"),
+            industry:Yup.string().required(
+            <>{language === "Ar" ? "قطاع الشركة مطلوب": "Industry Is Required"}</>),
         });
         return schema;
     }

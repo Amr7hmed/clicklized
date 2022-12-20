@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { GetDataSuppliers } from '../../../../../api/buyer/actionsuppliers';
+import { Authcontext } from '../../../../../store/context';
 import ItemSupplier from './itemsupplier.jsx';
 
 function ModalSuppliersList(props) {
@@ -7,6 +9,8 @@ function ModalSuppliersList(props) {
   const [loading, setLoading] = useState(false);
   const [supplierslist, setSupplierslist] = useState([]);
 
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   useEffect(() => {
     GetDataSuppliers(setLoading, setSupplierslist);
   }, [loading]);
@@ -21,7 +25,9 @@ function ModalSuppliersList(props) {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"
             ></button>
           </div>
-          <h5 className="modal-title" id="modallsupplierslistLabel">Choose suppliers</h5>
+          <h5 className="modal-title" id="modallsupplierslistLabel">
+            {language === "Ar" ? "اختر الموردين" : "Choose suppliers"}
+            </h5>
           <div className="modal-body">
 
             <>
@@ -38,9 +44,13 @@ function ModalSuppliersList(props) {
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-save" data-bs-dismiss="modal"
-            onClick={DoneAdded}>Done</button>
+            onClick={DoneAdded}>
+            {language === "Ar" ? "أرسال" : "Done"}
+            </button>
             <button type="button" className="btn btn-close_modal" data-bs-dismiss="modal"
-            onClick={RemoveallSuppliers}>Cancel</button>
+            onClick={RemoveallSuppliers}>
+            {language === "Ar" ? "ألغاء" : "Cancel"}
+            </button>
           </div>
         </div>
       </div>
