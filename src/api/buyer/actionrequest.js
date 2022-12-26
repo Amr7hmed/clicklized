@@ -84,10 +84,3 @@ export const Createrequestdata = async (setLoading,Arraydataone, clickedLatLng, 
     });
 
 };
-/*
-
-var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer 56|Tocy1pGJqI33LwgaiaKdvKlNcST54ef21ErPbHjX");
-
-
-*/

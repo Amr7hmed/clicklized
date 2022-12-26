@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 
-function DatePickerdataEnd() {
+function DatePickerdataEnd(props) {
   return (<div className='day'>
   <DatePicker 
           className={ "data-input"}
-      placeholderText='Choose ending date'
+      placeholderText={props.data}
       selected={""}
       minDate={new Date()} 
       placeholder={"date"}

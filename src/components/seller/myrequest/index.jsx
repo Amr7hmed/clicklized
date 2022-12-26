@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
 import EmptyRequest from '../../../layout/empty/emptyrequest.jsx';
+import { Authcontext } from '../../../store/context.js';
 import RequestCardSeller from './card/index.jsx';
 import RequestFilterSeller from './filter/index.jsx'
 import RequestHeadrSeller from './headr/index.jsx';
@@ -8,6 +10,10 @@ import RequestRowSeller from './row/index.jsx'
 function RequestitemsSeller(props) {
   const { Data } = props;
   const [toggle, setToggole] = useState(false);
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
+
+
   return (
     <div className='requestitems'>
       {Data.length === 0 ?
@@ -16,7 +22,8 @@ function RequestitemsSeller(props) {
         Data.length < 4 ?
 
           <div className="container">
-            <RequestHeadrSeller Title={"My requests"}
+            <RequestHeadrSeller Title=
+          {language === "Ar" ? "طلباتي" : "My requests"}
               Toggle={toggle} setToggole={setToggole} />
             <RequestFilterSeller Toggle={toggle} />
             <div className='myrequestseller__row'>
@@ -27,7 +34,8 @@ function RequestitemsSeller(props) {
           </div>
           :
           <div className="container">
-            <RequestHeadrSeller Title={"My requests"}
+            <RequestHeadrSeller Title=
+          {language === "Ar" ? "طلباتي" : "My requests"}
               Toggle={toggle} setToggole={setToggole} />
             <RequestFilterSeller Toggle={toggle} />
 

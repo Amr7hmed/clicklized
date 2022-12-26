@@ -4,30 +4,25 @@ import * as Yup from "yup";
 import swal from "sweetalert";
 import Invisible from "../../../../images/icon/invisible.svg";
 import Visible from "../../../../images/icon/eye-regular.svg";
+import { UpdatePasswordprofile } from "../../../../api/actionsauth";
+import { Authcontext } from "../../../../store/context";
+import { useContext } from "react";
 
 function Formpassword() {
   const state = {
     newpassword: "",
     reenterpassword: "",
   };
-  const [toggle, setToggle] = useState(false);
+
   const [togglenewpassword, setTogglenewpassword] = useState(false);
   const [togglerenternewpassword, setTogglerenternewpassword] = useState(false);
 
-  const SendData = () => {
-    /*
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-        */
+  const [message, setMessage] = useState("");
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
 
-    window.location.reload();
-  };
   const onSubmit = (values) => {
-    SendData();
+    UpdatePasswordprofile(values.newpassword, values.reenterpassword, setMessage);
   };
 
   const form = (props) => {
@@ -36,7 +31,9 @@ function Formpassword() {
         <form onSubmit={props.handleSubmit}>
           <div className="modal-body">
             <div>
-              <label className="form-label">New Password</label>
+              <label className="form-label">
+                        {language === "Ar" ?"كلمة السر الجديدة":"New Password"}
+                  </label>
               <div className="filedpassword">
                 <Field
                   type={togglenewpassword === false ? "password" : "text"}
@@ -45,7 +42,7 @@ function Formpassword() {
                       ? "form-control is-invalid"
                       : "form-control"
                   }
-                  placeholder="Re-enter The New Password"
+                  placeholder={language === "Ar" ?"كلمة السر الجديدة":"New Password"} 
                   name="newpassword"
                 />
                 <span
@@ -75,7 +72,9 @@ function Formpassword() {
             </div>
 
             <div>
-              <label className="form-label">Re-enter The New Password</label>
+                        <label className="form-label">
+                        {language === "Ar" ?"أعد إدخال كلمة المرور الجديدة":"Re-enter The New Password"}
+                        </label>
               <div className="filedpassword">
                 <Field
                   type={togglerenternewpassword === false ? "password" : "text"}
@@ -84,7 +83,7 @@ function Formpassword() {
                       ? "form-control is-invalid"
                       : "form-control"
                   }
-                  placeholder="Re-enter The New Password"
+                  placeholder={language === "Ar" ?"أعد إدخال كلمة المرور الجديدة":"Re-enter The New Password"}
                   name="reenterpassword"
                 />
                 <span
@@ -114,6 +113,17 @@ function Formpassword() {
                 className="errorfiled"
               />
             </div>
+            
+            <div className="mb-3">
+                        {message === "" ? "" : message === "The password format is invalid." ?
+                            <span className='errorfiled'>
+                            {language === "Ar" ?
+                            "يجب أن تحتوي كلمة المرور على أحرف وأرقام "
+                            :"Password must contain letters and numbers"}
+                            </span>
+                            : <span className='errorfiled'>{message}</span>}
+                    </div>
+
 
             <div className="end">
               <button
@@ -127,7 +137,7 @@ function Formpassword() {
                 type="submit"
                 data-bs-dismiss="modal"
               >
-                Save
+              {language === "Ar" ?"حفظ":"Save"}
               </button>
 
               <button
@@ -135,7 +145,7 @@ function Formpassword() {
                 className="btn btn-cancel"
                 data-bs-dismiss="modal"
               >
-                Cancel
+              {language === "Ar" ?"ألغاء":"Cancel"}
               </button>
             </div>
           </div>

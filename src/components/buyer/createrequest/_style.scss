@@ -29,7 +29,11 @@
       // - Style Head
       .head {
         display: flex;
-        align-items: center;
+        .btn{
+          padding: 0px;
+          width: 33px;
+          height: 25px;
+        }
         .iconleft{
           width: 33px;
           height: 25px;
@@ -645,7 +649,7 @@
       .top {
         .head {
           flex-direction: row;
-          .iconleft{margin-right: 11px;}
+        .btn{margin-right: 11px;}
         }
         .list {
           flex-direction: row;
@@ -707,7 +711,9 @@
           flex-direction: row-reverse;
           .iconleft{
             transform: rotate(180deg);
-            margin-left: 11px;}
+          }
+            
+        .btn{margin-left: 11px;}
         }
         .list {
           flex-direction: row-reverse;

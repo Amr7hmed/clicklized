@@ -5,23 +5,33 @@ import IconClose from "../../../../images/icon/ic-close.svg";
 import IconProfile from "../../../../images/icon/img-profile.jpg";
 import IconCleander from "../../../../images/icon/calendar-icon.png";
 import IconPdfDownload from "../../../../images/icon/icon-short-pdf.png";
+import { Authcontext } from '../../../../store/context';
+import { useContext } from 'react';
 
 export function Inputquotations(props) {
   const { errors, Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Number of required quotations</label>
+      <label className="form-label">
+        {language === "Ar" ? "العدد المطلوب" : "Number of required quotations"}
+      </label>
       <Field type="text" component="input" readOnly
         id="inputquotations"
         value={Data.values.numberrequired}
         className={errors.numberrequired ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Number of required quotations" name="numberrequired" />
+        placeholder=
+        {language === "Ar" ? "العدد المطلوب" : "Number of required quotations"}
+        name="numberrequired" />
     </div>
   )
 };
 
 export function InputItems(props) {
   const { values } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
       <FieldArray name="items">
@@ -32,10 +42,13 @@ export function InputItems(props) {
                 values.items.map((item, index) => (
                   <div key={index} className='inputform_items' id={index}>
                     <div className="inputform_item">
-                      <label htmlFor={`items.${index}.item`}>Item</label>
+                      <label htmlFor={`items.${index}.item`}>
+                        {language === "Ar" ? "العنصر" : "Item"}
+                      </label>
                       <Field readOnly
                         name={`items.${index}.item`}
-                        placeholder="Jane Doe"
+                        placeholder=
+                        {language === "Ar" ? "العنصر" : "Item"}
                         value={item}
                         component="select"
                         className={"form-select"} >
@@ -43,10 +56,13 @@ export function InputItems(props) {
                       </Field>
                     </div>
                     <div className="inputform_item">
-                      <label htmlFor={`items.${index}.quantity`}>Quantity</label>
+                      <label htmlFor={`items.${index}.quantity`}>
+                        {language === "Ar" ? "الكمية" : "Quantity"}
+                      </label>
                       <Field readOnly
                         name={`items.${index}.quantity`}
-                        placeholder="Enter Quantity"
+                        placeholder=
+                        {language === "Ar" ? "الكمية" : "Quantity"}
                         type="text"
                         className={"form-control"} />
                     </div>
@@ -63,49 +79,67 @@ export function InputItems(props) {
 };
 export function Inputaddress(props) {
   const { errors, Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <h6>Address</h6>
-      <label className="form-label">Required Delivery Location</label>
+      <h6>
+        {language === "Ar" ? "العنوان" : "Address"}
+      </h6>
+      <label className="form-label">
+        {language === "Ar" ? "مكان التسليم المطلوب" : " Required Delivery Location"}
+      </label>
       <Field type="textarea" component="textarea" readOnly
         value={Data.values.address}
         className={errors.address ? "form-control is-invabuttond" : "form-control"}
-        placeholder="Enter Required Delivery Location" name="address" />
+        placeholder=
+        {language === "Ar" ? "مكان التسليم المطلوب" : " Required Delivery Location"}
+        name="address" />
     </div>
   )
 };
 
 export function Inputday(props) {
   const { Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform inputformday'>
-      <label className="form-label">Required Delivery Date/Deadline</label>
+      <label className="form-label">
+        {language === "Ar" ? "تاريخ التسليم المطلوب / الموعد النهائي" : "Required Delivery Date/Deadline"}
+      </label>
       <div className='day'>
-      <Field type="text" component="input" readOnly
-        value={Data.values.day}
-        className={"data-input"}/>
-        
-      <img src={IconCleander} alt="Icon Cleander" />
-         
-        </div>
+        <Field type="text" component="input" readOnly
+          value={Data.values.day}
+          className={"data-input"} />
+
+        <img src={IconCleander} alt="Icon Cleander" />
+
+      </div>
     </div>
   )
 };
 
 export function Inputinsurance(props) {
   const { Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Insurance (optional)</label>
+      <label className="form-label">
+        {language === "Ar" ? "التأمين" : "Insurance"}
+      </label>
       <ul>
 
         <li className={'active'}>
           <label>
             <Field type="radio" name="inputinsurance" value={Data.values.inputinsurance} />
-            {Data.values.inputinsurance === "yes" ?
-              "Yes" : Data.values.inputinsurance === "not_appbuttoncable" ? "Not appbuttoncable" :
-                "No"
-            }
+            {Data.values.inputinsurance === "yes" ? <>
+              {language === "Ar" ? "موافق" : "Yes"}
+            </>
+              : <>
+                {language === "Ar" ? "غير موافق" : "No"}
+              </>}
           </label>
         </li>
 
@@ -116,19 +150,26 @@ export function Inputinsurance(props) {
 
 export function Inputtransportation(props) {
   const { Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Transportation</label>
+      <label className="form-label">
+        {language === "Ar" ? "النقل" : "Transportation"}
+      </label>
       <ul>
 
         <li className={'active'}>
           <label>
             <Field type="radio" name="inputinsurance" value={Data.values.transportation} />
-            {Data.values.transportation === "included" ?
-              "Included" :
-              Data.values.transportation === "not-included" ?
-                "Not Included" :
-                "Self collection"
+            {Data.values.transportation === "included" ? <>
+              {language === "Ar" ? "يشمل النقل" : "Included"}
+            </> :
+              Data.values.transportation === "not-included" ? <>
+                {language === "Ar" ? "لا يشمل النقل" : "Not Included"}
+              </> : <>
+                {language === "Ar" ? "نقل من خلالى" : "Self collection"}
+              </>
             }
           </label>
         </li>
@@ -139,13 +180,18 @@ export function Inputtransportation(props) {
 
 export function Inputnotes(props) {
   const { Data } = props;
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='inputform'>
-      <label className="form-label">Notes</label>
+      <label className="form-label">
+        {language === "Ar" ? "الملاحظات" : "Notes"}
+        </label>
       <Field type="textarea" component="textarea" readOnly
         className={"form-control"}
         value={Data.values.notes}
-        placeholder="Enter notes if you have" name="notes" />
+        placeholder=
+        {language === "Ar" ? "أدخل الملاحظات هنا" : "Enter notes if you have"} name="notes" />
     </div>
   )
 };
@@ -172,9 +218,13 @@ export function Supplierslist(props) {
     let remainingArr = objArr.filter(data => data.id != id);
     objArr.push(remainingArr);
   }
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   return (
     <div className='supplierslist'>
-      <h6>Suppliers list</h6>
+      <h6>
+        {language === "Ar" ? "قائمة الموردين" : "Suppliers list"}
+        </h6>
       <div className="listitems">
         {objArr.map(item =>
           <span key={item.id} className="listitem">
@@ -190,22 +240,24 @@ export function Supplierslist(props) {
         )}
 
       </div>
-      
+
 
       <div className='end'>
-                <div>
-                <button className='btn btn-download'>
-                  <img src={IconPdfDownload} alt="" className='pdf' />
-                  Download as pdf</button>
-                </div>
-            </div>
+        <div>
+          <button className='btn btn-download'>
+            <img src={IconPdfDownload} alt="" className='pdf' />
+        {language === "Ar" ? "تحميل الملفات" : "Download as pdf"}
+          </button>
+        </div>
+      </div>
 
-    <div className='inputform'>
-          <Field type="checkbox" name="checkboxtoggle" disabled="disabled"
+      <div className='inputform'>
+        <Field type="checkbox" name="checkboxtoggle" disabled="disabled"
           checked={Data.values.checkboxtoggle} />
-            <label className="form-label formlabel-checkbox">
-              Send invitations to all suppliers</label>
-    </div>
+        <label className="form-label formlabel-checkbox">
+        {language === "Ar" ? "إرسال دعوات لجميع الموردين" : "Send invitations to all suppliers"}
+        </label>
+      </div>
     </div>
   )
 };

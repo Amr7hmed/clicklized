@@ -23,7 +23,6 @@
     height: 74px;
     background-color: #f5e9bd;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     -webkit-border-radius: 8px;
@@ -39,7 +38,6 @@
 
     .left {
       display: flex;
-      flex-direction: row;
       justify-content: flex-start;
       align-items: center;
 
@@ -52,7 +50,6 @@
 
     .right {
       display: flex;
-      flex-direction: row;
 
       .btn {
         width: 200px;
@@ -62,20 +59,12 @@
         font-weight: bold;
         color: #231f20;
         position: relative;
-
-        &:first-of-type {
-          margin-right: 15px;
-        }
-
-        &:active {
-          border-color: #e8d173;
-        }
+        &:active {border-color: #e8d173;}
       }
 
       img {
         width: 19.2px;
         height: 19.2px;
-        margin-right: 15px;
         object-fit: contain;
       }
     }
@@ -162,7 +151,6 @@
             width: 19px;
             height: 19px;
             object-fit: contain;
-            margin-right: 20px;
             margin-bottom: 0px;
           }
 
@@ -258,7 +246,6 @@
             width: 19px;
             height: 19px;
             object-fit: contain;
-            margin-right: 20px;
             margin-bottom: 0px;
           }
 
@@ -276,6 +263,7 @@
     }
   }
 }
+
 #modalchangepasswordseller {
   font-family: var(--font-cairo);
 
@@ -302,7 +290,6 @@
           position: absolute;
           z-index: 2;
           top: 50%;
-          right: 1%;
           transform: translate(0%, -50%);
           -webkit-transform: translate(0%, -50%);
           -moz-transform: translate(0%, -50%);
@@ -338,7 +325,6 @@
 
     .end {
       display: flex;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
 
@@ -353,7 +339,6 @@
 
       .btn-send {
         background-color: #e9d173;
-        margin-right: 15px;
         color: #231f20;
       }
 
@@ -436,7 +421,6 @@
 
       .btn-send {
         background-color: #e9d173;
-        margin-right: 15px;
         color: #231f20;
       }
 
@@ -540,6 +524,145 @@
   display: flex !important;
   justify-content: center;
   align-items: center;
+}
+
+.En{
+  .myprofileseller {
+    &__top {
+      flex-direction: row;
+      .left {flex-direction: row;}
+      .right {flex-direction: row;
+        .btn {
+          &:first-of-type {margin-right: 15px;}
+        }
+        img {margin-right: 15px;}
+      }
+    }
+    &__bottom {
+      .userdata {
+        flex-direction: row;
+        .left {
+          ul {
+            li {text-align: left;}
+          }
+        }
+        .right {
+          .btn {
+            img {margin-right: 20px;}
+          }
+        }
+      }
+      .companydata {
+        direction: ltr;
+        .right {
+          .btn {
+            img {margin-right: 20px;}
+          }
+        }
+      }
+    }
+  }
+  #modalchangepasswordseller {
+    .modal-body {
+      >div {
+        .filedpassword {
+          .toggoleimg {right: 1%;}
+        }
+      }
+      .end {
+        flex-direction: row;
+  
+        .btn-send {
+          margin-right: 15px;
+        }
+  
+      }
+    }
+  } 
+  #modeleditprofileseller {
+    direction: ltr;
+    .modal-body {
+      .end {
+        .btn-send {margin-right: 15px;}
+      }
+    }
+  }
+}
+.Ar{
+  .myprofileseller {
+    &__top {
+      flex-direction: row-reverse;
+  
+      .left {flex-direction: row-reverse;}
+  
+      .right {
+        flex-direction: row-reverse;
+  
+        .btn {
+          &:first-of-type {margin-left: 15px;}
+        }
+  
+        img {margin-left: 15px;}
+      }
+    }
+    &__bottom {
+      .userdata {
+        flex-direction: row-reverse;
+        .left {
+          ul {
+            li {text-align: right;}
+          }
+        }
+        .right {
+          .btn {
+            img {margin-left: 20px;}
+          }
+        }
+      }
+      .companydata {
+        direction: rtl;
+        .right {
+          .btn {
+            img {margin-left: 20px;}
+  
+          }
+        }
+      }
+    }
+  }
+  #modalchangepasswordseller {
+    .modal-body {
+      >div {
+        text-align: right;
+        .filedpassword {
+          .toggoleimg {left: 1%;}
+          input{
+            text-align: right;
+            &::placeholder{
+              text-align: right;
+            }
+          }
+        }
+      }
+      .end {
+        flex-direction: row-reverse;
+  
+        .btn-send {
+          margin-left: 15px;
+        }
+  
+      }
+    }
+  }
+  
+#modeleditprofileseller {
+  direction: rtl;
+  .modal-body {
+    .end {
+      .btn-send {margin-left: 15px;}
+    }
+  }
+}
 }
 
 // 9- Style MyProfileSeller Page To Media Queris 992px.

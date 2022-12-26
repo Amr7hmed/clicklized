@@ -10,15 +10,15 @@ function Showrequestrow(props) {
     const [paramsname, setParamsname] = useState("");
     const [stylebuttons, setStylebuttons] = useState("requestdetails");
     const state = {
-        numberrequired: "test",
+        numberrequired: "5482",
         items: [
             {
-                item: "one",
-                quantity: "1"
+                item: "Item one",
+                quantity: "152"
             },
             {
-                item: "two",
-                quantity: "2"
+                item: "Item two",
+                quantity: "263"
             },
         ],
         address: "21 set-test cairo",
@@ -45,11 +45,11 @@ function Showrequestrow(props) {
         <div className="showrequestdata__row">
             <NavList id={id} name={name} stylebuttons={stylebuttons} setParamsname={setParamsname} setStylebuttons={setStylebuttons} />
             {paramsname === "questionsbuyer" ?
-                <ShowQuestionsData />
-                : paramsname === "offersbuyer" ?
-                    <OffersDetiles />
-                    :
-                    <RequestDatatBottom state={state} />
+            <ShowQuestionsData />
+            : paramsname === "offersbuyer" ?
+            <OffersDetiles />
+            :
+            <RequestDatatBottom state={state} />
             }
         </div>
     )

@@ -1,12 +1,17 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Editicon from "../../../../../images/icon/edit-green.png";
 import IconTimer from "../../../../../images/icon/icon-timer.png";
+import { Authcontext } from '../../../../../store/context';
 
     function HomeRequestsCard(props) {
         const{Item}=props;
+        const authcontext = useContext(Authcontext);
+        const language = authcontext.language;
+
     const day = Item.delivery_date.split('T')[0];
     let navigate = useNavigate();
 
@@ -58,7 +63,7 @@ import IconTimer from "../../../../../images/icon/icon-timer.png";
             </div>
             <div className="button-data">
                 <button className="btn" type='button' onClick={()=>Showpageoffer(Item.id)}>
-                Send offer
+                    {language === "Ar" ? "إرسال العرض" : "Send offer"}
                 </button>
             </div>
         </div>

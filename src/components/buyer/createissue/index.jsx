@@ -8,7 +8,7 @@ function CreateIssueData(props) {
 
     return (
         <section className='create createissuedata'>
-            <CreateTop  StyleScreen="createissue_top"/>
+            <CreateTop  StyleScreen="createissue_top" setParamsname={setParamsname}/>
             <CreateIssueBottom Statedata={Statedata} screnonedatatwo={screnonedatatwo} setParamsname={setParamsname}
             setSuppliersItems={setSuppliersItems}/>
         </section>

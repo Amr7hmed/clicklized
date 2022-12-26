@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import IconLeft from '../../../../images/icon/arrow-left.svg';
+import { Authcontext } from '../../../../store/context';
 
 function ShowTop(props) {
     const { id, name } = props;
-    const SendData=(value)=>{
+    const authcontext = useContext(Authcontext);
+    const { status, setStatus } = useState("");
+    const language = authcontext.language;
+    const SendData = (value) => {
     }
     return (
         <div className='showrequestdata__top'>
@@ -12,21 +16,35 @@ function ShowTop(props) {
                 <NavLink to={"/myrequest"}>
                     <img src={IconLeft} alt="Icon Left" className='iconleft' />
                 </NavLink>
-                <h4>Request name #{name}</h4>
+                <h4>
+                    {language === "Ar" ?
+                        <>
+                            عنوان الطلب #{name}
+                        </> : <>
+                            Request name #{name}
+                        </>}
+                </h4>
             </div>
 
             <div className="right">
-                <span className='text'>Change status</span>
+                <span className='text'>
+                    {language === "Ar" ? "تغيير الحاله" : "Change status"}
+                </span>
 
 
                 <div className="dropdown">
-                    <button className="btn dropdown-toggle" 
-                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Open
+                    <button className="btn dropdown-toggle"
+                        type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        {language === "Ar" ? "مفتوح" : "Open"}
                     </button>
                     <ul className="dropdown-menu dropdown-menu-lg-start" aria-labelledby="dropdownMenuButton1">
-                        <li onClick={()=>SendData("open")}>Open</li>
-                        <li onClick={()=>SendData("close")}>Close</li>
+                        <li onClick={() => SendData("open")}>
+                            {language === "Ar" ? "مفتوح" : "Open"}
+                        </li>
+                        <li onClick={() => SendData("close")}>
+                            {language === "Ar" ? "مغلق" : "Close"}
+                        </li>
                     </ul>
                 </div>
             </div>

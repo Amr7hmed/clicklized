@@ -76,8 +76,8 @@
 // 4-  Style Navbar component Nav D-Flex
     .d-flex {
         .iconnotification {
-            margin-right: 45px;
             position: relative;
+            margin: 0px 45px;
 
             a {
                 width: 20px;
@@ -97,7 +97,6 @@
 
             .dropdown-menu[data-bs-popper] {
                 top: 150%;
-                left: -349px;
                 width: 399px;
                 height: 348px;
                 border-radius: 2px;
@@ -110,7 +109,6 @@
                     content: "";
                     position: absolute;
                     top: -5%;
-                    right: 6%;
                     z-index: 10;
                     width: 0;
                     height: 0;
@@ -146,14 +144,12 @@
 
                         .time {
                             margin-top: 5px;
-                            text-align: right;
                             font-size: 14px;
                             color: #a5a5ac;
 
                             img {
                                 width: 16px;
                                 height: 16px;
-                                margin-right: 10px;
 
                             }
                         }
@@ -178,7 +174,6 @@
                     width: 32px;
                     height: 32px;
                     border-radius: 50%;
-                    margin-right: 8px;
                     -webkit-border-radius: 50%;
                     -moz-border-radius: 50%;
                     -ms-border-radius: 50%;
@@ -188,7 +183,6 @@
                 &::after {
                     content: "";
                     position: absolute;
-                    margin-left: 0.5em;
                     position: absolute;
                     bottom: 40%;
                     border-top: 0.5em solid;
@@ -199,7 +193,6 @@
 
             .dropdown-menu[data-bs-popper] {
                 top: 150%;
-                left: -40%;
                 width: 200px;
                 border-radius: 2px;
                 box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.1);
@@ -211,7 +204,6 @@
                     content: "";
                     position: absolute;
                     top: -10%;
-                    right: 6%;
                     z-index: 10;
                     width: 0;
                     height: 0;
@@ -239,7 +231,6 @@
                         img {
                             width: 22px;
                             height: 22px;
-                            margin-right: 10px;
                         }
 
                     }
@@ -266,6 +257,46 @@
                 }
             }
         }
+        
+        .changelanguage{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .d-flex{
+                ul {
+                    display: flex;
+                    margin-bottom: 0px;
+              
+                    li {
+                      display: flex;
+                      padding: 0px 10px;
+                      align-items: center;
+                      cursor: pointer;
+                      border-right: 1px solid #cbc4c4;
+              
+                      img {
+                        width: 20px;
+                        height: 20px;
+                      }
+              
+                      .text {
+                        color: #fff;
+                        font-size: 12px;
+                        font-weight: 500;
+                        margin: 0px 5px;
+                      }
+                    }
+              
+                    .not_active {
+                      opacity: .5;
+                      pointer-events: none;
+                      margin-right: 0px;
+                      border-right: none;
+                    }
+                  }
+            }
+           
+          }
     }
 
     a {
@@ -293,6 +324,102 @@
 }
 }
 
+// 7- Style Navbar component English Language .
+.En{
+    .navbarseller {
+        direction: ltr;
+        .collapse.navbar-collapse{
+            margin-right: 30px;
+        }
+        .d-flex {
+            .iconnotification {
+                .dropdown-menu[data-bs-popper] {
+                    left: -349px;
+                    &::after {right: 6%;}
+                    >div {
+                        li {
+                            .text {
+                                direction: ltr;
+                                text-align: left;
+                            }
+                            .time {
+                                text-align: right;
+                                img {margin-right: 10px;}
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .iconprofile {
+    
+                .dropdown-toggle {
+                    img {margin-right: 8px;}
+                    &::after {margin-left: 0.5em;}
+                }
+    
+                .dropdown-menu[data-bs-popper] {
+                    left: -40%;
+    
+                    &::after {
+                        right: 6%;
+                    }
+    
+                    li {
+                        a {img {margin-right: 10px;}}
+                    }
+                }
+            }
+    
+        }
+    
+    }
+
+}
+// 8- Style Navbar component Arabic Language .
+.Ar{
+    .navbarseller{
+        direction: rtl;
+        .collapse.navbar-collapse{
+            justify-content: space-between;
+            margin-left: 30px;
+            .navbar-nav.me-auto{margin-right: 0px !important;}
+        }
+        .d-flex {
+            .iconnotification {
+                .dropdown-menu[data-bs-popper] {
+                    right: -349px;
+                    &::after {left: 6%;}
+                    >div {
+                        li {
+                            .text {
+                                direction: rtl;
+                                text-align: right;
+                            }
+                            .time {
+                                text-align: left;
+                                img {margin-left: 10px;}
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .iconprofile {
+                .dropdown-toggle {
+                    img {margin-left: 8px;}
+                    &::after {margin-right: 0.5em;}
+                }
+    
+                .dropdown-menu[data-bs-popper] {
+                    right: -40%;
+                    &::after {left: 6%;}
+                    li {a {img {margin-left: 10px;}}}
+                }
+            }
+        }
+    }
+}
 
 // 7- Style Navbar component To Media Queris 992px.
 @media screen and (max-width: 992px) {

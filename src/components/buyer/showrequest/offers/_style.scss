@@ -26,7 +26,6 @@
 // 3- Style OffersBottom Page Bottom Screen Top.
         &__top {
             display: flex;
-            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
@@ -89,7 +88,6 @@
                 visibility: visible;
                 width: 100%;
                 display: flex;
-                flex-direction: row;
                 justify-content: space-between;
                 align-items: flex-end;
                 height: 70px;
@@ -157,7 +155,6 @@
 // 5- Style OffersBottom Page Bottom Screen Tabel.
         &__tabel{
             display: flex;
-            flex-direction: row;
             .tabellist{
                 ul{
                     height: 100%;
@@ -172,7 +169,6 @@
                         font-size: 16px;
                         font-weight: bold;
                         color: #343433;
-                        margin-right: 20px;
                     }
                     .firstlist{
                         margin-bottom: 15px;
@@ -279,6 +275,46 @@
             }
         }
     }
+}
+.En{
+    .offersbottom {
+        .offersdetiles {
+            &__top {flex-direction: row;}
+            &__filter {
+                .top{h6{text-align: left;}}
+                .bottom {
+                    flex-direction: row;
+                    .inputform{direction: ltr;}
+                }
+            }
+            &__tabel{
+                flex-direction: row;
+                .tabellist{
+                    ul{li{margin-right: 20px;}}
+                }
+            }
+        }
+    }  
+}
+.Ar{
+    .offersbottom {
+        .offersdetiles {
+            &__top {flex-direction: row-reverse;}
+            &__filter {
+                .top{h6{text-align: right;}}
+                .bottom {
+                    flex-direction: row-reverse;
+                    .inputform{direction: rtl;}
+                }
+            }
+            &__tabel{
+                flex-direction: row-reverse;
+                .tabellist{
+                    ul{li{margin-left: 20px;}}
+                }
+            }
+        }
+    }  
 }
 // 6- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {

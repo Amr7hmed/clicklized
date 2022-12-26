@@ -1,8 +1,12 @@
-import React , { useState ,useEffect } from 'react';
+import React , { useState ,useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Authcontext } from '../../../../store/context';
 
 function RequestCardSeller(props) {
     const { Dataoffer } = props;
+    const authcontext = useContext(Authcontext);
+    const language = authcontext.language;
+
     const day = Dataoffer.delivery_date.split('T')[0];
     let navigate = useNavigate();
 
@@ -41,7 +45,9 @@ function RequestCardSeller(props) {
             <div className="left">
                 <ul>
                     <li className='name'>
-                        <span className='title'>Offer number :</span>{" "}
+                        <span className='title'>
+                        {language === "Ar" ? "رقم العرض" : "Offer number"}
+                         :</span>{" "}
                         <span className="data">{Dataoffer.offers_allowed}</span>
                     </li>
                     <li className='day'>{day}</li>
@@ -54,7 +60,7 @@ function RequestCardSeller(props) {
                 </span>
                 <button className='btn' type='button'
                     onClick={() => ShowId(Dataoffer.id)}>
-                    Show details
+                    {language === "Ar" ? "التفاصيل" : "Show details"}
                 </button>
             </div>
         </div>

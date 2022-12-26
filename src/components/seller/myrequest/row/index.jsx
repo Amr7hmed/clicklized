@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import ReactPaginate from "react-paginate";
+import { Authcontext } from '../../../../store/context';
 import RequestCardSeller from '../card';
 
 function RequestRowSeller(props) {
@@ -10,6 +11,8 @@ function RequestRowSeller(props) {
   const [itemOffset, setItemOffset] = useState(0);
   const itemPerpage = 4;
 
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
 
   useEffect(() => {
     const endOffest = itemOffset + itemPerpage;
@@ -31,8 +34,10 @@ function RequestRowSeller(props) {
         )}
       </div>
       <ReactPaginate
-        previousLabel="< Back"
-        nextLabel="Next >"
+        previousLabel=
+        {language === "Ar" ? "< السابق" : "< Back"}
+        nextLabel=
+        {language === "Ar" ? "التالي >" : "Next >"}
         breakLabel={"..."}
         pageCount={pageCount}
         postsPerPage={2}

@@ -229,6 +229,12 @@
                 select{direction: ltr;}
             }
         }
+        &__row{
+            margin: 50px 0px;
+            .row{
+                flex-direction: row-reverse;
+            }
+        }
     }
 
 }
@@ -263,6 +269,12 @@
             .bottom{
                 flex-direction: row-reverse;
                 select{direction: rtl;}
+            }
+        }
+        &__row{
+            margin: 50px 0px;
+            .row{
+                flex-direction: row-reverse;
             }
         }
     }

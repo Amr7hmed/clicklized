@@ -10,6 +10,7 @@ function Form(props) {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
+
     const authcontext = useContext(Authcontext);
     const setNumberrequest = authcontext.setNumberrequest,
         setItemsrequest = authcontext.setItemsrequest,
@@ -27,6 +28,9 @@ function Form(props) {
         setContactnumebrrequest = authcontext.setContactnumebrrequest,
         setSupplierslistrequest = authcontext.setSupplierslistrequest;
     const Suppliers = [];
+
+    
+    const language = authcontext.language;
 
     const Itemsresults = Arraydataone.items.filter(obj => {
         return obj.quantity !== "";
@@ -82,17 +86,24 @@ function Form(props) {
             <div className='end'>
                 <div>
                     {loading === false ?
-                        <button className='btn btn-cancel' onClick={() => { setParamsname("createissue"); }}>Back</button>
-                        : <button className="btn btn-cancel button-disabled" type="button">Back</button>}
+                        <button className='btn btn-cancel' onClick={() => { setParamsname("createissue"); }}>
+                        {language === "Ar" ? "السابق" : "Back"}
+                        </button>
+                        : <button className="btn btn-cancel button-disabled" type="button">
+                        {language === "Ar" ? "السابق" : "Back"}
+                        </button>}
 
 
                     {/*<button className='btn btn-download'>Download as pdf</button>*/}
                 </div>
                 {loading === false ?
-                    <button className='btn btn-next' type="submit">Next</button>
+                    <button className='btn btn-next' type="submit">
+                    {language === "Ar" ? "التالي" : "Next"}
+                    </button>
                     :
                     <button className="btn btn-next button-disabled">
-                        Loading
+                    {language === "Ar" ? "جاري التحميل" : "Loading"}
+                        
                         <span className="spinner"></span>
                     </button>}
             </div>

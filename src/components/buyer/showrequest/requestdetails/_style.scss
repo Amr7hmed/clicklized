@@ -12,7 +12,8 @@
 .showrequest {
   .showrequestbottom {
     width: calc(100% - 280px);
-// 2- Style ShowRequestData Page Bottom Screen .
+
+    // 2- Style ShowRequestData Page Bottom Screen .
     .screenone {
       font-family: var(--font-cairo);
       height: auto;
@@ -21,9 +22,11 @@
       background-color: #fff;
       padding: 40px 50px;
       margin-bottom: 50px;
-      &__img{
+
+      &__img {
         text-align: center;
-        img{
+
+        img {
           width: 134px;
           height: 134px;
           border-radius: 50%;
@@ -32,8 +35,9 @@
           -ms-border-radius: 50%;
           -o-border-radius: 50%;
           margin-bottom: 30px;
-}
+        }
       }
+
       .title {
         margin-bottom: 45px;
 
@@ -43,7 +47,8 @@
           color: #343433;
         }
       }
-// 3- Style ShowRequestData Page Bottom Form .
+
+      // 3- Style ShowRequestData Page Bottom Form .
       .form {
         form {
           .inputform {
@@ -67,7 +72,6 @@
             input {
               width: 40%;
               height: 45px;
-              margin-right: 5%;
               border: solid 1px #a5a5ac;
               background-color: #fff;
 
@@ -82,7 +86,6 @@
             textarea {
               width: 85%;
               height: 120px;
-              margin-right: 5%;
               border: solid 1px #a5a5ac;
               background-color: #fff;
 
@@ -138,9 +141,7 @@
                 height: 24px;
                 object-fit: contain;
                 position: absolute;
-                right: 5%;
                 top: 50%;
-                right: 1%;
                 top: 50%;
                 transform: translate(-1%, -50%);
               }
@@ -199,7 +200,6 @@
               background-color: #fff;
               width: 22px;
               height: 22px;
-              margin-right: 5px;
               border-radius: 3px;
               border: solid 2px #dbdce5;
               display: inline-grid;
@@ -220,8 +220,8 @@
               }
 
               &:checked {
-                background-color: #e9d173;
-                border: 2px solid#e9d173;
+                background-color: #e9d173 !important;
+                border: 2px solid#e9d173 !important;
 
                 &::before {
                   transform: scale(1);
@@ -251,12 +251,10 @@
               margin-top: 25px;
               width: 100%;
               display: flex;
-              flex-direction: row;
               align-items: flex-end;
 
               .inputform_item {
                 width: 40%;
-                margin-right: 5%;
                 display: flex;
                 flex-direction: column;
 
@@ -287,8 +285,6 @@
             .btn-remove {
               height: 45px;
               width: 150px;
-              margin-right: 15px;
-
               background-color: #c5c5c5;
               color: #fff;
             }
@@ -385,7 +381,6 @@
             width: 100%;
             margin-bottom: 30px;
             display: flex;
-            flex-direction: row;
 
             .files {
               width: 180px;
@@ -397,12 +392,10 @@
               display: flex;
               justify-content: center;
               align-items: center;
-              margin-right: 15px;
 
               img {
                 width: 24px;
                 height: 27px;
-                margin-right: 15px;
                 object-fit: contain;
               }
             }
@@ -423,7 +416,6 @@
 
             .listitems {
               display: flex;
-              flex-direction: row;
 
               .listitem {
                 font-weight: bold;
@@ -432,7 +424,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                margin-right: 15px;
                 width: 220px;
                 height: 70px;
                 border-radius: 5px;
@@ -476,7 +467,6 @@
           .end {
             margin-top: 24px;
             display: flex;
-            flex-direction: row;
 
             .btn-download {
               background-color: transparent;
@@ -509,13 +499,173 @@
     }
   }
 }
+
+
+.En {
+  .showrequest {
+    .showrequestbottom {
+      .screenone {
+        .form {
+          form {
+            .inputform {
+              direction: ltr;
+
+              input {
+                margin-right: 5%;
+              }
+
+              textarea {
+                margin-right: 5%;
+              }
+
+              .day {
+                img {
+                  right: 1%;
+                }
+              }
+
+              input[type=checkbox] {
+                margin-right: 5px;
+              }
+            }
+
+            .inputform_items_row {
+              .inputform_items {
+                .inputform_item {
+                  margin-right: 5%;
+                }
+              }
+
+              .btn-remove {
+                margin-right: 15px;
+              }
+            }
+
+            .fileslist {
+              flex-direction: row;
+
+              .files {
+                margin-right: 15px;
+                flex-direction: row;
+
+                img {
+                  margin-right: 15px;
+                }
+              }
+
+            }
+
+            .supplierslist {
+              h6 {
+                text-align: left;
+              }
+
+              .listitems {
+                flex-direction: row;
+
+                .listitem {
+                  margin-right: 15px;
+                }
+              }
+            }
+
+            .end {
+              flex-direction: row;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Ar {
+  .showrequest {
+    .showrequestbottom {
+      .screenone {
+        .form {
+          form {
+            .inputform {
+              direction: rtl;
+
+              input {
+                margin-left: 5%;
+              }
+
+              textarea {
+                margin-left: 5%;
+              }
+
+              .day {
+                img {
+                  left: 1%;
+                }
+              }
+
+              input[type=checkbox] {
+                margin-left: 5px;
+              }
+            }
+
+            .inputform_items_row {
+              .inputform_items {
+                .inputform_item {
+                  margin-left: 5%;
+                }
+              }
+
+              .btn-remove {
+                margin-left: 15px;
+              }
+            }
+
+            .fileslist {
+              flex-direction: row-reverse;
+
+              .files {
+                margin-left: 15px;
+                flex-direction: row-reverse;
+
+                img {
+                  margin-left: 15px;
+                }
+              }
+
+            }
+
+            .supplierslist {
+              h6 {
+                text-align: right;
+              }
+
+              .listitems {
+                flex-direction: row-reverse;
+
+                .listitem {
+                  margin-left: 15px;
+                }
+              }
+            }
+
+            .end {
+              flex-direction: row-reverse;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // 4- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .showrequest {
+
     // 2- Style Bottom Page
     .showrequestbottom {
       width: 100% !important;
-margin-top: 20px;
+      margin-top: 20px;
+
       .screenone {
         padding: 20px;
 
@@ -555,6 +705,7 @@ margin-top: 20px;
 
             .inputform_items_row {
               margin-bottom: 10px;
+
               >div {
                 width: 100%;
               }
@@ -563,6 +714,7 @@ margin-top: 20px;
                 flex-direction: column;
                 padding-bottom: 5px;
                 border-bottom: 1px solid #ddd;
+
                 .inputform_item {
                   width: 100%;
                   margin-right: 0%;
@@ -605,13 +757,16 @@ margin-top: 20px;
     }
   }
 }
+
 // 5- Style ShowRequestData Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
   .showrequest {
+
     // 2- Style Bottom Page
     .showrequestbottom {
       .screenone {
         padding: 40px 20px;
+
         .form {
           form {
             .inputform {
@@ -640,8 +795,12 @@ margin-top: 20px;
                 }
               }
             }
+
             .inputform_items_row {
-              >div {width: 100%;}
+              >div {
+                width: 100%;
+              }
+
               .inputform_items {
                 flex-direction: column;
                 align-items: center;
@@ -665,10 +824,15 @@ margin-top: 20px;
                 }
               }
             }
-            .inputformday {margin-bottom: 50px;}
+
+            .inputformday {
+              margin-bottom: 50px;
+            }
+
             .inputfiles {
               >div {
                 flex-direction: column;
+
                 .item {
                   width: 100%;
                   margin: 15px 0px;
@@ -677,6 +841,7 @@ margin-top: 20px;
 
               .btn-upload {
                 font-size: 16px;
+
                 img {
                   width: 35px;
                   height: 35px;
@@ -760,15 +925,17 @@ margin-top: 20px;
                 }
               }
             }
+
             .end {
               justify-content: center;
+
               .btn-download {
                 font-size: 14px;
                 font-weight: bold;
                 width: 200px;
                 height: 70px;
                 margin-left: 0px;
-  
+
                 img.pdf {
                   width: 28px;
                   height: 33px;
@@ -781,99 +948,115 @@ margin-top: 20px;
     }
   }
 }
+
 // 6- Style ShowRequestData Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
   .showrequest {
+
     // 2- Style Bottom Page
     .showrequestbottom {
       .screenone {
         padding: 10px;
-        &__img{
+
+        &__img {
           text-align: center;
-          img{
+
+          img {
             width: 100px;
             height: 100px;
             margin-bottom: 10px;
           }
         }
-        .title {margin-bottom: 15px;
-          h6 {font-size: 16px;}
+
+        .title {
+          margin-bottom: 15px;
+
+          h6 {
+            font-size: 16px;
+          }
         }
+
         .form {
           form {
             .inputform {
               width: 100%;
               padding-top: 5px;
               margin-bottom: 10px;
+
               h6 {
                 margin-bottom: 10px;
                 font-size: 14px;
               }
- 
+
               label {
                 font-size: 12px;
                 margin-bottom: 5px;
               }
-   
+
               input {
                 width: 100%;
                 height: 35px;
                 font-size: 12px;
-  
+
                 &::placeholder {
                   padding: 4px;
                   font-size: 12px;
                 }
               }
-  
+
               textarea {
                 width: 100%;
                 height: 35px;
                 font-size: 12px;
-  
+
                 &::placeholder {
                   padding: 4px;
                   font-size: 12px;
                 }
               }
-  
-  
+
+
               .day {
                 height: 35px;
-  
+
                 .data-input {
                   padding: 5px;
                   font-size: 12px;
                 }
               }
- 
+
               ul {
                 li {
                   width: 100%;
                   height: 40px;
-                  label {font-size: 12px;}
+
+                  label {
+                    font-size: 12px;
+                  }
                 }
               }
             }
+
             .inputform_items_row {
               margin-bottom: 10px;
-  
+
               .inputform_items {
                 padding-bottom: 20px;
+
                 .inputform_item {
-  
+
                   label {
                     font-size: 12px;
                     margin-bottom: 5px;
                   }
-  
+
                   input,
                   select {
                     width: 100%;
                     height: 35px;
                     padding: 5px;
                     font-size: 12px;
-  
+
                     &::placeholder {
                       padding: 5px;
                       font-size: 12px;
@@ -882,47 +1065,51 @@ margin-top: 20px;
                 }
               }
             }
+
             .supplierslist {
               margin-bottom: 10px;
-  
+
               h6 {
                 margin: 10px 0px;
                 font-size: 14px;
               }
-  
+
               .listitems {
-  
+
                 .listitem {
                   font-size: 12px;
                   margin-right: 0px;
                   width: 100%;
                   height: 50px;
+
                   span {
                     display: flex;
                     align-items: center;
                   }
-  
+
                   img.iconprofile {
                     width: 20px;
                     height: 20px;
                     margin-right: 5px;
                   }
-  
+
                   .btn-close {
                     width: 20px;
                     height: 20px;
                     padding: 0px;
+
                     img {
                       width: 18px;
                       height: 18px;
                     }
                   }
-  
+
                 }
               }
             }
-          }}
-  
+          }
+        }
+
       }
     }
   }

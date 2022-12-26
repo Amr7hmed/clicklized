@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import DatePickerdatacrexpire from './datepickercrexpire';
 import DatePickerdatacrissue from './datepickerdatacrissue';
 import DatePickerregistration from './datepickerregistration';
+import { Authcontext } from '../../../../store/context';
+import { useContext } from 'react';
 
 function Formprofileseller(props) {
     const {Data}=props;
@@ -17,9 +19,9 @@ function Formprofileseller(props) {
     const [dataindustries, setDataIndustries] = useState([]);
     const [loadingcaity, setLoadingcaity] = useState(false);
     const [dataicaity, setDataicaity] = useState([]);
+    const authcontext = useContext(Authcontext);
+    const language = authcontext.language;
 
-    console.log(Data);
-    console.log(Data.supplier.company_name);
     
     useEffect(() => {
         GetDataIndustries(setLoading, setDataIndustries);
@@ -27,30 +29,21 @@ function Formprofileseller(props) {
     }, [loadingcaity]);
 
     const state = {
-        companyname: Data.supplier.company_name,
-        business_sector: Data.industry.id,
-        fax:Data.supplier.fax_number,
-        cr: Data.supplier.cr_number,
-        website:Data.supplierwebsite,
-        city:Data.city.id,
-        address:Data.supplier.address,
-        vat: Data.supplier.vat_number,
+        companyname: Data.supplier.company_name === null ?"":Data.supplier.company_name,
+        business_sector: Data.industry === null ?"":Data.industry.id,
+        fax:Data.supplier.fax_number === null ?"":Data.supplier.fax_number,
+        cr: Data.supplier.cr_number=== null ?"":Data.supplier.cr_number,
+        website:Data.supplier.website === undefined?"":Data.supplier.website,
+        city:Data.city.id === undefined ?"":Data.city.id,
+        address:Data.supplier.address === null ?"":Data.supplier.address,
+        vat: Data.supplier.vat_number === null ?"":Data.supplier.vat_number,
         cr_issue_date:"",
         cr_expire_date: "",
         vat_registration_date:"",
-        company_email:Data.supplier.business_email,
-        payment_terms:Data.supplier.payment_terms,
+        company_email:Data.supplier.business_email === null ? "" : Data.supplier.business_email,
+        payment_terms:Data.supplier.payment_terms === null ?"":Data.supplier.payment_terms,
     };
 
-    const SendData = () => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-       window.location.reload();
-    }
     const onSubmit = (values) => {
        UpdateProfile(Data,values,setMessage)
     }
@@ -60,19 +53,27 @@ function Formprofileseller(props) {
                 <div className="modal-body">
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">User Company Name</label>
+                            <label className="form-label">
+                                    {language === "Ar" ? "اسم الشركة" : "Company Name"}
+                            </label>
                             <Field type={"text"}
                                 className={props.errors.companyname ? "form-control is-invalid" : "form-control"}
-                                placeholder="Company Name here" name="companyname" />
+                                placeholder=
+                                {language === "Ar" ? "اسم الشركة هنا" : "Company Name Here" }
+                                name="companyname" />
                             <ErrorMessage name="companyname" component="span" className='errorfiled' />
                         </div>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">Business Sector</label>
+                            <label className="form-label">
+                                    {language === "Ar" ? "قطاع الأعمال" : "Business Sector"}
+                            </label>
                             {loading === false ? "" : 
                             <Field name="business_sector" component="select"
                                 className={props.errors.business_sector ? "form-select is-invalid" : "form-select"} >
-                                <option>Business Sector here</option>
+                                <option>
+                                    {language === "Ar" ? "قطاع الأعمال" : "Business Sector here"}
+                                </option>
                                 {dataindustries.map(item =>
                                 <option value={item.id} key={item.id}>{item.name}</option>
                                 )}
@@ -84,18 +85,26 @@ function Formprofileseller(props) {
 
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">CR NO.</label>
+                            <label className="form-label">
+                                    {language === "Ar" ? "رقم السجل التجاري" : "CR NO."}
+                                </label>
                             <Field type={"text"}
                                 className={props.errors.cr ? "form-control is-invalid" : "form-control"}
-                                placeholder="CR NO. here" name="cr" />
+                                placeholder=
+                                {language === "Ar" ? "رقم السجل التجاري" : "CR NO."}
+                                name="cr" />
                             <ErrorMessage name="cr" component="span" className='errorfiled' />
                         </div>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">VAT NO.</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "رقم القيمة المضافة" : "VAT NO."}
+                            </label>
                             <Field type={"text"}
                                 className={props.errors.vat ? "form-control is-invalid" : "form-control"}
-                                placeholder="VAT NO. here" name="vat" />
+                                placeholder=
+                                {language === "Ar" ? "رقم القيمة المضافة" : "VAT NO."}
+                                 name="vat" />
                             <ErrorMessage name="vat" component="span" className='errorfiled' />
                         </div>
                     </div>
@@ -103,13 +112,17 @@ function Formprofileseller(props) {
                     <div className='row'>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">CR Issue Date</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "تاريخ إصدار السجل التجاري" : "CR Issue Date"}
+                            </label>
                             <DatePickerdatacrissue  Data={props} />
                             <ErrorMessage name="cr_issue_date" component="span" className='errorfiled' />
                         </div>
                         
                         <div className='col-6 input_model'>
-                            <label className="form-label">CR Expiry Date</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "تاريخ أنتهاء السجل التجاري" : "CR Expiry Date"}
+                                </label>
                                 <DatePickerdatacrexpire Data={props} />
                                 <ErrorMessage name="cr_expire_date" component="span" className='errorfiled' />
                         </div>
@@ -117,43 +130,63 @@ function Formprofileseller(props) {
                     
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">VAT Registration Date</label>
+                            <label className="form-label">
+                            {language === "Ar" ? 
+                                        "تاريخ التسجيل في ضريبة القيمة المضافة"
+                                         : "VAT Registration Date"}
+                                </label>
                             <DatePickerregistration  Data={props}/>
                             <ErrorMessage name="vat_registration_date" component="span" className='errorfiled' />
                         </div>
                         <div className='col-6 input_model'>
-                            <label className="form-label">Payment Terms</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "طريقه الدفع": "Payment Terms"}
+                            </label>
                             <Field type={"text"}
                                 className={props.errors.payment_terms ? "form-control is-invalid" : "form-control"}
-                                placeholder="Payment Terms. here" name="payment_terms" />
+                                placeholder=
+                                {language === "Ar" ? "طريقه الدفع": "Payment Terms"}
+                                 name="payment_terms" />
                             <ErrorMessage name="payment_terms" component="span" className='errorfiled' />
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">Website</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "الموقع الألكتروني": "Website"}
+                            </label>
                             <Field type={"text"}
                                 className={props.errors.website ? "form-control is-invalid" : "form-control"}
-                                placeholder="Website . here" name="website" />
+                                placeholder=
+                                {language === "Ar" ? "الموقع الألكتروني": "Website"}
+                                 name="website" />
                             <ErrorMessage name="website" component="span" className='errorfiled' />
                         </div>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">Fax No.</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "رقم الفاكس": "Fax No."}
+                                </label>
                             <Field type={"number"}
                                 className={props.errors.fax ? "form-control is-invalid" : "form-control"}
-                                placeholder="Fax No. here" name="fax" />
+                                placeholder=
+                                {language === "Ar" ? "رقم الفاكس": "Fax No."}
+                                 name="fax" />
                             <ErrorMessage name="fax" component="span" className='errorfiled' />
                         </div>
                     </div>
 
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">City</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "المدينة": "City"}
+                            </label>
                             {loadingcaity === false ? "" : 
                             <Field name="city" component="select"
                                 className={props.errors.city ? "form-select is-invalid" : "form-select"} >
-                                <option>City here</option>
+                                <option>
+                                        {language === "Ar" ? "المدينة": "City"}
+                                </option>
                                 {dataicaity.map(item =><option value={item.id} key={item.id}>{item.name}</option>)}
                             </Field>
                             }
@@ -161,20 +194,28 @@ function Formprofileseller(props) {
                         </div>
 
                         <div className='col-6 input_model'>
-                            <label className="form-label">Address</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "العنوان": "Address"}
+                            </label>
                             <Field type={"text"}
                                 className={props.errors.address ? "form-control is-invalid" : "form-control"}
-                                placeholder="Address. here" name="address" />
+                                placeholder=
+                                {language === "Ar" ? "العنوان": "Address"}
+                                 name="address" />
                             <ErrorMessage name="address" component="span" className='errorfiled' />
                         </div>
                     </div>
                     
                     <div className='row'>
                         <div className='col-6 input_model'>
-                            <label className="form-label">Company Email No.</label>
+                            <label className="form-label">
+                                        {language === "Ar" ? "البريد الإلكتروني للشركة": "Company Email"}
+                            </label>
                             <Field type={"email"}
                                 className={props.errors.company_email ? "form-control is-invalid" : "form-control"}
-                                placeholder="Company Email No. here" name="company_email" />
+                                placeholder=
+                                {language === "Ar" ? "البريد الإلكتروني للشركة": "Company Email"}
+                                 name="company_email" />
                             <ErrorMessage name="company_email" component="span" className='errorfiled' />
                         </div>
 
@@ -182,8 +223,12 @@ function Formprofileseller(props) {
                     {message === "" ? "" : <span className='errorfiled'>{message}</span>}
 
                     <div className='end'>
-                        <button className={'btn btn-send button-active'} type="submit" >Save</button>
-                        <button type="button" className="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button className={'btn btn-send button-active'} type="submit" >
+                            {language === "Ar" ?"حفظ":"Save"}
+                        </button>
+                        <button type="button" className="btn btn-cancel" data-bs-dismiss="modal">
+                            {language === "Ar" ?"ألغاء":"Cancel"}
+                        </button>
                     </div>
                 </div>
 

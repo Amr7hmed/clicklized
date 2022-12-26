@@ -116,7 +116,7 @@ function CreateRequest() {
               AddImagesfiles={AddImagesfiles} AddImageslogo={AddImageslogo}
               imageslogo={imageslogo} imagesfiles={imagesfiles}
               RemoveImagesfiles={RemoveImagesfiles} RemoveImageslogo={RemoveImageslogo}
-              address={address} setAddress={setAddress} showaddress={showaddress} />
+              address={address} setAddress={setAddress} showaddress={showaddress} setParamsname={setParamsname}/>
         }
 
       </div>

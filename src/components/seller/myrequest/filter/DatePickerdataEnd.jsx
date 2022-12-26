@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
 import DatePicker from "react-datepicker";
 import { FiCalendar } from "react-icons/fi";//import calendar icon from reat-icon 
+import { Authcontext } from '../../../../store/context';
 
 function DatePickerdataEnd() {
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   const Data ="";
   return (<div className='day'>
     <DatePicker 
             className={ "data-input"}
-        placeholderText='Choose Ending date'
+        placeholderText={language === "Ar" ? "اختر تاريخ الأنتهاء" : 'Choose Ending date'}
         selected={Data}
         minDate={new Date()} 
         placeholder={"date"}

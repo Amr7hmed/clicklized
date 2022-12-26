@@ -14,7 +14,6 @@
 .createrequest {
     font-family: var(--font-cairo);
     background-color: #f6f6f6;
-
     // 2- Style CreateReview Page Bottom .
     .createreview {
 
@@ -63,7 +62,6 @@
                         input {
                             width: 40%;
                             height: 45px;
-                            margin-right: 5%;
                             border: solid 1px #a5a5ac;
                             background-color: #fff;
 
@@ -78,7 +76,6 @@
                         textarea {
                             width: 85%;
                             height: 120px;
-                            margin-right: 5%;
                             border: solid 1px #a5a5ac;
                             background-color: #fff;
 
@@ -207,7 +204,6 @@
                             background-color: #fff;
                             width: 22px;
                             height: 22px;
-                            margin-right: 5px;
                             border-radius: 3px;
                             border: solid 2px #dbdce5;
                             display: inline-grid;
@@ -247,7 +243,6 @@
                     .inputform_items_row {
                         margin-bottom: 50px;
                         display: flex;
-                        flex-direction: row;
                         justify-content: space-between;
                         align-items: flex-end;
 
@@ -389,41 +384,8 @@
                         }
                     }
 
-                    /*
-                    .fileslist {
-                        width: 100%;
-                        margin-bottom: 30px;
-                        display: flex;
-                        flex-direction: row;
-                        .files {
-                            min-width: 180px;
-                            max-width: auto;
-                            height: 60px;
-                            background-color: #f8f0d2;
-                            font-size: 16px;
-                            font-weight: bold;
-                            color: #231f20;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            margin-right: 15px;
-
-                            img {
-                                width: 24px;
-                                height: 27px;
-                                margin-right: 15px;
-                                object-fit: contain;
-                            }
-                        }
-                 
-
-                    }
-
-                    */
-
                     .imgagegallary {
                         display: flex;
-                        flex-direction: row;
                         flex-wrap: wrap;
 
                         .img {
@@ -459,7 +421,6 @@
 
                         .listitems {
                             display: flex;
-                            flex-direction: row;
 
                             .listitem {
                                 font-weight: bold;
@@ -468,7 +429,6 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-around;
-                                margin-right: 15px;
                                 min-width: 220px;
                                 max-width: auto;
                                 height: 70px;
@@ -484,7 +444,6 @@
                                     width: 40px;
                                     height: 40px;
                                     border-radius: 50%;
-                                    margin-right: 12px;
                                     -webkit-border-radius: 50%;
                                     -moz-border-radius: 50%;
                                     -ms-border-radius: 50%;
@@ -507,6 +466,13 @@
 
                         .inputform {
                             margin-top: 30px;
+                            input[type=checkbox]{
+                                &:checked {    
+                                    background-color: #e9d173 !important;
+                                    border: 2px solid #e9d173 !important;
+                                }
+
+                            }
                         }
                     }
 
@@ -553,15 +519,96 @@
                 }
             }
 
+        
+        }
+    }
+}
+.En{
+    .createrequest {
+        .createreview {
+            .screenone {
+                .form {
+                    form {
+                        .inputform {
+                            input {margin-right: 5%;}
+                            textarea {margin-right: 5%;}
+                            input[type=checkbox] {margin-right: 5px;}
+                        }
+                        .imgagegallary {flex-direction: row;}
+                        .supplierslist {
+                            h6 {text-align: left;}
+                            .listitems {
+                                flex-direction: row;
+                                .listitem {
+                                    flex-direction: row;
+                                    margin-right: 15px;
+                                    span {flex-direction: row;}
+                                    img.iconprofile {margin-right: 12px;}
+                                }
+                            }
+    
+                            .inputform {direction: ltr;}
+                        }
+                    }
+                    .row {
+                        direction: ltr;
+                    }
+                }
+                
             .row {
                 .col-12.col-sm-6 {
                     padding-left: 0px;
                 }
             }
+    
+            }
         }
     }
 }
-
+.Ar{
+    .createrequest {
+        .createreview {
+            .screenone {
+                .form {
+                    form {
+                        .inputform {
+                            direction: rtl;
+                            input {margin-left: 5%;}
+                            textarea {margin-left: 5%;}
+                            input[type=checkbox] {margin-left: 5px;}
+                        }
+                        .imgagegallary {flex-direction: row-reverse;}
+                        .supplierslist {
+                            h6 {text-align: right;}
+                            .listitems {
+                                display: flex;
+                                flex-direction: row-reverse;
+                                .listitem {
+                                    flex-direction: row-reverse;
+                                    margin-left: 15px;
+                                    span {flex-direction: row-reverse;}
+                                    img.iconprofile {margin-left: 12px;}
+                                }
+                            }
+    
+                            .inputform {direction: rtl;}
+                        }
+                    }
+                    .row {
+                        direction: rtl;
+                    }
+                }
+                
+            .row {
+                .col-12.col-sm-6 {
+                    padding-right: 0px;
+                }
+            }
+    
+            }
+        }
+    }
+}
 // 7- Style CreateReview Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
     .createrequest {

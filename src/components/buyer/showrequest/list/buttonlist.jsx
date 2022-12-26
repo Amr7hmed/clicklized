@@ -1,7 +1,11 @@
 import React from 'react'
+import { useContext } from 'react';
+import { Authcontext } from '../../../../store/context';
 
 function ButtonList(props) {
     const {Stylebuttons ,id , name ,setParamsname,setStylebuttons}=props;
+    const authcontext = useContext(Authcontext);
+    const language = authcontext.language;
     
   const Gotonextscreen = (valuesParamsname ,valuesStyle) => {
    setParamsname(valuesParamsname);
@@ -14,7 +18,7 @@ function ButtonList(props) {
             onClick={()=>Gotonextscreen("showrequestbuyer","requestdetails")}
             className={Stylebuttons === "requestdetails"
             ?"btn btn_navlist activeitem":"btn btn_navlist"}>
-                Request details
+            {language === "Ar" ? "تفاصيل الطلب" : "Request details"}
             </button>
         </li>
         <li>
@@ -22,7 +26,8 @@ function ButtonList(props) {
             onClick={()=>Gotonextscreen("questionsbuyer","questions")}
             className={Stylebuttons === "questions"
             ?"btn btn_navlist activeitem":"btn btn_navlist"}>
-                Questions
+            {language === "Ar" ? "الأسئلة" : "Questions"}
+                
             </button>
         </li>
         <li>
@@ -30,7 +35,8 @@ function ButtonList(props) {
             onClick={()=>Gotonextscreen("offersbuyer","offers")}
             className={Stylebuttons === "offers"
             ?"btn btn_navlist activeitem":"btn btn_navlist"}>
-                Offers
+            {language === "Ar" ? "العروض" : "Offers"}
+                
             </button>
         </li>
     </ul>
