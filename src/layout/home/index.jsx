@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { UserTypeClicklized } from '../../api';
 import { GetuserTypes } from '../../api/actionsauth';
 import HomeBuyer from '../../pages/buyer/home';
 import HomeSeller from '../../pages/seller/home';
@@ -29,9 +30,9 @@ function Home() {
       <Loading/>
     ) : (
       <section className='home'>
-                {localStorage.getItem("usertypeclicklized") == Buyerdata[0].id ?
+                {UserTypeClicklized == Buyerdata[0].id ?
                 <HomeBuyer/>
-                :localStorage.getItem("usertypeclicklized") == Supplierdata[0].id ?
+                :UserTypeClicklized == Supplierdata[0].id ?
                 <HomeSeller/>
                 :<SignIn/>}
       </section>

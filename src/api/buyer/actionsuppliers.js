@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api } from "../index.js";
+import { Api, Tokenclicklized } from "../index.js";
 
 // Get Function Api 
 export const GetDataSuppliers = async (setLoading,setData) => {
@@ -9,7 +9,7 @@ export const GetDataSuppliers = async (setLoading,setData) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+        Authorization: `Bearer ${Tokenclicklized}`,
       },
     };
     axios(options)
@@ -29,7 +29,7 @@ export const GetDataSuppliers = async (setLoading,setData) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+        Authorization: `Bearer ${Tokenclicklized}`,
       },
     };
     axios(options)
@@ -49,7 +49,7 @@ export const GetDataSuppliers = async (setLoading,setData) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+        Authorization: `Bearer ${Tokenclicklized}`,
       },
     };
     axios(options)
@@ -69,7 +69,7 @@ export const DeleteSupplier = (Id, setLoading) => {
       headers: {
         Accept: "application/json",
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+        Authorization: `Bearer ${Tokenclicklized}`,
       }
     };
     axios(options).then(function (response) {
@@ -95,7 +95,7 @@ export const AddNewSupplier = async (DataUser,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data,
   };

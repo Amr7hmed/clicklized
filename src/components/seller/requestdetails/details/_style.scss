@@ -31,7 +31,6 @@ font-family: var(--font-cairo);
 // 4- Style RequestDetails Page Screen Top
     &__top{
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       height: 56px;
       align-items: center;
@@ -65,13 +64,11 @@ font-family: var(--font-cairo);
         li{
           width: 100%;
           display: flex;
-          flex-direction: row;
           font-size: 16px;
           font-weight: normal;
           color: #020524;
           .left,.right{
             width: 50%;
-            text-align: left;
           }
           &:last-child{
             font-weight: bold;
@@ -100,7 +97,6 @@ font-family: var(--font-cairo);
           font-weight: normal;
           color: #343433;
           img{
-            margin-right: 9px;
             width: 24px;
             height: 27px;
             object-fit: contain;
@@ -151,6 +147,65 @@ font-family: var(--font-cairo);
       }
     }
   }
+}
+
+.En {
+  .requestdetails {
+      .requestdetailsbottom {
+        &__top{flex-direction: row;}
+        &__data{
+          h6{
+            text-align: left;
+          }
+          ul.list{
+            li{
+              flex-direction: row;
+              .left,.right{text-align: left;}
+            }
+          }
+          .about{
+            direction: ltr;
+            .btn-files{
+              img{
+                margin-right: 9px;
+              }
+            }
+          }
+          .address{
+            direction: ltr;
+          }
+        }
+      }
+    }
+}
+.Ar{
+  .requestdetails {
+      .requestdetailsbottom {
+        &__top{flex-direction: row-reverse;}
+        &__data{
+          h6{
+            text-align: right;
+          }
+          ul.list{
+            li{
+              flex-direction: row-reverse;
+              .left,.right{text-align: right;}
+            }
+          }
+          .about{
+            direction: rtl;
+            .btn-files{
+              img{
+                margin-left: 9px;
+              }
+            }
+          }
+          .address{
+            direction: rtl;
+          }
+        }
+      }
+    }
 }
 // 6- Style RequestDetails Page To Media Queris 992px.
 @media screen and (max-width: 992px) {

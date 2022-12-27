@@ -2,9 +2,14 @@ import React, { useRef, useState } from 'react';
 import IconWhatsapp from "../../../../images/icon/icon-whatsapp.png";
 import IconEmail from "../../../../images/icon/icon-email.svg";
 import { EmailShareButton, WhatsappShareButton } from "react-share";
+import { Authcontext } from '../../../../store/context';
+import { useContext } from 'react';
+
 
 function ModalShare() {
   const [copySuccess, setCopySuccess] = useState('');
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
   const textAreaRef = useRef(null);
   const Urlshere = "https/www.nazahatech.com/order2342342wx";
   function copyToClipboard(e) {
@@ -21,7 +26,9 @@ function ModalShare() {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title" id="modalsharerequestLabel">Share request</h5>
+            <h5 className="modal-title" id="modalsharerequestLabel">
+            {language === "Ar" ? " مشاركة الطلب" : "Share request"}
+            </h5>
           </div>
           <div className="modal-body">
             <div className="inputs">
@@ -32,12 +39,14 @@ function ModalShare() {
               <button type='button'
                 className={copySuccess === 'Copied!' ? "btn btn-share-copy" : 'btn btn-share'}
                 onClick={copyToClipboard}>
-                Share
+                {language === "Ar" ? "مشاركة" : "Share"}
               </button>
             </div>
 
             <div className="oruse">
-              <span>Or use</span>
+              <span>
+                {language === "Ar" ? "أو من خلال" : "Or use"}
+              </span>
               <ul>
                 <li className='btn-whatsapp'>
                   <WhatsappShareButton
@@ -61,7 +70,9 @@ function ModalShare() {
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-cancel_modal" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" className="btn btn-cancel_modal" data-bs-dismiss="modal">
+                {language === "Ar" ? "ألغاء" : "Cancel"}
+              </button>
           </div>
         </div>
       </div>
@@ -69,5 +80,4 @@ function ModalShare() {
 
   )
 }
-
 export default ModalShare;

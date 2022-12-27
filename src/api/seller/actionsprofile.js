@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api } from "../index.js";
+import { Api, Tokenclicklized, UserId } from "../index.js";
 
 // Post Function Api
 
@@ -38,7 +38,7 @@ export const UpdateProfile = async (Data,values,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data,
   };
@@ -54,14 +54,14 @@ export const UpdateProfile = async (Data,values,setMessage) => {
 
 
 // Get Function Api 
-export const GetDataProfile = async (userid,setLoading,setData) => {
+export const GetDataProfile = async (setLoading,setData) => {
   const options = {
     method: "get",
-    url: `${Api}profile/${userid}`,
+    url: `${Api}profile/${UserId}`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      Authorization: `Bearer ${Tokenclicklized}`,
     },
   };
   axios(options)
@@ -82,7 +82,7 @@ export const GetDataIndustries = async (setLoading,setData) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      Authorization: `Bearer ${Tokenclicklized}`,
     },
   };
   axios(options)

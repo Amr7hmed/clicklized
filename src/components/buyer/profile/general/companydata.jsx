@@ -72,7 +72,6 @@ function CompanyData(props) {
                                     </button>
                                     <img src={item.image} alt={item.id} className={"img_gallary"}
                                         data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`} />
-                                    <ModelGallaryImage Data={item.image} Id={item.id} />
                                 </div>
                             )}
                         </div> :
@@ -121,7 +120,6 @@ function CompanyData(props) {
                                             <img src={Deletimage} /></button>
                                         <img src={item.image} alt={item.id} className={"img_gallary"}
                                             data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`} />
-                                        <ModelGallaryImage Data={item.image} Id={item.id} />
                                     </div>
                                 )}
                             </div>

@@ -3,7 +3,6 @@ import { useLoadScript, GoogleMap } from "@react-google-maps/api";
 import LoctionIcon from '../../../../../images/icon/location-icon.svg';
 import { Authcontext } from "../../../../../store/context";
 import { useContext } from "react";
-import axios from "axios";
 
 
 function Loction(props) {

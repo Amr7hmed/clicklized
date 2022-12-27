@@ -209,7 +209,6 @@
                 img {
                     width: 16px;
                     height: 16px;
-                    margin-right: 10px;
                 }
 
                 .text {
@@ -222,7 +221,6 @@
 
             .button-data {
                 .btn {
-                    width: 100px;
                     height: 36px;
                     border-radius: 28px;
                     background-color: #e9d173;
@@ -230,6 +228,53 @@
                     font-weight: bold;
                     text-align: center;
                     color: #231f20;
+                }
+            }
+        }
+    }
+}
+
+.En{
+    .homerequests {
+        &__headr {direction: ltr;}
+        &__row {
+            .row {direction: ltr;}
+        }
+        &__card {
+            .bottom {
+            .time {
+                img {
+                    margin-right: 10px;
+                }
+            }
+                .button-data {
+                    .btn {width: 100px;}
+                }
+            }
+        }
+    }
+}
+.Ar{
+    .homerequests {
+        &__headr {
+            direction: rtl;
+        }
+        &__row {
+            .row {
+                direction: rtl;
+            }
+        }
+        &__card {
+            .bottom {
+                .time {
+                    img {
+                        margin-left: 10px;
+                    }
+                }
+                .button-data {
+                    .btn {
+                        width: auto;
+                    }
                 }
             }
         }

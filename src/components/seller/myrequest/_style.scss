@@ -223,6 +223,30 @@
     }
 }
 
+.En {
+    .myrequestseller {
+        &__headr {direction: ltr;}
+        &__card{direction: ltr;}
+        &__filter{
+            .top{
+                h6{text-align: left;}
+            }
+            .bottom{direction: ltr;}
+        }
+    } 
+}
+.Ar{
+    .myrequestseller {
+        &__headr {direction: rtl;}
+        &__card{direction: rtl;}
+        &__filter{
+            .top{
+                h6{text-align: right;}
+            }
+            .bottom{direction: rtl;}
+        }
+    } 
+}
 // 6- Style MyRequestSeller Page To Media Queris 992px
 @media screen and (max-width: 992px) {
     .myrequestseller {

@@ -52,6 +52,26 @@ font-family: var(--font-cairo);
     }
   }
 }
+
+
+.En {
+  .offerdetails {
+      .offerdetailsbottom {
+        &__data{
+          direction: ltr;
+        }
+      }
+    }
+}
+.Ar{
+  .offerdetails {
+      .offerdetailsbottom {
+        &__data{
+          direction: rtl;
+        }
+      }
+    }
+}
 // 6- Style RequestDetails Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
   .offerdetails {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api } from "./index.js";
+import { Api, Tokenclicklized } from "./index.js";
 
 // Post Function Api
 
@@ -105,7 +105,7 @@ export const UpdatePassword = async (password,password_confirmation,setMessage,s
       Accept: "application/json",
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data: JSON.stringify({
       password,
@@ -131,7 +131,7 @@ export const UpdatePasswordprofile = async (password,password_confirmation,setMe
       Accept: "application/json",
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data: JSON.stringify({
       password,

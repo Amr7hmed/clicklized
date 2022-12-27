@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import UploadImage from "../../../../images/icon/upload.png";
-import {GetDataIndustries, UpdateCompanycr, UpdateCompanyvat, UpdateProfile} from "../../../../api/buyer/actionsprofile.js";
+import {GetDataIndustries, UpdateProfile} from "../../../../api/buyer/actionsprofile.js";
 import { Authcontext } from '../../../../store/context';
 
 function Formprofile(props) {
@@ -22,25 +21,25 @@ function Formprofile(props) {
         name: Data.name,
         email: Data.email,
         phone: Data.phone,
-        industry: Data.industry.id,
+        industry:  Data.industry === null ?"":Data.industry.id,
     };
 
-    
+    const Companycrfiles = [];
+    const Companyvatfiles =[];
+
     useEffect(() => {
         GetDataIndustries(setLoading, setDataIndustries);
     }, [loading]);
 
-    const SendData = () => {
-        swal({
-            text: "Good !",
-            icon: "success",
-            buttons: false,
-            timer: 3000
-        })
-       window.location.reload();
+    const UpdateFiles = (arraydata,e)=>{
+        const files =e.target.files;
+        for (let i = 0; i < files.length; i++) {
+            arraydata.push(files[i])
+        };
     }
+
     const onSubmit = (values) => {
-        UpdateProfile(Data,values,setMessage)
+        UpdateProfile(Data,values,Companycrfiles,Companyvatfiles,setMessage)
     }
 
 
@@ -110,17 +109,11 @@ function Formprofile(props) {
                             <label className="form-label">
                             {language === "Ar" ? "السجل التجاري" : "Company CR"}
                             </label>
-                            
-
-                            
                             {loadingcrfiles === false ?
                                       <button type='button'
                                       className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
                                       <Field type={"file"} multiple className="input-file" name="cr_files" 
-                                      accept="image/*" 
-                                      onChange={e => {
-                                              UpdateCompanycr(Data, e.target.files, setMessagecrfiles , setLoadingcrfiles)
-                                          }} />
+                                      onChange={e => { UpdateFiles(Companycrfiles,e)}} />
                                           {language === "Ar" ?
                                               <>تحميل الملفات<img src={UploadImage} alt="" /></>
                                               :<><img src={UploadImage} alt="" />Upload files</>
@@ -129,8 +122,13 @@ function Formprofile(props) {
                                         :
                                         <button type='button' className='btn btn-upload button-disabled'>
                                            {language === "Ar" ?
-                                            <>جاري التحميل<span className="spinner"></span></>
-                                            :<><span className="spinner"></span>Loading</>
+                                            <>جاري التحميل
+                                            <span className="spinner"></span>
+                                            </>
+                                            :<>
+                                            <span className="spinner"></span>
+                                            Loading
+                                            </>
                                         }
                                         </button>}
                             {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
@@ -148,10 +146,7 @@ function Formprofile(props) {
                                       <button type='button'
                                       className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
                                       <Field type={"file"} className="input-file" name="vat_files" 
-                                        onChange={e => {
-                                            UpdateCompanyvat(Data, e.target.files, setMessagevatfiles,setLoadingvatfiles)
-                                        }}
-                                      multiple accept="image/*"  />
+                                      onChange={e => { UpdateFiles(Companyvatfiles,e)}} multiple   />
                                        {language === "Ar" ?
                                         <>تحميل الملفات<img src={UploadImage} alt="" /></>
                                         :<><img src={UploadImage} alt="" />Upload files</>
@@ -159,7 +154,6 @@ function Formprofile(props) {
                                   </button>
                                         :
                                         <button type='button' className='btn btn-upload button-disabled'>
-                                            <span className="spinner"></span>
                                             {language === "Ar" ?
                                             <>جاري التحميل<span className="spinner"></span></>
                                             :<><span className="spinner"></span>Loading</>

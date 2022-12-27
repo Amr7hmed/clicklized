@@ -11,11 +11,11 @@
 // 1- Style RequestDetailsData Page 
 .requestdetailsdata {
     font-family: var(--font-cairo);
-// 2- Style RequestDetailsData Page Top
+
+    // 2- Style RequestDetailsData Page Top
     &__top {
         margin: 55px 0px 25px 0px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         height: 48px;
@@ -29,7 +29,6 @@
             .iconleft {
                 width: 33px;
                 height: 25px;
-                margin-right: 11px;
             }
 
             h4 {
@@ -39,50 +38,6 @@
                 margin-bottom: 0px;
             }
         }
-
-        .right {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 48px;
-
-            .text {
-                font-size: 16px;
-                font-weight: normal;
-                color: #343433;
-                margin-right: 15px;
-            }
-
-            .dropdown {
-                .btn {
-                    width: 115px;
-                    height: 48px;
-                    border-radius: 4px;
-                    background-color: #e8d173;
-                    font-size: 16px;
-                    color: #231f20;
-
-                    &:active {
-                        border-color: white;
-                    }
-
-                    .dropdown-toggle {
-                        &::after {
-                            margin-left: 15px;
-                        }
-                    }
-                }
-
-                ul.dropdown-menu {
-                    min-width: 115px !important;
-
-                    li {
-                        text-align: center;
-                        margin: 10px 0px;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -90,14 +45,13 @@
 .requestdetailsdata {
     &__row {
         display: flex;
-        flex-direction: row;
-// 4- Style RequestDetailsData Page Row Navlist
+
+        // 4- Style RequestDetailsData Page Row Navlist
         .navlist {
             width: 255px;
             height: 637px;
             border-radius: 7px;
             background-color: #231f20;
-            margin-right: 25px;
             padding: 55px 25px;
             display: flex;
             flex-direction: column;
@@ -119,20 +73,25 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
+
                         &:active {
                             border-color: #231f20;
                         }
-                        &:hover{
+
+                        &:hover {
                             color: #f6f6f6 !important;
                         }
                     }
-                    .active{
+
+                    .active {
                         border-color: transparent;
                     }
+
                     .btn_navlist.activeitem {
                         background-color: #e8d173;
                         color: #252428;
-                        &:hover{
+
+                        &:hover {
                             color: #252428 !important;
                         }
 
@@ -222,7 +181,6 @@
                                 padding: 0px 15px;
                                 background-color: #f8f0d2;
                                 display: flex;
-                                flex-direction: row;
                                 justify-content: space-between;
                                 align-items: center;
 
@@ -340,10 +298,104 @@
         }
     }
 }
-.requestdetails{
+
+.requestdetails {
     background-color: #f6f6f6;
     min-height: 100vh;
     max-height: auto;
+}
+
+
+.En {
+    .requestdetailsdata {
+        &__top {
+            flex-direction: row;
+
+            .left {
+                flex-direction: row;
+
+                .iconleft {
+                    margin-right: 11px;
+                }
+            }
+        }
+    }
+
+    .requestdetailsdata {
+        &__row {
+            flex-direction: row;
+
+            .navlist {
+                margin-right: 25px;
+
+                #modalsharerequest {
+                    .modal-dialog {
+                        .modal-content {
+                            .modal-body {
+                                .inputs {
+                                    flex-direction: row;
+
+                                    .input_text {
+                                        text-align: left;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.Ar {
+    .requestdetailsdata {
+        &__top {
+            flex-direction: row-reverse;
+
+            .left {
+                flex-direction: row-reverse;
+
+                .iconleft {
+                    transform: rotate(180deg);
+                    margin-left: 11px;
+                    -webkit-transform: rotate(180deg);
+                    -moz-transform: rotate(180deg);
+                    -ms-transform: rotate(180deg);
+                    -o-transform: rotate(180deg);
+                }
+            }
+
+        }
+    }
+
+    .requestdetailsdata {
+        &__row {
+            flex-direction: row-reverse;
+
+            .navlist {
+                margin-left: 25px;
+
+                #modalsharerequest {
+                    .modal-dialog {
+                        .modal-content {
+                            .modal-body {
+                                .inputs {
+                                    flex-direction: row-reverse;
+
+                                    .input_text {
+                                        text-align: right;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
 }
 
 // 5- Style RequestDetailsData Page To Media Queris 992px.
@@ -351,7 +403,7 @@
     .requestdetailsdata {
         &__row {
             flex-direction: column;
-            
+
             .navlist {
                 width: 100%;
                 height: auto;
@@ -360,8 +412,10 @@
                 margin-bottom: 15px;
                 padding: 10px 5px;
                 flex-direction: row;
-                ul{
+
+                ul {
                     display: flex;
+
                     li {
                         .btn_navlist {
                             width: auto;
@@ -372,11 +426,12 @@
 
                     }
                 }
-    
+
                 .btn-sharerequest {
                     width: auto;
                     height: 35px;
                     font-size: 14px;
+
                     img {
                         width: 20px;
                         height: 18px;
@@ -384,42 +439,51 @@
                         margin-right: 5px;
                     }
                 }
+
                 #modalsharerequest {
-    
+
                     .modal-dialog {
-    
+
                         .modal-content {
-                            .modal-header {h5 {
-                                margin: 15px 5px;
-                                font-size: 18px;
-                            }}
+                            .modal-header {
+                                h5 {
+                                    margin: 15px 5px;
+                                    font-size: 18px;
+                                }
+                            }
+
                             .modal-footer {
                                 .btn-cancel_modal {
                                     width: 150px;
                                     height: 40px;
                                 }
                             }
-    
+
                             .modal-body {
                                 padding: 0px 5px;
+
                                 .inputs {
                                     width: 350px;
                                     height: 45px;
                                     padding: 0px 2px;
+
                                     .input_text {
                                         width: calc(100% - 94px);
                                         font-size: 12px;
                                     }
+
                                     .btn {
                                         width: 90px;
                                         height: 35px;
                                     }
                                 }
-    
+
                                 .oruse {
                                     width: 100%;
+
                                     ul {
                                         flex-direction: column;
+
                                         .btn-whatsapp {
                                             margin-right: 0px;
                                             margin-bottom: 10px;
@@ -429,12 +493,13 @@
                             }
                         }
                     }
-    
+
                 }
             }
         }
     }
 }
+
 // 6- Style RequestDetailsData Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
     .requestdetailsdata {
@@ -454,12 +519,6 @@
                     margin-bottom: 0px;
                 }
             }
-
-            .right {
-                height: auto;
-                width: 100%;
-                justify-content: flex-end;
-            }
         }
 
         &__row {
@@ -468,81 +527,97 @@
                 margin-bottom: 5px;
                 padding: 5px 2px;
                 flex-direction: column;
-                ul{
+
+                ul {
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
-                    li {.btn_navlist {
-                        font-size: 12px;
-                    }}
+
+                    li {
+                        .btn_navlist {
+                            font-size: 12px;
+                        }
+                    }
                 }
-    
+
                 .btn-sharerequest {
                     min-width: 200px;
                     max-width: auto;
                     height: 30px;
                     font-size: 12px;
                     margin: 10px 0px;
+
                     img {
                         width: 18px;
                         height: 15px;
                         margin-right: 10px;
                     }
                 }
-                
+
                 #modalsharerequest {
-    
+
                     .modal-dialog {
-    
+
                         .modal-content {
                             width: 95%;
+
                             .modal-header {
                                 padding: 5px 0px;
+
                                 h5 {
-                                margin: 5px;
-                                font-size: 18px;
-                            }}
+                                    margin: 5px;
+                                    font-size: 18px;
+                                }
+                            }
+
                             .modal-footer {
                                 .btn-cancel_modal {
                                     width: 150px;
                                     height: 40px;
                                 }
                             }
-    
+
                             .modal-body {
                                 padding: 0px 5px;
+
                                 .inputs {
                                     width: 95%;
                                     padding: 0px 2px;
+
                                     .input_text {
                                         width: calc(100% - 84px);
                                         font-size: 12px;
                                     }
+
                                     .btn {
                                         width: 80px;
                                         font-size: 12px;
                                     }
                                 }
-    
+
                                 .oruse {
                                     width: 100%;
+
                                     ul {
                                         flex-direction: row;
                                         width: 100%;
                                         justify-content: space-between;
-                                        li{
 
-                                            .btn{
+                                        li {
+
+                                            .btn {
                                                 width: 140px !important;
                                                 height: 45px !important;
                                                 font-size: 14px !important;
-                                                 img {
+
+                                                img {
                                                     width: 25px !important;
                                                     height: 25px !important;
                                                     margin-right: 5px !important;
                                                 }
                                             }
                                         }
+
                                         .btn-whatsapp {
                                             margin-right: 0px;
                                             margin-bottom: 10px;
@@ -552,35 +627,44 @@
                             }
                         }
                     }
-    
+
                 }
             }
         }
     }
 }
+
 // 7- Style RequestDetailsData Page To Media Queris 350px.
 @media screen and (max-width: 350px) {
     .requestdetailsdata {
         &__row {
             .navlist {
                 #modalsharerequest {
-    
+
                     .modal-dialog {
-    
+
                         .modal-content {
                             width: 100%;
-                            .modal-header {h5 {font-size: 16px;}}    
+
+                            .modal-header {
+                                h5 {
+                                    font-size: 16px;
+                                }
+                            }
+
                             .modal-body {
                                 padding: 0px 5px;
+
                                 .inputs {
                                     width: 98%;
                                     margin-left: auto;
                                     margin-right: auto;
                                     padding: 0px 2px;
                                 }
-    
+
                                 .oruse {
                                     width: 100%;
+
                                     ul {
                                         flex-direction: column;
                                         align-items: center;
@@ -589,7 +673,7 @@
                             }
                         }
                     }
-    
+
                 }
             }
         }

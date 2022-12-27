@@ -1,8 +1,13 @@
 import React from 'react';
+import { useContext } from 'react';
+import { Authcontext } from '../../../../../store/context';
 import ItemOffer from './itemoffer';
 import NotesOffer from './notes';
 
 function RequestDatatBottom() {
+
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
 
   return (
     <div className='offerdetailsbottom'>
@@ -11,15 +16,15 @@ function RequestDatatBottom() {
 
         <div className="offerdetailsbottom__data">
 
-          <ItemOffer Item={"Item 1"}/>
+          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
           <br />
-          <ItemOffer Item={"Item 2"}/>
+          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
           <br />
-          <ItemOffer Item={"Item 3"}/>
+          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
           <br />
-          <ItemOffer Item={"Item 4"}/>
+          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
           <br />
-          <ItemOffer Item={"Item 5"}/>
+          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
           <br />
           <NotesOffer />
 
@@ -29,7 +34,7 @@ function RequestDatatBottom() {
               <div className="col-12">
 
                 <button type='button' className='btn button-active'>
-                  Send offer
+                  {language === "Ar" ? "إرسال العرض" : "Send offer"}
                 </button>
               </div>
             </div>

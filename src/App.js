@@ -12,14 +12,12 @@ import Suppliers from './pages/buyer/suppliers/index.jsx';
 // This Is Seller Pages
 import MyRequestSeller from './pages/seller/myrequest/index.jsx';
 import RequestDetails from './pages/seller/requestdetails/index.jsx';
-import QuestionsSeller from './pages/seller/questionsseller/index.jsx';
 import ProfileSeller from './pages/seller/profile/index.jsx';
 import { useState } from 'react';
 import ResendCode from './pages/resendcode/index.jsx';
 import ForgetPasswordEmail from './pages/password/forgetpasswordemail.jsx';
 import ForgetPasswordCode from './pages/password/forgetpasswordcode.jsx';
 import Home from './layout/home/index.jsx';
-import ShowRequestseller from './pages/seller/showrequest/index.jsx';
 import OfferRequest from './pages/seller/offerrequest/index.jsx';
 import { Authcontext } from './store/context.js';
 import { useContext } from 'react';
@@ -51,11 +49,9 @@ function App() {
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
       <Route path="/requestdetailsseller/:id" element={<RequestDetails />} exact />
-      <Route path="/questionsseller/:id" element={<QuestionsSeller />} exact />
       <Route path="/offerrequest/:id" element={<OfferRequest />} exact />
       
       <Route path="/profileseller" element={<ProfileSeller />} exact />
-      <Route path="/showrequestseller/:name/:id" element={<ShowRequestseller />} exact />
       
         </Routes>
       </BrowserRouter>

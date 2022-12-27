@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api } from "../index.js";
+import { Api, Tokenclicklized } from "../index.js";
 
 // Get Function Api 
 export const GetDataRequestSupplier = async (setLoading, setData) => {
@@ -9,7 +9,7 @@ export const GetDataRequestSupplier = async (setLoading, setData) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      Authorization: `Bearer ${Tokenclicklized}`,
     },
   };
   axios(options)

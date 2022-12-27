@@ -1,42 +1,8 @@
 import axios from "axios";
-import { Api } from "../index.js";
+import { Api, Tokenclicklized, UserId } from "../index.js";
 
 // Post Function Api
 
-export const UpdateCompanycr = async (DataUser,files,setMessage,setLoadingcrfiles) => {
-  setLoadingcrfiles(true);
-  var data = new FormData();
-  data.append("name", DataUser.name);
-  data.append("email", DataUser.email);
-  data.append("phone", DataUser.phone);
-  data.append('user_type', DataUser.user_type_id);
-  for (let i = 0; i < files.length; i++) {
-    data.append("cr_files[]", files[i]);
-  };
-  data.append("device_id", "default");
-  data.append("device_type","web");
-  data.append("industry_id", DataUser.industry.id);
-  const  options = {
-    method: "post",
-    url: `${Api}update-profile`,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
-    },
-    data,
-  };
-    axios(options).then(function (response) {
-    setMessage("")
-    setLoadingcrfiles(false);
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
-    setLoadingcrfiles(false);
-  });
-  
-};
 export const UpdateCompanycrprofile = async (DataUser,files,setMessage,setLoadingdata,setLoadingcrfiles) => {
   setLoadingcrfiles(true);
   var data = new FormData();
@@ -57,7 +23,7 @@ export const UpdateCompanycrprofile = async (DataUser,files,setMessage,setLoadin
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data,
   };
@@ -68,41 +34,6 @@ export const UpdateCompanycrprofile = async (DataUser,files,setMessage,setLoadin
   .catch(function (error) {
     setMessage(error.response.data.message)
     setLoadingcrfiles(false);
-  });
-  
-};
-
-export const UpdateCompanyvat = async (DataUser,files,setMessage,setLoadingvatfiles) => {
-  setLoadingvatfiles(true)
-  var data = new FormData();
-  data.append("name", DataUser.name);
-  data.append("email", DataUser.email);
-  data.append("phone", DataUser.phone);
-  data.append('user_type', DataUser.user_type_id);
-  for (let i = 0; i < files.length; i++) {
-    data.append("vat_files[]", files[i]);
-  };
-  data.append("device_id", "default");
-  data.append("device_type","web");
-  data.append("industry_id", DataUser.industry.id);
-  const  options = {
-    method: "post",
-    url: `${Api}update-profile`,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json;charset=UTF-8",
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
-    },
-    data,
-  };
-    axios(options).then(function (response) {
-    setMessage("")
-    setLoadingvatfiles(false)
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
-    setLoadingvatfiles(false)
   });
   
 };
@@ -127,7 +58,7 @@ export const UpdateCompanyvatprofile = async (DataUser,files,setMessage,setLoadi
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data,
   };
@@ -143,7 +74,7 @@ export const UpdateCompanyvatprofile = async (DataUser,files,setMessage,setLoadi
   
 };
 
-export const UpdateProfile = async (Data,DataUser,setMessage) => {
+export const UpdateProfile = async (Data,DataUser,Companycrfiles,Companyvatfiles,setMessage) => {
   var data = new FormData();
   data.append('user_type', Data.user_type_id);
   data.append("name", DataUser.name);
@@ -152,6 +83,15 @@ export const UpdateProfile = async (Data,DataUser,setMessage) => {
   data.append("industry_id",DataUser.industry);
   data.append("device_id", "default");
   data.append("device_type","web");
+
+  for (let i = 0; i < Companycrfiles.length; i++) {
+    data.append("cr_files[]", Companycrfiles[i]);
+  };
+
+  for (let i = 0; i < Companyvatfiles.length; i++) {
+    data.append("vat_files[]", Companyvatfiles[i]);
+  };
+
   const  options = {
     method: "post",
     url: `${Api}update-profile`,
@@ -159,7 +99,7 @@ export const UpdateProfile = async (Data,DataUser,setMessage) => {
       Accept: "application/json",
       "Content-Type": "application/json;charset=UTF-8",
       'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+      Authorization: `Bearer ${Tokenclicklized}`, 
     },
     data,
   };
@@ -173,14 +113,14 @@ export const UpdateProfile = async (Data,DataUser,setMessage) => {
   
 };
 // Get Function Api 
-export const GetDataProfile = async (userid,setLoading,setData ,language) => {
+export const GetDataProfile = async (setLoading,setData ,language) => {
   const options = {
     method: "get",
-    url: `${Api}profile/${userid}?Accept-Language=${language==="Ar"?"ar":"en"}`,
+    url: `${Api}profile/${UserId}?Accept-Language=${language==="Ar"?"ar":"en"}`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      Authorization: `Bearer ${Tokenclicklized}`,
     },
   };
   axios(options)
@@ -193,7 +133,6 @@ export const GetDataProfile = async (userid,setLoading,setData ,language) => {
     });
 };
 
-
 export const GetDataIndustries = async (setLoading,setData) => {
   const options = {
     method: "get",
@@ -201,7 +140,7 @@ export const GetDataIndustries = async (setLoading,setData) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      Authorization: `Bearer ${Tokenclicklized}`,
     },
   };
   axios(options)
@@ -214,7 +153,6 @@ export const GetDataIndustries = async (setLoading,setData) => {
     });
 };
 
-
 export const DeleteItem = (Id) => {
   const options = {
     method: "delete",
@@ -222,7 +160,7 @@ export const DeleteItem = (Id) => {
     headers: {
       Accept: "application/json",
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`,
+      Authorization: `Bearer ${Tokenclicklized}`,
     },
   };
   axios(options).then(function (response) {

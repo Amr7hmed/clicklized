@@ -10,13 +10,12 @@ function ProfileBuyer() {
   const [username,setUsername]=useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const userId=localStorage.getItem("useridclicklized");
 
   const authcontext = useContext(Authcontext);
   const language = authcontext.language;
 
   useEffect(() => {
-    GetDataProfile(userId,setLoading,setData ,language);
+    GetDataProfile(setLoading,setData ,language);
     setUsername(data.name)
   }, [loading]);
   

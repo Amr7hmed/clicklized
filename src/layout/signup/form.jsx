@@ -76,7 +76,7 @@ function FormSignup(props) {
                 </li>
                     )}
             </ul>
-            <ErrorMessage name="type" component="span" className='errorfiled'/>
+            <ErrorMessage name="user_type" component="span" className='errorfiled'/>
             <div className="form">
                 <div className='mb-1'>
                     <label className="form-label">User name</label>

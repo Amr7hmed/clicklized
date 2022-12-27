@@ -1,16 +1,29 @@
 import React from 'react'
-import NavList from '../list/index.jsx';
-import ShowQuestionsData from './detiles/index.jsx';
+import { useContext } from 'react';
+import { Authcontext } from '../../../../store/context.js';
+import QuestionsDataList from './list.jsx'
 
-function Showrequestrow(props) {
-  const { id, name, Stylebuttons } = props;
+function ShowQuestionsData() {
+  const authcontext = useContext(Authcontext);
+  const language = authcontext.language;
 
   return (
-    <div className="requestdetailsdata__row">
-      <NavList id={id} name={name} Stylebuttons={Stylebuttons} />
-      <ShowQuestionsData/>
+    <div className='requestdetailsbottom'>
+        <div className="requestquestionsdata">
+            <div className="title">
+                <h6>
+            {language === "Ar" ? "الأسئلة" : "Questions"}
+            </h6>
+            </div>
+            <div className="questionsdatalistcontener">
+
+            <QuestionsDataList/>
+            <QuestionsDataList/>
+            <QuestionsDataList/>
+            </div>
+        </div>
     </div>
   )
 }
 
-export default Showrequestrow;
+export default ShowQuestionsData

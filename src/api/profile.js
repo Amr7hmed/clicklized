@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api } from "./index.js";
+import { Api, Tokenclicklized } from "./index.js";
 
 export const UpdateImageprofile = async (file,setMessage) => {
     var data = new FormData();
@@ -11,7 +11,7 @@ export const UpdateImageprofile = async (file,setMessage) => {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
         'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+        Authorization: `Bearer ${Tokenclicklized}`, 
       },
       data,
     };
@@ -35,7 +35,7 @@ export const UpdateImageprofile = async (file,setMessage) => {
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
         'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+        Authorization: `Bearer ${Tokenclicklized}`, 
       },
       data,
     };
