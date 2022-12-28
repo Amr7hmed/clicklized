@@ -19,6 +19,7 @@ function ProfileBuyer() {
     setUsername(data.name)
   }, [loading]);
   
+  console.log(data.lang);
   return (
     <>
     {loading === false ? (

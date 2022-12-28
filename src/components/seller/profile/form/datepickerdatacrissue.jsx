@@ -3,22 +3,29 @@ import DatePicker from "react-datepicker";
 import IconCleander from "../../../../images/icon/calendar-icon.png";
 
 function DatePickerdatacrissue(props) {
-  const {Data}=props;
+  const { Data, DataAccount ,messagecrissuedate} = props;
+  const dayold = DataAccount.supplier.cr_issue_date;
+  /*
+    const daystring = new Date(dayold);
+    let dayvalue = daystring.toString();
+    console.log(dayvalue);
+  */
   return (<div className='cr_issue_date'>
-    <DatePicker 
+    <DatePicker
       dateFormat="yyyy/MM/dd"
-      className={Data.errors.cr_issue_date ? "form-control is-invalid" : "form-control"}
-        placeholderText='Choose Required Delivery Date/Deadline'
-        selected={Data.values.cr_issue_date}
-        minDate={new Date()} 
-        placeholder={"date"}
-        value={Data.values.cr_issue_date}
-        onChange={value => Data.setFieldValue("cr_issue_date", value)}
-        />
-        {/*
+      className={dayold !== null ? "form-control placeholderdata":
+      messagecrissuedate === "" ? "form-control" : 
+      "form-control is-invalid"}
+      placeholderText={dayold === null ? 'Choose Required Delivery Date/Deadline' : dayold}
+      selected={Data.values.cr_issue_date}
+      minDate={new Date()}
+      value={Data.values.cr_issue_date}
+      onChange={value => Data.setFieldValue("cr_issue_date", value)}
+    />
+    {/*
       <img src={IconCleander} alt="Icon Cleander" />
          */}
-        </div>
+  </div>
   )
 }
 

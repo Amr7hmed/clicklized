@@ -22,6 +22,7 @@ function Formprofile(props) {
         email: Data.email,
         phone: Data.phone,
         industry:  Data.industry === null ?"":Data.industry.id,
+        languageaccounet:language,
     };
 
     const Companycrfiles = [];
@@ -86,6 +87,19 @@ function Formprofile(props) {
                                  name="phone" />
                             <ErrorMessage name="phone" component="span" className='errorfiled' />
                         </div>
+                        
+                        <div className='col-12 col-lg-6 input_model'>
+                            <label className="form-label">
+                            {language === "Ar" ? "اللغة": "Language"}
+                            </label>
+                            <Field name="languageaccounet" component="select"
+                                className={props.errors.languageaccounet ? "form-select is-invalid" : "form-select"} 
+                                >
+                                <option value={"Ar"} >عربي</option>
+                                <option value={"En"}>English</option>
+                            </Field>
+                            <ErrorMessage name="languageaccounet" component="span" className='errorfiled' />
+                        </div>
                     </div>
 
                     <div className='row'>
@@ -113,7 +127,8 @@ function Formprofile(props) {
                                       <button type='button'
                                       className={props.errors.cr_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
                                       <Field type={"file"} multiple className="input-file" name="cr_files" 
-                                      onChange={e => { UpdateFiles(Companycrfiles,e)}} />
+                                      onChange={e => { UpdateFiles(Companycrfiles,e)}}  
+                                      accept="application/pdf"/>
                                           {language === "Ar" ?
                                               <>تحميل الملفات<img src={UploadImage} alt="" /></>
                                               :<><img src={UploadImage} alt="" />Upload files</>
@@ -146,7 +161,8 @@ function Formprofile(props) {
                                       <button type='button'
                                       className={props.errors.vat_files ? "btn btn-upload is-invalid" : "btn btn-upload"}>
                                       <Field type={"file"} className="input-file" name="vat_files" 
-                                      onChange={e => { UpdateFiles(Companyvatfiles,e)}} multiple   />
+                                      onChange={e => { UpdateFiles(Companyvatfiles,e)}} multiple  
+                                      accept="application/pdf"/>
                                        {language === "Ar" ?
                                         <>تحميل الملفات<img src={UploadImage} alt="" /></>
                                         :<><img src={UploadImage} alt="" />Upload files</>
@@ -191,6 +207,7 @@ function Formprofile(props) {
                 .max(14, 'Contact Number Must Be No More Than 14 !')
                 .required("Contact Number Is Required"),
             industry: Yup.string().required('Company Industry Required'),
+            languageaccounet: Yup.string().required("Required"),
         });
 
         return schema;

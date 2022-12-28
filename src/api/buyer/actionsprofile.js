@@ -83,6 +83,12 @@ export const UpdateProfile = async (Data,DataUser,Companycrfiles,Companyvatfiles
   data.append("industry_id",DataUser.industry);
   data.append("device_id", "default");
   data.append("device_type","web");
+  if(DataUser.languageaccounet === "En"){
+    data.append("lang",JSON.stringify("en"));
+  }else{
+    data.append("lang",JSON.stringify("ar"));
+  }
+  
 
   for (let i = 0; i < Companycrfiles.length; i++) {
     data.append("cr_files[]", Companycrfiles[i]);
@@ -105,7 +111,8 @@ export const UpdateProfile = async (Data,DataUser,Companycrfiles,Companyvatfiles
   };
     axios(options).then(function (response) {
     setMessage("")
-    window.location.pathname = `/profilebuyer`;
+    localStorage.setItem("languagecklized", JSON.stringify(DataUser.languageaccounet));
+    window.location.reload();
   })
   .catch(function (error) {
     setMessage(error.response.data.message)

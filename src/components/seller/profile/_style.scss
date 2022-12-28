@@ -16,7 +16,8 @@
 // 1- Style MyProfileSeller Page 
 .myprofileseller {
   font-family: var(--font-cairo);
-// 2- Style MyProfileSeller Page Top
+
+  // 2- Style MyProfileSeller Page Top
   &__top {
     border-radius: 8px;
     margin: 50px auto 20px auto;
@@ -59,7 +60,10 @@
         font-weight: bold;
         color: #231f20;
         position: relative;
-        &:active {border-color: #e8d173;}
+
+        &:active {
+          border-color: #e8d173;
+        }
       }
 
       img {
@@ -69,7 +73,8 @@
       }
     }
   }
-// 3- Style MyProfileSeller Page Bottom
+
+  // 3- Style MyProfileSeller Page Bottom
   &__bottom {
     height: auto;
     border-radius: 18px;
@@ -77,7 +82,8 @@
     background-color: #fff;
     padding: 1px;
     margin-bottom: 85px;
-// 4- Style MyProfileSeller Page Bottom UserData 
+
+    // 4- Style MyProfileSeller Page Bottom UserData 
     .userdata {
       margin: 20px 50px;
       padding: 20px 0px 40px 0px;
@@ -166,7 +172,8 @@
         }
       }
     }
-// 5- Style MyProfileSeller Page Bottom CompanyData 
+
+    // 5- Style MyProfileSeller Page Bottom CompanyData 
     .companydata {
       margin: 20px 50px;
       padding: 20px 0px 40px 0px;
@@ -349,6 +356,7 @@
     }
   }
 }
+
 #modeleditprofileseller {
   font-family: var(--font-cairo);
 
@@ -397,6 +405,16 @@
         }
       }
 
+      .cr_issue_date,
+      .cr_expire_date ,
+      .vat_registration_date{
+        input.form-control.placeholderdata {
+          &::placeholder {
+            color: #000;
+          }
+        }
+      }
+
       .btn-upload .is-invalid {
         border-color: red;
       }
@@ -432,6 +450,7 @@
   }
 
 }
+
 // 8- Style MyProfileSeller Page Bottom ModalSaveData 
 .modalsavedata {
   position: fixed;
@@ -517,152 +536,212 @@
     }
   }
 }
+
 .hidemodal {
   display: none !important;
 }
+
 .showmodal {
   display: flex !important;
   justify-content: center;
   align-items: center;
 }
 
-.En{
+.En {
   .myprofileseller {
     &__top {
       flex-direction: row;
-      .left {flex-direction: row;}
-      .right {flex-direction: row;
+
+      .left {
+        flex-direction: row;
+      }
+
+      .right {
+        flex-direction: row;
+
         .btn {
-          &:first-of-type {margin-right: 15px;}
+          &:first-of-type {
+            margin-right: 15px;
+          }
         }
-        img {margin-right: 15px;}
+
+        img {
+          margin-right: 15px;
+        }
       }
     }
+
     &__bottom {
       .userdata {
         flex-direction: row;
+
         .left {
           ul {
-            li {text-align: left;}
+            li {
+              text-align: left;
+            }
           }
         }
+
         .right {
           .btn {
-            img {margin-right: 20px;}
+            img {
+              margin-right: 20px;
+            }
           }
         }
       }
+
       .companydata {
         direction: ltr;
+
         .right {
           .btn {
-            img {margin-right: 20px;}
+            img {
+              margin-right: 20px;
+            }
           }
         }
       }
     }
   }
+
   #modalchangepasswordseller {
     .modal-body {
       >div {
         .filedpassword {
-          .toggoleimg {right: 1%;}
+          .toggoleimg {
+            right: 1%;
+          }
         }
       }
+
       .end {
         flex-direction: row;
-  
+
         .btn-send {
           margin-right: 15px;
         }
-  
+
       }
     }
-  } 
+  }
+
   #modeleditprofileseller {
     direction: ltr;
+
     .modal-body {
       .end {
-        .btn-send {margin-right: 15px;}
+        .btn-send {
+          margin-right: 15px;
+        }
       }
     }
   }
 }
-.Ar{
+
+.Ar {
   .myprofileseller {
     &__top {
       flex-direction: row-reverse;
-  
-      .left {flex-direction: row-reverse;}
-  
+
+      .left {
+        flex-direction: row-reverse;
+      }
+
       .right {
         flex-direction: row-reverse;
-  
+
         .btn {
-          &:first-of-type {margin-left: 15px;}
+          &:first-of-type {
+            margin-left: 15px;
+          }
         }
-  
-        img {margin-left: 15px;}
+
+        img {
+          margin-left: 15px;
+        }
       }
     }
+
     &__bottom {
       .userdata {
         flex-direction: row-reverse;
+
         .left {
           ul {
-            li {text-align: right;}
+            li {
+              text-align: right;
+            }
           }
         }
+
         .right {
           .btn {
-            img {margin-left: 20px;}
+            img {
+              margin-left: 20px;
+            }
           }
         }
       }
+
       .companydata {
         direction: rtl;
+
         .right {
           .btn {
-            img {margin-left: 20px;}
-  
+            img {
+              margin-left: 20px;
+            }
+
           }
         }
       }
     }
   }
+
   #modalchangepasswordseller {
     .modal-body {
       >div {
         text-align: right;
+
         .filedpassword {
-          .toggoleimg {left: 1%;}
-          input{
+          .toggoleimg {
+            left: 1%;
+          }
+
+          input {
             text-align: right;
-            &::placeholder{
+
+            &::placeholder {
               text-align: right;
             }
           }
         }
       }
+
       .end {
         flex-direction: row-reverse;
-  
+
         .btn-send {
           margin-left: 15px;
         }
-  
+
       }
     }
   }
-  
-#modeleditprofileseller {
-  direction: rtl;
-  .modal-body {
-    .end {
-      .btn-send {margin-left: 15px;}
+
+  #modeleditprofileseller {
+    direction: rtl;
+
+    .modal-body {
+      .end {
+        .btn-send {
+          margin-left: 15px;
+        }
+      }
     }
   }
-}
 }
 
 // 9- Style MyProfileSeller Page To Media Queris 992px.
@@ -750,6 +829,7 @@
 
   }
 }
+
 // 10- Style MyProfileSeller Page To Media Queris 576px .
 @media screen and (max-width: 576px) {
   .myprofileseller {
@@ -789,16 +869,21 @@
       .userdata {
         margin: 20px 10px;
         flex-direction: column;
+
         .left {
           height: auto;
           width: 100%;
-          ul {height: auto;
+
+          ul {
+            height: auto;
+
             li {
               font-size: 14px;
               margin: 10px 0px;
             }
           }
         }
+
         .right {
           margin: 20px 0px;
           height: auto;
@@ -811,14 +896,20 @@
         margin: 20px 10px;
         padding: 0px;
         flex-direction: column;
+
         .left {
           width: 100%;
+
           ul {
             li {
               margin-top: 20px !important;
+
               .item {
                 font-size: 14px;
-                .data {margin-top: 10px;}
+
+                .data {
+                  margin-top: 10px;
+                }
               }
 
             }
@@ -845,16 +936,22 @@
       }
     }
   }
+
   #modeleditprofileseller {
-    .modal-dialog {min-width: 90%;}
+    .modal-dialog {
+      min-width: 90%;
+    }
+
     .modal-header {
       h5 {
         font-size: 16px;
       }
     }
+
     .modal-body {
       height: 500px;
       overflow-y: scroll;
+
       &::-webkit-scrollbar {
         width: 8px;
         height: 40px;
@@ -864,19 +961,43 @@
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
       }
+
       /* Track */
-      &::-webkit-scrollbar-track {background: #f1f1f1;}
-      /* Handle */
-      &::-webkit-scrollbar-thumb {background-color: #e8d173;}
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {background-color: #887529;}
-      .row {flex-direction: column;
-      .col-6 {width: 100%;}
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
       }
-      .input_model {margin-bottom: 5px;
-        label.form-label {font-size: 12px;}
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background-color: #e8d173;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #887529;
+      }
+
+      .row {
+        flex-direction: column;
+
+        .col-6 {
+          width: 100%;
+        }
+      }
+
+      .input_model {
+        margin-bottom: 5px;
+
+        label.form-label {
+          font-size: 12px;
+        }
+
         input.form-control,
-        .form-select {&::placeholder{font-size: 12px;}}
+        .form-select {
+          &::placeholder {
+            font-size: 12px;
+          }
+        }
       }
 
       .end {
@@ -890,36 +1011,48 @@
 
   }
 }
+
 // 11- Style MyProfileSeller Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
   .myprofileseller {
     &__top {
       margin: 30px auto 20px auto;
-      .left,.right {height: auto;}
-      .left {.text {font-size: 16px;}
+
+      .left,
+      .right {
+        height: auto;
+      }
+
+      .left {
+        .text {
+          font-size: 16px;
+        }
       }
 
       .right {
         margin-top: 20px;
+
         .btn {
           height: 40px;
           width: 150px;
           font-size: 12px;
+
           &:first-of-type {
             margin-right: 0px;
             margin-bottom: 10px;
           }
         }
-  
+
         img {
           width: 15px;
           height: 15px;
           margin-right: 5px;
           object-fit: contain;
         }
-        
+
       }
     }
+
     &__bottom {
       .userdata {
         .left {
@@ -1001,6 +1134,7 @@
       }
     }
   }
+
   .modalsavedata {
     .modaldata {
       width: 95%;

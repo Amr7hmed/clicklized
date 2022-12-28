@@ -4,10 +4,12 @@ import UploadImage from "../../../../images/icon/upload.png";
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import SaveData from '../../../../layout/modal/savedata.jsx';
 import Deletimage from "../../../../images/icon/delet-image.svg";
+import IconPdf from "../../../../images/icon/icon-pdf.png";
 import ModelGallaryImage from '../../../../layout/modal/modelimages.jsx';
 import { UpdateLogoprofile } from '../../../../api/profile';
 import { Authcontext } from '../../../../store/context';
 import { useContext } from 'react';
+
 
 function CompanyData(props) {
     const { DataCompany, setLoadingdata } = props;
@@ -64,14 +66,14 @@ function CompanyData(props) {
                             {language === "Ar" ? "السجل التجاري" : "Company CR"}
                         </span>
                         {imagesfilescr.length > 0 ? <div className="imgagegallary">
-                            {imagesfilescr.map(item =>
+                            {imagesfilescr.map((item,index) =>
                                 <div className="img" key={item.id}>
                                     <button className='btn btn-deletimage'
                                         onClick={() => RemoveImagesfilesvat(imagesfilescr, setImagesfilescr, item)}>
                                         <img src={Deletimage} />
                                     </button>
-                                    <img src={item.image} alt={item.id} className={"img_gallary"}
-                                        data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`} />
+                                    <img src={IconPdf} alt={item.id} className={"img_gallary"} />
+                                    <span className="text">{`file ${index+1}`}</span>
                                 </div>
                             )}
                         </div> :
@@ -91,14 +93,14 @@ function CompanyData(props) {
                                             }} />
                                         {language === "Ar" ?
                                             <>تحميل الملفات<img src={UploadImage} alt="" /></>
-                                            :<><img src={UploadImage} alt="" />Upload files</>
+                                            : <><img src={UploadImage} alt="" />Upload files</>
                                         }
                                     </button>
                                     :
                                     <button type='button' className='btn btn-upload button-disabled'>
                                         {language === "Ar" ?
                                             <>جاري التحميل<span className="spinner"></span></>
-                                            :<><span className="spinner"></span>Loading</>
+                                            : <><span className="spinner"></span>Loading</>
                                         }
                                     </button>}
                                 {messagecrfiles === "" ? "" : <span className='errorfiled'>{messagecrfiles}</span>}
@@ -113,13 +115,14 @@ function CompanyData(props) {
                         {imagesfilesvat.length > 0 ?
 
                             <div className="imgagegallary">
-                                {imagesfilesvat.map(item =>
+                                {imagesfilesvat.map((item,index) =>
                                     <div className="img" key={item.id}>
                                         <button className='btn btn-deletimage'
                                             onClick={() => RemoveImagesfilesvat(imagesfilesvat, setImagesfilesvat, item)}>
-                                            <img src={Deletimage} /></button>
-                                        <img src={item.image} alt={item.id} className={"img_gallary"}
-                                            data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${item.id}`} />
+                                            <img src={Deletimage} />
+                                        </button>
+                                    <img src={IconPdf} alt={item.id} className={"img_gallary"} />
+                                    <span className="text">{`file ${index+1}`}</span>
                                     </div>
                                 )}
                             </div>
@@ -128,7 +131,7 @@ function CompanyData(props) {
                                 <button type='button' className=
                                     {DataCompany.industry === null ? 'btn btn-upload button-disabled' : 'btn btn-upload'}>
                                     <input type="file" className="input-file" multiple name="cr_files"
-                                        accept="image/*"
+                                        accept="application/pdf"
                                         onChange={e => {
                                             UpdateCompanyvatprofile(
                                                 DataCompany,
@@ -139,15 +142,15 @@ function CompanyData(props) {
                                         }} />
                                     {language === "Ar" ?
                                         <>تحميل الملفات<img src={UploadImage} alt="" /></>
-                                        :<><img src={UploadImage} alt="" />Upload files</>
+                                        : <><img src={UploadImage} alt="" />Upload files</>
                                     }
                                 </button>
                                 :
                                 <button type='button' className='btn btn-upload button-disabled'>
-                                      {language === "Ar" ?
-                                            <>جاري التحميل<span className="spinner"></span></>
-                                            :<><span className="spinner"></span>Loading</>
-                                        }
+                                    {language === "Ar" ?
+                                        <>جاري التحميل<span className="spinner"></span></>
+                                        : <><span className="spinner"></span>Loading</>
+                                    }
                                 </button>}
                                 {messagevatfiles === "" ? "" : <span className='errorfiled'>{messagevatfiles}</span>}
                             </>}
@@ -162,7 +165,7 @@ function CompanyData(props) {
                             "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg";
                     }} alt={DataCompany.companyindustry} />
                 <button type='button' className='btn'>
-                    <input type="file" className="input-file" accept="image/*"
+                    <input type="file" className="input-file" accept="application/pdf"
                         name='logo' onChange={e => {
                             setLogo(URL.createObjectURL(e.target.files[0]));
                             setToggolemodal(!toggolemodal);

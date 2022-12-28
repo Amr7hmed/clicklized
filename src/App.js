@@ -50,7 +50,6 @@ function App() {
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
       <Route path="/requestdetailsseller/:id" element={<RequestDetails />} exact />
       <Route path="/offerrequest/:id" element={<OfferRequest />} exact />
-      
       <Route path="/profileseller" element={<ProfileSeller />} exact />
       
         </Routes>

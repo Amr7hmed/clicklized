@@ -25,8 +25,10 @@ export const SignIn = async (email,password,device_id,device_type,setMessage) =>
       localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
       localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
       localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
+      localStorage.setItem("languagecklized", JSON.stringify("En"));
       setMessage("")
-      window.location.reload();
+      //window.location.reload();
+      console.log(response.data.data.user.lang);
     })
     .catch(function (error) {
       setMessage(error.response.data.message)
@@ -55,7 +57,8 @@ export const ActivateAccount = async (code,email,device_id,device_type,setMessag
       localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
       localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
       localStorage.removeItem("emailclicklized");
-      window.location.pathname = `/`;
+      localStorage.setItem("languagecklized", JSON.stringify("En"));
+     window.location.pathname = `/`;
       setMessage("")
       setLoading(false);
     })
@@ -151,6 +154,7 @@ export const Signoutacount=()=>{
   localStorage.removeItem("tokenclicklized")
   localStorage.removeItem("usertypeclicklized")
   localStorage.removeItem("useridclicklized")
+  localStorage.removeItem("languagecklized")
   window.location.pathname = `/`;
 }
 // Get Function Api

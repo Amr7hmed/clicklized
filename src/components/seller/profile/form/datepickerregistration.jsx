@@ -3,12 +3,15 @@ import DatePicker from "react-datepicker";
 import IconCleander from "../../../../images/icon/calendar-icon.png";
 
 function DatePickerregistration(props) {
-  const {Data}=props;
+  const {Data ,DataAccount ,messagevatregistrationdate}=props;
+  const dayold = DataAccount.supplier.vat_registration_date;
   return (<div className='vat_registration_date'>
     <DatePicker 
       dateFormat="yyyy/MM/dd"
-      className={Data.errors.vat_registration_date ? "form-control is-invalid" : "form-control"}
-        placeholderText='Choose Required Delivery Date/Deadline'
+      className={dayold !== null ? "form-control placeholderdata":
+      messagevatregistrationdate === "" ? "form-control" : 
+      "form-control is-invalid"}
+      placeholderText={dayold === null ? 'Choose Required Delivery Date/Deadline' : dayold}
         selected={Data.values.vat_registration_date}
         minDate={new Date()} 
         placeholder={"date"}

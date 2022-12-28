@@ -22,6 +22,11 @@ function Formprofileseller(props) {
     const authcontext = useContext(Authcontext);
     const language = authcontext.language;
 
+
+    const [messagecrissuedate, setMessagecrissuedate] = useState("");
+    const [messagecrexpiredate, setMessagecrexpiredate] = useState("");
+    const [messagevatregistrationdate, setMessagevatregistrationdate] = useState("");
+
     
     useEffect(() => {
         GetDataIndustries(setLoading, setDataIndustries);
@@ -33,19 +38,22 @@ function Formprofileseller(props) {
         business_sector: Data.industry === null ?"":Data.industry.id,
         fax:Data.supplier.fax_number === null ?"":Data.supplier.fax_number,
         cr: Data.supplier.cr_number=== null ?"":Data.supplier.cr_number,
-        website:Data.supplier.website === undefined?"":Data.supplier.website,
-        city:Data.city.id === undefined ?"":Data.city.id,
+        website:Data.supplier.website === null?"":Data.supplier.website,
+        city:Data.city.length === 0 ?"":Data.city.id,
         address:Data.supplier.address === null ?"":Data.supplier.address,
         vat: Data.supplier.vat_number === null ?"":Data.supplier.vat_number,
-        cr_issue_date:"",
+        cr_issue_date: "",
         cr_expire_date: "",
         vat_registration_date:"",
         company_email:Data.supplier.business_email === null ? "" : Data.supplier.business_email,
         payment_terms:Data.supplier.payment_terms === null ?"":Data.supplier.payment_terms,
+        languageaccounet:language,
     };
 
     const onSubmit = (values) => {
-       UpdateProfile(Data,values,setMessage)
+        console.log(values);
+       UpdateProfile(Data,values,language,setMessage,setMessagecrissuedate,setMessagecrexpiredate,setMessagevatregistrationdate)
+
     }
     const form = (props) => {
         return <>
@@ -115,16 +123,17 @@ function Formprofileseller(props) {
                             <label className="form-label">
                                         {language === "Ar" ? "تاريخ إصدار السجل التجاري" : "CR Issue Date"}
                             </label>
-                            <DatePickerdatacrissue  Data={props} />
-                            <ErrorMessage name="cr_issue_date" component="span" className='errorfiled' />
+                            <DatePickerdatacrissue  Data={props} DataAccount={Data}
+                            messagecrissuedate={messagecrissuedate}/>
+                            {messagecrissuedate === "" ? "" : <span className='errorfiled'>{messagecrissuedate}</span>}
                         </div>
                         
                         <div className='col-6 input_model'>
                             <label className="form-label">
                                         {language === "Ar" ? "تاريخ أنتهاء السجل التجاري" : "CR Expiry Date"}
                                 </label>
-                                <DatePickerdatacrexpire Data={props} />
-                                <ErrorMessage name="cr_expire_date" component="span" className='errorfiled' />
+                                <DatePickerdatacrexpire Data={props} DataAccount={Data} messagecrexpiredate={messagecrexpiredate}/>
+                            {messagecrexpiredate === "" ? "" : <span className='errorfiled'>{messagecrexpiredate}</span>}
                         </div>
                     </div>
                     
@@ -135,8 +144,9 @@ function Formprofileseller(props) {
                                         "تاريخ التسجيل في ضريبة القيمة المضافة"
                                          : "VAT Registration Date"}
                                 </label>
-                            <DatePickerregistration  Data={props}/>
-                            <ErrorMessage name="vat_registration_date" component="span" className='errorfiled' />
+                            <DatePickerregistration  Data={props}  DataAccount={Data}
+                             messagevatregistrationdate={messagevatregistrationdate}/>
+                            {messagevatregistrationdate === "" ? "" : <span className='errorfiled'>{messagevatregistrationdate}</span>}
                         </div>
                         <div className='col-6 input_model'>
                             <label className="form-label">
@@ -219,6 +229,18 @@ function Formprofileseller(props) {
                             <ErrorMessage name="company_email" component="span" className='errorfiled' />
                         </div>
 
+                        <div className='col-6 input_model'>
+                            <label className="form-label">
+                            {language === "Ar" ? "اللغة": "Language"}
+                            </label>
+                            <Field name="languageaccounet" component="select"
+                                className={props.errors.languageaccounet ? "form-select is-invalid" : "form-select"} 
+                                >
+                                <option value={"Ar"} >عربي</option>
+                                <option value={"En"}>English</option>
+                            </Field>
+                            <ErrorMessage name="languageaccounet" component="span" className='errorfiled' />
+                        </div>
                     </div>
                     {message === "" ? "" : <span className='errorfiled'>{message}</span>}
 
@@ -242,15 +264,16 @@ function Formprofileseller(props) {
             business_sector: Yup.string().required('Required'),
             cr: Yup.string().required('Required'),
             vat: Yup.string().required('Required'),
-            cr_issue_date:Yup.string().required('Required'),
-            vat_registration_date:Yup.string().required('Required'),
+           // cr_issue_date:Yup.string().required('Required'),
+           // vat_registration_date:Yup.string().required('Required'),
             website:Yup.string().required('Required'),
             city:Yup.string().required('Required'),
             address:Yup.string().required('Required'),
             company_email: Yup.string().required("Required"),
             fax:Yup.string().required('Required'),
             payment_terms:Yup.string().required('Required'),
-            cr_expire_date: Yup.string().required("Required"),
+            //cr_expire_date: Yup.string().required("Required"),
+            languageaccounet: Yup.string().required("Required"),
         });
 
         return schema;

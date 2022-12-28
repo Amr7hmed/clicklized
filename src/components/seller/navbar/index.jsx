@@ -32,7 +32,9 @@ function Navbar(props) {
                         </li>
                     </ul>
                     <div className="d-flex">
+                        {/*
                         <IconLanguage/>
+                    */}
                         <IconNotification/>
                         <IconProfile/>
                     </div>
