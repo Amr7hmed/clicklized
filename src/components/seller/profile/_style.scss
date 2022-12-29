@@ -746,6 +746,7 @@
 
 // 9- Style MyProfileSeller Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+  .En,.Ar{
   .myprofileseller {
     font-family: var(--font-cairo);
 
@@ -829,9 +830,11 @@
 
   }
 }
+}
 
 // 10- Style MyProfileSeller Page To Media Queris 576px .
 @media screen and (max-width: 576px) {
+  .En,.Ar{
   .myprofileseller {
     &__top {
 
@@ -1011,9 +1014,11 @@
 
   }
 }
+}
 
 // 11- Style MyProfileSeller Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+  .En,.Ar{
   .myprofileseller {
     &__top {
       margin: 30px auto 20px auto;
@@ -1208,4 +1213,5 @@
       }
     }
   }
+}
 }

@@ -9,6 +9,7 @@ import ModelGallaryImagerequest from '../../../createreview/createbottom/form/mo
 import Deletimage from "../../../../../images/icon/delet-image.svg";
 import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
+import IconPdf from "../../../../../images/icon/icon-pdf.png";
 
 export function Inputquotations(props) {
 
@@ -299,7 +300,7 @@ export function InputFiles(props) {
         <span className='item'>
 
           <span className='btn-upload'>
-            <Field type="file" className="input-file" name="files" multiple accept="image/*"
+            <Field type="file" className="input-file" name="files" multiple accept="application/pdf"
               onChange={e => { AddImagesfiles(e) }} />
             {language === "Ar" ?
               <>
@@ -339,17 +340,22 @@ export function InputFiles(props) {
           {language === "Ar" ? "الملفات مطلوبة" : "Files Is Required"}
           </span>
           :
-          <span className="imgagegallary">
-            {imagesfilesrequest.map((item, index) =>
-              <div className="img" key={index}>
-                <button className='btn btn-deletimage' type='button'
-                  onClick={() => RemoveImagesfiles(item)}><img src={Deletimage} /></button>
+          <span className="imgagegallarypdf">
 
-                <img src={URL.createObjectURL(item)} alt={item.name} className={"img_gallary"}
-                  data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`} />
-                <ModelGallaryImagerequest Data={item} Id={index} />
+            {imagesfilesrequest.map((item, index) =>
+            <div key={index}>
+              <div className="img">
+                <button className='btn btn-deletimage' type='button'
+                  onClick={() => RemoveImagesfiles(item)}><img src={Deletimage} />
+                </button>
+                <div>
+                  <img src={IconPdf} alt={item.id} className={"img_gallary"} />
+                   <span className="text">{`file ${index + 1}`}</span>
+                </div>
               </div>
+            </div>
             )}
+
           </span>
         }
 

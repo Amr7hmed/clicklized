@@ -282,6 +282,7 @@
 }
 // 6- Style HomeSeller Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
 .homerequests {
     margin: 20px 0px;
     
@@ -369,10 +370,11 @@
         }
     }
 }
-
+    }
 }
 // 7- Style HomeSeller Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .homerequests {
         margin: 20px 0px;
         
@@ -406,4 +408,5 @@
             }
         }
     }
+}
 }

@@ -217,6 +217,7 @@
 }
 // 7- Style CreateReview Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .chart {
         &__item {
             flex-direction: column;
@@ -233,9 +234,11 @@
             margin-bottom: 40px;
         }
     }
+}  
 }
 // 8- Style CreateReview Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .chart {
 
         .spends,
@@ -250,8 +253,10 @@
         }
     }
 }
+}
 // 9- Style CreateReview Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+    .En,.Ar{
     .chart {
 
         .spends,
@@ -265,4 +270,5 @@
             }
         }
     }
+}
 }

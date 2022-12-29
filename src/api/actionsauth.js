@@ -27,8 +27,13 @@ export const SignIn = async (email,password,device_id,device_type,setMessage) =>
       localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
       localStorage.setItem("languagecklized", JSON.stringify("En"));
       setMessage("")
-      //window.location.reload();
+      window.location.reload();
       console.log(response.data.data.user.lang);
+      if(response.data.data.user.lang === 'ar'){
+        localStorage.setItem("languagecklized", JSON.stringify("Ar"));
+      }else{
+        localStorage.setItem("languagecklized", JSON.stringify("En"));
+      }
     })
     .catch(function (error) {
       setMessage(error.response.data.message)

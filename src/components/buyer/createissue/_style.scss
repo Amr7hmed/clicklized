@@ -454,7 +454,7 @@
 
 // 6- Style CreateIssueData Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
-
+    .En,.Ar{
     .createbottom {
         .createissue {
             form {
@@ -567,9 +567,10 @@
         }
     }
 }
-
+}
 // 7- Style CreateRequest Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+    .En,.Ar{
     .createbottom {
         .createissue {
             form {
@@ -726,4 +727,5 @@
             }
         }
     }
+}
 }

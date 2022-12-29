@@ -74,6 +74,7 @@ font-family: var(--font-cairo);
 }
 // 6- Style RequestDetails Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+  .En,.Ar{
   .offerdetails {
     // 2- Style Bottom Page
     .offerdetailsbottom {
@@ -82,8 +83,10 @@ font-family: var(--font-cairo);
     }
   }
 }
+}
 // 7- Style RequestDetails Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+  .En,.Ar{
   .offerdetails {
     // 2- Style Bottom Page
     .offerdetailsbottom {
@@ -111,8 +114,10 @@ font-family: var(--font-cairo);
     }
   }
 }
+}
 // 8- Style RequestDetails Page To Media Queris 456px.
 @media screen and (max-width: 456px) {
+  .En,.Ar{
   .offerdetails {
     // 2- Style Bottom Page
     .offerdetailsbottom {
@@ -173,6 +178,7 @@ font-family: var(--font-cairo);
       }
     }
   }
+}
 }
 
 

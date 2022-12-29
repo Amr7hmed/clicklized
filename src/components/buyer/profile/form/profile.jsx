@@ -88,18 +88,6 @@ function Formprofile(props) {
                             <ErrorMessage name="phone" component="span" className='errorfiled' />
                         </div>
                         
-                        <div className='col-12 col-lg-6 input_model'>
-                            <label className="form-label">
-                            {language === "Ar" ? "اللغة": "Language"}
-                            </label>
-                            <Field name="languageaccounet" component="select"
-                                className={props.errors.languageaccounet ? "form-select is-invalid" : "form-select"} 
-                                >
-                                <option value={"Ar"} >عربي</option>
-                                <option value={"En"}>English</option>
-                            </Field>
-                            <ErrorMessage name="languageaccounet" component="span" className='errorfiled' />
-                        </div>
                     </div>
 
                     <div className='row'>

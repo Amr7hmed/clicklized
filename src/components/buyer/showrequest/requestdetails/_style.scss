@@ -659,6 +659,7 @@
 
 // 4- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+  .En,.Ar{
   .showrequest {
 
     // 2- Style Bottom Page
@@ -757,9 +758,11 @@
     }
   }
 }
+}
 
 // 5- Style ShowRequestData Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+  .En,.Ar{
   .showrequest {
 
     // 2- Style Bottom Page
@@ -948,9 +951,10 @@
     }
   }
 }
-
+}
 // 6- Style ShowRequestData Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+  .En,.Ar{
   .showrequest {
 
     // 2- Style Bottom Page
@@ -1113,4 +1117,5 @@
       }
     }
   }
+}
 }

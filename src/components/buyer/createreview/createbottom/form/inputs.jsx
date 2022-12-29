@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import IconPdf from "../../../../../images/icon/icon-pdf.png";
 import IconProfile from "../../../../../images/icon/img-profile.jpg";
 import { Authcontext } from '../../../../../store/context';
-import ModelGallaryImagerequest from './modelimages';
+
 
 export function Inputquotations(props) {
   const { Data } = props;
@@ -176,13 +176,16 @@ export function Fileslist(props) {
     </div>
         */}
 
-    <div className="imgagegallary">
+    <div className="imgagegallarypdf">
       {Imagesfiles.map((item, index) =>
-        <div className="img" key={index}>
-          <img src={URL.createObjectURL(item)} alt={item.name} className={"img_gallary"}
-            data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`} />
-          <ModelGallaryImagerequest Data={item} Id={index} />
-        </div>
+            <div key={index}>
+              <div className="img">
+                <div>
+                  <img src={IconPdf} alt={item.id} className={"img_gallary"} />
+                   <span className="text">{`file ${index + 1}`}</span>
+                </div>
+              </div>
+            </div>
       )}
     </div>
   </>

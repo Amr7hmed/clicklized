@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api, Tokenclicklized, UserId } from "../index.js";
+import { Api, languagecklized, Tokenclicklized, UserId } from "../index.js";
 
 // Post Function Api
 
@@ -83,11 +83,6 @@ export const UpdateProfile = async (Data,DataUser,Companycrfiles,Companyvatfiles
   data.append("industry_id",DataUser.industry);
   data.append("device_id", "default");
   data.append("device_type","web");
-  if(DataUser.languageaccounet === "En"){
-    data.append("lang",JSON.stringify("en"));
-  }else{
-    data.append("lang",JSON.stringify("ar"));
-  }
   
 
   for (let i = 0; i < Companycrfiles.length; i++) {
@@ -119,11 +114,13 @@ export const UpdateProfile = async (Data,DataUser,Companycrfiles,Companyvatfiles
   });
   
 };
+
+
 // Get Function Api 
-export const GetDataProfile = async (setLoading,setData ,language) => {
+export const GetDataProfile = async (setLoading,setData ) => {
   const options = {
     method: "get",
-    url: `${Api}profile/${UserId}?Accept-Language=${language==="Ar"?"ar":"en"}`,
+    url: `${Api}profile/${UserId}?Accept-Language=${JSON.parse(languagecklized) ==="Ar" ?"ar":"en"}`,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -134,6 +131,13 @@ export const GetDataProfile = async (setLoading,setData ,language) => {
     .then(function (response) {
       setLoading(true);
       setData(response.data.data.user);
+
+      if(response.data.data.user.lang === 'ar'){
+        localStorage.setItem("languagecklized", JSON.stringify("Ar"));
+      }else{
+        localStorage.setItem("languagecklized", JSON.stringify("En"));
+      }
+
     })
     .catch(function (error) {
       setLoading(true);

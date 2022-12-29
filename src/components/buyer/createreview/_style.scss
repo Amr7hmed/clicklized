@@ -384,28 +384,60 @@
                         }
                     }
 
-                    .imgagegallary {
+                    .imgagegallarypdf{
                         display: flex;
                         flex-wrap: wrap;
-
-                        .img {
-                            width: 70px;
-                            height: 75px;
-                            padding: 2.5px;
-                            border: 1px solid #887529;
-                            text-align: center;
-                            margin: 5px;
-                            position: relative;
-
-                            img.img_gallary {
-                                width: 100%;
-                                height: 100%;
-                                display: block;
-                                margin: 0px auto;
-                                cursor: pointer;
+                        .img{    
+                          padding: 2.5px;
+                          position: relative;
+                          width: 130px;
+                          height: 50px;
+                          background-color: #f8f0d2;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          div{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            img.img_gallary{       
+                              width: 24px;
+                              height: 27px;
+                              display: block;
+                              cursor: pointer;
                             }
+                            span.text{
+                              font-size: 18px;
+                              font-weight: bold;
+                              color: #231f20;
+                            }
+          
+                          }
+                          .btn-deletimage{
+                            padding: 0px;
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            top: -20%;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                            background-color: #fff;
+                            &:active{
+                              border-color: transparent;
+                            }
+                            img{
+                              width: 20px;
+                              height: 20px;
+                              filter: invert(46%) sepia(57%) saturate(481%) hue-rotate(11deg) brightness(87%) contrast(90%);
+                            }
+                          }
                         }
-                    }
+          
+                      }
 
                     .supplierslist {
                         width: 100%;
@@ -534,7 +566,16 @@
                             textarea {margin-right: 5%;}
                             input[type=checkbox] {margin-right: 5px;}
                         }
-                        .imgagegallary {flex-direction: row;}
+                        .imgagegallarypdf{
+                          flex-direction: row;
+                          .img{    
+                            margin-right: 20px;
+                            .btn-deletimage{
+                              right: -10%;
+                            }
+                          }
+      
+                        }
                         .supplierslist {
                             h6 {text-align: left;}
                             .listitems {
@@ -577,7 +618,16 @@
                             textarea {margin-left: 5%;}
                             input[type=checkbox] {margin-left: 5px;}
                         }
-                        .imgagegallary {flex-direction: row-reverse;}
+                        .imgagegallarypdf{
+                          flex-direction: row-reverse;
+                          .img{    
+                            margin-left: 20px;
+                            .btn-deletimage{
+                              left: -10%;
+                            }
+                          }
+        
+                        }
                         .supplierslist {
                             h6 {text-align: right;}
                             .listitems {
@@ -611,6 +661,7 @@
 }
 // 7- Style CreateReview Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .createrequest {
 
         .createreview {
@@ -718,10 +769,10 @@
     }
 
 }
-
+}
 // 8- Style CreateReview Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
-
+    .En,.Ar{
     .createrequest {
         .createreview {
 
@@ -913,9 +964,10 @@
     }
 
 }
-
+}
 // 9- Style CreateRequest Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+    .En,.Ar{
     .createrequest {
         .createreview {
 
@@ -1166,4 +1218,5 @@
             }
         }
     }
+}
 }

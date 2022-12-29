@@ -211,7 +211,8 @@
                 }
             }
         }
-}}
+}
+}
 .Ar{
     .requestquestionsdata {
         .title {
@@ -259,6 +260,7 @@
 }
 // 5- Style RequestQuestionsData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
             .requestquestionsdata {
                 padding: 20px;
                 margin-bottom: 30px;
@@ -267,8 +269,10 @@
     
             }
 }
+}
 // 6- Style RequestQuestionsData Page To Media Queris 456px.
 @media screen and (max-width: 456px) {
+    .En,.Ar{
             .requestquestionsdata {
                 .title { h6 {font-size: 14px;} }
                 .questionsdatalistcontener {
@@ -309,8 +313,10 @@
                 }
             }
 }
+}
 // 7- Style RequestQuestionsData Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+    .En,.Ar{
             .requestquestionsdata {
                 padding: 10px;
                 .questionsdatalistcontener {max-height: 550px;}
@@ -333,4 +339,5 @@
                 }
             }
       
+}
 }

@@ -318,6 +318,7 @@
 }
 // 6- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .offersbottom {
         width: 100% !important;
         margin-top: 20px;
@@ -588,8 +589,10 @@
         }
     }
   }
+}
 // 7- Style OffersBottom Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .offersbottom {
         //- Style Screen One
         .offersdetiles {
@@ -720,8 +723,10 @@
         }
     }
 }
+}
 // 8- Style OffersBottom Page To Media Queris 300px.
 @media screen and (max-width: 300px){
+    .En,.Ar{
     .offersbottom {
         //- Style Screen One
         .offersdetiles {
@@ -816,4 +821,5 @@
             }
         }
     }
+}
 }

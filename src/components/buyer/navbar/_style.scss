@@ -421,6 +421,8 @@
 }
 // 9- Style Navbar component To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,
+    .Ar{
     .navbarbuyer {
         height: auto;
         padding: 10px;
@@ -508,11 +510,13 @@
                 }
             }
         }
-    }
+    }   
+}
 }
 
 // 10- Style Navbar component To Media Queris 300px.
 @media screen and (max-width: 300px) {
+    .En,.Ar{
     .navbarbuyer {
         padding: 10px 0px;
         .navbar-brand {
@@ -573,4 +577,5 @@
             }
         }
     }
+}
 }

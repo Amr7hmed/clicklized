@@ -249,6 +249,7 @@
 }
 // 6- Style MyRequestSeller Page To Media Queris 992px
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .myrequestseller {
         height: auto;
         padding-bottom: 1px;
@@ -273,11 +274,12 @@
             display: none;
         }
     }
-
+    }
 }
 
 // 7- Style MyRequestSeller Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .myrequestseller {
         &__headr {
             margin: 40px 0px;
@@ -364,4 +366,5 @@
         }
 
     }
+}
 }

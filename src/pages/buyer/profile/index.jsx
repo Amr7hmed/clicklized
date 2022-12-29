@@ -3,23 +3,18 @@ import MyProfile from '../../../components/buyer/profile/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 import Loading from '../../../layout/loading/loading.jsx';
 import { GetDataProfile } from '../../../api/buyer/actionsprofile.js';
-import { Authcontext } from '../../../store/context.js';
-import { useContext } from 'react';
 
 function ProfileBuyer() {
   const [username,setUsername]=useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const authcontext = useContext(Authcontext);
-  const language = authcontext.language;
 
   useEffect(() => {
-    GetDataProfile(setLoading,setData ,language);
+    GetDataProfile(setLoading,setData);
     setUsername(data.name)
   }, [loading]);
   
-  console.log(data.lang);
   return (
     <>
     {loading === false ? (

@@ -428,14 +428,16 @@
 }
 // 8- Style MySuppliers Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .mysuppliers {
         height: auto;
         padding-bottom: 1px;
     }
-
+    }
 }
 // 9- Style MySuppliers Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .mysuppliers {
         &__headr {
             margin: 20px 0px;
@@ -598,4 +600,5 @@
 
     }
 
+}
 }

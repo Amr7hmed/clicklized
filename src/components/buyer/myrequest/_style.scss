@@ -281,14 +281,16 @@
 }
 // 7- Style MyRequest Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .myrequest {
         height: auto;
         padding-bottom: 1px;
     }
-
+    }
 }
 // 8- Style MyRequest Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .myrequest {
         &__headr {
             margin: 20px 0px;
@@ -354,4 +356,5 @@
 
         &__hide{height: 0px;}
     }
+}
 }

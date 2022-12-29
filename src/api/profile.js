@@ -46,3 +46,32 @@ export const UpdateImageprofile = async (file,setMessage) => {
       setMessage(error.response.data.message)
     });
   };
+
+  
+export const ChangeLang= async (Data) => {
+  
+  var data = new FormData();
+  data.append('lang', Data);
+  const  options = {
+    method: "post",
+    url: `${Api}change-lang`,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=UTF-8",
+      'Access-Control-Allow-Origin': '*',
+      Authorization: `Bearer ${Tokenclicklized}`, 
+    },
+    data,
+  };
+    axios(options).then(function (response) {
+    if(Data === 'ar'){
+      localStorage.setItem("languagecklized", JSON.stringify("Ar"));
+    }else{
+      localStorage.setItem("languagecklized", JSON.stringify("En"));
+    }
+    window.location.reload();
+  })
+  .catch(function (error) {
+  });
+  
+};

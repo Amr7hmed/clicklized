@@ -95,13 +95,13 @@
       border-bottom: 1px solid #e7e7e7;
 
       .left {
-        height: 270px;
+        height: 300px;
 
         ul {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          height: 270px;
+          height: 100%;
 
           li {
             display: flex;
@@ -124,7 +124,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 270px;
+        height: 300px;
 
         img {
           width: 190px;
@@ -251,25 +251,31 @@
               flex-wrap: wrap;
               .img{    
                 padding: 2.5px;
-                margin: 10px;
                 position: relative;
                 width: 130px;
                 height: 50px;
                 background-color: #f8f0d2;
                 display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                align-items: center;
-                img.img_gallary{       
-                  width: 24px;
-                  height: 27px;
-                  display: block;
+                flex-direction: column;
+                justify-content: center;
+                div{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-evenly;
+                  align-items: center;
                   cursor: pointer;
-                }
-                span.text{
-                  font-size: 18px;
-                  font-weight: bold;
-                  color: #231f20;
+                  img.img_gallary{       
+                    width: 24px;
+                    height: 27px;
+                    display: block;
+                    cursor: pointer;
+                  }
+                  span.text{
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #231f20;
+                  }
+
                 }
                 .btn-deletimage{
                   padding: 0px;
@@ -697,7 +703,13 @@
     &__bottom {
       .userdata {
         flex-direction: row;
-        .left {ul {li {text-align: left;}}}
+        .left {ul {li {
+          text-align: left;
+          select.form-select{
+            direction: ltr;
+            background-position: right 0.75rem center;
+          }
+        }}}
         .right {
           .btn {img {margin-right: 20px;}}
         }
@@ -708,6 +720,7 @@
           ul {
             li {
               text-align: left;
+              align-items: flex-start;
               .btn-upload {
                 img {
                   margin: 0px 12px 0px 0px;
@@ -716,6 +729,7 @@
               .imgagegallary{
                 flex-direction: row;
                 .img{    
+                  margin-right: 20px;
                   .btn-deletimage{
                     right: -10%;
                   }
@@ -783,7 +797,14 @@
     &__bottom {
       .userdata {
         flex-direction: row-reverse;
-        .left {ul {li {text-align: right;}}}
+        .left {ul {
+          li {
+            text-align: right;
+            select.form-select{
+              direction: rtl;
+              background-position: left 0.75rem center;
+            }
+          }}}
         .right {
           .btn {img {margin-left: 20px;}}
         }
@@ -794,6 +815,7 @@
           ul {
             li {
               text-align: right;
+              align-items: flex-end;
               .btn-upload {
                 img {
                   margin: 0 0px 0 12px;
@@ -802,6 +824,7 @@
               .imgagegallary{
                 flex-direction: row-reverse;
                 .img{    
+                  margin-left: 20px;
                   .btn-deletimage{
                     left: -10%;
                   }
@@ -859,6 +882,8 @@
 }
 // 9- Style MyProfile Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+  .En,
+  .Ar{
   .myprofile {
     font-family: var(--font-cairo);
 
@@ -897,8 +922,11 @@
     }
   }
 }
+}
 // 10- Style MyProfile Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+  .En,
+  .Ar{
   .myprofile {
     &__top {
 
@@ -1058,8 +1086,11 @@
     }
   }
 }
+}
 // 11- Style MyProfile Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+  .En,
+  .Ar{
   .myprofile {
     &__top {
       padding: 10px 0px;
@@ -1324,4 +1355,5 @@
       margin: 0px auto;
   }
   }
+}
 }

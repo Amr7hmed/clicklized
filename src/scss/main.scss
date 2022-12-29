@@ -259,8 +259,16 @@ input:disabled {
   background: #f9f9f9 !important;
 }
 
+
 .En{.pagination {justify-content: flex-end;}}
-.Ar{.pagination {justify-content: flex-start;}}
+.Ar{
+  .pagination {justify-content: flex-start;}
+
+  select{
+    direction: rtl;
+    background-position: left 0.75rem center;
+  }
+}
 // Loading Styling
 @import "../layout/loading/_style.scss";
 // Empty Styling

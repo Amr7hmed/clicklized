@@ -423,6 +423,7 @@
 
 // 5- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
+    .En,.Ar{
     .showrequestdata {
         &__top {
             flex-direction: column;
@@ -565,9 +566,10 @@
     }
 
 }
-
+}
 // 6- Style ShowRequestData Page To Media Queris 576px.
 @media screen and (max-width: 576px) {
+    .En,.Ar{
     .showrequestdata {
         &__top {
             .left {
@@ -690,9 +692,10 @@
         }
     }
 }
-
+}
 // 7- Style ShowRequestData Page To Media Queris 300px.
 @media screen and (max-width: 300px) {
+    .En,.Ar{
     .showrequestdata {
         &__row {
             .navlist {
@@ -735,4 +738,5 @@
             }
         }
     }
+}
 }

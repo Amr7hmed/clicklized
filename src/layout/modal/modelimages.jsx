@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Document, Page } from 'react-pdf';
 
 function ModelGallaryImage(props) {
-  const { Data ,Id} = props;
+  const { Data, Id } = props;
   return (
     <div className="modal fade modelgallaryimage"
       id={`modelgallaryimage${Id}`} tabIndex="-1"
@@ -14,7 +15,12 @@ function ModelGallaryImage(props) {
           </div>
           <div className="modal-body">
             <div className="image">
-              <img src={Data} alt="" />
+              <embed src={Data.image} type="application/pdf"
+                frameBorder="0"
+                scrolling="auto"
+                height="100%"
+                width="100%" />
+
             </div>
           </div>
 
