@@ -1,5 +1,6 @@
 import React, { useState ,useEffect ,useContext} from 'react';
-import { GetDataRequest } from '../../../../api/buyer/actionrequest.js';
+import { GetDataRequest } from '../../../../api/buyer/actions.js';
+
 import Loading from '../../../../layout/loading/loading.jsx';
 import { Authcontext } from '../../../../store/context.js';
 import Category from './category/index.jsx';

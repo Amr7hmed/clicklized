@@ -1,8 +1,9 @@
 import React, { useState ,useEffect } from 'react';
 import MyProfile from '../../../components/seller/profile/index.jsx';
 import Navbar from '../../../components/seller/navbar/index.jsx';
-import { GetDataProfile } from '../../../api/seller/actionsprofile.js';
 import Loading from '../../../layout/loading/loading.jsx';
+// Api
+import { GetDataProfile } from '../../../api/profile.js';
 
 function ProfileSeller() {  
   const [username,setUsername]=useState("");

@@ -2,7 +2,7 @@ import React, { useState ,useEffect } from 'react';
 import MyProfile from '../../../components/buyer/profile/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 import Loading from '../../../layout/loading/loading.jsx';
-import { GetDataProfile } from '../../../api/buyer/actionsprofile.js';
+import { GetDataProfile } from '../../../api/profile.js';
 
 function ProfileBuyer() {
   const [username,setUsername]=useState("");

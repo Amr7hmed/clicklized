@@ -3,10 +3,12 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
-import { AddNewSupplier, GetDataCaity } from '../../../../../api/buyer/actionsuppliers';
+
 import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
+// Api
+import { GetDataCaity, GetDataIndustries } from '../../../../../api/profile';
+import { AddNewSupplier } from '../../../../../api/buyer/actions';
 
 function FormAddSuppliers() {
     let navigate  = useNavigate();

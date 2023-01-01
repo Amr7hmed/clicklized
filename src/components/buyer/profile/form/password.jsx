@@ -4,8 +4,8 @@ import * as Yup from "yup";
 import swal from 'sweetalert';
 import Invisible from "../../../../images/icon/invisible.svg";
 import Visible from "../../../../images/icon/eye-regular.svg";
-import { UpdatePasswordprofile } from '../../../../api/actionsauth';
 import { Authcontext } from '../../../../store/context';
+import { UpdatePasswordprofile } from '../../../../api/profile';
 
 function Formpassword() {
     const authcontext = useContext(Authcontext);

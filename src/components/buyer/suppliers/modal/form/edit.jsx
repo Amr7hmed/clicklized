@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
-import { GetDataCaity } from '../../../../../api/buyer/actionsuppliers';
+
 import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
+import { GetDataCaity, GetDataIndustries } from '../../../../../api/profile';
 
 function FormEditSuppliers() {
     let navigate  = useNavigate();

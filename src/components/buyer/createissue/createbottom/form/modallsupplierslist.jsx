@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useContext } from 'react';
-import { GetDataSuppliers } from '../../../../../api/buyer/actionsuppliers';
+import { GetDataSuppliers } from '../../../../../api/buyer/actions';
+
 import { Authcontext } from '../../../../../store/context';
 import ItemSupplier from './itemsupplier.jsx';
 

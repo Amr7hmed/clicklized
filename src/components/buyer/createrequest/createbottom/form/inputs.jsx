@@ -4,12 +4,13 @@ import IconLoction from '../../../../../images/icon/location-icon.svg';
 import UploadImage from "../../../../../images/icon/upload.png";
 import DatePickerdata from './datepicker';
 import AddItemIcon from '../../../../../images/icon/icon-add.png';
-import { GetDataIndustries } from '../../../../../api/buyer/actionsprofile';
+
 import ModelGallaryImagerequest from '../../../createreview/createbottom/form/modelimages';
 import Deletimage from "../../../../../images/icon/delet-image.svg";
 import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
 import IconPdf from "../../../../../images/icon/icon-pdf.png";
+import { GetDataIndustries } from '../../../../../api/profile';
 
 export function Inputquotations(props) {
 

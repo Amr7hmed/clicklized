@@ -1,8 +1,10 @@
 import React, { useState ,useEffect } from 'react';
-import { GetDataRequest } from '../../../api/buyer/actionrequest.js';
+
 import Requestitems from '../../../components/buyer/myrequest/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 import Loading from '../../../layout/loading/loading.jsx';
+// Api
+import { GetDataRequest } from '../../../api/buyer/actions.js';
 
 function Myrequest() {
   const [loading, setLoading] = useState(false);

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { DeleteItem, UpdateCompanycrprofile, UpdateCompanyvatprofile } from '../../../../api/buyer/actionsprofile';
 import UploadImage from "../../../../images/icon/upload.png";
 import Editeimage from '../../../../images/icon/uploadimage.png';
 import SaveData from '../../../../layout/modal/savedata.jsx';
 import Deletimage from "../../../../images/icon/delet-image.svg";
 import IconPdf from "../../../../images/icon/icon-pdf.png";
 import ModelGallaryImage from '../../../../layout/modal/modelimages.jsx';
-import { UpdateLogoprofile } from '../../../../api/profile';
 import { Authcontext } from '../../../../store/context';
 import { useContext } from 'react';
+// Api
+import { DeleteItem, UpdateCompanycrprofile, UpdateCompanyvatprofile, UpdateLogoprofile } from '../../../../api/profile';
 
 
 function CompanyData(props) {
@@ -70,7 +70,7 @@ function CompanyData(props) {
                                     <div  key={item.id}>
                                     <div className="img" key={item.id}>
                                         <button className='btn btn-deletimage'
-                                            onClick={() => RemoveImagesfilesvat(imagesfilesvat, setImagesfilesvat, item)}>
+                                            onClick={() => RemoveImagesfilesvat(imagesfilescr, setImagesfilescr, item)}>
                                             <img src={Deletimage} />
                                         </button>
                                         <div data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`}>

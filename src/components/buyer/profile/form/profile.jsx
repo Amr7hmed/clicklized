@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import UploadImage from "../../../../images/icon/upload.png";
-import {GetDataIndustries, UpdateProfile} from "../../../../api/buyer/actionsprofile.js";
 import { Authcontext } from '../../../../store/context';
+// Api
+import { GetDataIndustries, UpdateProfilebuyer } from '../../../../api/profile';
 
 function Formprofile(props) {
     const authcontext = useContext(Authcontext);
@@ -40,7 +41,7 @@ function Formprofile(props) {
     }
 
     const onSubmit = (values) => {
-        UpdateProfile(Data,values,Companycrfiles,Companyvatfiles,setMessage)
+        UpdateProfilebuyer(Data,values,Companycrfiles,Companyvatfiles,setMessage)
     }
 
 

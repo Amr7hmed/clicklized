@@ -73,7 +73,6 @@ export const ActivateAccount = async (code,email,device_id,device_type,setMessag
     });
 };
 
-
 export const FPasswordCode = async (code,email,device_id,device_type,setMessage,setLoading) => {
   const options = {
     method: "POST",
@@ -128,30 +127,6 @@ export const UpdatePassword = async (password,password_confirmation,setMessage,s
   .catch(function (error) {
     setMessage(error.response.data.message)
     setLoading(false);
-  });
-};
-
-export const UpdatePasswordprofile = async (password,password_confirmation,setMessage) => {
-  const  options = {
-    method: "post",
-    url: `${Api}update-password`,
-    headers: {
-      Accept: "application/json",
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${Tokenclicklized}`, 
-    },
-    data: JSON.stringify({
-      password,
-      password_confirmation
-    }),
-  };
-    axios(options).then(function (response) {
-    window.location.reload();
-    setMessage("")
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
   });
 };
 

@@ -30,13 +30,12 @@ function Navbar(props) {
                             {language === "Ar" ? 'طلباتي' : "My request"}
                             </NavLink>
                         </li>
-                        {Styleclass === "btnmyrequest" ? "":
                         <li className="nav-item">
                         <NavLink to={"/suppliers"} className='suppliers'>
                             {language === "Ar" ? 'موردي' : "My suppliers"}
                         </NavLink>
                         </li>
-                        }
+                        
                     </ul>
                     <div className="d-flex">
                         {/*

@@ -324,7 +324,7 @@
 
 }
 // 7- Style Navbar component English Language .
-.En{
+
     .navbarbuyer {
         direction: ltr;
         .collapse.navbar-collapse{
@@ -373,9 +373,24 @@
         }
     
     }
-
+.En{
+    .navbarbuyer {
+        .d-flex {
+            .iconprofile {
+                .dropdown-menu[data-bs-popper] {
+                    li {
+                        a {img {margin-right: 10px;}}
+                    }
+                }
+            }
+    
+        }
+    
+    }
 }
+
 // 8- Style Navbar component Arabic Language .
+/*
 .Ar{
     .navbarbuyer{
         direction: rtl;
@@ -419,6 +434,25 @@
         }
     }
 }
+*/
+.Ar{
+    .navbarbuyer {
+        .d-flex {
+            .iconprofile {
+                .dropdown-menu[data-bs-popper] {
+                    li {
+                        a {
+                            flex-direction: row-reverse;
+                            img {margin-left: 10px;}}
+                    }
+                }
+            }
+    
+        }
+    
+    }
+}
+
 // 9- Style Navbar component To Media Queris 992px.
 @media screen and (max-width: 992px) {
     .En,

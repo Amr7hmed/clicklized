@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import swal from 'sweetalert';
-import UploadImage from "../../../../images/icon/upload.png";
-import { GetDataIndustries, UpdateProfile } from '../../../../api/seller/actionsprofile';
-import { GetDataCaity, GetDataCountries } from '../../../../api/buyer/actionsuppliers';
+
+
 import { useEffect } from 'react';
 import DatePickerdatacrexpire from './datepickercrexpire';
 import DatePickerdatacrissue from './datepickerdatacrissue';
 import DatePickerregistration from './datepickerregistration';
 import { Authcontext } from '../../../../store/context';
 import { useContext } from 'react';
+import { GetDataCaity, GetDataIndustries, UpdateProfileseller } from '../../../../api/profile';
 
 function Formprofileseller(props) {
     const {Data}=props;
@@ -52,7 +51,7 @@ function Formprofileseller(props) {
 
     const onSubmit = (values) => {
         console.log(values);
-       UpdateProfile(Data,values,language,setMessage,setMessagecrissuedate,setMessagecrexpiredate,setMessagevatregistrationdate)
+        UpdateProfileseller(Data,values,language,setMessage,setMessagecrissuedate,setMessagecrexpiredate,setMessagevatregistrationdate)
 
     }
     const form = (props) => {
