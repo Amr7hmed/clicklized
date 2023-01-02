@@ -1,9 +1,9 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormOne from '../../layout/password/formone';
+import FormOne from '../../layout/phonepassword/formone';
 
-function ForgetPasswordEmail() {
+function ForgetPasswordPhone() {
   return (
     <section className='signin'>
         <div className="vactor">
@@ -15,7 +15,7 @@ function ForgetPasswordEmail() {
                 <img src={Logo} alt="" />
                 </div>
                 <h5>Forget password?</h5>
-                <span>Enter your email</span>
+                <span>Enter your Phone Number</span>
             </div>
             <FormOne/>
         </div>
@@ -23,4 +23,4 @@ function ForgetPasswordEmail() {
   )
 }
 
-export default ForgetPasswordEmail;
+export default ForgetPasswordPhone;

@@ -1,0 +1,605 @@
+/*
+1- Style SignIn Page 
+2-  Style SignIn Page Data
+3-  Style SignIn Page Header
+4-  Style SignIn Page Form
+
+// ========== Media Queris ============= //
+
+5- Style SignIn Page To Media Queris 992px.
+6- Style SignIn Page To Media Queris 770px.
+7- Style SignIn Page To Media Queris 576px.
+8- Style SignIn Page To Media Queris 300px.
+*/
+
+// 1- Style SignIn Page 
+.signin {
+    padding: 1px;
+    margin: 0px;
+    background-color: #231f20;
+    font-family: var(--font-cairo);
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .vactor {
+        width: 416px;
+        height: 334px;
+        left: 0%;
+        bottom: 0%;
+        position: absolute;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+// 2-  Style SignIn Page Data
+    &__data {
+        padding: 0px;
+        width: 45%;
+        height: auto;
+        border-radius: 8px;
+        background-color: #fff;
+        padding: .5px 0px;
+        position: relative;
+        z-index: 5;
+    }
+// 3-  Style SignIn Page Header
+    &__header {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        .img {
+            width: 330px;
+            height: 90px;
+            margin: 15px auto 5px auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        h5 {
+            font-family: var(--font-cairo);
+            font-size: 22px;
+            color: #252428;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: normal;
+            color: #a5a5ac;
+        }
+    }
+// 4-  Style SignIn Page Form
+    &__form {
+        width: 70%;
+        margin: 20px auto 30px auto;
+
+        label.title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #343433;
+            text-transform: capitalize;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            margin-top: 25px;
+            margin-bottom: 10px;
+
+            li {
+                label {
+                    font-size: 14px;
+                    text-transform: capitalize;
+                }
+
+                input {
+                    margin-right: 10px;
+
+                    +label {
+                        color: #c0c0c0;
+                    }
+                }
+
+                input[type=radio] {
+                    &:checked {
+                        +label {
+                            color: #333;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    margin-left: 70px;
+                }
+            }
+        }
+
+        .form {
+            label {
+                color: #343433;
+                font-size: 16px;
+            }
+
+            input {
+                border: solid 1px #a5a5ac;
+                padding: 8px 10px;
+                margin: 8px 0px;
+                font-size: 16px;
+                height: 42px;
+                border-radius: 2px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                -ms-border-radius: 2px;
+                -o-border-radius: 2px;
+
+                &:focus {
+                    border-color: #a5a5ac;
+                }
+            }
+
+            .btn-send {
+                width: 100%;
+                height: 42px;
+                background-color: #e8d173;
+                margin-top: 15px;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+                color: #231f20;
+            }
+
+            .end {
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                display: block;
+                font-size: 16px;
+                color: #a5a5ac;
+
+                a {
+                    color: #a5a5ac;
+                    font-weight: bold;
+
+                    &:hover {
+                        color: #a5a5ac !important;
+                    }
+                }
+            }
+            .forget_password {
+                margin: 15px 0px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                    margin-right: 8px;
+                }
+
+                a {
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: #a5a5ac;
+
+                    &:hover {
+                        color: #a5a5ac !important;
+                    }
+                }
+            }
+
+            .filedpassword {
+                position: relative;
+
+                .toggoleimg {
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    right: 1%;
+                    transform: translate(0%, -50%);
+                    -webkit-transform: translate(0%, -50%);
+                    -moz-transform: translate(0%, -50%);
+                    -ms-transform: translate(0%, -50%);
+                    -o-transform: translate(0%, -50%);
+                    padding: 0px;
+                    margin: 0px;
+                    display: block;
+                    cursor: pointer;
+
+                    img {
+                        width: 24px;
+                        height: 21px;
+                        object-fit: contain;
+                        filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+                        -webkit-filter: invert(70%) sepia(9%) saturate(142%) hue-rotate(201deg) brightness(92%) contrast(96%) !important;
+                    }
+                }
+            }
+            input[type=checkbox] {
+                appearance: none;
+                background-color: #fff;
+                width: 18px;
+                height: 18px;
+                margin-right: 5px;
+                border-radius: 3px;
+                border: solid 2px #dbdce5;
+                display: inline-grid;
+                padding: 0px !important;
+                place-content: center;
+
+                &::before {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    transform: scale(0);
+                    transform-origin: bottom left;
+                    background-color: #fff;
+                    clip-path: polygon(13% 50%, 34% 66%, 81% 2%, 100% 18%, 39% 100%, 0 71%);
+                    -webkit-transform: scale(0);
+                    -moz-transform: scale(0);
+                    -ms-transform: scale(0);
+                    -o-transform: scale(0);
+                }
+
+                &:checked {
+                    background-color: #e9d173;
+                    border: 2px solid#e9d173;
+
+                    &::before {
+                        transform: scale(1);
+                    }
+                }
+            }
+
+            label.formlabel-checkbox {
+                font-weight: bold;
+                font-size: 14px;
+                color: #020524;
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+// 5- Style SignIn Page To Media Queris 992px.
+@media screen and (max-width: 992px) {
+    .signin {
+        height: 100vh !important;
+
+        .vactor {
+            width: 30%;
+            height: 300px;
+        }
+
+        &__data {
+            width: 60%;
+        }
+
+        &__header {
+            text-align: center;
+
+            .img {
+                width: 180px;
+                height: 60px;
+                margin: 10px auto;
+            }
+
+            h5 {
+                font-size: 18px;
+            }
+        }
+
+        &__form {
+            margin: 15px auto;
+            width: 90%;
+
+            label.title {
+                font-size: 14px;
+                font-weight: normal;
+            }
+
+            ul {
+                margin: 10px 0px;
+
+                li {
+                    label {
+                        font-size: 12px;
+                    }
+
+                    input {
+                        margin-right: 10px;
+
+                        +label {
+                            color: #c0c0c0;
+                        }
+                    }
+
+                    input[type=radio] {
+                        &:checked {
+                            +label {
+                                color: #333;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        margin-left: 70px;
+                    }
+                }
+            }
+
+            .form {
+                label {
+                    font-size: 14px;
+                }
+
+                input {
+                    padding: 6px 10px;
+                    margin: 8px 0px;
+                    font-size: 14px;
+                }
+
+                .btn-send {
+                    width: 100%;
+                    height: 42px;
+                    margin-top: 15px;
+                    font-size: 14px;
+                }
+
+                .end {
+                    margin-top: 20px;
+                    display: block;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+// 6- Style SignIn Page To Media Queris 770px.
+@media screen and (max-width: 770px) {
+    .signin {
+        height: 100vh !important;
+
+        .vactor {
+            width: 45%;
+            height: 250px;
+        }
+
+        &__data {
+            width: 65%;
+        }
+
+    }
+}
+
+// 7- Style SignIn Page To Media Queris 576px.
+@media screen and (max-width: 576px) {
+    .signin {
+        height: 100vh !important;
+
+        .vactor {
+            width: 50%;
+            height: 180px;
+        }
+
+        &__data {
+            width: 90%;
+        }
+
+        &__header {
+            text-align: center;
+
+            .img {
+                width: 180px;
+                height: 60px;
+                margin: 10px auto;
+            }
+
+            h5 {
+                font-size: 18px;
+            }
+        }
+
+        &__form {
+            margin: 15px auto;
+            width: 90%;
+
+            label.title {
+                font-size: 14px;
+                font-weight: normal;
+            }
+
+            ul {
+                margin: 10px 0px;
+
+                li {
+                    label {
+                        font-size: 12px;
+                    }
+
+                    input {
+                        margin-right: 10px;
+
+                        +label {
+                            color: #c0c0c0;
+                        }
+                    }
+
+                    input[type=radio] {
+                        &:checked {
+                            +label {
+                                color: #333;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        margin-left: 70px;
+                    }
+                }
+            }
+
+            .form {
+                label {
+                    font-size: 14px;
+                }
+
+                input {
+                    padding: 6px 10px;
+                    margin: 8px 0px;
+                    font-size: 14px;
+                }
+
+                .btn-send {
+                    width: 100%;
+                    height: 42px;
+                    margin-top: 15px;
+                    font-size: 14px;
+                }
+
+                .end {
+                    margin-top: 20px;
+                    display: block;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+// 8- Style SignIn Page To Media Queris 300px.
+@media screen and (max-width: 300px) {
+    .signin {
+        height: 100vh !important;
+
+        .vactor {
+            width: 70%;
+            height: 200px;
+        }
+
+        &__data {
+            width: 90%;
+        }
+
+        &__header {
+            text-align: center;
+
+            .img {
+                width: 160px;
+                height: 45px;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+
+        &__form {
+            margin: 10px auto;
+
+            label.title {
+                font-size: 12px;
+                font-weight: normal;
+            }
+
+            ul {
+                margin: 10px 0px;
+
+                li {
+                    label {
+                        font-size: 12px;
+                    }
+
+                    input {
+                        margin-right: 10px;
+
+                        +label {
+                            color: #c0c0c0;
+                        }
+                    }
+
+                    input[type=radio] {
+                        &:checked {
+                            +label {
+                                color: #333;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        margin-left: 70px;
+                    }
+                }
+            }
+
+            .form {
+                label {
+                    font-size: 12px;
+                }
+
+                input {
+                    padding: 6px 5px;
+                    font-size: 12px;
+
+                    &::placeholder {
+                        font-size: 12px;
+                    }
+                }
+
+                .btn-send {
+                    width: 100%;
+                    height: 40px;
+                    margin-top: 15px;
+                    font-size: 12px;
+                }
+
+                .end {
+                    margin-top: 20px;
+                    display: block;
+                    font-size: 12px;
+                }
+
+                .forget_password {
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 4px;
+                    }
+
+                    a {
+                        font-size: 12px;
+                    }
+                }
+
+                .filedpassword {
+                    position: relative;
+
+                    .toggoleimg {
+                        img {
+                            width: 22px;
+                            height: 19px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

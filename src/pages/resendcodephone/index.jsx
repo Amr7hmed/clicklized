@@ -1,9 +1,10 @@
-import React  from 'react';
+import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormTwo from '../../layout/password/formtwo';
 
-function ForgetPasswordCode() {
+import FormResendCodePhone from '../../layout/resendcodephone/form';
+
+function ResendCodePhone() {
   return (
     <section className='signin'>
         <div className="vactor">
@@ -14,12 +15,14 @@ function ForgetPasswordCode() {
                 <div className="img">
                 <img src={Logo} alt="" />
                 </div>
-                <h5>Enter verification code</h5>
+                <h5>Activate The Account ?</h5>
+                <span>Enter your Phone Number</span>
             </div>
-            <FormTwo/>
+            <FormResendCodePhone/>
         </div>
     </section>
   )
 }
 
-export default ForgetPasswordCode;
+export default ResendCodePhone;
+

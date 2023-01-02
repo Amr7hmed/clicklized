@@ -5,22 +5,32 @@ import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
 import forgetpassword from "../../images/icon/lock-gray.png";
 import { NavLink } from 'react-router-dom';
-import { SignIn } from '../../api/actionsauth';
+import { SignInphone } from '../../api/actionsauth';
 import { Authcontext } from '../../store/context';
 
-function FormSignIn() {
+function FormSignInPhone() {
     const authcontext = useContext(Authcontext);
-    const setEmail = authcontext.setEmail;
-    const state = { email: "", password: "" ,device_id:false};
+    const setPhone = authcontext.setPhone;
+    const state = { phone: "", password: "" ,device_id:false};
     const [toggle, setToggle] = useState(false);
     const [message, setMessage] = useState("");
 
     const onSubmit = (values) => {
-        setEmail(values.email);
-        if(values.device_id === true){
-            SignIn(values.email,values.password,"granted","web",setMessage);
+
+        let phone_old = values.phone,
+            phone_string = phone_old.toString(),
+            slicefirstphone = phone_string.slice(0,3);
+        
+        if(slicefirstphone === "966"){
+            setPhone(values.phone);
+            if(values.device_id === true){
+                SignInphone(values.phone,values.password,"granted","web",setMessage);
+            }else{
+                SignInphone(values.phone,values.password,"denied","web",setMessage);
+            }
+            
         }else{
-           SignIn(values.email,values.password,"denied","web",setMessage);
+            setMessage("Phone number must start with 966")
         }
     }
 
@@ -28,11 +38,11 @@ function FormSignIn() {
         return <form onSubmit={props.handleSubmit}>
             <div className="form">
                 <div className='mb-1'>
-                    <label className="form-label">Business email</label>
-                    <Field type="email"
-                        className={props.errors.email ? "form-control is-invalid" : "form-control"}
-                        placeholder="Enter your business email" name="email" />
-                    <ErrorMessage name="email" component="span" className='errorfiled' />
+                    <label className="form-label">Phone Number</label>
+                    <Field type="number"
+                        className={props.errors.phone ? "form-control is-invalid" : "form-control"}
+                        placeholder="966123456789" name="phone" />
+                    <ErrorMessage name="phone" component="span" className='errorfiled' />
                 </div>
                 <div className='mb-1'>
                     <label className="form-label">Password</label>
@@ -64,7 +74,7 @@ function FormSignIn() {
                 </div>
                 <div className='forget_password'>
                     <img src={forgetpassword} />
-                        <NavLink to={"/forgetpassword"}>Forget password?</NavLink>
+                        <NavLink to={"/forgetpasswordphone"}>Forget password?</NavLink>
                 </div>
                 <div className="mb-1">
                     {message === ""? "": 
@@ -73,6 +83,13 @@ function FormSignIn() {
                         This account is not activated, to activate the account, please 
                         <NavLink to={"/resendcode"}> Click here</NavLink>
                     </span>:
+                    message === "Please activate your phone first Or login using email" ?
+                    <span className='errorfiled'>
+                        Please activate your phone first through this 
+                        <NavLink to={"/resendcodephone"}> link </NavLink>
+                        or login with email <NavLink to={"/"}> click here </NavLink>
+                    </span>
+                    :
                     <span className='errorfiled'>{message}</span>
                     }
                 </div>
@@ -81,9 +98,10 @@ function FormSignIn() {
                 </div>
                 <div>
                     <span className='end'>
-                    Sign In by phone number ?{" "}
-                        <NavLink to={"/signinphone"}>click here</NavLink>
+                    Sign In by Business email ?{" "}
+                        <NavLink to={"/"}>click here</NavLink>
                     </span>
+
                     <span className='end'>
                     New user ?{" "}
                         <NavLink to={"/signup"}>Sign up</NavLink>
@@ -96,7 +114,9 @@ function FormSignIn() {
 
     const schema = () => {
         const schema = Yup.object().shape({
-            email: Yup.string().required(),
+            phone: Yup.string()
+            .min(12, 'The phone number must be at least 12 Digits!')
+            .max(13, 'The phone number must be no more than 13 digits long!'),
             password: Yup.string().required(),
         });
 
@@ -116,4 +136,4 @@ function FormSignIn() {
     )
 }
 
-export default FormSignIn;
+export default FormSignInPhone;

@@ -1,20 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from 'react-router-dom';
-import { ActivateAccount } from '../../api/actionsauth';
 import { Authcontext } from '../../store/context';
+import { useContext } from 'react';
 import { Api } from '../../api';
 import axios from 'axios';
 
-function FormVerification() {
+function FormTwo() {
     const authcontext = useContext(Authcontext);
     const email = authcontext.email;
     const state = { code: "" };
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
-     const ActivateAccount = async (code,email,device_id,device_type,setMessage,setLoading) => {
+
+     const FPasswordCode = async (code,email,device_id,device_type,setMessage,setLoading) => {
         const options = {
           method: "POST",
           url: `${Api}activate-account`,
@@ -34,10 +35,8 @@ function FormVerification() {
           .then(function (response) {
             localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
             localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
-            localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
             localStorage.removeItem("emailclicklized");
-            localStorage.setItem("languagecklized", JSON.stringify("En"));
-           window.location.pathname = `/`;
+            window.location.pathname = `/updatepassword`;
             setMessage("")
             setLoading(false);
           })
@@ -46,10 +45,10 @@ function FormVerification() {
             setLoading(false);
           });
       };
-      
 
+      
     const onSubmit = (values) => {
-        ActivateAccount(values.code, email, "default", "web", setMessage,setLoading);
+        FPasswordCode(values.code, email, "default", "web", setMessage,setLoading);
         setLoading(true);
     }
 
@@ -67,7 +66,7 @@ function FormVerification() {
                         message === "auth.code_invalid" ?
                             <span className='errorfiled'>
                                 The code is not valid to send it again Please
-                                <NavLink to={"/resendcode"}> Click here</NavLink>
+                                <NavLink to={"/forgetpassword"}> Click here</NavLink>
                             </span> :
                             <span className='errorfiled'>{message}</span>
                     }
@@ -107,4 +106,4 @@ function FormVerification() {
     )
 }
 
-export default FormVerification
+export default FormTwo

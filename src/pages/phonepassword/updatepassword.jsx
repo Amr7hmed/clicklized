@@ -1,10 +1,9 @@
 import React from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormOne from '../../layout/emailpassword/formone';
-import FormResendCode from '../../layout/resendcode/form';
+import FormThree from '../../layout/emailpassword/formthree';
 
-function ResendCode() {
+function UpdatepasswordPhone() {
   return (
     <section className='signin'>
         <div className="vactor">
@@ -15,14 +14,14 @@ function ResendCode() {
                 <div className="img">
                 <img src={Logo} alt="" />
                 </div>
-                <h5>Activate The Account ?</h5>
-                <span>Enter your email</span>
+                <h5>Enter your password</h5>
             </div>
-            <FormResendCode/>
+            
+            <FormThree/>
+             
         </div>
     </section>
   )
 }
 
-export default ResendCode;
-
+export default UpdatepasswordPhone;

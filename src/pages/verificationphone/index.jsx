@@ -1,10 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormSignIn from '../../layout/signin/form';
-import { useEffect } from 'react';
+import FormVerificationPhone from '../../layout/verificationphone/form';
 
-function SignIn() {
+function VerificationPhone() {
   return (
     <section className='signin'>
         <div className="vactor">
@@ -15,13 +14,12 @@ function SignIn() {
                 <div className="img">
                 <img src={Logo} alt="" />
                 </div>
-                <h5>Welcome to clicklized</h5>
-                <span>Sign in now</span>
+                <h5>Enter verification code</h5>
             </div>
-            <FormSignIn/>
+            <FormVerificationPhone/>
         </div>
     </section>
   )
 }
 
-export default SignIn;
+export default VerificationPhone;

@@ -7,6 +7,7 @@ export const Authcontext = React.createContext();
 export function Contextprovider(props) {
     const [language, setLanguage] = useState(JSON.parse(languagecklized));
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [numberrequest, setNumberrequest] = useState("");
     const [itemsrequest, setItemsrequest] = useState([
         {
@@ -33,6 +34,8 @@ export function Contextprovider(props) {
     const value = {
         email: email,
         setEmail: setEmail,
+        phone:phone,
+        setPhone:setPhone,
         numberrequest:numberrequest,
         setNumberrequest:setNumberrequest,
         itemsrequest:itemsrequest,

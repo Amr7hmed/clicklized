@@ -5,7 +5,7 @@ import { UserTypeClicklized } from '../../api';
 import { GetuserTypes } from '../../api/actionsauth';
 import HomeBuyer from '../../pages/buyer/home';
 import HomeSeller from '../../pages/seller/home';
-import SignIn from '../../pages/signin';
+import SignInEmail from '../../pages/signinemail/index.jsx';
 import Loading from '../loading/loading';
 
 function Home() {
@@ -34,7 +34,7 @@ function Home() {
                 <HomeBuyer/>
                 :UserTypeClicklized == Supplierdata[0].id ?
                 <HomeSeller/>
-                :<SignIn/>}
+                :<SignInEmail/>}
       </section>
     )}
     </>

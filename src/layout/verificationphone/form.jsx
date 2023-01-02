@@ -2,22 +2,21 @@ import React, { useContext, useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from 'react-router-dom';
-import { ActivateAccount } from '../../api/actionsauth';
 import { Authcontext } from '../../store/context';
 import { Api } from '../../api';
 import axios from 'axios';
 
-function FormVerification() {
+function FormVerificationPhone() {
     const authcontext = useContext(Authcontext);
-    const email = authcontext.email;
+    const phone = authcontext.phone;
     const state = { code: "" };
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
-     const ActivateAccount = async (code,email,device_id,device_type,setMessage,setLoading) => {
+     const ActivateAccountphone = async (code,phone,device_id,device_type,setMessage,setLoading) => {
         const options = {
           method: "POST",
-          url: `${Api}activate-account`,
+          url: `${Api}verify-phone`,
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json;charset=UTF-8",
@@ -25,7 +24,7 @@ function FormVerification() {
           },
           data: JSON.stringify({
             code,
-            email,
+            phone,
             device_id,
             device_type
           }),
@@ -35,9 +34,13 @@ function FormVerification() {
             localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
             localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
             localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
-            localStorage.removeItem("emailclicklized");
-            localStorage.setItem("languagecklized", JSON.stringify("En"));
-           window.location.pathname = `/`;
+      
+            window.location.pathname = `/`;
+            if(response.data.data.user.lang === 'ar'){
+              localStorage.setItem("languagecklized", JSON.stringify("Ar"));
+            }else{
+              localStorage.setItem("languagecklized", JSON.stringify("En"));
+            }
             setMessage("")
             setLoading(false);
           })
@@ -46,10 +49,9 @@ function FormVerification() {
             setLoading(false);
           });
       };
-      
 
     const onSubmit = (values) => {
-        ActivateAccount(values.code, email, "default", "web", setMessage,setLoading);
+        ActivateAccountphone(values.code, phone, "default", "web", setMessage,setLoading);
         setLoading(true);
     }
 
@@ -107,4 +109,4 @@ function FormVerification() {
     )
 }
 
-export default FormVerification
+export default FormVerificationPhone

@@ -2,20 +2,57 @@ import React, { useState } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavLink } from 'react-router-dom';
-import { FPasswordCode } from '../../api/actionsauth';
 import { Authcontext } from '../../store/context';
 import { useContext } from 'react';
+import { Api } from '../../api';
+import axios from 'axios';
 
 function FormTwo() {
     const authcontext = useContext(Authcontext);
-    const email = authcontext.email;
+    const phone = authcontext.phone;
     const state = { code: "" };
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
+     const ActivateAccountphone = async (code,phone,device_id,device_type,setMessage,setLoading) => {
+        const options = {
+          method: "POST",
+          url: `${Api}verify-phone`,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json;charset=UTF-8",
+            'Access-Control-Allow-Origin': '*',
+          },
+          data: JSON.stringify({
+            code,
+            phone,
+            device_id,
+            device_type
+          }),
+        };
+        axios(options)
+          .then(function (response) {
+            localStorage.setItem("tokenclicklized", JSON.stringify(response.data.data.user.token));
+            localStorage.setItem("usertypeclicklized", JSON.stringify(response.data.data.user.user_type_id));
+            localStorage.setItem("useridclicklized", JSON.stringify(response.data.data.user.id));
+      
+            window.location.pathname = `/updatepasswordphone`;
+            if(response.data.data.user.lang === 'ar'){
+              localStorage.setItem("languagecklized", JSON.stringify("Ar"));
+            }else{
+              localStorage.setItem("languagecklized", JSON.stringify("En"));
+            }
+            setMessage("")
+            setLoading(false);
+          })
+          .catch(function (error) {
+            setMessage(error.response.data.message)
+            setLoading(false);
+          });
+      };
 
     const onSubmit = (values) => {
-        FPasswordCode(values.code, email, "default", "web", setMessage,setLoading);
+        ActivateAccountphone(values.code, phone, "default", "web", setMessage,setLoading);
         setLoading(true);
     }
 
@@ -33,7 +70,7 @@ function FormTwo() {
                         message === "auth.code_invalid" ?
                             <span className='errorfiled'>
                                 The code is not valid to send it again Please
-                                <NavLink to={"/forgetpassword"}> Click here</NavLink>
+                                <NavLink to={"/resendcode"}> Click here</NavLink>
                             </span> :
                             <span className='errorfiled'>{message}</span>
                     }
