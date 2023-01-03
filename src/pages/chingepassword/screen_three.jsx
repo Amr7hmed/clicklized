@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Logo from '../../images/logo/logo.png';
 import Vactor from '../../images/icon/vactor.png';
-import FormThree from '../../layout/emailpassword/formthree';
+import FormThree from '../../layout/chingepassword/form_three.jsx';
+import { Authcontext } from '../../store/context';
+import { Signoutacount } from '../../api/actionsauth.js';
 
-function UpdatepasswordPhone() {
+function Updatepassword() {
+  const authcontext = useContext(Authcontext);
+  const code = authcontext.code;
+
+
+  useEffect(() => {
+
+    if(code === ""){
+      Signoutacount();
+    }else{
+
+    }
+  }, []);
+
   return (
     <section className='signin'>
         <div className="vactor">
@@ -17,11 +32,10 @@ function UpdatepasswordPhone() {
                 <h5>Enter your password</h5>
             </div>
             
-            <FormThree/>
-             
+             <FormThree/>
         </div>
     </section>
   )
 }
 
-export default UpdatepasswordPhone;
+export default Updatepassword;

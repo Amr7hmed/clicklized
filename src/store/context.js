@@ -8,6 +8,7 @@ export function Contextprovider(props) {
     const [language, setLanguage] = useState(JSON.parse(languagecklized));
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
+    const [code, setCode] = useState("");
     const [numberrequest, setNumberrequest] = useState("");
     const [itemsrequest, setItemsrequest] = useState([
         {
@@ -70,6 +71,8 @@ export function Contextprovider(props) {
         setCenterrequest :setCenterrequest,
         language: language,
         setLanguage: setLanguage,
+        code:code, 
+        setCode:setCode,
     }
 
     return (

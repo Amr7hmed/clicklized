@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api, Tokenclicklized } from "./index.js";
+import { Api } from "./index.js";
 
 // Post Function Api
 
@@ -75,8 +75,6 @@ export const SignInphone = async (phone,password,device_id,device_type,setMessag
     });
 };
 
-
-
 export const FPasswordCode = async (code,email,device_id,device_type,setMessage,setLoading) => {
   const options = {
     method: "POST",
@@ -106,33 +104,6 @@ export const FPasswordCode = async (code,email,device_id,device_type,setMessage,
       setMessage(error.response.data.message)
       setLoading(false);
     });
-};
-
-export const UpdatePassword = async (password,password_confirmation,setMessage,setLoading) => {
-  console.log(Tokenclicklized);
-  const  options = {
-    method: "post",
-    url: `${Api}update-password`,
-    headers: {
-      Accept: "application/json",
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      Authorization: `Bearer ${Tokenclicklized}`, 
-    },
-    data: JSON.stringify({
-      password,
-      password_confirmation
-    }),
-  };
-    axios(options).then(function (response) {
-    setMessage("")
-    window.location.pathname = `/`;
-    setLoading(false);
-  })
-  .catch(function (error) {
-    setMessage(error.response.data.message)
-    setLoading(false);
-  });
 };
 
 export const Signoutacount=()=>{

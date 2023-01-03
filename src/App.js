@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // This Is Buyer Pages . 
 import Myrequest from './pages/buyer/myrequest/index.jsx';
-import Verification from './pages/verification/index.jsx';
+import Verification from './pages/activeaccount/verification.jsx';
 import ProfileBuyer from './pages/buyer/profile/index.jsx';
 // This Is Auth Pages . 
 import SignInEmail from './pages/signinemail/index.jsx';
@@ -14,22 +14,20 @@ import Suppliers from './pages/buyer/suppliers/index.jsx';
 import MyRequestSeller from './pages/seller/myrequest/index.jsx';
 import RequestDetails from './pages/seller/requestdetails/index.jsx';
 import ProfileSeller from './pages/seller/profile/index.jsx';
-import ResendCode from './pages/resendcode/index.jsx';
+import ResendCode from './pages/activeaccount/resendcode.jsx';
 // Email Password
-import ForgetPasswordEmail from './pages/emailpassword/forgetpasswordemail.jsx';
-import ForgetPasswordCode from './pages/emailpassword/forgetpasswordcode.jsx';
-import Updatepassword from './pages/emailpassword/updatepassword.jsx';
 
 import Home from './layout/home/index.jsx';
 import OfferRequest from './pages/seller/offerrequest/index.jsx';
 
 import { Authcontext } from './store/context.js';
 import SignInPhone from './pages/signinphone/index.jsx';
-import ResendCodePhone from './pages/resendcodephone/index.jsx';
-import VerificationPhone from './pages/verificationphone/index.jsx';
-import ForgetPasswordPhone from './pages/phonepassword/forgetpasswordphone.jsx';
-import ForgetPasswordCodePhone from './pages/phonepassword/forgetpasswordcode.jsx';
-import UpdatepasswordPhone from './pages/phonepassword/updatepassword.jsx';
+
+
+import ForgetPassword from './pages/chingepassword/screen_one.jsx';
+import ForgetPasswordCode from './pages/chingepassword/screen_two.jsx';
+import Updatepassword from './pages/chingepassword/screen_three.jsx';
+
 
 function App() {
   const authcontext = useContext(Authcontext);
@@ -45,20 +43,19 @@ function App() {
       }
       <Route path="/signinphone" element={<SignInPhone />} exact />
       <Route path="/signup" element={<Signup/>} exact />
-      {/* Active Acount By Create Email*/}
-      <Route path="/resendcode" element={<ResendCode />} exact />
-      <Route path="/verification" element={<Verification />} exact />
-      {/* Active Acount By Create Phone Number */}
-      <Route path="/resendcodephone" element={<ResendCodePhone />} exact />
-      <Route path="/verificationphone" element={<VerificationPhone />} exact />
-      {/*Forget Password By Email */}
-      <Route path="/forgetpassword" element={<ForgetPasswordEmail />} exact />
-      <Route path="/forgetpasswordcode" element={<ForgetPasswordCode />} exact />
+
+      {/* Active Acount By Create Email && Phone Number*/}
+      <Route path="/resendcodeemail" element={<ResendCode />} exact />
+      <Route path="/resendcodephone" element={<ResendCode />} exact />
+      <Route path="/verificationemail" element={<Verification />} exact />
+      <Route path="/verificationphone" element={<Verification />} exact />
+
+      {/*Forget Password By Email && Phone Number*/}
+      <Route path="/forgetpasswordemail" element={<ForgetPassword />} exact />
+      <Route path="/forgetpasswordphone" element={<ForgetPassword />} exact />
+      <Route path="/passwordcodeemail" element={<ForgetPasswordCode />} exact />
+      <Route path="/passwordcodephone" element={<ForgetPasswordCode/>} exact />
       <Route path="/updatepassword" element={<Updatepassword />} exact />
-      {/*Forget Password By Phone Number */}
-      <Route path="/forgetpasswordphone" element={<ForgetPasswordPhone />} exact />
-      <Route path="/forgetpasswordcodephone" element={<ForgetPasswordCodePhone />} exact />
-      <Route path="/updatepasswordphone" element={<UpdatepasswordPhone />} exact />
       
       {/*This Is Buyer Pages*/}
       <Route path="/suppliers" element={<Suppliers />} exact />
@@ -66,6 +63,7 @@ function App() {
       <Route path="/addrequestbuyer" element={<CreateRequest />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
       <Route path="/showrequestbuyer/:name/:id" element={<ShowRequestbuyer />} exact />
+      
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
       <Route path="/requestdetailsseller/:id" element={<RequestDetails />} exact />

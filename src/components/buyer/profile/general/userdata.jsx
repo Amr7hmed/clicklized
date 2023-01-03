@@ -52,15 +52,6 @@ function UserData(props) {
                         </span>
                         <span className="data">{DataUser.phone}</span>
                     </li>
-                    <li>
-                            <label className="form-label">
-                            {language === "Ar" ? "اللغة": "Language"}
-                            </label>
-                        <select className="form-select" onChange={(e)=>onChinge(e)}  value={DataUser.lang}>
-                                <option value={"ar"} >عربي</option>
-                                <option value={"en"}>English</option>
-                        </select>
-                    </li>
                 </ul>
             </div>
             <div className="right">

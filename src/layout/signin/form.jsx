@@ -64,7 +64,7 @@ function FormSignIn() {
                 </div>
                 <div className='forget_password'>
                     <img src={forgetpassword} />
-                        <NavLink to={"/forgetpassword"}>Forget password?</NavLink>
+                        <NavLink to={"/forgetpasswordemail"}>Forget password?</NavLink>
                 </div>
                 <div className="mb-1">
                     {message === ""? "": 

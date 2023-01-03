@@ -3,8 +3,8 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Invisible from "../../images/icon/invisible.svg";
 import Visible from "../../images/icon/eye-regular.svg";
-import { UpdatePassword } from '../../api/actionsauth';
-import { Api } from '../../api';
+import { Api } from '../../api/index.js';
+
 import axios from 'axios';
 
 function FormThree() {
@@ -14,6 +14,31 @@ function FormThree() {
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
+    const UpdatePassword = async (password,password_confirmation,setMessage,setLoading) => {
+        const  options = {
+          method: "post",
+          url: `${Api}update-password`,
+          headers: {
+            Accept: "application/json",
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem("tokenclicklized"))}`, 
+          },
+          data: JSON.stringify({
+            password,
+            password_confirmation
+          }),
+        };
+          axios(options).then(function (response) {
+          setMessage("")
+          window.location.pathname = `/`;
+          setLoading(false);
+        })
+        .catch(function (error) {
+          setMessage(error.response.data.message)
+          setLoading(false);
+        });
+      };
       
     const onSubmit = (values) => {
         UpdatePassword(values.password,values.changepassword,setMessage,setLoading);

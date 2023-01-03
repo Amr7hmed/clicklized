@@ -920,7 +920,52 @@
         }
       }
     }
+    
+    &__bottom {
+      .userdata,
+      .companydata{
+        flex-direction: column;
+        .left{
+          margin-bottom: 50px;
+        }
+      }
+    }
   }
+}
+
+.Ar{
+  .myprofile {
+    
+    &__bottom {
+      .userdata,
+      .companydata{
+        .left{
+          align-self: flex-end;
+        }
+        .right{
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+
+}
+.En{
+  .myprofile {
+    
+    &__bottom {
+      .userdata,
+      .companydata{
+        .left{
+          align-self: flex-start;
+        }
+        .right{
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+
 }
 }
 // 10- Style MyProfile Page To Media Queris 576px.
