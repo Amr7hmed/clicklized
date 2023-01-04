@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
-
-import { useEffect } from 'react';
 import DatePickerdatacrexpire from './datepickercrexpire';
 import DatePickerdatacrissue from './datepickerdatacrissue';
 import DatePickerregistration from './datepickerregistration';
@@ -46,13 +43,10 @@ function Formprofileseller(props) {
         vat_registration_date:"",
         company_email:Data.supplier.business_email === null ? "" : Data.supplier.business_email,
         payment_terms:Data.supplier.payment_terms === null ?"":Data.supplier.payment_terms,
-        languageaccounet:language,
     };
 
     const onSubmit = (values) => {
-        console.log(values);
-        UpdateProfileseller(Data,values,language,setMessage,setMessagecrissuedate,setMessagecrexpiredate,setMessagevatregistrationdate)
-
+        UpdateProfileseller(Data,values,setMessage,setMessagecrissuedate,setMessagecrexpiredate,setMessagevatregistrationdate)
     }
     const form = (props) => {
         return <>
@@ -228,18 +222,6 @@ function Formprofileseller(props) {
                             <ErrorMessage name="company_email" component="span" className='errorfiled' />
                         </div>
 
-                        <div className='col-6 input_model'>
-                            <label className="form-label">
-                            {language === "Ar" ? "اللغة": "Language"}
-                            </label>
-                            <Field name="languageaccounet" component="select"
-                                className={props.errors.languageaccounet ? "form-select is-invalid" : "form-select"} 
-                                >
-                                <option value={"Ar"} >عربي</option>
-                                <option value={"En"}>English</option>
-                            </Field>
-                            <ErrorMessage name="languageaccounet" component="span" className='errorfiled' />
-                        </div>
                     </div>
                     {message === "" ? "" : <span className='errorfiled'>{message}</span>}
 
@@ -272,7 +254,6 @@ function Formprofileseller(props) {
             fax:Yup.string().required('Required'),
             payment_terms:Yup.string().required('Required'),
             //cr_expire_date: Yup.string().required("Required"),
-            languageaccounet: Yup.string().required("Required"),
         });
 
         return schema;

@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 import { Signoutacount } from '../../../api/actionsauth';
 import { Authcontext } from '../../../store/context';
 import { useContext } from 'react';
+import Language from '../../../images/icon/language-solid.svg';
+import ModelLanguage from '../../../layout/modal/model_language';
 
 function IconProfile() {
 
@@ -29,12 +31,19 @@ function IconProfile() {
             </NavLink>
         </li>
         <li>
+          <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModalLanguage">
+            <img src={Language} alt="Account" />
+            {language === "Ar" ? "اللغة" : "Language"}
+          </button>
+        </li>
+        <li>
             <button className='btn btn-signout' type='button' onClick={() => Signout()}>
             {language === "Ar" ? 'تسجيل الخروج' : "SIGN OUT"}
             </button>
         </li>
       </ul>
     </li>
+    <ModelLanguage/>
       
       </>
   )

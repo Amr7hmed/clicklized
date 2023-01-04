@@ -316,6 +316,11 @@
         }
     }  
 }
+.offersdetilesemptiy{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 // 6- Style ShowRequestData Page To Media Queris 992px.
 @media screen and (max-width: 992px) {
     .En,.Ar{

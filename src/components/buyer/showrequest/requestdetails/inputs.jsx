@@ -7,6 +7,7 @@ import IconCleander from "../../../../images/icon/calendar-icon.png";
 import IconPdfDownload from "../../../../images/icon/icon-short-pdf.png";
 import { Authcontext } from '../../../../store/context';
 import { useContext } from 'react';
+import ModelGallaryImage from '../../../../layout/modal/modelimages';
 
 export function Inputquotations(props) {
   const { errors, Data } = props;
@@ -34,13 +35,12 @@ export function InputItems(props) {
   const language = authcontext.language;
   return (
     <div className='inputform'>
-      <FieldArray name="items">
-        {({ insert, remove, push }) => (
-          <div className='inputform_items_row'>
-            <div>
-              {
-                values.items.map((item, index) => (
-                  <div key={index} className='inputform_items' id={index}>
+      <div className='inputform_items_row'>
+        <div>
+          {
+            values.items.map((item, index) => (
+              <div key={index} className='inputform_items' id={index}>
+                {/*
                     <div className="inputform_item">
                       <label htmlFor={`items.${index}.item`}>
                         {language === "Ar" ? "العنصر" : "Item"}
@@ -55,25 +55,30 @@ export function InputItems(props) {
                         <option value={item}>{item.item}</option>
                       </Field>
                     </div>
-                    <div className="inputform_item">
-                      <label htmlFor={`items.${index}.quantity`}>
-                        {language === "Ar" ? "الكمية" : "Quantity"}
+                     */}
+                <div className="inputform_item">
+                      <label>
+                        {language === "Ar" ? "العنصر" : "Item"}
                       </label>
-                      <Field readOnly
-                        name={`items.${index}.quantity`}
-                        placeholder=
-                        {language === "Ar" ? "الكمية" : "Quantity"}
-                        type="text"
-                        className={"form-control"} />
-                    </div>
-                  </div>
-                ))}
+                  <Field readOnly
+                    value={item.item.name}
+                    type="text"
+                    className={"form-control"} />
+                </div>
+                <div className="inputform_item">
+                  <label>
+                    {language === "Ar" ? "الكمية" : "Quantity"}
+                  </label>
+                  <Field readOnly
+                    value={item.quantity}
+                    type="text"
+                    className={"form-control"} />
+                </div>
+              </div>
+            ))}
 
-            </div>
-          </div>
-        )}
-
-      </FieldArray>
+        </div>
+      </div>
     </div>
   )
 };
@@ -103,6 +108,10 @@ export function Inputday(props) {
   const { Data } = props;
   const authcontext = useContext(Authcontext);
   const language = authcontext.language;
+  const oldday = Data.values.day,
+    ghingeday = new Date(oldday),
+    newday = `${ghingeday.getFullYear()}/${ghingeday.getMonth() + 1}/${ghingeday.getDate()}`;
+
   return (
     <div className='inputform inputformday'>
       <label className="form-label">
@@ -110,7 +119,7 @@ export function Inputday(props) {
       </label>
       <div className='day'>
         <Field type="text" component="input" readOnly
-          value={Data.values.day}
+          value={newday}
           className={"data-input"} />
 
         <img src={IconCleander} alt="Icon Cleander" />
@@ -165,7 +174,7 @@ export function Inputtransportation(props) {
             {Data.values.transportation === "included" ? <>
               {language === "Ar" ? "يشمل النقل" : "Included"}
             </> :
-              Data.values.transportation === "not-included" ? <>
+              Data.values.transportation === "not_included" ? <>
                 {language === "Ar" ? "لا يشمل النقل" : "Not Included"}
               </> : <>
                 {language === "Ar" ? "نقل من خلالى" : "Self collection"}
@@ -186,7 +195,7 @@ export function Inputnotes(props) {
     <div className='inputform'>
       <label className="form-label">
         {language === "Ar" ? "الملاحظات" : "Notes"}
-        </label>
+      </label>
       <Field type="textarea" component="textarea" readOnly
         className={"form-control"}
         value={Data.values.notes}
@@ -201,10 +210,14 @@ export function Fileslist(props) {
   return (
     <div className='fileslist'>
       {Data.values.fileslist.map((item, index) =>
-        <span key={index} className="files">
+      <div key={index}>
+        <span  className="files" data-bs-toggle="modal" data-bs-target={`#modelgallaryimage${index}`}>
           <img src={IconPdf} alt={item} />
-          {item}
+              <span className="text">{`file ${index + 1}`}</span>
         </span>
+      <ModelGallaryImage Data={item} Id={index} />
+        
+      </div>
       )}
     </div>
   )
@@ -224,7 +237,7 @@ export function Supplierslist(props) {
     <div className='supplierslist'>
       <h6>
         {language === "Ar" ? "قائمة الموردين" : "Suppliers list"}
-        </h6>
+      </h6>
       <div className="listitems">
         {objArr.map(item =>
           <span key={item.id} className="listitem">
@@ -246,16 +259,16 @@ export function Supplierslist(props) {
         <div>
           <button className='btn btn-download'>
             <img src={IconPdfDownload} alt="" className='pdf' />
-        {language === "Ar" ? "تحميل الملفات" : "Download as pdf"}
+            {language === "Ar" ? "تحميل الملفات" : "Download as pdf"}
           </button>
         </div>
       </div>
 
       <div className='inputform'>
         <Field type="checkbox" name="checkboxtoggle" disabled="disabled"
-          checked={Data.values.checkboxtoggle} />
+          checked={Data.values.checkboxtoggle === 1 ? true : false} />
         <label className="form-label formlabel-checkbox">
-        {language === "Ar" ? "إرسال دعوات لجميع الموردين" : "Send invitations to all suppliers"}
+          {language === "Ar" ? "إرسال دعوات لجميع الموردين" : "Send invitations to all suppliers"}
         </label>
       </div>
     </div>

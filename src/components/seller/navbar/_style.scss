@@ -37,7 +37,6 @@
         .btn-requestseller {
             width: 120px;
             height: 40px;
-            margin: 0px 30px;
             border-radius: 22px;
             font-size: 16px;
             font-style: normal;
@@ -203,7 +202,7 @@
                 &::after {
                     content: "";
                     position: absolute;
-                    top: -10%;
+                    top: -7%;
                     z-index: 10;
                     width: 0;
                     height: 0;
@@ -218,15 +217,21 @@
                     font-size: 14px;
                     font-weight: bold;
                     padding: 1px;
-                    a {
+                    border-bottom: solid 1px #979797;
+                    a,
+                    button{
                         margin: 15px 10px;
                         color: #020524;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    &:hover{
-                        color: #020524 !important;
-                    }
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        padding: 0px;
+                        font-weight: 700;
+                        width: 100%;
+
+                        &:hover {
+                            color: #020524 !important;
+                        }
 
                         img {
                             width: 22px;
@@ -251,8 +256,8 @@
                         background-color: #e9d1732e;
                     }
 
-                    &:first-of-type {
-                        border-bottom: solid 1px #979797;
+                    &:last-of-type {
+                        border-bottom: none;
                     }
                 }
             }
@@ -324,10 +329,60 @@
 }
 }
 
+.navbarseller {
+    .collapse.navbar-collapse{
+        margin-right: 30px;
+    }
+    .d-flex {
+        .iconnotification {
+            .dropdown-menu[data-bs-popper] {
+                left: -349px;
+                &::after {right: 6%;}
+                >div {
+                    li {
+                        .text {
+                            direction: ltr;
+                            text-align: left;
+                        }
+                        .time {
+                            text-align: right;
+                            img {margin-right: 10px;}
+                        }
+                    }
+                }
+            }
+        }
+
+        .iconprofile {
+
+            .dropdown-toggle {
+                img {margin-right: 8px;}
+                &::after {margin-left: 0.5em;}
+            }
+
+            .dropdown-menu[data-bs-popper] {
+                left: -40%;
+
+                &::after {
+                    right: 6%;
+                }
+
+            }
+        }
+
+    }
+
+}
+
 // 7- Style Navbar component English Language .
 .En{
     .navbarseller {
-        direction: ltr;
+        .nav-item {
+    
+            .btn-requestseller {
+                margin: 0px 30px;
+            }
+        }
         .collapse.navbar-collapse{
             margin-right: 30px;
         }
@@ -366,7 +421,13 @@
                     }
     
                     li {
-                        a {img {margin-right: 10px;}}
+                        display: flex;
+                        flex-direction: row;
+                        a,button {
+                            img {
+                                margin-right: 10px;
+                            }
+                        }
                     }
                 }
             }
@@ -379,7 +440,6 @@
 // 8- Style Navbar component Arabic Language .
 .Ar{
     .navbarseller{
-        direction: rtl;
         .collapse.navbar-collapse{
             justify-content: space-between;
             margin-left: 30px;
@@ -389,7 +449,6 @@
             .iconnotification {
                 .dropdown-menu[data-bs-popper] {
                     right: -349px;
-                    &::after {left: 6%;}
                     >div {
                         li {
                             .text {
@@ -413,8 +472,17 @@
     
                 .dropdown-menu[data-bs-popper] {
                     right: -40%;
-                    &::after {left: 6%;}
-                    li {a {img {margin-left: 10px;}}}
+                    li {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        a,button{
+                            flex-direction: row-reverse;
+
+                            img {
+                                margin-left: 10px;
+                            }
+                        }
+                    }
                 }
             }
         }

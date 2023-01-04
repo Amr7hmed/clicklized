@@ -119,7 +119,7 @@ export const UpdateProfilebuyer = async (Data, DataUser, Companycrfiles, Company
 };
 
 
-export const UpdateProfileseller = async (Data,values,language,setMessage,setMessagecrissuedate,
+export const UpdateProfileseller = async (Data,values,setMessage,setMessagecrissuedate,
   setMessagecrexpiredate,setMessagevatregistrationdate) => {
   let crissuedate='';
   let crexpiredate='';
@@ -182,7 +182,6 @@ export const UpdateProfileseller = async (Data,values,language,setMessage,setMes
   };
     axios(options).then(function (response) {
     setMessage("")
-    localStorage.setItem("languagecklized", JSON.stringify(values.languageaccounet));
     window.location.reload();
   })
   .catch(function (error) {

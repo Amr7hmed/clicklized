@@ -15,7 +15,6 @@ function ShowQuestionsData() {
           </h6>
         </div>
         <div className="questionsdatalistcontener">
-
           <QuestionsDataList />
           <QuestionsDataList />
           <QuestionsDataList />

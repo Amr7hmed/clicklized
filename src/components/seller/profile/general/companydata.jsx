@@ -32,7 +32,7 @@ function CompanyData(props) {
             <div className="left">
                 <ul>
                     <li className='row'>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                     {language === "Ar" ? "اسم الشركة" : "Company Name"}
@@ -47,7 +47,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                     {language === "Ar" ? "قطاع الأعمال" : "Business Sector"}
@@ -63,7 +63,7 @@ function CompanyData(props) {
                         </span>
                     </li>
                     <li className='row'>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                     {language === "Ar" ? "رقم السجل التجاري" : "CR NO."}
@@ -76,7 +76,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "تاريخ إصدار السجل التجاري" : "CR Issue Date"}
@@ -89,7 +89,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "تاريخ أنتهاء السجل التجاري" : "CR Expiry Date"}
@@ -105,7 +105,7 @@ function CompanyData(props) {
                         </span>
                     </li>
                     <li className='row'>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "رقم القيمة المضافة" : "VAT NO."}
@@ -117,7 +117,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? 
@@ -132,7 +132,7 @@ function CompanyData(props) {
                         </span>
                     </li>
                     <li className='row'>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "الموقع الألكتروني": "Website"}
@@ -145,7 +145,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "الدولة": "Country"}
@@ -159,7 +159,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "المدينة": "City"}
@@ -174,7 +174,7 @@ function CompanyData(props) {
                         </span>
                     </li>
                     <li className='row'>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "العنوان": "Address"}
@@ -188,7 +188,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "البريد الإلكتروني للشركة": "Company Email"}
@@ -202,7 +202,7 @@ function CompanyData(props) {
                                 </span>
                             </span>
                         </span>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "رقم الفاكس": "Fax No."}
@@ -216,7 +216,7 @@ function CompanyData(props) {
                         </span>
                     </li>
                     <li className='row'>
-                        <span className="col-4">
+                        <span className="col-lg-4 col-md-6 col-12">
                             <span className="item">
                                 <span className="title">
                                         {language === "Ar" ? "طريقه الدفع": "Payment Terms"}

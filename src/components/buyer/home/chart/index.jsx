@@ -1,5 +1,5 @@
 import React, { useState ,useEffect ,useContext} from 'react';
-import { GetDataRequest } from '../../../../api/buyer/actions.js';
+import { GetAllDataRequest } from '../../../../api/buyer/actions.js';
 
 import Loading from '../../../../layout/loading/loading.jsx';
 import { Authcontext } from '../../../../store/context.js';
@@ -16,7 +16,7 @@ function Chart() {
     const [data, setData] = useState([]);
   
     useEffect(() => {
-      GetDataRequest(setLoading,setData);
+        GetAllDataRequest(setLoading,setData);
     }, [loading]);
 
     return (

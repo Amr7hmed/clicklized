@@ -62,7 +62,7 @@ function App() {
       <Route path="/profilebuyer" element={<ProfileBuyer />} exact />
       <Route path="/addrequestbuyer" element={<CreateRequest />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
-      <Route path="/showrequestbuyer/:name/:id" element={<ShowRequestbuyer />} exact />
+      <Route path="/showrequestbuyer/:id" element={<ShowRequestbuyer />} exact />
       
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />

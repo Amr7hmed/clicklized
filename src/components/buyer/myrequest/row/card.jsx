@@ -32,7 +32,7 @@ function RequestCard(props) {
   }, []);
 
     const ShowId=(name,id)=>{
-        navigate(`/showrequestbuyer/${name}/${id}`);
+        navigate(`/showrequestbuyer/${id}`);
         scrollToTop();
     }
 

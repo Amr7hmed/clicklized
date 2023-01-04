@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Api, Tokenclicklized } from "../index.js";
+import { Api, languagecklized, Tokenclicklized } from "../index.js";
 
 // 1- Suppliers Page
 
@@ -41,8 +41,9 @@ axios(options).then(function (response) {
     });
 };
 
+
+
 // Post Function Api
-  
 export const AddNewSupplier = async (DataUser,setMessage) => {
   var data = new FormData();
   data.append("industry_id",DataUser.industry);
@@ -76,7 +77,7 @@ export const AddNewSupplier = async (DataUser,setMessage) => {
 // 2- Request Page
 
 // Get Function Api 
-export const GetDataRequest = async (setLoading, setData) => {
+export const GetAllDataRequest = async (setLoading, setData) => {
     const options = {
       method: "get",
       url: `${Api}orders`,
@@ -96,8 +97,26 @@ export const GetDataRequest = async (setLoading, setData) => {
       });
   };
   
-
-
+  export const GetDataRequest = async (setLoading, setData ,Id) => {
+    const options = {
+      method: "get",
+      url: `${Api}order-details/${Id}?Accept-Language=${JSON.parse(languagecklized) ==="Ar" ?"ar":"en"}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${Tokenclicklized}`,
+      },
+    };
+    axios(options)
+      .then(function (response) {
+        setLoading(true);
+        setData(response.data.data);
+      })
+      .catch(function (error) {
+        setLoading(true);
+      });
+  };
+  
 // Post Function Api
 
 export const Createrequestdata = async (setLoading,Arraydataone, clickedLatLng, Itemsresults, 
