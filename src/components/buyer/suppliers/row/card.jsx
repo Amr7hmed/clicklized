@@ -4,7 +4,7 @@ import Editicon from "../../../../images/icon/edit-green.png";
 import IconRemove from "../../../../images/icon/icon-remove.svg";
 import ModelEditSuppliers from '../modal/modeleditsuppliers';
 // Api
-import { DeleteSupplier } from '../../../../api/buyer/actions';
+import { DeleteSupplier } from '../../../../api/actions.js';
 
 function RequestCard(props) {
     const { Item ,setLoading} = props;

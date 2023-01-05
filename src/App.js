@@ -27,6 +27,7 @@ import SignInPhone from './pages/signinphone/index.jsx';
 import ForgetPassword from './pages/chingepassword/screen_one.jsx';
 import ForgetPasswordCode from './pages/chingepassword/screen_two.jsx';
 import Updatepassword from './pages/chingepassword/screen_three.jsx';
+import MyOffersSeller from './pages/seller/myofferres/index.jsx';
 
 
 function App() {
@@ -62,11 +63,19 @@ function App() {
       <Route path="/profilebuyer" element={<ProfileBuyer />} exact />
       <Route path="/addrequestbuyer" element={<CreateRequest />} exact />
       <Route path="/myrequest" element={<Myrequest />} exact />
-      <Route path="/showrequestbuyer/:id" element={<ShowRequestbuyer />} exact />
+      
+      <Route path="/requestdetailsbuyer/:id" element={<ShowRequestbuyer />} exact />
+      <Route path="/questionsbuyer/:id" element={<ShowRequestbuyer />} exact />
+      <Route path="/offersbuyer/:id" element={<ShowRequestbuyer />} exact />
       
       {/*This Is Seller Pages*/}
       <Route path="/myrequestseller" element={<MyRequestSeller />} exact />
+      <Route path="/myoffersseller" element={<MyOffersSeller />} exact />
+
       <Route path="/requestdetailsseller/:id" element={<RequestDetails />} exact />
+      <Route path="/questionsseller/:id" element={<RequestDetails />} exact />
+      <Route path="/offersseller/:id" element={<RequestDetails />} exact />
+      
       <Route path="/offerrequest/:id" element={<OfferRequest />} exact />
       <Route path="/profileseller" element={<ProfileSeller />} exact />
       

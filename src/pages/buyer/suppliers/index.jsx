@@ -3,7 +3,7 @@ import Suppliersitems from '../../../components/buyer/suppliers/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 
 import Loading from '../../../layout/loading/loading.jsx';
-import { GetDataSuppliers } from '../../../api/buyer/actions.js';
+import { GetDataSuppliers } from '../../../api/actions.js';
 
 function Suppliers() {
   const [loading, setLoading] = useState(false);

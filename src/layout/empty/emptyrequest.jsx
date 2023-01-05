@@ -2,7 +2,8 @@ import React from 'react'
 import { useContext } from 'react';
 import { Authcontext } from '../../store/context';
 
-function EmptyRequest() {
+function EmptyRequest(props) {
+  const {TitleEmpty} =props;
   
   const authcontext = useContext(Authcontext);
   const language = authcontext.language;
@@ -13,7 +14,7 @@ function EmptyRequest() {
         
       </div>
       <h5>
-          {language === "Ar" ? "لم تقم بإضافة أي طلب" : "You don’t have any request"}
+      {TitleEmpty}
       </h5>
     </section>
   )

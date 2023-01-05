@@ -4,10 +4,17 @@ import { Authcontext } from '../../../../../store/context';
 import ItemOffer from './itemoffer';
 import NotesOffer from './notes';
 
-function RequestDatatBottom() {
-
+function RequestDatatBottom(props) {
+  const {Data}=props;
   const authcontext = useContext(Authcontext);
   const language = authcontext.language;
+  
+  const Dataoffer =[];
+  
+  const handleChlick = () => {
+    console.log(Dataoffer);
+};
+
 
   return (
     <div className='offerdetailsbottom'>
@@ -15,16 +22,12 @@ function RequestDatatBottom() {
 
 
         <div className="offerdetailsbottom__data">
-
-          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
           <br />
-          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
-          <br />
-          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
-          <br />
-          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
-          <br />
-          <ItemOffer Item={language === "Ar" ? "أسم العنصر" : "Item name"}/>
+          
+          {Data.map((item , index) =>
+          <ItemOffer ItemName={item.item.name} Item={item} key={index} Dataoffer={Dataoffer}/>
+            )}
+           
           <br />
           <NotesOffer />
 
@@ -33,7 +36,8 @@ function RequestDatatBottom() {
             <div className="row">
               <div className="col-12">
 
-                <button type='button' className='btn button-active'>
+                <button type='button' className='btn button-active'
+                onClick={handleChlick}>
                   {language === "Ar" ? "إرسال العرض" : "Send offer"}
                 </button>
               </div>

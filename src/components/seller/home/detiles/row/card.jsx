@@ -45,13 +45,21 @@ import { Authcontext } from '../../../../../store/context';
         scrollToTop();
     }
 
+    const ShowId=(id)=>{
+        navigate(`/requestdetailsseller/${id}`);
+        scrollToTop();
+    }
+
   return (
     <div className="col-12 col-md-6 col-lg-4">
     <div className='homerequests__card'>
         <div className="top">
             <span className='text'>{Item.order_num}</span>
 
-
+            <button type='button' className="btn btn-edit"
+                 onClick={()=>ShowId(Item.id)}>
+                        <img src={Editicon} alt="Edit icon" />
+            </button>
         </div>
 
         <div className="bottom">

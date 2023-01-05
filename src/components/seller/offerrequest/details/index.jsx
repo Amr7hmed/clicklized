@@ -1,11 +1,12 @@
 import React from 'react'
 import RequestDatatBottom from './bottom/index.jsx';
 
-function Showrequestrow() {
+function Showrequestrow(props) {
+    const {Data}=props;
   
     return (
         <div className="requestdetailsdata__row">
-            <RequestDatatBottom  />
+            <RequestDatatBottom  Data={Data}/>
         </div>
     )
 }

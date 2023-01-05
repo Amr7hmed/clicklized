@@ -1,12 +1,12 @@
 import React ,{ useContext,useState, useEffect }from "react";
+import { GetDataoffersSupplier } from "../../../api/actions.js";
 import RequestitemsSeller from '../../../components/seller/myrequest/index.jsx';
 import Navbar from '../../../components/seller/navbar/index.jsx';
 import Loading from "../../../layout/loading/loading.jsx";
 // Api
-import { GetDataRequestSupplier } from "../../../api/actions.js";
 import { Authcontext } from "../../../store/context.js";
 
-function MyRequestSeller() {
+function MyOffersSeller() {
   const authcontext = useContext(Authcontext);
   const language = authcontext.language;
 
@@ -15,7 +15,7 @@ function MyRequestSeller() {
 
   
   useEffect(() => {
-    GetDataRequestSupplier(setLoading, setData);
+    GetDataoffersSupplier(setLoading, setData);
   }, [loading]);
 
 
@@ -25,15 +25,13 @@ function MyRequestSeller() {
       <Loading />
     ) : (
       <section className='myrequestseller'>
-          <Navbar Styleclass={"btnmyrequestseller"}/>
-          <RequestitemsSeller Data={data}
-          TitleEmpty={language === "Ar" ? 
-          "لا توجد أي طلبات حتى الآن"
-          : "There are no requests yet"}/>
+          <Navbar/>
+          <RequestitemsSeller Data={data} 
+          TitleEmpty={language === "Ar" ? "لم تقم بإضافة أي عرض حتى الآن" : "You have not added any offer yet"}/>
       </section>
     )}
   </>
   )
 }
 
-export default MyRequestSeller;
+export default MyOffersSeller;

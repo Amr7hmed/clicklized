@@ -17,7 +17,8 @@ function Requestitems(props) {
     <div className='requestitems'>
       {Data.length === 0 ?
 
-        <EmptyRequest />
+        <EmptyRequest 
+        TitleEmpty={language === "Ar" ? "لم تقم بإضافة أي طلب" : "You don’t have any request"}/>
 
         :
         <div className="container">

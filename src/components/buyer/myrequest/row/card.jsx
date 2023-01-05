@@ -31,8 +31,8 @@ function RequestCard(props) {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-    const ShowId=(name,id)=>{
-        navigate(`/showrequestbuyer/${id}`);
+    const ShowId=(id)=>{
+        navigate(`/requestdetailsbuyer/${id}`);
         scrollToTop();
     }
 
@@ -43,7 +43,7 @@ function RequestCard(props) {
         <div className="top">
             <span className='text'>{Item.order_num}</span>
             <button type='button' className="btn btn-edit"
-            onClick={()=>ShowId(Item.order_num,Item.id)}>
+            onClick={()=>ShowId(Item.id)}>
                 <img src={Editicon} alt="Edit icon" />
             </button>
         </div>

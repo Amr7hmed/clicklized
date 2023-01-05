@@ -8,7 +8,7 @@ function ShowTop(props) {
     const language = authcontext.language;
 
     return (
-        <div className='requestdetailsdata__top'>
+        <div className='showrequestdata__top'>
             <div className="left">
                 <h4>
 

@@ -47,6 +47,8 @@
             justify-content: center;
             align-items: center;
             color: #fff;
+            margin: 0px 5px;
+            
             &:hover{
                 color: #fff;
             }
@@ -377,12 +379,6 @@
 // 7- Style Navbar component English Language .
 .En{
     .navbarseller {
-        .nav-item {
-    
-            .btn-requestseller {
-                margin: 0px 30px;
-            }
-        }
         .collapse.navbar-collapse{
             margin-right: 30px;
         }

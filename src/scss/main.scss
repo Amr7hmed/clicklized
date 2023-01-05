@@ -277,6 +277,10 @@ input:disabled {
 // 5- Import Style Pages
 @import "../layout/signup/_style.scss";
 @import "../layout/signin/_style.scss";
+@import "../layout/showrequest/_style.scss";
+@import "../layout/showrequest/requestdetails/_style.scss";
+@import "../layout/showrequest/questions/_style.scss";
+@import "../layout/showrequest/offers/_style.scss";
 // 6- Import Buyer Style Pages
 @import "../components/buyer/navbar/_style.scss";
 @import "../components/buyer/home/chart/_style.scss";
@@ -286,17 +290,13 @@ input:disabled {
 @import "../components/buyer/createrequest/_style.scss";
 @import "../components/buyer/createissue/_style.scss";
 @import "../components/buyer/createreview/_style.scss";
-@import "../components/buyer/showrequest/_style.scss";
-@import "../components/buyer/showrequest/requestdetails/_style.scss";
-@import "../components/buyer/showrequest/questions/_style.scss";
-@import "../components/buyer/showrequest/offers/_style.scss";
+
+
 @import "../components/buyer/suppliers/_style.scss";
 // 7- Import Seller Style Pages
 @import "../components/seller/home/detiles/_style.scss";
 @import "../components/seller/navbar/_style.scss";
 @import "../components/seller/myrequest/_style.scss";
-@import "../components/seller/requestdetails/_style.scss";
-@import "../components/seller/requestdetails/questions/_style.scss";
-@import "../components/seller/requestdetails/details/_style.scss";
+
 @import "../components/seller/profile/_style.scss";
 @import "../components/seller/offerrequest/details/_style.scss"

@@ -56,18 +56,18 @@ function Form(props) {
             let remainingArr = supplierslistrequest.filter(data => data.id != item.id);
             setSupplierslistrequest([...remainingArr]);
             setSuppliersItems([...remainingArr]);
-            if(language === "Ar"){
+            if (language === "Ar") {
                 e.target.innerHTML = "أضافه";
-            }else{
+            } else {
                 e.target.innerHTML = "Add";
             }
         } else {
             e.target.classList.add('active');
             setSupplierslistrequest([...supplierslistrequest, item])
             setSuppliersItems([...supplierslistrequest, item]);
-            if(language === "Ar"){
+            if (language === "Ar") {
                 e.target.innerHTML = "مضاف";
-            }else{
+            } else {
                 e.target.innerHTML = "Added";
             }
         }
@@ -89,7 +89,7 @@ function Form(props) {
             <Inputcheckbox />
             <ModalSuppliersList AddSuppliers={AddSuppliers} DoneAdded={DoneAdded} RemoveallSuppliers={RemoveallSuppliers} />
             {showsupplerslist === false ? <span className='errorfiled'>
-            {language === "Ar" ? "مطلوب اضافة مورد" : "Add Supplier is Required"}
+                {language === "Ar" ? "مطلوب اضافة مورد" : "Add Supplier is Required"}
             </span> : ""}
 
 
@@ -108,16 +108,16 @@ function Form(props) {
         const schema = Yup.object().shape({
             contactnumebr: Yup.string()
                 .min(9, <>
-                    {language === "Ar" ? 
-                    "يجب أن يكون رقم جهة الاتصال 9 أرقام على الأقل!"
-                     : 
-                    'The Contact Number must be at least 9 Digits !'
+                    {language === "Ar" ?
+                        "يجب أن يكون رقم جهة الاتصال 9 أرقام على الأقل!"
+                        :
+                        'The Contact Number must be at least 9 Digits !'
                     }
                 </>)
-                .max(14,  <>
-                    {language === "Ar" ? 
-                    "رقم الاتصال يجب ألا يزيد عن 14 رقم!"
-                     : 'Contact Number Must Be No More Than 14 !'
+                .max(14, <>
+                    {language === "Ar" ?
+                        "رقم الاتصال يجب ألا يزيد عن 14 رقم!"
+                        : 'Contact Number Must Be No More Than 14 !'
                     }
                 </>
                 ),

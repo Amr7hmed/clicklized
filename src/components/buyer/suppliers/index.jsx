@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import EmptySuppliers from '../../../layout/empty/emptysuppliers.jsx';
 import { Authcontext } from '../../../store/context.js';
 import SuppliersFilter from './filter/index.jsx'
 import SuppliersHeadr from './headr/suppliersheadr.jsx';

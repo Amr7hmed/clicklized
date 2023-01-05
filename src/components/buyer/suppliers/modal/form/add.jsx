@@ -8,7 +8,7 @@ import { Authcontext } from '../../../../../store/context';
 import { useContext } from 'react';
 // Api
 import { GetDataCaity, GetDataIndustries } from '../../../../../api/profile';
-import { AddNewSupplier } from '../../../../../api/buyer/actions';
+import { AddNewSupplier } from '../../../../../api/actions.js';
 
 function FormAddSuppliers() {
     let navigate  = useNavigate();

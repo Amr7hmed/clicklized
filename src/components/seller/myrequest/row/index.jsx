@@ -30,7 +30,7 @@ function RequestRowSeller(props) {
     <>
       <div className='myrequestseller__row'>
         {currentItems.map(item =>
-          <RequestCardSeller Dataoffer={item} key={item.id} />
+          <RequestCardSeller Data={item} key={item.id} />
         )}
       </div>
       <ReactPaginate

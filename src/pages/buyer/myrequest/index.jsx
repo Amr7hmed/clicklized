@@ -4,7 +4,7 @@ import Requestitems from '../../../components/buyer/myrequest/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 import Loading from '../../../layout/loading/loading.jsx';
 // Api
-import { GetAllDataRequest } from '../../../api/buyer/actions.js';
+import { GetAllDataRequest } from '../../../api/actions.js';
 
 function Myrequest() {
   const [loading, setLoading] = useState(false);

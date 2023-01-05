@@ -14,7 +14,10 @@ function HomeRequests(props) {
 
   return (<>
     {Data.length === 0 ?
-      <EmptyRequest />
+      <EmptyRequest 
+      TitleEmpty={language === "Ar" ? 
+      "لا توجد أي طلبات حتى الآن"
+      : "There are no requests yet"}/>
       :
       <section className='homerequests'>
         <div className="container">

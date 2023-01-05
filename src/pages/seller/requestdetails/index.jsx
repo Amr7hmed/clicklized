@@ -1,31 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { GetDataRequest } from '../../../api/seller/actions.js';
+import { useLocation, useParams } from 'react-router-dom';
+import { GetDataRequest } from '../../../api/actions.js';
 import Navbar from '../../../components/seller/navbar/index.jsx';
-import Showrequestrow from '../../../components/seller/requestdetails/index.jsx';
-import ShowTop from '../../../components/seller/requestdetails/top/index.jsx';
+
+import Loading from '../../../layout/loading/loading.jsx';
+import Showrequestrow from '../../../layout/showrequest/index.jsx';
+import ShowTop from '../../../layout/showrequest/top/index.jsx';
 
 function RequestDetails() {
-    const { id } = useParams();
-    const Stylebuttons = "requestdetails";
 
-    const [data, setData] = useState([]);
+    let { id } = useParams(),
+        location = useLocation(),
+        textlocation = location.pathname,
+        resultseller = textlocation.includes("seller");
+
     const [loading, setLoading] = useState(false);
+    const [name, setName] = useState("");
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-      GetDataRequest(id,setLoading, setData);
+      GetDataRequest(setLoading, setData ,id);
+      setName(data.order_num);
     }, [loading]);
   
     return (
-        <section className='requestdetails'>
+        <>
+        {loading === false ? (
+          <Loading/>
+        ) : (
+        <section className='showrequest'>
         <Navbar Styleclass={"btnmyrequestseller"}/>
             <div className="container">
-                <div className='requestdetailsdata'>
-                    <ShowTop name={"5255"} />
-                    <Showrequestrow  id={id} name={"5255"} Stylebuttons={Stylebuttons}/>
+                <div className='showrequestdata'>
+                    <ShowTop name={name}/>
+                    <Showrequestrow  id={id} name={name} setName={setName} Data={data}/>
                 </div>
             </div>
         </section>
+    )}
+    </>
     )
 }
 

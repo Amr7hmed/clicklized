@@ -1,15 +1,19 @@
 import React, { useState ,useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
-import Showrequestrow from '../../../components/buyer/showrequest/index.jsx';
-import ShowTop from '../../../components/buyer/showrequest/top/index.jsx';
+import Showrequestrow from '../../../layout/showrequest/index.jsx';
+import ShowTop from '../../../layout/showrequest/top/index.jsx';
 import Navbar from '../../../components/buyer/navbar/index.jsx';
 
-import { GetDataRequest } from '../../../api/buyer/actions.js';
+import { GetDataRequest } from '../../../api/actions.js';
 import Loading from '../../../layout/loading/loading.jsx';
 
 function ShowRequestbuyer() {
-    const { id } = useParams();
+    const { id } = useParams(),
+          location = useLocation();
+    let textlocation = location.pathname;
+    let result = textlocation.includes("requestdetailsseller");
+
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState("");
     const [data, setData] = useState([]);
@@ -29,8 +33,8 @@ function ShowRequestbuyer() {
             <Navbar />
             <div className="container">
                 <div className='showrequestdata'>
-                    <ShowTop id={id} name={name} />
-                    <Showrequestrow  id={id} name={name} setName={setName} Data={data}/>
+                    <ShowTop name={name} result={result}/>
+                    <Showrequestrow  id={id} name={name} setName={setName} Data={data} result={result}/>
                 </div>
             </div>
         </section>
